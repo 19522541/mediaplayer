@@ -93,5 +93,62 @@ namespace GUI
             newForm.Show();
 
         }
+        //-------------------function------------------//
+        private void changeImg(Button temp)
+        {
+            if (temp.ImageIndex != 0)
+                temp.ImageIndex = 0;
+            else
+                temp.ImageIndex = 1;
+        }
+        //---------------------event-----------------//
+
+        private void playButton_Click(object sender, EventArgs e)
+        {
+            //code de dung nhac//
+            changeImg(playButton);
+            
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void randomButton_Click(object sender, EventArgs e)
+        {
+            changeImg(randomButton);
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void loopButton_Click(object sender, EventArgs e)
+        {
+            changeImg(loopButton);
+        }
+
+        private void nextButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            changeImg(nextButton);
+        }
+
+        private void nextButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            changeImg(nextButton);
+        }
+
+        private void backButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            changeImg(backButton);
+        }
+
+
+        private void backButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            changeImg(backButton);
+        }
     }
 }

@@ -11,3 +11,10 @@ C:\Users\DELL\.git\mediaplayer\GUI\GUI\obj\Debug\GUI.pdb
 C:\Users\DELL\.git\mediaplayer\GUI\GUI\obj\Debug\GUI.PictureForm.resources
 C:\Users\DELL\.git\mediaplayer\GUI\GUI\obj\Debug\GUI.PlayListForm.resources
 C:\Users\DELL\.git\mediaplayer\GUI\GUI\obj\Debug\GUI.VideoForm.resources
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\obj\Debug\GUI.MediaForm.resources
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignColors.dll
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignColors.pdb
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\DELL\.git\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CopyComplete
