@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.sideMenuButton = new System.Windows.Forms.Button();
+            this.menuButtonList = new System.Windows.Forms.ImageList(this.components);
             this.mediaButton = new System.Windows.Forms.Button();
             this.mediaSubMenu = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -72,9 +73,8 @@
             this.time = new System.Windows.Forms.Label();
             this.soundButton = new System.Windows.Forms.Button();
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.exitButtonList = new System.Windows.Forms.ImageList(this.components);
             this.exitButton = new System.Windows.Forms.Button();
-            this.menuButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.exitButtonList = new System.Windows.Forms.ImageList(this.components);
             this.sideMenuPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -146,6 +146,13 @@
             this.sideMenuButton.MouseLeave += new System.EventHandler(this.sideMenuButton_MouseLeave);
             this.sideMenuButton.MouseHover += new System.EventHandler(this.sideMenuButton_MouseHover);
             // 
+            // menuButtonList
+            // 
+            this.menuButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuButtonList.ImageStream")));
+            this.menuButtonList.TransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.menuButtonList.Images.SetKeyName(0, "icons8-menu-40.png");
+            this.menuButtonList.Images.SetKeyName(1, "icons8-menu-40 (1).png");
+            // 
             // mediaButton
             // 
             this.mediaButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -157,7 +164,7 @@
             this.mediaButton.Location = new System.Drawing.Point(3, 106);
             this.mediaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mediaButton.Name = "mediaButton";
-            this.mediaButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
+            this.mediaButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.mediaButton.Size = new System.Drawing.Size(251, 46);
             this.mediaButton.TabIndex = 1;
             this.mediaButton.Text = "Media";
@@ -254,7 +261,7 @@
             this.playlistButton.Location = new System.Drawing.Point(3, 322);
             this.playlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playlistButton.Name = "playlistButton";
-            this.playlistButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
+            this.playlistButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.playlistButton.Size = new System.Drawing.Size(251, 46);
             this.playlistButton.TabIndex = 3;
             this.playlistButton.Text = "Playlist Management";
@@ -351,7 +358,7 @@
             this.pictureButton.Location = new System.Drawing.Point(3, 538);
             this.pictureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureButton.Name = "pictureButton";
-            this.pictureButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
+            this.pictureButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.pictureButton.Size = new System.Drawing.Size(251, 46);
             this.pictureButton.TabIndex = 5;
             this.pictureButton.Text = "Picture";
@@ -370,7 +377,7 @@
             this.videoButton.Location = new System.Drawing.Point(3, 588);
             this.videoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.videoButton.Name = "videoButton";
-            this.videoButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
+            this.videoButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.videoButton.Size = new System.Drawing.Size(251, 46);
             this.videoButton.TabIndex = 6;
             this.videoButton.Text = "Video";
@@ -467,7 +474,7 @@
             this.helpButton.Location = new System.Drawing.Point(3, 804);
             this.helpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.helpButton.Name = "helpButton";
-            this.helpButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
+            this.helpButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.helpButton.Size = new System.Drawing.Size(251, 46);
             this.helpButton.TabIndex = 8;
             this.helpButton.Text = "Help";
@@ -726,13 +733,6 @@
             this.titlePanel.TabIndex = 3;
             this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
             // 
-            // exitButtonList
-            // 
-            this.exitButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("exitButtonList.ImageStream")));
-            this.exitButtonList.TransparentColor = System.Drawing.Color.Transparent;
-            this.exitButtonList.Images.SetKeyName(0, "icons8-delete-30 (1).png");
-            this.exitButtonList.Images.SetKeyName(1, "icons8-delete-30 (2).png");
-            // 
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -752,12 +752,12 @@
             this.exitButton.MouseLeave += new System.EventHandler(this.exitButton_MouseLeave);
             this.exitButton.MouseHover += new System.EventHandler(this.exitButton_MouseHover);
             // 
-            // menuButtonList
+            // exitButtonList
             // 
-            this.menuButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuButtonList.ImageStream")));
-            this.menuButtonList.TransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.menuButtonList.Images.SetKeyName(0, "icons8-menu-40.png");
-            this.menuButtonList.Images.SetKeyName(1, "icons8-menu-40 (1).png");
+            this.exitButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("exitButtonList.ImageStream")));
+            this.exitButtonList.TransparentColor = System.Drawing.Color.Transparent;
+            this.exitButtonList.Images.SetKeyName(0, "icons8-delete-30 (1).png");
+            this.exitButtonList.Images.SetKeyName(1, "icons8-delete-30 (2).png");
             // 
             // MainForm
             // 
