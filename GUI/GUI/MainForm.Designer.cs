@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.sideMenuPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.sideMenuButton = new System.Windows.Forms.Button();
@@ -72,7 +72,10 @@
             this.time = new System.Windows.Forms.Label();
             this.soundButton = new System.Windows.Forms.Button();
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.exitButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.exitButton = new System.Windows.Forms.Button();
+            this.menuButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.sideMenuPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.mediaSubMenu.SuspendLayout();
@@ -81,27 +84,28 @@
             this.mainMidPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainBotPanel.SuspendLayout();
+            this.titlePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // sideMenuPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.mediaButton);
-            this.flowLayoutPanel1.Controls.Add(this.mediaSubMenu);
-            this.flowLayoutPanel1.Controls.Add(this.playlistButton);
-            this.flowLayoutPanel1.Controls.Add(this.playlistSubMenu);
-            this.flowLayoutPanel1.Controls.Add(this.pictureButton);
-            this.flowLayoutPanel1.Controls.Add(this.videoButton);
-            this.flowLayoutPanel1.Controls.Add(this.videoSubMenu);
-            this.flowLayoutPanel1.Controls.Add(this.helpButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(264, 581);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.sideMenuPanel.AutoScroll = true;
+            this.sideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuPanel.Controls.Add(this.panel1);
+            this.sideMenuPanel.Controls.Add(this.mediaButton);
+            this.sideMenuPanel.Controls.Add(this.mediaSubMenu);
+            this.sideMenuPanel.Controls.Add(this.playlistButton);
+            this.sideMenuPanel.Controls.Add(this.playlistSubMenu);
+            this.sideMenuPanel.Controls.Add(this.pictureButton);
+            this.sideMenuPanel.Controls.Add(this.videoButton);
+            this.sideMenuPanel.Controls.Add(this.videoSubMenu);
+            this.sideMenuPanel.Controls.Add(this.helpButton);
+            this.sideMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sideMenuPanel.Location = new System.Drawing.Point(0, 0);
+            this.sideMenuPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sideMenuPanel.Name = "sideMenuPanel";
+            this.sideMenuPanel.Size = new System.Drawing.Size(264, 553);
+            this.sideMenuPanel.TabIndex = 0;
             // 
             // panel1
             // 
@@ -126,16 +130,21 @@
             // 
             // sideMenuButton
             // 
-            this.sideMenuButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sideMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.sideMenuButton.FlatAppearance.BorderSize = 0;
+            this.sideMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.sideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuButton.Image = global::GUI.Properties.Resources.icons8_menu_30;
-            this.sideMenuButton.Location = new System.Drawing.Point(0, 0);
+            this.sideMenuButton.ImageIndex = 0;
+            this.sideMenuButton.ImageList = this.menuButtonList;
+            this.sideMenuButton.Location = new System.Drawing.Point(9, 29);
             this.sideMenuButton.Name = "sideMenuButton";
-            this.sideMenuButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.sideMenuButton.Size = new System.Drawing.Size(60, 100);
+            this.sideMenuButton.Size = new System.Drawing.Size(44, 45);
             this.sideMenuButton.TabIndex = 2;
             this.sideMenuButton.UseVisualStyleBackColor = true;
+            this.sideMenuButton.Click += new System.EventHandler(this.sideMenuButton_Click);
+            this.sideMenuButton.MouseLeave += new System.EventHandler(this.sideMenuButton_MouseLeave);
+            this.sideMenuButton.MouseHover += new System.EventHandler(this.sideMenuButton_MouseHover);
             // 
             // mediaButton
             // 
@@ -148,12 +157,11 @@
             this.mediaButton.Location = new System.Drawing.Point(3, 106);
             this.mediaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mediaButton.Name = "mediaButton";
-            this.mediaButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.mediaButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
             this.mediaButton.Size = new System.Drawing.Size(251, 46);
             this.mediaButton.TabIndex = 1;
             this.mediaButton.Text = "Media";
-            this.mediaButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mediaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.mediaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mediaButton.UseVisualStyleBackColor = true;
             this.mediaButton.Click += new System.EventHandler(this.mediaButton_Click);
             // 
@@ -246,12 +254,11 @@
             this.playlistButton.Location = new System.Drawing.Point(3, 322);
             this.playlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playlistButton.Name = "playlistButton";
-            this.playlistButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.playlistButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
             this.playlistButton.Size = new System.Drawing.Size(251, 46);
             this.playlistButton.TabIndex = 3;
             this.playlistButton.Text = "Playlist Management";
-            this.playlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.playlistButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.playlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.playlistButton.UseVisualStyleBackColor = true;
             this.playlistButton.Click += new System.EventHandler(this.playlistButton_Click);
             // 
@@ -344,12 +351,11 @@
             this.pictureButton.Location = new System.Drawing.Point(3, 538);
             this.pictureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureButton.Name = "pictureButton";
-            this.pictureButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.pictureButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
             this.pictureButton.Size = new System.Drawing.Size(251, 46);
             this.pictureButton.TabIndex = 5;
             this.pictureButton.Text = "Picture";
-            this.pictureButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pictureButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.pictureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.pictureButton.UseVisualStyleBackColor = true;
             this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
             // 
@@ -364,12 +370,11 @@
             this.videoButton.Location = new System.Drawing.Point(3, 588);
             this.videoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.videoButton.Name = "videoButton";
-            this.videoButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.videoButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
             this.videoButton.Size = new System.Drawing.Size(251, 46);
             this.videoButton.TabIndex = 6;
             this.videoButton.Text = "Video";
-            this.videoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.videoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.videoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.videoButton.UseVisualStyleBackColor = true;
             this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
             // 
@@ -462,12 +467,11 @@
             this.helpButton.Location = new System.Drawing.Point(3, 804);
             this.helpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.helpButton.Name = "helpButton";
-            this.helpButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.helpButton.Padding = new System.Windows.Forms.Padding(11, 0, 20, 0);
             this.helpButton.Size = new System.Drawing.Size(251, 46);
             this.helpButton.TabIndex = 8;
             this.helpButton.Text = "Help";
-            this.helpButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.helpButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.helpButton.UseVisualStyleBackColor = true;
             // 
             // mainMidPanel
@@ -478,17 +482,17 @@
             this.mainMidPanel.Location = new System.Drawing.Point(264, 0);
             this.mainMidPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainMidPanel.Name = "mainMidPanel";
-            this.mainMidPanel.Size = new System.Drawing.Size(887, 450);
+            this.mainMidPanel.Size = new System.Drawing.Size(918, 422);
             this.mainMidPanel.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
-            this.pictureBox1.Location = new System.Drawing.Point(442, 156);
+            this.pictureBox1.Location = new System.Drawing.Point(437, 181);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 124);
+            this.pictureBox1.Size = new System.Drawing.Size(116, 117);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -505,10 +509,10 @@
             this.mainBotPanel.Controls.Add(this.time);
             this.mainBotPanel.Controls.Add(this.soundButton);
             this.mainBotPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mainBotPanel.Location = new System.Drawing.Point(264, 450);
+            this.mainBotPanel.Location = new System.Drawing.Point(264, 422);
             this.mainBotPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainBotPanel.Name = "mainBotPanel";
-            this.mainBotPanel.Size = new System.Drawing.Size(887, 131);
+            this.mainBotPanel.Size = new System.Drawing.Size(918, 131);
             this.mainBotPanel.TabIndex = 1;
             // 
             // loopButton
@@ -521,10 +525,10 @@
             this.loopButton.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.loopButton.ImageIndex = 0;
             this.loopButton.ImageList = this.leapButtonList;
-            this.loopButton.Location = new System.Drawing.Point(671, 20);
+            this.loopButton.Location = new System.Drawing.Point(685, 32);
             this.loopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loopButton.Name = "loopButton";
-            this.loopButton.Size = new System.Drawing.Size(85, 47);
+            this.loopButton.Size = new System.Drawing.Size(35, 27);
             this.loopButton.TabIndex = 3;
             this.loopButton.UseVisualStyleBackColor = true;
             this.loopButton.Click += new System.EventHandler(this.loopButton_Click);
@@ -535,6 +539,10 @@
             this.leapButtonList.TransparentColor = System.Drawing.Color.Transparent;
             this.leapButtonList.Images.SetKeyName(0, "icons8-repeat-30.png");
             this.leapButtonList.Images.SetKeyName(1, "icons8-repeat-30.png");
+            this.leapButtonList.Images.SetKeyName(2, "icons8-repeat-one-30 (2).png");
+            this.leapButtonList.Images.SetKeyName(3, "icons8-repeat-one-30 (1).png");
+            this.leapButtonList.Images.SetKeyName(4, "icons8-repeat-one-30.png");
+            this.leapButtonList.Images.SetKeyName(5, "icons8-repeat-30 (2).png");
             // 
             // nextButton
             // 
@@ -546,14 +554,16 @@
             this.nextButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.nextButton.ImageIndex = 0;
             this.nextButton.ImageList = this.nextButtonList;
-            this.nextButton.Location = new System.Drawing.Point(562, 20);
+            this.nextButton.Location = new System.Drawing.Point(590, 32);
             this.nextButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(85, 47);
+            this.nextButton.Size = new System.Drawing.Size(35, 22);
             this.nextButton.TabIndex = 4;
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             this.nextButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nextButton_MouseDown);
+            this.nextButton.MouseLeave += new System.EventHandler(this.nextButton_MouseLeave);
+            this.nextButton.MouseHover += new System.EventHandler(this.nextButton_MouseHover);
             this.nextButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.nextButton_MouseUp);
             // 
             // nextButtonList
@@ -562,6 +572,7 @@
             this.nextButtonList.TransparentColor = System.Drawing.Color.Transparent;
             this.nextButtonList.Images.SetKeyName(0, "icons8-end-30.png");
             this.nextButtonList.Images.SetKeyName(1, "icons8-end-30.png");
+            this.nextButtonList.Images.SetKeyName(2, "icons8-end-30 (1).png");
             // 
             // playButton
             // 
@@ -573,21 +584,29 @@
             this.playButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.playButton.ImageIndex = 1;
             this.playButton.ImageList = this.controlImageList;
-            this.playButton.Location = new System.Drawing.Point(453, 20);
+            this.playButton.Location = new System.Drawing.Point(495, 32);
             this.playButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playButton.Name = "playButton";
             this.playButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.playButton.Size = new System.Drawing.Size(85, 47);
+            this.playButton.Size = new System.Drawing.Size(35, 27);
             this.playButton.TabIndex = 5;
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            this.playButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseDown);
+            this.playButton.MouseLeave += new System.EventHandler(this.playButton_MouseLeave);
+            this.playButton.MouseHover += new System.EventHandler(this.playButton_MouseHover);
+            this.playButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseUp);
             // 
             // controlImageList
             // 
             this.controlImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("controlImageList.ImageStream")));
             this.controlImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.controlImageList.Images.SetKeyName(0, "icons8-stop-30.png");
+            this.controlImageList.Images.SetKeyName(0, "icons8-pause-30 (1).png");
             this.controlImageList.Images.SetKeyName(1, "icons8-play-30.png");
+            this.controlImageList.Images.SetKeyName(2, "icons8-pause-30.png");
+            this.controlImageList.Images.SetKeyName(3, "icons8-play-30.png");
+            this.controlImageList.Images.SetKeyName(4, "icons8-pause-30 (2).png");
+            this.controlImageList.Images.SetKeyName(5, "icons8-play-30 (1).png");
             // 
             // backButton
             // 
@@ -599,14 +618,16 @@
             this.backButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.backButton.ImageIndex = 0;
             this.backButton.ImageList = this.backButtonList;
-            this.backButton.Location = new System.Drawing.Point(344, 20);
+            this.backButton.Location = new System.Drawing.Point(400, 32);
             this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(85, 47);
+            this.backButton.Size = new System.Drawing.Size(35, 22);
             this.backButton.TabIndex = 6;
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             this.backButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseDown);
+            this.backButton.MouseLeave += new System.EventHandler(this.backButton_MouseLeave);
+            this.backButton.MouseHover += new System.EventHandler(this.backButton_MouseHover);
             this.backButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseUp);
             // 
             // backButtonList
@@ -615,6 +636,7 @@
             this.backButtonList.TransparentColor = System.Drawing.Color.Transparent;
             this.backButtonList.Images.SetKeyName(0, "icons8-skip-to-start-30.png");
             this.backButtonList.Images.SetKeyName(1, "icons8-skip-to-start-30.png");
+            this.backButtonList.Images.SetKeyName(2, "icons8-skip-to-start-30 (1).png");
             // 
             // randomButton
             // 
@@ -625,14 +647,16 @@
             this.randomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.randomButton.ImageIndex = 0;
             this.randomButton.ImageList = this.shuffleButtonList;
-            this.randomButton.Location = new System.Drawing.Point(235, 20);
+            this.randomButton.Location = new System.Drawing.Point(306, 32);
             this.randomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.randomButton.Name = "randomButton";
-            this.randomButton.Size = new System.Drawing.Size(85, 47);
+            this.randomButton.Size = new System.Drawing.Size(35, 22);
             this.randomButton.TabIndex = 7;
             this.randomButton.UseMnemonic = false;
             this.randomButton.UseVisualStyleBackColor = true;
             this.randomButton.Click += new System.EventHandler(this.randomButton_Click);
+            this.randomButton.MouseLeave += new System.EventHandler(this.randomButton_MouseLeave);
+            this.randomButton.MouseHover += new System.EventHandler(this.randomButton_MouseHover);
             // 
             // shuffleButtonList
             // 
@@ -640,12 +664,14 @@
             this.shuffleButtonList.TransparentColor = System.Drawing.Color.Transparent;
             this.shuffleButtonList.Images.SetKeyName(0, "icons8-shuffle-30.png");
             this.shuffleButtonList.Images.SetKeyName(1, "icons8-shuffle-30.png");
+            this.shuffleButtonList.Images.SetKeyName(2, "icons8-shuffle-30 (1).png");
+            this.shuffleButtonList.Images.SetKeyName(3, "icons8-shuffle-30 (2).png");
             // 
             // progressBar2
             // 
             this.progressBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressBar2.Location = new System.Drawing.Point(87, 27);
+            this.progressBar2.Location = new System.Drawing.Point(87, 36);
             this.progressBar2.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(133, 15);
@@ -657,7 +683,7 @@
             this.progressBar1.Location = new System.Drawing.Point(87, 87);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(747, 12);
+            this.progressBar1.Size = new System.Drawing.Size(778, 12);
             this.progressBar1.TabIndex = 9;
             // 
             // time
@@ -681,37 +707,72 @@
             this.soundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.soundButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.soundButton.Image = global::GUI.Properties.Resources.icons8_audio_30;
-            this.soundButton.Location = new System.Drawing.Point(5, 20);
+            this.soundButton.Location = new System.Drawing.Point(36, 34);
             this.soundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.soundButton.Name = "soundButton";
-            this.soundButton.Size = new System.Drawing.Size(75, 26);
+            this.soundButton.Size = new System.Drawing.Size(48, 22);
             this.soundButton.TabIndex = 2;
             this.soundButton.UseVisualStyleBackColor = true;
             // 
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.titlePanel.Controls.Add(this.exitButton);
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(264, 0);
             this.titlePanel.Margin = new System.Windows.Forms.Padding(4);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(887, 60);
+            this.titlePanel.Size = new System.Drawing.Size(918, 61);
             this.titlePanel.TabIndex = 3;
+            this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+            // 
+            // exitButtonList
+            // 
+            this.exitButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("exitButtonList.ImageStream")));
+            this.exitButtonList.TransparentColor = System.Drawing.Color.Transparent;
+            this.exitButtonList.Images.SetKeyName(0, "icons8-delete-30 (1).png");
+            this.exitButtonList.Images.SetKeyName(1, "icons8-delete-30 (2).png");
+            // 
+            // exitButton
+            // 
+            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.ImageIndex = 0;
+            this.exitButton.ImageList = this.exitButtonList;
+            this.exitButton.Location = new System.Drawing.Point(866, 12);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(40, 35);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.MouseLeave += new System.EventHandler(this.exitButton_MouseLeave);
+            this.exitButton.MouseHover += new System.EventHandler(this.exitButton_MouseHover);
+            // 
+            // menuButtonList
+            // 
+            this.menuButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuButtonList.ImageStream")));
+            this.menuButtonList.TransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.menuButtonList.Images.SetKeyName(0, "icons8-menu-40.png");
+            this.menuButtonList.Images.SetKeyName(1, "icons8-menu-40 (1).png");
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1151, 581);
+            this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.titlePanel);
             this.Controls.Add(this.mainMidPanel);
             this.Controls.Add(this.mainBotPanel);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.sideMenuPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(949, 598);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.sideMenuPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.mediaSubMenu.ResumeLayout(false);
@@ -721,13 +782,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mainBotPanel.ResumeLayout(false);
             this.mainBotPanel.PerformLayout();
+            this.titlePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel sideMenuPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button mediaButton;
         private System.Windows.Forms.Panel mediaSubMenu;
@@ -769,6 +831,9 @@
         private System.Windows.Forms.ImageList shuffleButtonList;
         private System.Windows.Forms.ImageList leapButtonList;
         private System.Windows.Forms.ImageList nextButtonList;
+        private System.Windows.Forms.ImageList exitButtonList;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.ImageList menuButtonList;
     }
 }
 
