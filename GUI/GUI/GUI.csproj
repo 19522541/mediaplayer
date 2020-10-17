@@ -80,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sound.cs" />
     <Compile Include="VideoForm.cs">
       <SubType>Form</SubType>
     </Compile>

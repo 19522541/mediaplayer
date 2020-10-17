@@ -17,9 +17,10 @@ namespace GUI
 {
     public partial class MainForm : Form
     {
-        private WaveOut output = null;
+        private DirectSoundOut output = null;
         private NAudio.Wave.WaveFileReader wav = null;
         private SoundPlayer player;
+        private string filename;
 
         private Form _activeForm = null;
         public MainForm()
@@ -115,7 +116,7 @@ namespace GUI
             //output.Init(new NAudio.Wave.WaveChannel32(wav));
             //output.Play();
             var reader = new Mp3FileReader(open.FileName);
-            output = new WaveOut(); // or WaveOutEvent()
+            output = new DirectSoundOut(); // or WaveOutEvent()
             output.Init(reader);
             output.Play();
 
@@ -166,13 +167,18 @@ namespace GUI
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            
+           // output.
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             player = new SoundPlayer();
             //player.Stream = Properties.Resources.
+
+        }
+
+        private void mainMidPanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
