@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.testBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -41,11 +42,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Picture";
             // 
+            // testBar
+            // 
+            this.testBar.Location = new System.Drawing.Point(223, 119);
+            this.testBar.Name = "testBar";
+            this.testBar.Size = new System.Drawing.Size(428, 23);
+            this.testBar.TabIndex = 1;
+            // 
             // PictureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 372);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(869, 343);
+            this.Controls.Add(this.testBar);
             this.Controls.Add(this.label1);
             this.Name = "PictureForm";
             this.Text = "PictureForm";
@@ -57,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar testBar;
     }
 }

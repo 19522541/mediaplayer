@@ -14,7 +14,9 @@ namespace GUI
     {
         public PictureForm()
         {
+            
             InitializeComponent();
+            testBar.AllowDrop = true;
         }
 
         

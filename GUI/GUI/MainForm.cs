@@ -5,60 +5,47 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Management;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NAudio;
-using NAudio.Wave;
-using System.Media;
-//using Windows.UI.Xaml.Controls;
+using AudioSwitcher.AudioApi.CoreAudio;
+
 namespace GUI
 {
     public partial class MainForm : Form
     {
-        private WaveOut output = null;
-        private NAudio.Wave.WaveFileReader wav = null;
-        private SoundPlayer player;
-
         private Form _activeForm = null;
+        private int _bfHoverIndex = 0;
+        Sound music;
+        private CoreAudioDevice _playBackDevice;
+
         public MainForm()
-        {
+        { 
             InitializeComponent();
             setup();
+            this.Text = String.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+           this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
+            music = new Sound("D:\\test.wav");
+            //  music = new Sound("");//dung tam 1 file .wav hay mp3 vi ko thay phan chuyen file 
+
+            // musicProcessBar.Minimum = 0;
+            // musicProcessBar.Maximum = music.time;//tao gia tri cho musicProcessBar moi khi chon file
+
         }
 
+
+        //-------------------function------------------//
         private void setup()
-        {
+        { 
             mediaSubMenu.Visible = false;
             videoSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
-        }
-
-        private void mediaButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(mediaSubMenu);
-
-            //openNewForm(newForm);
-        }
-
-        private void playlistButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(playlistSubMenu);
-            PlayListForm newForm = new PlayListForm();
-            openNewForm(newForm);
-        }
-
-        private void pictureButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void videoButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(videoSubMenu);
-            VideoForm newForm = new VideoForm();
-            openNewForm(newForm);
+            
         }
 
         private void hideSubMenu()
@@ -100,108 +87,329 @@ namespace GUI
             newForm.Show();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Wave file (*wav;*.mp3;*.aac)|*.wav;*.mp3;*.aac";
-            //   open.Filter = ".MP3 file (*.mp3) |*.mp3";
-            if (open.ShowDialog() != DialogResult.OK) return;
-
-            DisposeWave();
-            // Console.WriteLine(open.FileName.en);
-            if (open.FileName.EndsWith(".mp3"))
-            {
-                Console.WriteLine("mp3");
-                var reader = new Mp3FileReader(open.FileName);
-                output = new WaveOut(); // or WaveOutEvent()
-                output.Init(reader);
-                output.Play();
-                playButton.Enabled = true;
-            }
-            else if (open.FileName.EndsWith(".wav"))
-            {
-                Console.WriteLine("wav");
-                var wav = new NAudio.Wave.WaveFileReader(open.FileName);
-                output = new WaveOut();
-                output.Init(new NAudio.Wave.WaveChannel32(wav));
-                output.Play();
-                playButton.Enabled = true;
-            }
-            else if (open.FileName.EndsWith(".aac")) {
-                using (MediaFoundationReader reader = new MediaFoundationReader(open.FileName))
-                // resample the file to PCM with same sample rate, channels and bits per sample
-                using (ResamplerDmoStream resampledReader = new ResamplerDmoStream(reader,
-                    new WaveFormat(reader.WaveFormat.SampleRate, reader.WaveFormat.BitsPerSample, reader.WaveFormat.Channels)))
-                // create WAVe file
-                using (WaveFileWriter waveWriter = new WaveFileWriter("temp.wav", resampledReader.WaveFormat))
-                {
-                    Console.WriteLine("###");
-                    // copy samples
-                    resampledReader.CopyTo(waveWriter);
-
-
-                }
-                NAudio.Wave.WaveFileReader wavef = new WaveFileReader("temp.wav");
-                var sound = new NAudio.Wave.DirectSoundOut();
-                sound.Init(new WaveChannel32(wavef));
-                sound.Play();
-
-            }      
-            // renderWaveForm(open.FileName);
-
-
-          
-        }
-
-        private void DisposeWave()
-        {
-            if (output != null)
-            {
-                if (output.PlaybackState == NAudio.Wave.PlaybackState.Playing
-                    || output.PlaybackState == NAudio.Wave.PlaybackState.Paused)
-                    output.Stop();
-                output.Dispose();
-                output = null;
-            }
-            if (wav != null)
-            {
-                wav.Dispose();
-                wav = null;
-            }
-        }
-
+        
+       
+        
+        //---------------------event-----------------//
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            if (output != null)
-            {
-                output.Play();
-                playButton.Visible = false;
-                pauseButton.Visible = true;
-            }
-        }
+            //code de dung nhac//
+            //  MessageBox.Show(musicProcessBar.Value.ToString());
+            //  music.SettimeAudio(musicProcessBar.Value);
+            //  music.DisposeWave();
+           
 
-        private void pauseButton_Click(object sender, EventArgs e)
-        {
-            if (output != null)
-            {
-                output.Pause();
-                playButton.Visible = true;
-                pauseButton.Visible = false;
-            }
+          
+            music.PlaySound();
+            timer1.Interval = Convert.ToInt32( music.time / 100);
+            timer1.Start();
+
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void backButton_Click(object sender, EventArgs e)
         {
             
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void randomButton_Click(object sender, EventArgs e)
         {
-            player = new SoundPlayer();
-            //player.Stream = Properties.Resources.
+            if (randomButton.ImageIndex != 0 && randomButton.ImageIndex != 2)
+                randomButton.ImageIndex = 0;
+            else
+                randomButton.ImageIndex = 1;
+            this._bfHoverIndex = randomButton.ImageIndex;
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void loopButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void nextButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            nextButton.ImageIndex = 1;
+        }
+
+        private void nextButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            nextButton.ImageIndex = 2;
+        }
+
+        private void backButton_MouseDown(object sender, MouseEventArgs e)
+        {
+           backButton.ImageIndex = 1;
+        }
+
+
+        private void backButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            backButton.ImageIndex = 2;
+        }
+
+        private void randomButton_MouseHover(object sender, EventArgs e)
+        {
+            this._bfHoverIndex = randomButton.ImageIndex;
+            if (this._bfHoverIndex == 0)
+            {
+                randomButton.ImageIndex = 2;
+            }
+            else
+            {
+                randomButton.ImageIndex = 3;
+            }
+        }
+
+        private void randomButton_MouseLeave(object sender, EventArgs e)
+        {
+            randomButton.ImageIndex = this._bfHoverIndex;
+        }
+
+        private void backButton_MouseHover(object sender, EventArgs e)
+        {
+            backButton.ImageIndex = 2;
+            
+        }
+
+        private void backButton_MouseLeave(object sender, EventArgs e)
+        {
+
+            backButton.ImageIndex = 0;
+        }
+
+        private void nextButton_MouseHover(object sender, EventArgs e)
+        {
+            nextButton.ImageIndex = 2;
+        }
+
+        private void nextButton_MouseLeave(object sender, EventArgs e)
+        {
+            nextButton.ImageIndex = 0;
+        }
+
+        private void playButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (playButton.ImageIndex == 2)
+            {
+                playButton.ImageIndex = 4;
+            }
+            else
+            {
+                playButton.ImageIndex = 5;
+            }
+        }
+
+        private void playButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (playButton.ImageIndex == 4)
+            {
+                playButton.ImageIndex = 3;
+            }
+            else
+            {
+                playButton.ImageIndex = 2;
+            }
+
+            if (playButton.ImageIndex == 3)
+            {
+                this._bfHoverIndex = 1;
+            }
+            else
+            {
+                this._bfHoverIndex = 0;
+            }
+        }
+
+        private void playButton_MouseHover(object sender, EventArgs e)
+        {
+            this._bfHoverIndex = playButton.ImageIndex;
+            if (playButton.ImageIndex == 0)
+            {
+                playButton.ImageIndex = 2;
+            }
+            else
+            {
+                playButton.ImageIndex = 3;
+            }
+        }
+
+        private void playButton_MouseLeave(object sender, EventArgs e)
+        {
+            playButton.ImageIndex = this._bfHoverIndex;
+        }
+
+        private void exitButton_MouseHover(object sender, EventArgs e)
+        {
+            exitButton.ImageIndex = 1;
+        }
+
+        private void exitButton_MouseLeave(object sender, EventArgs e)
+        {
+            exitButton.ImageIndex = 0;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void titlePanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void sideMenuButton_Click(object sender, EventArgs e)
+        {
+            if (this.sideMenuPanel.Width > 150)
+            {
+                this.sideMenuPanel.Width /= 4;
+            }
+            else
+            {
+                this.sideMenuPanel.Width *= 4;
+            }
+        }
+
+        private void sideMenuButton_MouseHover(object sender, EventArgs e)
+        {
+            sideMenuButton.ImageIndex = 1;
+        }
+
+        private void sideMenuButton_MouseLeave(object sender, EventArgs e)
+        {
+            sideMenuButton.ImageIndex = 0;
+        }
+
+        private void mediaButton_MouseHover(object sender, EventArgs e)
+        {
+            mediaButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void mediaButton_MouseLeave(object sender, EventArgs e)
+        {
+            mediaButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void playlistButton_MouseHover(object sender, EventArgs e)
+        {
+            playlistButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void playlistButton_MouseLeave(object sender, EventArgs e)
+        {
+            playlistButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void pictureButton_MouseHover(object sender, EventArgs e)
+        {
+            pictureButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void pictureButton_MouseLeave(object sender, EventArgs e)
+        {
+            pictureButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void videoButton_MouseHover(object sender, EventArgs e)
+        {
+            videoButton.BackColor = Color.FromArgb(37, 37, 38);
+
+        }
+
+        private void videoButton_MouseLeave(object sender, EventArgs e)
+        {
+            videoButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void helpButton_MouseHover(object sender, EventArgs e)
+        {
+            helpButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void helpButton_MouseLeave(object sender, EventArgs e)
+        {
+            helpButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void mediaButton_Click(object sender, EventArgs e)
+        {
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(mediaSubMenu);
+
+            //openNewForm(newForm);
+        }
+
+        private void playlistButton_Click(object sender, EventArgs e)
+        {
+            
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(playlistSubMenu);
+            PlayListForm newForm = new PlayListForm();
+            openNewForm(newForm);
+        }
+
+        private void pictureButton_Click(object sender, EventArgs e)
+        {
+            PictureForm newForm = new PictureForm();
+            openNewForm(newForm);
+        }
+
+        private void videoButton_Click(object sender, EventArgs e)
+        {
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(videoSubMenu);
+            VideoForm newForm = new VideoForm();
+            openNewForm(newForm);
+        }
+
+        private void musicProcessBar_Click(object sender, EventArgs e)
+        {
+          music.SettimeAudio(musicProcessBar.Value);
+        }
+
+        private void musicProcessBar_Scroll(object sender, EventArgs e)
+        {
+            //music.SettimeAudio(musicProcessBar.Value);
+
+        }
+
+        private void musicProcessBar_ValueChanged(object sender, EventArgs e)
+        {
+            //  MessageBox.Show(musicProcessBar.Value.ToString());
+          
+        }
+
+        private void soundVolumeBar_Scroll(object sender, EventArgs e)
+        {
+          this._playBackDevice.Volume = soundVolumeBar.Value;
+            //float x = this.soundVolumeBar.Value;
+            //x = x / 100;
+         //this.music.setvolum(x);
+        }
+        int i = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.musicProcessBar.Value++;
 
         }
     }

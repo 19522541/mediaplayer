@@ -83,6 +83,36 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_menu_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menu-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_menu_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menu-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_music_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-music-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_musical_notes_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-musical-notes-60", resourceCulture);
@@ -96,36 +126,6 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_musical_notes_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-musical-notes-96", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_pause_24 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-pause-24", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_pause_30 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-pause-30", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_pause_button_30 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-pause-button-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
