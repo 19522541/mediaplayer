@@ -24,6 +24,8 @@ namespace GUI
             this.Text = String.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            musicProcessBar.Maximum = 100;
+            musicProcessBar.Minimum = 0;
 
         }
 
@@ -84,24 +86,16 @@ namespace GUI
         private void playButton_Click(object sender, EventArgs e)
         {
             //code de dung nhac//
+
+            MessageBox.Show(musicProcessBar.Value.ToString());
             
-            processBar.Minimum = 0;
-            processBar.Maximum = 100;
             
-            int i;
-           
-            {
-                //status = false;
-                for (i = 0; i <= 100; i++)
-                {
-                    processBar.Value = i;
-                }
-            }
+            
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            panel1.BackColor = Color;
+            
         }
 
         private void randomButton_Click(object sender, EventArgs e)
