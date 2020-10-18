@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.sideMenuPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.sideMenuButton = new System.Windows.Forms.Button();
             this.menuButtonList = new System.Windows.Forms.ImageList(this.components);
             this.mediaButton = new System.Windows.Forms.Button();
             this.mediaSubMenu = new System.Windows.Forms.Panel();
@@ -56,7 +53,7 @@
             this.button15 = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.mainMidPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mainPicturebox = new System.Windows.Forms.PictureBox();
             this.mainBotPanel = new System.Windows.Forms.Panel();
             this.loopButton = new System.Windows.Forms.Button();
             this.leapButtonList = new System.Windows.Forms.ImageList(this.components);
@@ -69,29 +66,30 @@
             this.randomButton = new System.Windows.Forms.Button();
             this.shuffleButtonList = new System.Windows.Forms.ImageList(this.components);
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.processBar = new System.Windows.Forms.ProgressBar();
             this.time = new System.Windows.Forms.Label();
             this.soundButton = new System.Windows.Forms.Button();
             this.titlePanel = new System.Windows.Forms.Panel();
             this.exitButton = new System.Windows.Forms.Button();
             this.exitButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.iconPanel = new System.Windows.Forms.Panel();
+            this.sideMenuButton = new System.Windows.Forms.Button();
             this.sideMenuPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.mediaSubMenu.SuspendLayout();
             this.playlistSubMenu.SuspendLayout();
             this.videoSubMenu.SuspendLayout();
             this.mainMidPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPicturebox)).BeginInit();
             this.mainBotPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
+            this.iconPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideMenuPanel
             // 
             this.sideMenuPanel.AutoScroll = true;
             this.sideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuPanel.Controls.Add(this.panel1);
+            this.sideMenuPanel.Controls.Add(this.iconPanel);
             this.sideMenuPanel.Controls.Add(this.mediaButton);
             this.sideMenuPanel.Controls.Add(this.mediaSubMenu);
             this.sideMenuPanel.Controls.Add(this.playlistButton);
@@ -107,45 +105,6 @@
             this.sideMenuPanel.Size = new System.Drawing.Size(264, 553);
             this.sideMenuPanel.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 100);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.panel3.Controls.Add(this.sideMenuButton);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(251, 100);
-            this.panel3.TabIndex = 3;
-            // 
-            // sideMenuButton
-            // 
-            this.sideMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuButton.FlatAppearance.BorderSize = 0;
-            this.sideMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuButton.ImageIndex = 0;
-            this.sideMenuButton.ImageList = this.menuButtonList;
-            this.sideMenuButton.Location = new System.Drawing.Point(9, 29);
-            this.sideMenuButton.Name = "sideMenuButton";
-            this.sideMenuButton.Size = new System.Drawing.Size(44, 45);
-            this.sideMenuButton.TabIndex = 2;
-            this.sideMenuButton.UseVisualStyleBackColor = true;
-            this.sideMenuButton.Click += new System.EventHandler(this.sideMenuButton_Click);
-            this.sideMenuButton.MouseLeave += new System.EventHandler(this.sideMenuButton_MouseLeave);
-            this.sideMenuButton.MouseHover += new System.EventHandler(this.sideMenuButton_MouseHover);
-            // 
             // menuButtonList
             // 
             this.menuButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuButtonList.ImageStream")));
@@ -156,7 +115,9 @@
             // mediaButton
             // 
             this.mediaButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mediaButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(39)))));
             this.mediaButton.FlatAppearance.BorderSize = 0;
+            this.mediaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(218)))), ((int)(((byte)(110)))));
             this.mediaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mediaButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.mediaButton.Image = global::GUI.Properties.Resources.icons8_music_30;
@@ -171,6 +132,8 @@
             this.mediaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mediaButton.UseVisualStyleBackColor = true;
             this.mediaButton.Click += new System.EventHandler(this.mediaButton_Click);
+            this.mediaButton.MouseLeave += new System.EventHandler(this.mediaButton_MouseLeave);
+            this.mediaButton.MouseHover += new System.EventHandler(this.mediaButton_MouseHover);
             // 
             // mediaSubMenu
             // 
@@ -268,6 +231,8 @@
             this.playlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.playlistButton.UseVisualStyleBackColor = true;
             this.playlistButton.Click += new System.EventHandler(this.playlistButton_Click);
+            this.playlistButton.MouseLeave += new System.EventHandler(this.playlistButton_MouseLeave);
+            this.playlistButton.MouseHover += new System.EventHandler(this.playlistButton_MouseHover);
             // 
             // playlistSubMenu
             // 
@@ -365,6 +330,8 @@
             this.pictureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.pictureButton.UseVisualStyleBackColor = true;
             this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
+            this.pictureButton.MouseLeave += new System.EventHandler(this.pictureButton_MouseLeave);
+            this.pictureButton.MouseHover += new System.EventHandler(this.pictureButton_MouseHover);
             // 
             // videoButton
             // 
@@ -384,6 +351,8 @@
             this.videoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.videoButton.UseVisualStyleBackColor = true;
             this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
+            this.videoButton.MouseLeave += new System.EventHandler(this.videoButton_MouseLeave);
+            this.videoButton.MouseHover += new System.EventHandler(this.videoButton_MouseHover);
             // 
             // videoSubMenu
             // 
@@ -480,11 +449,13 @@
             this.helpButton.Text = "Help";
             this.helpButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.MouseLeave += new System.EventHandler(this.helpButton_MouseLeave);
+            this.helpButton.MouseHover += new System.EventHandler(this.helpButton_MouseHover);
             // 
             // mainMidPanel
             // 
             this.mainMidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.mainMidPanel.Controls.Add(this.pictureBox1);
+            this.mainMidPanel.Controls.Add(this.mainPicturebox);
             this.mainMidPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainMidPanel.Location = new System.Drawing.Point(264, 0);
             this.mainMidPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -492,16 +463,16 @@
             this.mainMidPanel.Size = new System.Drawing.Size(918, 422);
             this.mainMidPanel.TabIndex = 2;
             // 
-            // pictureBox1
+            // mainPicturebox
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
-            this.pictureBox1.Location = new System.Drawing.Point(437, 181);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(116, 117);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.mainPicturebox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mainPicturebox.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
+            this.mainPicturebox.Location = new System.Drawing.Point(437, 181);
+            this.mainPicturebox.Margin = new System.Windows.Forms.Padding(4);
+            this.mainPicturebox.Name = "mainPicturebox";
+            this.mainPicturebox.Size = new System.Drawing.Size(116, 117);
+            this.mainPicturebox.TabIndex = 0;
+            this.mainPicturebox.TabStop = false;
             // 
             // mainBotPanel
             // 
@@ -512,7 +483,7 @@
             this.mainBotPanel.Controls.Add(this.backButton);
             this.mainBotPanel.Controls.Add(this.randomButton);
             this.mainBotPanel.Controls.Add(this.progressBar2);
-            this.mainBotPanel.Controls.Add(this.progressBar1);
+            this.mainBotPanel.Controls.Add(this.processBar);
             this.mainBotPanel.Controls.Add(this.time);
             this.mainBotPanel.Controls.Add(this.soundButton);
             this.mainBotPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -684,14 +655,14 @@
             this.progressBar2.Size = new System.Drawing.Size(133, 15);
             this.progressBar2.TabIndex = 0;
             // 
-            // progressBar1
+            // processBar
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(87, 87);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(778, 12);
-            this.progressBar1.TabIndex = 9;
+            this.processBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.processBar.Location = new System.Drawing.Point(87, 87);
+            this.processBar.Margin = new System.Windows.Forms.Padding(4);
+            this.processBar.Name = "processBar";
+            this.processBar.Size = new System.Drawing.Size(778, 12);
+            this.processBar.TabIndex = 9;
             // 
             // time
             // 
@@ -759,6 +730,31 @@
             this.exitButtonList.Images.SetKeyName(0, "icons8-delete-30 (1).png");
             this.exitButtonList.Images.SetKeyName(1, "icons8-delete-30 (2).png");
             // 
+            // iconPanel
+            // 
+            this.iconPanel.Controls.Add(this.sideMenuButton);
+            this.iconPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconPanel.Location = new System.Drawing.Point(3, 2);
+            this.iconPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.iconPanel.Name = "iconPanel";
+            this.iconPanel.Size = new System.Drawing.Size(251, 100);
+            this.iconPanel.TabIndex = 0;
+            // 
+            // sideMenuButton
+            // 
+            this.sideMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatAppearance.BorderSize = 0;
+            this.sideMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sideMenuButton.ImageIndex = 0;
+            this.sideMenuButton.ImageList = this.menuButtonList;
+            this.sideMenuButton.Location = new System.Drawing.Point(3, 27);
+            this.sideMenuButton.Name = "sideMenuButton";
+            this.sideMenuButton.Size = new System.Drawing.Size(44, 45);
+            this.sideMenuButton.TabIndex = 3;
+            this.sideMenuButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -773,16 +769,15 @@
             this.Name = "MainForm";
             this.Text = "Form1";
             this.sideMenuPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.mediaSubMenu.ResumeLayout(false);
             this.playlistSubMenu.ResumeLayout(false);
             this.videoSubMenu.ResumeLayout(false);
             this.mainMidPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPicturebox)).EndInit();
             this.mainBotPanel.ResumeLayout(false);
             this.mainBotPanel.PerformLayout();
             this.titlePanel.ResumeLayout(false);
+            this.iconPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -790,7 +785,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel sideMenuPanel;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button mediaButton;
         private System.Windows.Forms.Panel mediaSubMenu;
         private System.Windows.Forms.Button button4;
@@ -813,7 +807,7 @@
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Panel mainMidPanel;
         private System.Windows.Forms.Panel mainBotPanel;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar processBar;
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.Button soundButton;
         private System.Windows.Forms.Button loopButton;
@@ -822,10 +816,8 @@
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button randomButton;
         private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox mainPicturebox;
         private System.Windows.Forms.Panel titlePanel;
-        private System.Windows.Forms.Button sideMenuButton;
         private System.Windows.Forms.ImageList controlImageList;
         private System.Windows.Forms.ImageList backButtonList;
         private System.Windows.Forms.ImageList shuffleButtonList;
@@ -834,6 +826,8 @@
         private System.Windows.Forms.ImageList exitButtonList;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.ImageList menuButtonList;
+        private System.Windows.Forms.Panel iconPanel;
+        private System.Windows.Forms.Button sideMenuButton;
     }
 }
 

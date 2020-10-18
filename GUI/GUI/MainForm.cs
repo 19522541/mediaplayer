@@ -16,6 +16,7 @@ namespace GUI
     {
         private Form _activeForm = null;
         private int _bfHoverIndex = 0;
+        
         public MainForm()
         {
             InitializeComponent();
@@ -26,38 +27,14 @@ namespace GUI
 
         }
 
+
+        //-------------------function------------------//
         private void setup()
         { 
             mediaSubMenu.Visible = false;
             videoSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
             
-        }
-
-        private void mediaButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(mediaSubMenu);
-            
-            //openNewForm(newForm);
-        }
-
-        private void playlistButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(playlistSubMenu);
-            PlayListForm newForm = new PlayListForm();
-            openNewForm(newForm);
-        }
-
-        private void pictureButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void videoButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(videoSubMenu);
-            VideoForm newForm = new VideoForm();
-            openNewForm(newForm);
         }
 
         private void hideSubMenu()
@@ -99,27 +76,32 @@ namespace GUI
             newForm.Show();
 
         }
-        //-------------------function------------------//
-        private void changeSelectedButtonImg(Button temp)
-        {
-            
-        }
-
-        private void changHoveredButtonImg(Button temp)
-        {
-           
-        }
+        
+       
+        
         //---------------------event-----------------//
 
         private void playButton_Click(object sender, EventArgs e)
         {
             //code de dung nhac//
-            changeSelectedButtonImg(playButton);
+            
+            processBar.Minimum = 0;
+            processBar.Maximum = 100;
+            
+            int i;
+           
+            {
+                //status = false;
+                for (i = 0; i <= 100; i++)
+                {
+                    processBar.Value = i;
+                }
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            
+            panel1.BackColor = Color;
         }
 
         private void randomButton_Click(object sender, EventArgs e)
@@ -138,7 +120,7 @@ namespace GUI
 
         private void loopButton_Click(object sender, EventArgs e)
         {
-            changeSelectedButtonImg(loopButton);
+            
         }
 
         private void nextButton_MouseDown(object sender, MouseEventArgs e)
@@ -298,6 +280,97 @@ namespace GUI
         private void sideMenuButton_MouseLeave(object sender, EventArgs e)
         {
             sideMenuButton.ImageIndex = 0;
+        }
+
+        private void mediaButton_MouseHover(object sender, EventArgs e)
+        {
+            mediaButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void mediaButton_MouseLeave(object sender, EventArgs e)
+        {
+            mediaButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void playlistButton_MouseHover(object sender, EventArgs e)
+        {
+            playlistButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void playlistButton_MouseLeave(object sender, EventArgs e)
+        {
+            playlistButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void pictureButton_MouseHover(object sender, EventArgs e)
+        {
+            pictureButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void pictureButton_MouseLeave(object sender, EventArgs e)
+        {
+            pictureButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void videoButton_MouseHover(object sender, EventArgs e)
+        {
+            videoButton.BackColor = Color.FromArgb(37, 37, 38);
+
+        }
+
+        private void videoButton_MouseLeave(object sender, EventArgs e)
+        {
+            videoButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void helpButton_MouseHover(object sender, EventArgs e)
+        {
+            helpButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void helpButton_MouseLeave(object sender, EventArgs e)
+        {
+            helpButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void mediaButton_Click(object sender, EventArgs e)
+        {
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(mediaSubMenu);
+
+            //openNewForm(newForm);
+        }
+
+        private void playlistButton_Click(object sender, EventArgs e)
+        {
+            
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(playlistSubMenu);
+            PlayListForm newForm = new PlayListForm();
+            openNewForm(newForm);
+        }
+
+        private void pictureButton_Click(object sender, EventArgs e)
+        {
+            PictureForm newForm = new PictureForm();
+            openNewForm(newForm);
+        }
+
+        private void videoButton_Click(object sender, EventArgs e)
+        {
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(videoSubMenu);
+            VideoForm newForm = new VideoForm();
+            openNewForm(newForm);
         }
     }
 }
