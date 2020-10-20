@@ -5,59 +5,60 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Management;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AudioSwitcher.AudioApi.CoreAudio;
+using NAudio.Dmo;
 
 namespace GUI
 {
     public partial class MainForm : Form
     {
         private Form _activeForm = null;
-        private int _bfHoverIndex = 0;
+        private int _bfHoverIndex = 1;
+        Sound _music;
+        private CoreAudioDevice _playBackDevice;
+        private List<String> _list;
+        private int _nowPlayIndex = 0;
+        private bool _haveplay = false;
+        int min = 0;
+        int sed = 0;
         public MainForm()
-        {
+        { 
             InitializeComponent();
             setup();
             this.Text = String.Empty;
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
+            this._list = new List<String>();
+            this._list.Add("D:\\bt2\\test1.wav");
+            this._list.Add("D:\\bt2\\test2.wav");
+            this._list.Add("D:\\bt2\\test3.wav");
+            this._list.Add("D:\\bt2\\test4.wav");
+            
+            this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
+            _music = new Sound(this._list[this._nowPlayIndex]);
+            //  music = new Sound("");//dung tam 1 file .wav hay mp3 vi ko thay phan chuyen file 
+
+            // musicProcessBar.Minimum = 0;
+            // musicProcessBar.Maximum = music.time;//tao gia tri cho musicProcessBar moi khi chon file
 
         }
 
+
+        //-------------------function------------------//
         private void setup()
         { 
             mediaSubMenu.Visible = false;
             videoSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
             
-        }
-
-        private void mediaButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(mediaSubMenu);
-            
-            //openNewForm(newForm);
-        }
-
-        private void playlistButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(playlistSubMenu);
-            PlayListForm newForm = new PlayListForm();
-            openNewForm(newForm);
-        }
-
-        private void pictureButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void videoButton_Click(object sender, EventArgs e)
-        {
-            showSubMenu(videoSubMenu);
-            VideoForm newForm = new VideoForm();
-            openNewForm(newForm);
         }
 
         private void hideSubMenu()
@@ -99,27 +100,60 @@ namespace GUI
             newForm.Show();
 
         }
-        //-------------------function------------------//
-        private void changeSelectedButtonImg(Button temp)
-        {
-            
-        }
 
-        private void changHoveredButtonImg(Button temp)
-        {
-           
-        }
+
+
         //---------------------event-----------------//
 
         private void playButton_Click(object sender, EventArgs e)
         {
             //code de dung nhac//
-            changeSelectedButtonImg(playButton);
+            //  MessageBox.Show(musicProcessBar.Value.ToString());
+            //  music.SettimeAudio(musicProcessBar.Value);
+            //  music.DisposeWave();
+            min = 0;
+            sed = 0;
+            if (this.playButton.ImageIndex == 1 || this.playButton.ImageIndex == 3 || this.playButton.ImageIndex == 5)
+            {
+                timer1.Start();
+                count.Start();
+            }
+            else if (this.playButton.ImageIndex == 0 || this.playButton.ImageIndex == 4 || this.playButton.ImageIndex == 6)
+            {
+                timer1.Stop();
+                count.Stop();
+            }
+            songLength.Text = _music.getSongLength();
+            _music.PlaySound();
+            timer1.Interval = Convert.ToInt32(_music.time / 100);
+            //timer1.Start();
+            this._haveplay = true;
+            
+
         }
+
+          
+
+
+
+
+        
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            
+            this._haveplay = false;
+            if (this.playButton.ImageIndex == 0)
+            {
+                this._music.stop();
+                this.playButton.ImageIndex = 1;
+            }
+            this._music = null;
+            if (this._nowPlayIndex == 0) this._nowPlayIndex = this._list.Count-1;
+            else if (this._nowPlayIndex < this._list.Count-1) this._nowPlayIndex--;
+            _music = new Sound(this._list[this._nowPlayIndex]);
+            this.musicProcessBar.Value = 0;
+            playButton_Click(sender, e);
+            this.playButton.ImageIndex = 0;
         }
 
         private void randomButton_Click(object sender, EventArgs e)
@@ -134,11 +168,23 @@ namespace GUI
         private void nextButton_Click(object sender, EventArgs e)
         {
             
+            if (this.playButton.ImageIndex == 0)
+            {
+                this._music.stop();
+                this.playButton.ImageIndex = 1;
+            }
+            this._music = null;
+            if (this._nowPlayIndex < this._list.Count-1) this._nowPlayIndex++;
+            else this._nowPlayIndex = 0;
+            _music = new Sound(this._list[this._nowPlayIndex]);
+            this.musicProcessBar.Value = 0;
+            playButton_Click(sender, e);
+            this.playButton.ImageIndex = 0;
         }
 
         private void loopButton_Click(object sender, EventArgs e)
         {
-            changeSelectedButtonImg(loopButton);
+            
         }
 
         private void nextButton_MouseDown(object sender, MouseEventArgs e)
@@ -298,6 +344,168 @@ namespace GUI
         private void sideMenuButton_MouseLeave(object sender, EventArgs e)
         {
             sideMenuButton.ImageIndex = 0;
+        }
+
+        private void mediaButton_MouseHover(object sender, EventArgs e)
+        {
+            mediaButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void mediaButton_MouseLeave(object sender, EventArgs e)
+        {
+            mediaButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void playlistButton_MouseHover(object sender, EventArgs e)
+        {
+            playlistButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void playlistButton_MouseLeave(object sender, EventArgs e)
+        {
+            playlistButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void pictureButton_MouseHover(object sender, EventArgs e)
+        {
+            pictureButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void pictureButton_MouseLeave(object sender, EventArgs e)
+        {
+            pictureButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void videoButton_MouseHover(object sender, EventArgs e)
+        {
+            videoButton.BackColor = Color.FromArgb(37, 37, 38);
+
+        }
+
+        private void videoButton_MouseLeave(object sender, EventArgs e)
+        {
+            videoButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void helpButton_MouseHover(object sender, EventArgs e)
+        {
+            helpButton.BackColor = Color.FromArgb(37, 37, 38);
+        }
+
+        private void helpButton_MouseLeave(object sender, EventArgs e)
+        {
+            helpButton.BackColor = Color.FromArgb(11, 7, 17);
+        }
+
+        private void mediaButton_Click(object sender, EventArgs e)
+        {
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(mediaSubMenu);
+
+            //openNewForm(newForm);
+        }
+
+        private void playlistButton_Click(object sender, EventArgs e)
+        {
+            
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(playlistSubMenu);
+            PlayListForm newForm = new PlayListForm();
+            openNewForm(newForm);
+        }
+
+        private void pictureButton_Click(object sender, EventArgs e)
+        {
+            PictureForm newForm = new PictureForm();
+            openNewForm(newForm);
+        }
+
+        private void videoButton_Click(object sender, EventArgs e)
+        {
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            showSubMenu(videoSubMenu);
+            VideoForm newForm = new VideoForm();
+            openNewForm(newForm);
+        }
+
+        private void musicProcessBar_Click(object sender, EventArgs e)
+        {
+          _music.SettimeAudio(musicProcessBar.Value);
+        }
+
+        private void musicProcessBar_Scroll(object sender, EventArgs e)
+        {
+            //music.SettimeAudio(musicProcessBar.Value);
+
+        }
+
+        private void musicProcessBar_ValueChanged(object sender, EventArgs e)
+        {
+            //  MessageBox.Show(musicProcessBar.Value.ToString());
+          
+        }
+
+        private void soundVolumeBar_Scroll(object sender, EventArgs e)
+        {
+          this._playBackDevice.Volume = soundVolumeBar.Value;
+            //float x = this.soundVolumeBar.Value;
+            //x = x / 100;
+         //this.music.setvolum(x);
+        }
+        int i = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.musicProcessBar.Value++;
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void timeSync_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "WAV file (*.wav)| *.wav";
+            if (open.ShowDialog() != DialogResult.OK) return;
+            this._list.Insert(0, open.FileName);
+            this.playButton.ImageIndex = 0;
+            playButton_Click(sender, e);
+        }
+
+        private void count_Tick(object sender, EventArgs e)
+        {
+            if (sed < 60)
+            {
+                sed++;
+            }
+            else min++;
+            String strSed, strMin;
+            if (sed < 10) strSed = "0" + sed.ToString();
+            else strSed = sed.ToString();
+            if (min < 1) strMin = "0" + min.ToString();
+            else strMin = min.ToString();
+            time.Text = (strMin + ":" + strSed);
+        }
+
+        private void volumeSlider1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
