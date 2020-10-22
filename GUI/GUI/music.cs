@@ -13,53 +13,52 @@ using NAudio;
 
 namespace GUI
 {
-    class Sound
+    class Sound : Player
     {
-        private DirectSoundOut output = null;
-        private NAudio.Wave.WaveFileReader wav = null;
-        private SoundPlayer player;
-        private string filename;
-        public double time;
-        public Sound(string filename)
+        
+       
+        private NAudio.Wave.WaveFileReader _wav = null;
+        
+        public Sound(string fileName)
         {
-            this.filename = filename;
-            this.wav = new WaveFileReader(filename);
-            time = wav.TotalTime.TotalMilliseconds;
-            output = new DirectSoundOut();
-            output.Init(new WaveChannel32(wav));
+            this._fileName = fileName;
+            this._wav = new WaveFileReader(fileName);
+            _time = Convert.ToInt32(_wav.TotalTime.TotalSeconds);
+            _output = new DirectSoundOut();
+            _output.Init(new WaveChannel32(_wav));
         }
        
         public void DisposeWave()
         {
-            if (output != null)
+            if (_output != null)
             {
-                if (output.PlaybackState == NAudio.Wave.PlaybackState.Playing
-                    || output.PlaybackState == NAudio.Wave.PlaybackState.Paused)
-                    output.Stop();
-                    output.Dispose();
-                    output = null;
+                if (_output.PlaybackState == NAudio.Wave.PlaybackState.Playing
+                    || _output.PlaybackState == NAudio.Wave.PlaybackState.Paused)
+                    _output.Stop();
+                    _output.Dispose();
+                    _output = null;
             }
-            if (wav != null)
+            if (_wav != null)
             {
-                wav.Dispose();
-                wav = null;
+                _wav.Dispose();
+                _wav = null;
             }
         }
         public void SettimeAudio(int t) {
 
 
-            NAudio.Wave.WaveFileReader temp = wav;
+            NAudio.Wave.WaveFileReader temp = _wav;
             //  temp.CurrentTime  = temp.CurrentTime.Add( TimeSpan.FromSeconds(t * time /100000));
             // if(output.PlaybackState ==NAudio.Wave.PlaybackState.Playing)
             //         output.Stop();
-            double tt = t * time / 100000;
-            if (output != null)
-                output.Stop();
-            output = new DirectSoundOut();
-            wav.Position = (long)(tt * wav.WaveFormat.AverageBytesPerSecond);
+            double tt = t * _time / 100000;
+            if (_output != null)
+                _output.Stop();
+            _output = new DirectSoundOut();
+            _wav.Position = (long)(tt * _wav.WaveFormat.AverageBytesPerSecond);
 
-            output.Init(new WaveChannel32(wav) );
-            output.Play();
+            _output.Init(new WaveChannel32(_wav) );
+            _output.Play();
             Console.WriteLine("had play");
 
 
@@ -67,11 +66,11 @@ namespace GUI
         }
      public void PlaySound()
         {
-            if (this.output.PlaybackState == NAudio.Wave.PlaybackState.Playing)
-            { output.Stop(); }
+            if (this._output.PlaybackState == NAudio.Wave.PlaybackState.Playing)
+            { _output.Stop(); }
             else   {
-               
-                output.Play();
+
+                _output.Play();
                       }
             }
 
@@ -81,24 +80,9 @@ namespace GUI
         
         }
 
-        public void stop()
+        override public void setCur(TimeSpan x)
         {
-            output.Stop();
-        }
-
-        public void start()
-        {
-            output.Play();
-        }
-
-        public String getSongLength()
-        {
-            String rs = "";
-            int mins = Convert.ToInt32(time) / 60000;
-            int second = Convert.ToInt32(time) % 60000;
-            second /= 1000;
-            rs = mins.ToString() + ":" + second.ToString();
-            return rs;
+            _wav.CurrentTime = x;
         }
 
         
