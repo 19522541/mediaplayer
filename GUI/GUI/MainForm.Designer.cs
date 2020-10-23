@@ -64,11 +64,14 @@
             this.randomButton = new System.Windows.Forms.Button();
             this.shuffleButtonList = new System.Windows.Forms.ImageList(this.components);
             this.time = new System.Windows.Forms.Label();
-            this.soundButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             this.playButtonList = new System.Windows.Forms.ImageList(this.components);
             this.stopButton = new System.Windows.Forms.Button();
             this.stopButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.muteButton = new System.Windows.Forms.Button();
+            this.muteButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.soundButton = new System.Windows.Forms.Button();
+            this.soundButtonList = new System.Windows.Forms.ImageList(this.components);
             this.controlImageList = new System.Windows.Forms.ImageList(this.components);
             this.titlePanel = new System.Windows.Forms.Panel();
             this.exitButton = new System.Windows.Forms.Button();
@@ -447,9 +450,10 @@
             this.mainBotPanel.Controls.Add(this.backButton);
             this.mainBotPanel.Controls.Add(this.randomButton);
             this.mainBotPanel.Controls.Add(this.time);
-            this.mainBotPanel.Controls.Add(this.soundButton);
             this.mainBotPanel.Controls.Add(this.playButton);
             this.mainBotPanel.Controls.Add(this.stopButton);
+            this.mainBotPanel.Controls.Add(this.soundButton);
+            this.mainBotPanel.Controls.Add(this.muteButton);
             this.mainBotPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mainBotPanel.Location = new System.Drawing.Point(264, 923);
             this.mainBotPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -529,6 +533,7 @@
             this.soundVolumeBar.Size = new System.Drawing.Size(162, 60);
             this.soundVolumeBar.TabIndex = 11;
             this.soundVolumeBar.Value = 50;
+            this.soundVolumeBar.ValueChanged += new System.EventHandler(this.soundVolumeBar_ValueChanged);
             this.soundVolumeBar.Scroll += new System.EventHandler(this.soundVolumeBar_Scroll);
             // 
             // loopButton
@@ -662,22 +667,6 @@
             this.time.TabIndex = 8;
             this.time.Text = "00:00";
             // 
-            // soundButton
-            // 
-            this.soundButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.soundButton.FlatAppearance.BorderSize = 0;
-            this.soundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.soundButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.soundButton.Image = global::GUI.Properties.Resources.icons8_audio_30;
-            this.soundButton.Location = new System.Drawing.Point(285, 38);
-            this.soundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.soundButton.Name = "soundButton";
-            this.soundButton.Size = new System.Drawing.Size(48, 22);
-            this.soundButton.TabIndex = 2;
-            this.soundButton.UseVisualStyleBackColor = true;
-            this.soundButton.Click += new System.EventHandler(this.soundButton_Click);
-            // 
             // playButton
             // 
             this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -741,6 +730,78 @@
             this.stopButtonList.Images.SetKeyName(0, "icons8-pause-30 (1).png");
             this.stopButtonList.Images.SetKeyName(1, "icons8-pause-30 (2).png");
             this.stopButtonList.Images.SetKeyName(2, "icons8-pause-30.png");
+            // 
+            // muteButton
+            // 
+            this.muteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.muteButton.Enabled = false;
+            this.muteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.muteButton.FlatAppearance.BorderSize = 0;
+            this.muteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.muteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.muteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.muteButton.ImageIndex = 0;
+            this.muteButton.ImageList = this.muteButtonList;
+            this.muteButton.Location = new System.Drawing.Point(278, 30);
+            this.muteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.muteButton.Name = "muteButton";
+            this.muteButton.Size = new System.Drawing.Size(48, 42);
+            this.muteButton.TabIndex = 2;
+            this.muteButton.UseVisualStyleBackColor = true;
+            this.muteButton.Visible = false;
+            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
+            this.muteButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.muteButton_MouseDown);
+            this.muteButton.MouseLeave += new System.EventHandler(this.muteButton_MouseLeave);
+            this.muteButton.MouseHover += new System.EventHandler(this.muteButton_MouseHover);
+            this.muteButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.muteButton_MouseUp);
+            // 
+            // muteButtonList
+            // 
+            this.muteButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("muteButtonList.ImageStream")));
+            this.muteButtonList.TransparentColor = System.Drawing.Color.Transparent;
+            this.muteButtonList.Images.SetKeyName(0, "icons8-no-audio-30.png");
+            this.muteButtonList.Images.SetKeyName(1, "icons8-mute-30 (3).png");
+            this.muteButtonList.Images.SetKeyName(2, "icons8-no-audio-30 (2).png");
+            this.muteButtonList.Images.SetKeyName(3, "icons8-mute-30 (5).png");
+            this.muteButtonList.Images.SetKeyName(4, "icons8-no-audio-30 (1).png");
+            this.muteButtonList.Images.SetKeyName(5, "icons8-mute-30 (4).png");
+            // 
+            // soundButton
+            // 
+            this.soundButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.soundButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.soundButton.FlatAppearance.BorderSize = 0;
+            this.soundButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.soundButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.soundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.soundButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.soundButton.ImageIndex = 0;
+            this.soundButton.ImageList = this.soundButtonList;
+            this.soundButton.Location = new System.Drawing.Point(280, 28);
+            this.soundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.soundButton.Name = "soundButton";
+            this.soundButton.Size = new System.Drawing.Size(48, 42);
+            this.soundButton.TabIndex = 2;
+            this.soundButton.UseVisualStyleBackColor = true;
+            this.soundButton.Click += new System.EventHandler(this.soundButton_Click);
+            this.soundButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.soundButton_MouseDown);
+            this.soundButton.MouseLeave += new System.EventHandler(this.soundButton_MouseLeave);
+            this.soundButton.MouseHover += new System.EventHandler(this.soundButton_MouseHover);
+            this.soundButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.soundButton_MouseUp);
+            // 
+            // soundButtonList
+            // 
+            this.soundButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("soundButtonList.ImageStream")));
+            this.soundButtonList.TransparentColor = System.Drawing.Color.Transparent;
+            this.soundButtonList.Images.SetKeyName(0, "icons8-audio-30.png");
+            this.soundButtonList.Images.SetKeyName(1, "icons8-low-volume-30.png");
+            this.soundButtonList.Images.SetKeyName(2, "icons8-audio-30 (2).png");
+            this.soundButtonList.Images.SetKeyName(3, "icons8-low-volume-30 (2).png");
+            this.soundButtonList.Images.SetKeyName(4, "icons8-audio-30 (1).png");
+            this.soundButtonList.Images.SetKeyName(5, "icons8-low-volume-30 (1).png");
             // 
             // controlImageList
             // 
@@ -811,7 +872,7 @@
             // 
             this.mainPicturebox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPicturebox.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
-            this.mainPicturebox.Location = new System.Drawing.Point(638, 432);
+            this.mainPicturebox.Location = new System.Drawing.Point(506, 367);
             this.mainPicturebox.Margin = new System.Windows.Forms.Padding(4);
             this.mainPicturebox.Name = "mainPicturebox";
             this.mainPicturebox.Size = new System.Drawing.Size(116, 117);
@@ -921,6 +982,9 @@
         private System.Windows.Forms.ImageList stopButtonList;
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.ImageList playButtonList;
+        private System.Windows.Forms.Button muteButton;
+        private System.Windows.Forms.ImageList muteButtonList;
+        private System.Windows.Forms.ImageList soundButtonList;
     }
 }
 

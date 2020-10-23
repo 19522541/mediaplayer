@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Management;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AudioSwitcher.AudioApi.CoreAudio;
-using NAudio.Dmo;
-using Utilities.BunifuButton.Transitions;
 
 namespace GUI
 {
@@ -21,17 +11,19 @@ namespace GUI
     {
         private Form _activeForm = null;
         private int _bfHoverIndex = 1;
-        Player _music;
+        private Player _music;
         private CoreAudioDevice _playBackDevice;
         private List<String> _list;
         private int _nowPlayIndex = 0;
         private int _check = 0;
-        int min = 0;
-        int sed = 0;
+        private int _min = 0;
+        private int _sed = 0;
+        private int _lastSoundValue = 0;
+        
         public MainForm()
         { 
             InitializeComponent();
-            setup();
+            
             this.Text = String.Empty;
             this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
             this.ControlBox = false;
@@ -43,8 +35,7 @@ namespace GUI
             this._list.Add("D:\\bt2\\test2.wav");
             this._list.Add("D:\\bt2\\test3.wav");
             this._list.Add("D:\\bt2\\test4.wav");
-            
-            this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
+            setup();
             if (this._list[this._nowPlayIndex].Contains(".wav"))
             {
                 _music = new Sound(this._list[this._nowPlayIndex]);
@@ -53,7 +44,7 @@ namespace GUI
             {
                 _music = new Mp3Player(this._list[this._nowPlayIndex]);
             }
-            //  music = new Sound("");//dung tam 1 file .wav hay mp3 vi ko thay phan chuyen file 
+            
 
 
 
@@ -66,7 +57,8 @@ namespace GUI
             mediaSubMenu.Visible = false;
             videoSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
-            
+            this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
+            this._lastSoundValue = this.soundVolumeBar.Value;
         }
 
         private void hideSubMenu()
@@ -109,6 +101,30 @@ namespace GUI
 
         }
 
+        void setSoundButtonImg()
+        {
+            if (soundVolumeBar.Value > 50)
+            {
+                soundButton.ImageIndex = 0; 
+            }
+            else if (soundVolumeBar.Value <= 50)
+            {
+                soundButton.ImageIndex = 1;
+            }
+        }
+
+        void setMuteButtonImg()
+        {
+            if (soundVolumeBar.Value > 0)
+            {
+                muteButton.ImageIndex = 0;
+            }
+            else 
+            {
+                muteButton.ImageIndex = 1;
+            }
+        }
+
         public String getCurTime(int time)
         {
             String rs = "";
@@ -134,12 +150,12 @@ namespace GUI
             }
             rs = minStr + ":" + sedStr;
             return rs;
-            return rs;
+            
         }
 
         //---------------------event-----------------//
 
-
+        
         //
         // Play button
         //
@@ -156,8 +172,8 @@ namespace GUI
            
             musicProcessBar.Minimum = 0;
             musicProcessBar.Maximum = this._music.getTime();//tao gia tri cho musicProcessBar moi khi chon file
-            min = 0;
-            sed = 0;
+            _min = 0;
+            _sed = 0;
             musicBarTimer.Start();
             count.Start();
             songLength.Text = _music.getSongLength();
@@ -549,10 +565,8 @@ namespace GUI
         //
         private void soundVolumeBar_Scroll(object sender, EventArgs e)
         {
-          this._playBackDevice.Volume = soundVolumeBar.Value;
-            //float x = this.soundVolumeBar.Value;
-            //x = x / 100;
-         //this.music.setvolum(x);
+            this._playBackDevice.Volume = soundVolumeBar.Value;
+            this._lastSoundValue = soundVolumeBar.Value; 
         }
         
         //
@@ -593,35 +607,172 @@ namespace GUI
         //
         private void count_Tick(object sender, EventArgs e)
         {
-            if (sed < 60)
+            if (_sed < 60)
             {
-                sed++;
+                _sed++;
 
             }
             else
             {
-                min++;
-                sed = 0;
+                _min++;
+                _sed = 0;
             }
 
             String strSed, strMin;
-            if (sed < 10) strSed = "0" + sed.ToString();
-            else strSed = sed.ToString();
-            if (min < 1) strMin = "0" + min.ToString();
-            else strMin = min.ToString();
+            if (_sed < 10) strSed = "0" + _sed.ToString();
+            else strSed = _sed.ToString();
+            if (_min < 1) strMin = "0" + _min.ToString();
+            else strMin = _min.ToString();
             time.Text = (strMin + ":" + strSed);
         }
 
-        private void volumeSlider1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        //
+        //Sound Button
+        //
         private void soundButton_Click(object sender, EventArgs e)
         {
+            soundButton.Enabled = false;
+            soundButton.Visible = false;
+            muteButton.Enabled = true;
+            muteButton.Visible = true;
+            int temp = soundVolumeBar.Value;
+            soundVolumeBar.Value = 0;
+            this._lastSoundValue = temp;
+            setMuteButtonImg();
+        }
+        private void soundButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (soundButton.ImageIndex == 4)
+            {
+                soundButton.ImageIndex = 2;
+            }
+            else if (soundButton.ImageIndex == 5)
+            {
+                soundButton.ImageIndex = 3;
+            }
+        }
+
+        private void soundButton_MouseHover(object sender, EventArgs e)
+        {
+            if (soundButton.ImageIndex == 0)
+            {
+                soundButton.ImageIndex = 4;
+            }
+            else if (soundButton.ImageIndex == 1)
+            {
+                soundButton.ImageIndex = 5;
+            }
+        }
+
+        private void soundButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (soundButton.ImageIndex == 4)
+            {
+                soundButton.ImageIndex = 0;
+            }
+            else if (soundButton.ImageIndex == 5)
+            {
+                soundButton.ImageIndex = 1;
+            }
+        }
+
+        private void soundButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (soundButton.ImageIndex == 2)
+            {
+                soundButton.ImageIndex = 4;
+            }
+            else if (soundButton.ImageIndex == 3)
+            {
+                soundButton.ImageIndex = 5;
+            }
 
         }
 
-      
+
+        //
+        //Mute Button
+        //
+
+        private void muteButton_Click(object sender, EventArgs e)
+        {
+            soundButton.Enabled = true;
+            soundButton.Visible = true;
+            muteButton.Enabled = false;
+            muteButton.Visible = false;
+            if (this._lastSoundValue != 0)
+                soundVolumeBar.Value = this._lastSoundValue;
+            else
+                soundVolumeBar.Value = 30;
+           setSoundButtonImg();
+        }
+
+        private void soundVolumeBar_ValueChanged(object sender, EventArgs e)
+        {
+            if (soundVolumeBar.Value == 0 && soundButton.Enabled == true)
+            {
+                soundButton_Click(sender, e);
+            }
+            else if (soundVolumeBar.Value > 0 && soundButton.Enabled == false)
+            {
+                muteButton_Click(sender, e);
+            }
+            else
+            {
+                setMuteButtonImg();
+                setSoundButtonImg();
+            }
+        }
+
+        private void muteButton_MouseHover(object sender, EventArgs e)
+        {
+            if (muteButton.ImageIndex == 0)
+            {
+                muteButton.ImageIndex = 4;
+            }
+            else if (muteButton.ImageIndex == 1)
+            {
+                muteButton.ImageIndex = 5;
+            }
+        }
+
+        private void muteButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (muteButton.ImageIndex == 4)
+            {
+                muteButton.ImageIndex = 0;
+            }
+            else if (muteButton.ImageIndex == 5)
+            {
+                muteButton.ImageIndex = 1;
+            }
+        }
+
+        private void muteButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (muteButton.ImageIndex == 4)
+            {
+                muteButton.ImageIndex = 2;
+            }
+            else if (muteButton.ImageIndex == 5)
+            {
+                muteButton.ImageIndex = 3;
+            }
+        }
+
+        private void muteButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (muteButton.ImageIndex == 2)
+            {
+                muteButton.ImageIndex = 4;
+            }
+            else if (muteButton.ImageIndex == 3)
+            {
+                muteButton.ImageIndex = 5;
+            }
+        }
+
+        
     }
 }
