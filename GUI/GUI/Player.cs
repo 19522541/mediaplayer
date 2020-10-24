@@ -26,8 +26,9 @@ namespace GUI
 
         public void stop()
         {
-
+            
             _output.Stop();
+            _output.Dispose();
         }
 
         public void start()

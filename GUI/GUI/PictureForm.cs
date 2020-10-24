@@ -16,7 +16,7 @@ namespace GUI
         {
             
             InitializeComponent();
-            testBar.AllowDrop = true;
+            
         }
 
         

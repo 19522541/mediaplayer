@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using AudioSwitcher.AudioApi.CoreAudio;
+using Bunifu.UI.WinForms;
 
 namespace GUI
 {
@@ -25,11 +26,12 @@ namespace GUI
             InitializeComponent();
             
             this.Text = String.Empty;
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._list = new List<String>();
+            this.musicProcessBar.Enabled = false;
             this._list.Add("D:\\bt2\\test5.mp3");
             this._list.Add("D:\\bt2\\test1.wav");
             this._list.Add("D:\\bt2\\test2.wav");
@@ -162,6 +164,7 @@ namespace GUI
         private void playButton_Click(object sender, EventArgs e)
         {
             //code de dung nhac//
+            this.musicProcessBar.Enabled = true;
             stopButton.Enabled = true;
             stopButton.Visible = true;
             playButton.Enabled = false;
@@ -245,7 +248,7 @@ namespace GUI
             this._check = 0;
             this._music = null;
             if (this._nowPlayIndex == 0) this._nowPlayIndex = this._list.Count - 1;
-            else if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex--;
+            else this._nowPlayIndex--;
             if (this._list[this._nowPlayIndex].Contains(".wav"))
             {
                 _music = new Sound(this._list[this._nowPlayIndex]);
@@ -323,9 +326,9 @@ namespace GUI
         private void nextButton_Click(object sender, EventArgs e)
         {
             this._music.stop();
-            musicProcessBar.Value = 0;
+            musicProcessBar.Value = 1;
             this._check = 0;
-            this._music = null;
+            //this._music.D
             if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
             else this._nowPlayIndex = 0;
             if (this._list[this._nowPlayIndex].Contains(".wav"))
@@ -392,27 +395,32 @@ namespace GUI
         //
         // Drag app
         //
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void titlePanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        //private extern static void ReleaseCapture();
+        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        //private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //private void titlePanel_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    ReleaseCapture();
+        //    SendMessage(this.Handle, 0x112, 0xf012, 0);
+        //}
         //
         // Side Menu Button
         //
         private void sideMenuButton_Click(object sender, EventArgs e)
         {
+            
             if (this.sideMenuPanel.Width > 150)
             {
-                this.sideMenuPanel.Width /= 4;
+                sideMenuPanel.Visible = false;
+                this.sideMenuPanel.Width -= this.sideMenuPanel.Width/4 *3;
+                sideMenuAni.ShowSync(sideMenuPanel);
             }
             else
             {
-                this.sideMenuPanel.Width *= 4;
+                sideMenuPanel.Visible = false;
+                this.sideMenuPanel.Width += this.sideMenuPanel.Width* 3;
+                sideMenuAni.ShowSync(sideMenuPanel); 
             }
         }
 
@@ -486,7 +494,8 @@ namespace GUI
                 sideMenuButton_Click(sender, e);
             }
             showSubMenu(mediaSubMenu);
-
+            MediaForm newForm = new MediaForm();
+            openNewForm(newForm);
             //openNewForm(newForm);
         }
 
@@ -523,15 +532,18 @@ namespace GUI
         //
         private void musicProcessBar_Click(object sender, EventArgs e)
         {
-          //_music.SettimeAudio(musicProcessBar.Value);
+          
         }
         private void musicProcessBar_MouseDown(object sender, MouseEventArgs e)
         {
-            this._music.stop();
-            playButton.Visible = true;
-            playButton.Enabled = true;
-            stopButton.Visible = false;
-            stopButton.Enabled = false;
+            if (stopButton.Enabled == true)
+            {
+                this._music.pause();
+                playButton.Visible = true;
+                playButton.Enabled = true;
+                stopButton.Visible = false;
+                stopButton.Enabled = false;
+            }
         }
 
         private void musicProcessBar_MouseUp(object sender, MouseEventArgs e)
@@ -540,24 +552,25 @@ namespace GUI
             playButton.Enabled = false;
             stopButton.Visible = true;
             stopButton.Enabled = true;
-            this._music.start();
-        }
-
-        private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
-        {
             if (musicProcessBar.Value == musicProcessBar.Maximum)
             {
                 nextButton_Click(sender, e);
             }
-            if (musicProcessBar.Value - this._check != 1)
+            else if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
             {
                 TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
-                this._music.setCur(x); 
-                
+                this._music.setCur(x);
+
             }
+            if (this.musicProcessBar.Value < this.musicProcessBar.Maximum) this._music.start();
+        }
+
+        private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
+        {
+            songName.Text = this._nowPlayIndex.ToString();
             time.Text = getCurTime(musicProcessBar.Value);
             this._check = musicProcessBar.Value;
-
+            
 
         }
         //
@@ -574,7 +587,8 @@ namespace GUI
         //
         private void musicBarTimer_Tick(object sender, EventArgs e)
         {
-           this.musicProcessBar.Value++;
+           if (this.musicProcessBar.Value < this.musicProcessBar.Maximum)
+            this.musicProcessBar.Value++;
             
 
         }
@@ -773,6 +787,9 @@ namespace GUI
             }
         }
 
-        
+        private void musicProcessBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
+        {
+
+        }
     }
 }

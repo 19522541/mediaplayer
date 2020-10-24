@@ -46,7 +46,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(869, 343);
+            this.ClientSize = new System.Drawing.Size(1300, 876);
             this.Controls.Add(this.label1);
             this.Name = "PlayListForm";
             this.Text = "PlayListForm";
