@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaForm));
             this.songDataGridView = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.songInforPanel = new System.Windows.Forms.Panel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.songPicture = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.songDataGridView.SuspendLayout();
             this.songInforPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songPicture)).BeginInit();
@@ -50,6 +50,26 @@
             this.songDataGridView.Name = "songDataGridView";
             this.songDataGridView.Size = new System.Drawing.Size(1300, 876);
             this.songDataGridView.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "label3";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(406, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(510, 76);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Music Data Grid";
             // 
             // songInforPanel
             // 
@@ -93,17 +113,6 @@
             this.songPicture.TabStop = false;
             this.songPicture.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(406, 230);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(510, 76);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Music Data Grid";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -111,15 +120,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "label3";
             // 
             // MediaForm
             // 

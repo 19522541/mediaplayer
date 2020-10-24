@@ -570,8 +570,19 @@ namespace GUI
             songName.Text = this._nowPlayIndex.ToString();
             time.Text = getCurTime(musicProcessBar.Value);
             this._check = musicProcessBar.Value;
-            
+            if (musicProcessBar.Focused == false)
+            {
+                if (musicProcessBar.Value == musicProcessBar.Maximum)
+                {
+                    nextButton_Click(sender, e);
+                }
+                else if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
+                {
+                    TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
+                    this._music.setCur(x);
 
+                }
+            }
         }
         //
         // sound volume
