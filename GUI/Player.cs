@@ -10,7 +10,7 @@ namespace GUI
     abstract class Player
     {
 
-        protected DirectSoundOut _output;
+        protected IWavePlayer _output;
         protected string _fileName;
         protected int _time;
 
@@ -64,7 +64,7 @@ namespace GUI
             rs = minStr + ":" + sedStr;
             return rs;
         }
-
+        virtual public void setvolumn(float x) { }
         virtual public void setCur(TimeSpan x) { }
     }
 }

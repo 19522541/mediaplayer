@@ -32,11 +32,11 @@ namespace GUI
             this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._list = new List<String>();
             this.musicProcessBar.Enabled = false;
-            this._list.Add("D:\\bt2\\test5.mp3");
-            this._list.Add("D:\\bt2\\test1.wav");
-            this._list.Add("D:\\bt2\\test2.wav");
-            this._list.Add("D:\\bt2\\test3.wav");
-            this._list.Add("D:\\bt2\\test4.wav");
+            this._list.Add("D:\\bt2\\test.wav");
+            this._list.Add("D:\\bt2\\test1.mp3");
+            this._list.Add("D:\\bt2\\test2.mp3");
+            this._list.Add("D:\\bt2\\test3.mp3");
+            this._list.Add("D:\\bt2\\test4.mp3");
             setup();
             if (this._list[this._nowPlayIndex].Contains(".wav"))
             {
@@ -59,8 +59,9 @@ namespace GUI
             mediaSubMenu.Visible = false;
             videoSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
-            this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
-            this._lastSoundValue = this.soundVolumeBar.Value;
+            //   this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
+            this.soundVolumeBar.Value = 50;
+          this._lastSoundValue = this.soundVolumeBar.Value;
         }
 
         private void hideSubMenu()
@@ -589,7 +590,8 @@ namespace GUI
         //
         private void soundVolumeBar_Scroll(object sender, EventArgs e)
         {
-            this._playBackDevice.Volume = soundVolumeBar.Value;
+            //   this._playBackDevice.Volume = soundVolumeBar.Value;
+            this._music.setvolumn(soundVolumeBar.Value);
             this._lastSoundValue = soundVolumeBar.Value; 
         }
         

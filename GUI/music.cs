@@ -24,7 +24,9 @@ namespace GUI
             this._fileName = fileName;
             this._wav = new WaveFileReader(fileName);
             _time = Convert.ToInt32(_wav.TotalTime.TotalSeconds);
-            _output = new DirectSoundOut();
+            
+            _output = new WaveOutEvent();
+
             _output.Init(new WaveChannel32(_wav));
         }
        
@@ -54,7 +56,7 @@ namespace GUI
             double tt = t * _time / 100000;
             if (_output != null)
                 _output.Stop();
-            _output = new DirectSoundOut();
+            _output = new WaveOutEvent();
             _wav.Position = (long)(tt * _wav.WaveFormat.AverageBytesPerSecond);
 
             _output.Init(new WaveChannel32(_wav) );
@@ -74,10 +76,9 @@ namespace GUI
                       }
             }
 
-        public void setvolum(float a) {
-
-         //   output.Volume = a;
-        
+        public override void setvolumn(float x)
+        {
+            _output.Volume = (float)x / 100;
         }
 
         override public void setCur(TimeSpan x)
