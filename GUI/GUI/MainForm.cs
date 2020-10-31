@@ -221,12 +221,12 @@ namespace GUI
         }
         private void stopButton_MouseDown(object sender, MouseEventArgs e)
         {
-            stopButton.ImageIndex = 2;
+            stopButton.ImageIndex = 1;
         }
 
         private void stopButton_MouseHover(object sender, EventArgs e)
         {
-            stopButton.ImageIndex = 1;
+            stopButton.ImageIndex = 2;
         }
 
         private void stopButton_MouseLeave(object sender, EventArgs e)
@@ -581,7 +581,7 @@ namespace GUI
                     TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
                     this._music.setCur(x);
 
-                }
+               }
             }
         }
         //
@@ -802,5 +802,7 @@ namespace GUI
         {
 
         }
+
+       
     }
 }
