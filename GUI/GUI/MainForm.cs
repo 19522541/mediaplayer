@@ -32,11 +32,11 @@ namespace GUI
             this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._list = new List<String>();
             this.musicProcessBar.Enabled = false;
-            this._list.Add("D:\\bt2\\test.wav");
-            this._list.Add("D:\\bt2\\test1.mp3");
-            this._list.Add("D:\\bt2\\test2.mp3");
-            this._list.Add("D:\\bt2\\test3.mp3");
-            this._list.Add("D:\\bt2\\test4.mp3");
+            this._list.Add("D:\\bt2\\test1.wav");
+            this._list.Add("D:\\bt2\\test2.wav");
+            this._list.Add("D:\\bt2\\test3.wav");
+            this._list.Add("D:\\bt2\\test4.wav");
+            this._list.Add("D:\\bt2\\test5.mp3");
             setup();
             if (this._list[this._nowPlayIndex].Contains(".wav"))
             {
@@ -222,12 +222,12 @@ namespace GUI
         }
         private void stopButton_MouseDown(object sender, MouseEventArgs e)
         {
-            stopButton.ImageIndex = 2;
+            stopButton.ImageIndex = 1;
         }
 
         private void stopButton_MouseHover(object sender, EventArgs e)
         {
-            stopButton.ImageIndex = 1;
+            stopButton.ImageIndex = 2;
         }
 
         private void stopButton_MouseLeave(object sender, EventArgs e)
@@ -582,7 +582,7 @@ namespace GUI
                     TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
                     this._music.setCur(x);
 
-                }
+               }
             }
         }
         //
@@ -804,5 +804,7 @@ namespace GUI
         {
 
         }
+
+       
     }
 }
