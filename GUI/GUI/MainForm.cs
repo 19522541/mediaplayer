@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using AudioSwitcher.AudioApi.CoreAudio;
 using Bunifu.UI.WinForms;
-
+using Microsoft.WindowsAPICodePack.Dialogs;
 namespace GUI
 {
     public partial class MainForm : Form
     {
         private Form _activeForm = null;
-        private int _bfHoverIndex = 1;
+        private int _bfHoverIndex = 0;
         private Player _music;
         private CoreAudioDevice _playBackDevice;
         private List<String> _list;
@@ -20,6 +22,8 @@ namespace GUI
         private int _min = 0;
         private int _sed = 0;
         private int _lastSoundValue = 0;
+        private bool _random = false;
+        
         
         public MainForm()
         { 
@@ -32,15 +36,15 @@ namespace GUI
             this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._list = new List<String>();
             this.musicProcessBar.Enabled = false;
-            this._list.Add("D:\\bt2\\test1.wav");
-            this._list.Add("D:\\bt2\\test2.wav");
-            this._list.Add("D:\\bt2\\test3.wav");
-            this._list.Add("D:\\bt2\\test4.wav");
-            this._list.Add("D:\\bt2\\test5.mp3");
+           
+            this._list.Add(@"C:\Users\Admin\Music\test2.mp3");
+            this._list.Add(@"C:\Users\Admin\Music\test3.mp3");
+            this._list.Add(@"C:\Users\Admin\Music\test4.mp3");
+            this._list.Add(@"C:\Users\Admin\Music\test5.mp3");
             setup();
             if (this._list[this._nowPlayIndex].Contains(".wav"))
             {
-                _music = new Sound(this._list[this._nowPlayIndex]);
+                _music = new WavPlayer(this._list[this._nowPlayIndex]);
             }
             else if (this._list[this._nowPlayIndex].Contains(".mp3"))
             {
@@ -162,15 +166,27 @@ namespace GUI
         //
         // Play button
         //
-        private void playButton_Click(object sender, EventArgs e)
+        public void playButton_Click(object sender, EventArgs e)
         {
+            var fileTag = TagLib.File.Create(this._list[this._nowPlayIndex]);
+            label1.Text = fileTag.Tag.Album;
+            TimeSpan songlegth = fileTag.Properties.Duration;
+            
             //code de dung nhac//
+            if (this._list[this._nowPlayIndex].Contains(".wav"))
+            {
+                _music = new WavPlayer(this._list[this._nowPlayIndex]);
+            }
+            else if (this._list[this._nowPlayIndex].Contains(".mp3"))
+            {
+                _music = new Mp3Player(this._list[this._nowPlayIndex]);
+            }
             this.musicProcessBar.Enabled = true;
             stopButton.Enabled = true;
             stopButton.Visible = true;
             playButton.Enabled = false;
             playButton.Visible = false;
-            songLength.Text = this._music.getSongLength();
+            songLength.Text = songlegth.ToString(@"mm\:ss");
             //music.SettimeAudio(musicProcessBar.Value);
             //music.DisposeWave();
            
@@ -180,7 +196,7 @@ namespace GUI
             _sed = 0;
             musicBarTimer.Start();
             count.Start();
-            songLength.Text = _music.getSongLength();
+            
             _music.start();
             
             
@@ -248,16 +264,21 @@ namespace GUI
             this.musicProcessBar.Value = 0;
             this._check = 0;
             this._music = null;
-            if (this._nowPlayIndex == 0) this._nowPlayIndex = this._list.Count - 1;
-            else this._nowPlayIndex--;
-            if (this._list[this._nowPlayIndex].Contains(".wav"))
+            if (!this._random)
             {
-                _music = new Sound(this._list[this._nowPlayIndex]);
+                if (this._nowPlayIndex > 0) this._nowPlayIndex--;
+                else this._nowPlayIndex = this._nowPlayIndex = this._list.Count - 1;
             }
-            else if (this._list[this._nowPlayIndex].Contains(".mp3"))
+            else
             {
-                _music = new Mp3Player(this._list[this._nowPlayIndex]);
+                int temp = this._nowPlayIndex;
+                while (temp == this._nowPlayIndex)
+                {
+                    Random x = new Random();
+                    this._nowPlayIndex = x.Next(0, this._list.Count - 1);
+                }
             }
+            
             playButton_Click(sender, e);
             
         }
@@ -301,6 +322,15 @@ namespace GUI
             else
                 randomButton.ImageIndex = 1;
             this._bfHoverIndex = randomButton.ImageIndex;
+            if (this._random)
+            {
+                this._random = false;
+            }
+            else
+            {
+                this._random = true;
+            }
+
         }
 
         private void randomButton_MouseHover(object sender, EventArgs e)
@@ -310,7 +340,7 @@ namespace GUI
             {
                 randomButton.ImageIndex = 2;
             }
-            else
+            else if (this._bfHoverIndex == 1)
             {
                 randomButton.ImageIndex = 3;
             }
@@ -327,19 +357,24 @@ namespace GUI
         private void nextButton_Click(object sender, EventArgs e)
         {
             this._music.stop();
-            musicProcessBar.Value = 1;
+            musicProcessBar.Value = 0;
             this._check = 0;
             //this._music.D
-            if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
-            else this._nowPlayIndex = 0;
-            if (this._list[this._nowPlayIndex].Contains(".wav"))
+            if (!this._random)
             {
-                _music = new Sound(this._list[this._nowPlayIndex]);
+                if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
+                else this._nowPlayIndex = 0;
             }
-            else if (this._list[this._nowPlayIndex].Contains(".mp3"))
+            else
             {
-                _music = new Mp3Player(this._list[this._nowPlayIndex]);
+                int temp = this._nowPlayIndex;
+                while (temp == this._nowPlayIndex)
+                {
+                    Random x = new Random();
+                    this._nowPlayIndex = x.Next(0, this._list.Count - 1);
+                }
             }
+            
             playButton_Click(sender, e);
         }
 
@@ -494,10 +529,11 @@ namespace GUI
             {
                 sideMenuButton_Click(sender, e);
             }
-            showSubMenu(mediaSubMenu);
-            MediaForm newForm = new MediaForm();
+            
+            MediaForm newForm = new MediaForm(this, this._list);
             openNewForm(newForm);
-            //openNewForm(newForm);
+            showSubMenu(mediaSubMenu);
+            
         }
 
         private void playlistButton_Click(object sender, EventArgs e)
@@ -568,7 +604,7 @@ namespace GUI
 
         private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
-            songName.Text = this._nowPlayIndex.ToString();
+            
             time.Text = getCurTime(musicProcessBar.Value);
             this._check = musicProcessBar.Value;
             if (musicProcessBar.Focused == false)
@@ -622,12 +658,20 @@ namespace GUI
         //
         private void openButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "WAV file (*.wav)| *.wav";
-            if (open.ShowDialog() != DialogResult.OK) return;
-            this._list.Insert(0, open.FileName);
+            CommonOpenFileDialog open = new CommonOpenFileDialog();
+            open.InitialDirectory = "C:\\Users";
+            open.IsFolderPicker = true;
+            open.ShowDialog();
+            var files = Directory.EnumerateFiles(open.FileName,"*.*", SearchOption.AllDirectories)
+                .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
+            //open.Filter = "WAV file (*.wav)| *.wav";
+            //if (open.ShowDialog() != DialogResult.OK) return;
+
+            foreach( string filepath in files)
+            this._list.Insert(0, filepath);
             //this.playButton.ImageIndex = 0;
-            playButton_Click(sender, e);
+            
+            
         }
         //
         // Song Time Label
@@ -805,6 +849,13 @@ namespace GUI
 
         }
 
-       
+        public void playThisSong(int index)
+        {
+            
+            this._nowPlayIndex = index;
+            this._music.stop();
+            musicProcessBar.Value = 0;
+
+        }
     }
 }

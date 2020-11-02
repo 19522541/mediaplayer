@@ -28,7 +28,7 @@ namespace GUI
         }
         public override void setCur(TimeSpan x)
         {
-           
+            _stream.CurrentTime = x;
         }
        
         

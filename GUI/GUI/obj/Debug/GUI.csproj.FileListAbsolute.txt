@@ -241,3 +241,16 @@ D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cach
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.exe
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.pdb
+D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.createlistForm.resources
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\TagLibSharp.dll
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\TagLibSharp.pdb
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\TagLibSharp.xml
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
