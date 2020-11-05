@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    //delegate MediaFormEvt(object sender, EventArgs e);
     public partial class MediaForm : Form
     {
         private List<String> _list;

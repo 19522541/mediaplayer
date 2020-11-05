@@ -254,3 +254,16 @@ D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shel
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.dll
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.pdb
+D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.xml
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources

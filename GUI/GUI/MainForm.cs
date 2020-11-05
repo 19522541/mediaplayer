@@ -23,6 +23,8 @@ namespace GUI
         private int _sed = 0;
         private int _lastSoundValue = 0;
         private bool _random = false;
+        private int _mouseX = 0;
+        
         
         
         public MainForm()
@@ -36,24 +38,7 @@ namespace GUI
             this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._list = new List<String>();
             this.musicProcessBar.Enabled = false;
-           
-            this._list.Add(@"C:\Users\Admin\Music\test2.mp3");
-            this._list.Add(@"C:\Users\Admin\Music\test3.mp3");
-            this._list.Add(@"C:\Users\Admin\Music\test4.mp3");
-            this._list.Add(@"C:\Users\Admin\Music\test5.mp3");
             setup();
-            if (this._list[this._nowPlayIndex].Contains(".wav"))
-            {
-                _music = new WavPlayer(this._list[this._nowPlayIndex]);
-            }
-            else if (this._list[this._nowPlayIndex].Contains(".mp3"))
-            {
-                _music = new Mp3Player(this._list[this._nowPlayIndex]);
-            }
-            
-
-
-
         }
 
 
@@ -168,25 +153,30 @@ namespace GUI
         //
         public void playButton_Click(object sender, EventArgs e)
         {
-            var fileTag = TagLib.File.Create(this._list[this._nowPlayIndex]);
-            label1.Text = fileTag.Tag.Album;
-            TimeSpan songlegth = fileTag.Properties.Duration;
             
-            //code de dung nhac//
-            if (this._list[this._nowPlayIndex].Contains(".wav"))
+            if (this.musicProcessBar.Value == 0)
             {
-                _music = new WavPlayer(this._list[this._nowPlayIndex]);
-            }
-            else if (this._list[this._nowPlayIndex].Contains(".mp3"))
-            {
-                _music = new Mp3Player(this._list[this._nowPlayIndex]);
+                var fileTag = TagLib.File.Create(this._list[this._nowPlayIndex]);
+                label1.Text = fileTag.Tag.Title;
+                TimeSpan songlegth = fileTag.Properties.Duration;
+
+                //code de dung nhac//
+                if (this._list[this._nowPlayIndex].Contains(".wav"))
+                {
+                    _music = new WavPlayer(this._list[this._nowPlayIndex]);
+                }
+                else if (this._list[this._nowPlayIndex].Contains(".mp3"))
+                {
+                    _music = new Mp3Player(this._list[this._nowPlayIndex]);
+                }
+                songLength.Text = songlegth.ToString(@"mm\:ss");
             }
             this.musicProcessBar.Enabled = true;
             stopButton.Enabled = true;
             stopButton.Visible = true;
             playButton.Enabled = false;
             playButton.Visible = false;
-            songLength.Text = songlegth.ToString(@"mm\:ss");
+            
             //music.SettimeAudio(musicProcessBar.Value);
             //music.DisposeWave();
            
@@ -356,10 +346,10 @@ namespace GUI
         //
         private void nextButton_Click(object sender, EventArgs e)
         {
+            if (!musicProcessBar.Enabled) musicProcessBar.Enabled = true;
             this._music.stop();
             musicProcessBar.Value = 0;
             this._check = 0;
-            //this._music.D
             if (!this._random)
             {
                 if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
@@ -374,7 +364,6 @@ namespace GUI
                     this._nowPlayIndex = x.Next(0, this._list.Count - 1);
                 }
             }
-            
             playButton_Click(sender, e);
         }
 
@@ -569,7 +558,13 @@ namespace GUI
         //
         private void musicProcessBar_Click(object sender, EventArgs e)
         {
-          
+            int totalVal = musicProcessBar.Maximum - musicProcessBar.Minimum;
+            int totalPix = musicProcessBar.Size.Width;
+            float fraction = (float)this._mouseX / (float)totalPix;
+            float temp = fraction * totalVal;
+            musicProcessBar.Value = Convert.ToInt32(temp);
+            
+
         }
         private void musicProcessBar_MouseDown(object sender, MouseEventArgs e)
         {
@@ -589,37 +584,45 @@ namespace GUI
             playButton.Enabled = false;
             stopButton.Visible = true;
             stopButton.Enabled = true;
-            if (musicProcessBar.Value == musicProcessBar.Maximum)
-            {
-                nextButton_Click(sender, e);
-            }
-            else if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
-            {
+           if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
+           {
                 TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
                 this._music.setCur(x);
 
-            }
-            if (this.musicProcessBar.Value < this.musicProcessBar.Maximum) this._music.start();
+           }
+           if (this.musicProcessBar.Value < this.musicProcessBar.Maximum) this._music.start();
         }
 
         private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
             
             time.Text = getCurTime(musicProcessBar.Value);
-            this._check = musicProcessBar.Value;
+            if (musicProcessBar.Value == musicProcessBar.Maximum)
+            {
+                musicProcessBar.Enabled = false;
+                nextButton_Click(sender, e);
+            }
+            
             if (musicProcessBar.Focused == false)
             {
-                if (musicProcessBar.Value == musicProcessBar.Maximum)
-                {
-                    nextButton_Click(sender, e);
-                }
-                else if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
+                if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
                 {
                     TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
                     this._music.setCur(x);
 
                }
             }
+            this._check = musicProcessBar.Value;
+            label2.Text = musicProcessBar.Value.ToString()+ '-'+musicProcessBar.Maximum.ToString();
+        }
+
+        private void musicProcessBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            this._mouseX = e.X;
+        }
+        private void musicProcessBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
+        {
+
         }
         //
         // sound volume
@@ -644,7 +647,38 @@ namespace GUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            int index = userName.IndexOf(@"\");
+            string temp = userName.Substring(index + 1, userName.Length - index -1);
+            string path = @"C:\Users\" + temp + @"\Music";
+            DirectoryInfo musicFolder = new DirectoryInfo(path);
+            FileInfo[] musicFiles = musicFolder.GetFiles("*.mp3");
+            foreach (var x in musicFiles)
+            {
+                string dir = x.FullName;
+                this._list.Add(x.FullName);
+            }
+            musicFiles = musicFolder.GetFiles("*.wav");
+            foreach (var x in musicFiles)
+            {
+                string dir = x.FullName;
+                this._list.Add(x.FullName);
+            }
+            if (this._list.Count > 0)
+            {
+                if (this._list[this._nowPlayIndex].Contains(".wav"))
+                {
+                    _music = new WavPlayer(this._list[this._nowPlayIndex]);
+                }
+                else if (this._list[this._nowPlayIndex].Contains(".mp3"))
+                {
+                    _music = new Mp3Player(this._list[this._nowPlayIndex]);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hien tai khong co nhac");
+            }
         }
         
         private void timeSync_Tick(object sender, EventArgs e)
@@ -670,7 +704,7 @@ namespace GUI
             foreach( string filepath in files)
             this._list.Insert(0, filepath);
             //this.playButton.ImageIndex = 0;
-            
+            this.mediaButton_Click(sender, e);
             
         }
         //
@@ -844,10 +878,7 @@ namespace GUI
             }
         }
 
-        private void musicProcessBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
-        {
-
-        }
+        
 
         public void playThisSong(int index)
         {
@@ -857,5 +888,7 @@ namespace GUI
             musicProcessBar.Value = 0;
 
         }
+
+        
     }
 }

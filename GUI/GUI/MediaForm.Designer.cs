@@ -32,31 +32,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.songDataGridView = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.titleCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.artistCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.songDataGridView);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 629);
-            this.panel1.TabIndex = 1;
-            // 
             // songDataGridView
             // 
-            this.songDataGridView.AllowCustomTheming = false;
+            this.songDataGridView.AllowCustomTheming = true;
             this.songDataGridView.AllowUserToAddRows = false;
-            this.songDataGridView.AllowUserToDeleteRows = false;
             this.songDataGridView.AllowUserToResizeColumns = false;
             this.songDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
@@ -107,14 +94,14 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.songDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.songDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.songDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.songDataGridView.EnableHeadersVisualStyles = false;
             this.songDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(62)))));
             this.songDataGridView.HeaderBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.songDataGridView.HeaderBgColor = System.Drawing.Color.Empty;
             this.songDataGridView.HeaderForeColor = System.Drawing.Color.White;
             this.songDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.songDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.songDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.songDataGridView.Name = "songDataGridView";
             this.songDataGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -129,14 +116,14 @@
             this.songDataGridView.RowHeadersWidth = 51;
             this.songDataGridView.RowTemplate.Height = 40;
             this.songDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.songDataGridView.Size = new System.Drawing.Size(962, 612);
-            this.songDataGridView.TabIndex = 6;
+            this.songDataGridView.Size = new System.Drawing.Size(1089, 471);
+            this.songDataGridView.TabIndex = 7;
             this.songDataGridView.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
-            this.songDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
-            this.songDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songDataGridView_CellContentDoubleClick);
+            this.songDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.songDataGridView_CellContentDoubleClick);
             // 
             // titleCol
             // 
+            this.titleCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.titleCol.FillWeight = 15F;
             this.titleCol.HeaderText = "Title";
             this.titleCol.MinimumWidth = 6;
@@ -145,6 +132,7 @@
             // 
             // artistCol
             // 
+            this.artistCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.artistCol.FillWeight = 30F;
             this.artistCol.HeaderText = "Artist";
             this.artistCol.MinimumWidth = 6;
@@ -162,6 +150,7 @@
             // 
             // lengthCol
             // 
+            this.lengthCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lengthCol.FillWeight = 15F;
             this.lengthCol.HeaderText = "Length";
             this.lengthCol.MinimumWidth = 6;
@@ -170,23 +159,22 @@
             // 
             // MediaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(962, 609);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.ClientSize = new System.Drawing.Size(1089, 471);
+            this.Controls.Add(this.songDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MediaForm";
             this.Text = "MediaForm";
             this.Load += new System.EventHandler(this.MediaForm_Load);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+
         private Bunifu.UI.WinForms.BunifuDataGridView songDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn artistCol;
