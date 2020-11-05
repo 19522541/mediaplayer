@@ -116,8 +116,6 @@ D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.dll
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.dll
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.Deprecated.dll
-D:\bt2\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignColors.dll
-D:\bt2\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\NAudio.dll
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.xml
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
@@ -149,9 +147,6 @@ D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.xml
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.xml
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
-D:\bt2\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignColors.pdb
-D:\bt2\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\bt2\mediaplayer\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\NAudio.xml
 D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\GUI.exe.config
@@ -267,3 +262,4 @@ D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtension
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.pdb
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.xml
 D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources

@@ -560,8 +560,7 @@ namespace GUI
         {
             int totalVal = musicProcessBar.Maximum - musicProcessBar.Minimum;
             int totalPix = musicProcessBar.Size.Width;
-            float fraction = (float)this._mouseX / (float)totalPix;
-            float temp = fraction * totalVal;
+            float temp = (float)this._mouseX * totalVal / (float)totalPix;
             musicProcessBar.Value = Convert.ToInt32(temp);
             
 
@@ -690,21 +689,19 @@ namespace GUI
         //
         // Open button
         //
+        //Shrink problem
         private void openButton_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog open = new CommonOpenFileDialog();
             open.InitialDirectory = "C:\\Users";
             open.IsFolderPicker = true;
             open.ShowDialog();
-            var files = Directory.EnumerateFiles(open.FileName,"*.*", SearchOption.AllDirectories)
-                .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
-            //open.Filter = "WAV file (*.wav)| *.wav";
-            //if (open.ShowDialog() != DialogResult.OK) return;
-
-            foreach( string filepath in files)
-            this._list.Insert(0, filepath);
-            //this.playButton.ImageIndex = 0;
-            this.mediaButton_Click(sender, e);
+            //var files = Directory.EnumerateFiles(open.FileName,"*.*", SearchOption.AllDirectories)
+            //    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
+            //foreach( string filepath in files)
+            //    this._list.Insert(0, filepath);
+            ////this.playButton.ImageIndex = 0;
+            //this.mediaButton_Click(sender, e);
             
         }
         //
