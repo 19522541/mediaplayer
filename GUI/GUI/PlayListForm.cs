@@ -169,5 +169,10 @@ namespace GUI
                 temp.BackColor = System.Drawing.Color.DodgerBlue;
             else temp.BackColor=System.Drawing.Color.FromArgb(32, 30, 45);
         }
+
+        private void PlayListForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

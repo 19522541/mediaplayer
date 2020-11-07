@@ -78,6 +78,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PlayListForm";
             this.Text = "PlayListForm";
+            this.Load += new System.EventHandler(this.PlayListForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
