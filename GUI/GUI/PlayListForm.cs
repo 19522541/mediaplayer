@@ -51,8 +51,8 @@ namespace GUI
             
             image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             image.Dock = DockStyle.Top;
-            Bitmap pict = new Bitmap("D:\\object\\mediaplayer-master\\GUI\\GUI\\Resources\\listbox.png");
-            image.Image = (Image)pict;
+            //Bitmap pict = new Bitmap("D:\\object\\mediaplayer-master\\GUI\\GUI\\Resources\\listbox.png");
+            //image.Image = (Image)pict;
             image.Size = new Size(139, 125);
             listpanel.Controls.Add(image);
             System.Windows.Forms.Label listn = new System.Windows.Forms.Label();

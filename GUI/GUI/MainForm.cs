@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using AudioSwitcher.AudioApi.CoreAudio;
@@ -10,8 +11,10 @@ using Bunifu.UI.WinForms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 namespace GUI
 {
+    public delegate void UserChoiceHandler(object sender, EventArgs e);
     public partial class MainForm : Form
     {
+        
         private Form _activeForm = null;
         private int _bfHoverIndex = 0;
         private Player _music;
@@ -24,11 +27,17 @@ namespace GUI
         private int _lastSoundValue = 0;
         private bool _random = false;
         private int _mouseX = 0;
-        
-        
-        
+        private MediaForm _mediaForm;
+        private PictureForm _pictureForm;
+        private VideoForm _videoForm;
+        private PlayListForm _playListForm;
+        private int _curForm = 0;
+        private int _lastPlayed = -1;
+        private bool _mediaCheck = false;
+        private NowPlayingForm _nowPlayingForm;
         public MainForm()
-        { 
+        {
+            
             InitializeComponent();
             
             this.Text = String.Empty;
@@ -39,6 +48,20 @@ namespace GUI
             this._list = new List<String>();
             this.musicProcessBar.Enabled = false;
             setup();
+            this.DoubleBuffered = true;
+            this._mediaForm = new MediaForm(this, this._list);
+            this._pictureForm = new PictureForm();
+            this._videoForm = new VideoForm();
+            this._playListForm = new PlayListForm();
+            this._nowPlayingForm = new NowPlayingForm();
+            this._mediaForm.UserChoiceChanged += playButton_Click;
+            this._nowPlayingForm.FormBorderStyle = FormBorderStyle.None;
+            this._nowPlayingForm.TopLevel = false;
+            this.Dock = DockStyle.Left;
+            this.mainBotPanel.Controls.Add(this._nowPlayingForm);
+            _nowPlayingForm.BringToFront();
+            this._nowPlayingForm.Visible = false;
+
         }
 
 
@@ -52,7 +75,7 @@ namespace GUI
             this.soundVolumeBar.Value = 50;
           this._lastSoundValue = this.soundVolumeBar.Value;
         }
-
+        
         private void hideSubMenu()
         {
             if (mediaSubMenu.Visible == true)
@@ -76,21 +99,20 @@ namespace GUI
             }
         }
 
-        private void openNewForm(Form newForm)
+        private void openNewForm(Form newForm, int index)
         {
-            if (this._activeForm != null)
-            {
-                this._activeForm.Close();
-            }
-            this._activeForm = newForm;
-            newForm.TopLevel = false;
+            if (this._curForm == 1) this._mediaForm.Hide();
+            else if (this._curForm == 2) this._playListForm.Hide();
+            else if (this._curForm == 3) this._pictureForm.Hide();
+            else if (this._curForm == 4) this._videoForm.Hide();
             newForm.FormBorderStyle = FormBorderStyle.None;
             newForm.Dock = DockStyle.Fill;
+            newForm.TopLevel = false;
             mainMidPanel.Controls.Add(newForm);
             mainMidPanel.Tag = newForm;
             newForm.BringToFront();
             newForm.Show();
-
+            this._curForm = index;
         }
 
         void setSoundButtonImg()
@@ -157,9 +179,23 @@ namespace GUI
             if (this.musicProcessBar.Value == 0)
             {
                 var fileTag = TagLib.File.Create(this._list[this._nowPlayIndex]);
-                label1.Text = fileTag.Tag.Title;
                 TimeSpan songlegth = fileTag.Properties.Duration;
-
+                Image temp = null;
+                if (fileTag.Tag.Pictures.Length >= 1)
+                {
+                    var bin = (byte[])(fileTag.Tag.Pictures[0].Data.Data);
+                    temp = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(100, 100, null, IntPtr.Zero);
+                }
+                else
+                {
+                    temp = new Bitmap(GUI.Properties.Resources.songImg);
+                }
+                string songName = fileTag.Tag.Album;
+                if (songName == null) songName = "Unknown";
+                string artist = fileTag.Tag.FirstPerformer;
+                if (artist == null) artist = "Unknown";
+                this._nowPlayingForm.setNewInfo(temp,songName, artist);
+                this._nowPlayingForm.Visible = true;
                 //code de dung nhac//
                 if (this._list[this._nowPlayIndex].Contains(".wav"))
                 {
@@ -170,6 +206,20 @@ namespace GUI
                     _music = new Mp3Player(this._list[this._nowPlayIndex]);
                 }
                 songLength.Text = songlegth.ToString(@"mm\:ss");
+                if (this._lastPlayed != this._nowPlayIndex && this._mediaCheck)
+                {
+                    if (_lastPlayed == -1)
+                    {
+                        this._mediaForm.setup(_nowPlayIndex);
+                        this._mediaForm.setLastPlayed(this._nowPlayIndex);
+                    }
+                    else
+                    {
+                        this._mediaForm.restart(_lastPlayed);
+                        this._mediaForm.setup(_nowPlayIndex);
+                        this._mediaForm.setLastPlayed(this._nowPlayIndex);
+                    }
+                }
             }
             this.musicProcessBar.Enabled = true;
             stopButton.Enabled = true;
@@ -254,6 +304,8 @@ namespace GUI
             this.musicProcessBar.Value = 0;
             this._check = 0;
             this._music = null;
+            this._lastPlayed = this._nowPlayIndex;
+           
             if (!this._random)
             {
                 if (this._nowPlayIndex > 0) this._nowPlayIndex--;
@@ -350,6 +402,7 @@ namespace GUI
             this._music.stop();
             musicProcessBar.Value = 0;
             this._check = 0;
+            this._lastPlayed = this._nowPlayIndex;
             if (!this._random)
             {
                 if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
@@ -364,6 +417,7 @@ namespace GUI
                     this._nowPlayIndex = x.Next(0, this._list.Count - 1);
                 }
             }
+            
             playButton_Click(sender, e);
         }
 
@@ -514,13 +568,13 @@ namespace GUI
 
         private void mediaButton_Click(object sender, EventArgs e)
         {
+            this._mediaCheck = true;
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
             }
+            openNewForm(this._mediaForm,1);
             
-            MediaForm newForm = new MediaForm(this, this._list);
-            openNewForm(newForm);
             showSubMenu(mediaSubMenu);
             
         }
@@ -533,14 +587,17 @@ namespace GUI
                 sideMenuButton_Click(sender, e);
             }
             showSubMenu(playlistSubMenu);
-            PlayListForm newForm = new PlayListForm();
-            openNewForm(newForm);
+            
+            openNewForm(this._playListForm,2);
         }
 
         private void pictureButton_Click(object sender, EventArgs e)
         {
-            PictureForm newForm = new PictureForm();
-            openNewForm(newForm);
+            if (sideMenuPanel.Width < 70)
+            {
+                sideMenuButton_Click(sender, e);
+            }
+            openNewForm(this._pictureForm,3);
         }
 
         private void videoButton_Click(object sender, EventArgs e)
@@ -550,17 +607,20 @@ namespace GUI
                 sideMenuButton_Click(sender, e);
             }
             showSubMenu(videoSubMenu);
-            VideoForm newForm = new VideoForm();
-            openNewForm(newForm);
+            
+            openNewForm(this._videoForm,4);
         }
         //
         // music bar
         //
         private void musicProcessBar_Click(object sender, EventArgs e)
         {
+            int preVal = musicProcessBar.Value;
             int totalVal = musicProcessBar.Maximum - musicProcessBar.Minimum;
             int totalPix = musicProcessBar.Size.Width;
             float temp = (float)this._mouseX * totalVal / (float)totalPix;
+            if (temp > preVal) temp-=2;
+            else if (temp < preVal) temp+=2;
             musicProcessBar.Value = Convert.ToInt32(temp);
             
 
@@ -569,27 +629,29 @@ namespace GUI
         {
             if (stopButton.Enabled == true)
             {
-                this._music.pause();
-                playButton.Visible = true;
-                playButton.Enabled = true;
-                stopButton.Visible = false;
-                stopButton.Enabled = false;
+                //this._music.pause();
+                //playButton.Visible = true;
+                //playButton.Enabled = true;
+                //stopButton.Visible = false;
+                //stopButton.Enabled = false;
+                stopButton_Click(sender, e);
             }
         }
 
         private void musicProcessBar_MouseUp(object sender, MouseEventArgs e)
         {
-            playButton.Visible = false;
-            playButton.Enabled = false;
-            stopButton.Visible = true;
-            stopButton.Enabled = true;
+           
            if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
            {
                 TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
                 this._music.setCur(x);
 
            }
-           if (this.musicProcessBar.Value < this.musicProcessBar.Maximum) this._music.start();
+           //if (this.musicProcessBar.Value < this.musicProcessBar.Maximum) this._music.start();
+           if (playButton.Enabled && this.musicProcessBar.Value < this.musicProcessBar.Maximum)
+           {
+                playButton_Click(sender, e);
+           }
         }
 
         private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
@@ -612,7 +674,6 @@ namespace GUI
                }
             }
             this._check = musicProcessBar.Value;
-            label2.Text = musicProcessBar.Value.ToString()+ '-'+musicProcessBar.Maximum.ToString();
         }
 
         private void musicProcessBar_MouseMove(object sender, MouseEventArgs e)
@@ -678,6 +739,8 @@ namespace GUI
             {
                 MessageBox.Show("Hien tai khong co nhac");
             }
+            
+
         }
         
         private void timeSync_Tick(object sender, EventArgs e)
@@ -692,16 +755,18 @@ namespace GUI
         //Shrink problem
         private void openButton_Click(object sender, EventArgs e)
         {
+            int temp = this._list.Count;
             CommonOpenFileDialog open = new CommonOpenFileDialog();
             open.InitialDirectory = "C:\\Users";
             open.IsFolderPicker = true;
             open.ShowDialog();
-            //var files = Directory.EnumerateFiles(open.FileName,"*.*", SearchOption.AllDirectories)
-            //    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
-            //foreach( string filepath in files)
-            //    this._list.Insert(0, filepath);
-            ////this.playButton.ImageIndex = 0;
-            //this.mediaButton_Click(sender, e);
+            var files = Directory.EnumerateFiles(open.FileName,"*.*", SearchOption.AllDirectories)
+                .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
+            foreach( string filepath in files)
+                this._list.Add(filepath);
+            this.playButton.ImageIndex = 0;
+            this._mediaForm.addNewSong(temp);
+
             
         }
         //
@@ -879,13 +944,25 @@ namespace GUI
 
         public void playThisSong(int index)
         {
-            
             this._nowPlayIndex = index;
             this._music.stop();
             musicProcessBar.Value = 0;
-
         }
 
+        public void setLastPlayed(int index)
+        {
+            this._lastPlayed = index;
+        }
+
+        public int getNowPlayIndex()
+        {
+            return this._nowPlayIndex;
+        }
+
+        public bool havePlayed()
+        {
+            return musicProcessBar.Enabled;
+        }
         
     }
 }

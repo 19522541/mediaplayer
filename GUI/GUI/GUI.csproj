@@ -177,6 +177,12 @@
     <Compile Include="createlistForm.Designer.cs">
       <DependentUpon>createlistForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NowPlayingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowPlayingForm.Designer.cs">
+      <DependentUpon>NowPlayingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SongInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MediaForm.resx">
       <DependentUpon>MediaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowPlayingForm.resx">
+      <DependentUpon>NowPlayingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SongInfoForm.resx">
       <DependentUpon>SongInfoForm.cs</DependentUpon>
@@ -306,6 +315,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-help-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\songImg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

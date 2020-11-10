@@ -31,92 +31,41 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SongInfoForm));
             this.songPanel = new System.Windows.Forms.Panel();
-            this.deleteButton = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.buttonPanel = new System.Windows.Forms.Panel();
             this.addButton = new Bunifu.UI.WinForms.BunifuImageButton();
             this.playButton = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.songNamePanel = new System.Windows.Forms.Panel();
-            this.songName = new System.Windows.Forms.Label();
-            this.lengthPanel = new System.Windows.Forms.Panel();
-            this.length = new System.Windows.Forms.Label();
-            this.titlePanel = new System.Windows.Forms.Panel();
+            this.fdeleteButton = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.indexLabel = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
-            this.artistPanel = new System.Windows.Forms.Panel();
             this.artist = new System.Windows.Forms.Label();
+            this.songName = new System.Windows.Forms.Label();
+            this.length = new System.Windows.Forms.Label();
             this.songInfoContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.songInfoTimer = new System.Windows.Forms.Timer(this.components);
             this.songPanel.SuspendLayout();
-            this.buttonPanel.SuspendLayout();
-            this.songNamePanel.SuspendLayout();
-            this.lengthPanel.SuspendLayout();
-            this.titlePanel.SuspendLayout();
-            this.artistPanel.SuspendLayout();
             this.songInfoContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // songPanel
             // 
             this.songPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.songPanel.Controls.Add(this.deleteButton);
-            this.songPanel.Controls.Add(this.buttonPanel);
-            this.songPanel.Controls.Add(this.songNamePanel);
-            this.songPanel.Controls.Add(this.lengthPanel);
-            this.songPanel.Controls.Add(this.titlePanel);
-            this.songPanel.Controls.Add(this.artistPanel);
+            this.songPanel.Controls.Add(this.addButton);
+            this.songPanel.Controls.Add(this.playButton);
+            this.songPanel.Controls.Add(this.fdeleteButton);
+            this.songPanel.Controls.Add(this.indexLabel);
+            this.songPanel.Controls.Add(this.title);
+            this.songPanel.Controls.Add(this.artist);
+            this.songPanel.Controls.Add(this.songName);
+            this.songPanel.Controls.Add(this.length);
             this.songPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.songPanel.Location = new System.Drawing.Point(0, 0);
             this.songPanel.Name = "songPanel";
-            this.songPanel.Size = new System.Drawing.Size(884, 40);
+            this.songPanel.Size = new System.Drawing.Size(713, 40);
             this.songPanel.TabIndex = 0;
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.ActiveImage = null;
-            this.deleteButton.AllowAnimations = true;
-            this.deleteButton.AllowBuffering = false;
-            this.deleteButton.AllowToggling = false;
-            this.deleteButton.AllowZooming = true;
-            this.deleteButton.AllowZoomingOnFocus = false;
-            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
-            this.deleteButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.deleteButton.ErrorImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.ErrorImage")));
-            this.deleteButton.FadeWhenInactive = false;
-            this.deleteButton.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
-            this.deleteButton.ImageActive = null;
-            this.deleteButton.ImageLocation = null;
-            this.deleteButton.ImageMargin = 40;
-            this.deleteButton.ImageSize = new System.Drawing.Size(0, 0);
-            this.deleteButton.ImageZoomSize = new System.Drawing.Size(40, 40);
-            this.deleteButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.InitialImage")));
-            this.deleteButton.Location = new System.Drawing.Point(844, 0);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Rotation = 0;
-            this.deleteButton.ShowActiveImage = true;
-            this.deleteButton.ShowCursorChanges = true;
-            this.deleteButton.ShowImageBorders = true;
-            this.deleteButton.ShowSizeMarkers = false;
-            this.deleteButton.Size = new System.Drawing.Size(40, 40);
-            this.deleteButton.TabIndex = 0;
-            this.deleteButton.ToolTipText = "";
-            this.deleteButton.WaitOnLoad = false;
-            this.deleteButton.Zoom = 40;
-            this.deleteButton.ZoomSpeed = 10;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // buttonPanel
-            // 
-            this.buttonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.buttonPanel.Controls.Add(this.addButton);
-            this.buttonPanel.Controls.Add(this.playButton);
-            this.buttonPanel.Location = new System.Drawing.Point(219, 0);
-            this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(154, 40);
-            this.buttonPanel.TabIndex = 7;
-            this.buttonPanel.Click += new System.EventHandler(this.SongInfo_Click);
+            this.songPanel.Click += new System.EventHandler(this.Click1);
+            this.songPanel.DoubleClick += new System.EventHandler(this.DoubleClick1);
             // 
             // addButton
             // 
@@ -126,6 +75,7 @@
             this.addButton.AllowToggling = false;
             this.addButton.AllowZooming = true;
             this.addButton.AllowZoomingOnFocus = false;
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.addButton.BackColor = System.Drawing.Color.Transparent;
             this.addButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.addButton.ErrorImage = ((System.Drawing.Image)(resources.GetObject("addButton.ErrorImage")));
@@ -138,7 +88,7 @@
             this.addButton.ImageSize = new System.Drawing.Size(0, 0);
             this.addButton.ImageZoomSize = new System.Drawing.Size(40, 40);
             this.addButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("addButton.InitialImage")));
-            this.addButton.Location = new System.Drawing.Point(94, 0);
+            this.addButton.Location = new System.Drawing.Point(230, 0);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addButton.Name = "addButton";
             this.addButton.Rotation = 0;
@@ -147,7 +97,7 @@
             this.addButton.ShowImageBorders = true;
             this.addButton.ShowSizeMarkers = false;
             this.addButton.Size = new System.Drawing.Size(40, 40);
-            this.addButton.TabIndex = 0;
+            this.addButton.TabIndex = 10;
             this.addButton.ToolTipText = "";
             this.addButton.WaitOnLoad = false;
             this.addButton.Zoom = 40;
@@ -162,6 +112,7 @@
             this.playButton.AllowToggling = false;
             this.playButton.AllowZooming = true;
             this.playButton.AllowZoomingOnFocus = false;
+            this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.playButton.BackColor = System.Drawing.Color.Transparent;
             this.playButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.playButton.ErrorImage = ((System.Drawing.Image)(resources.GetObject("playButton.ErrorImage")));
@@ -174,7 +125,7 @@
             this.playButton.ImageSize = new System.Drawing.Size(0, 0);
             this.playButton.ImageZoomSize = new System.Drawing.Size(40, 40);
             this.playButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("playButton.InitialImage")));
-            this.playButton.Location = new System.Drawing.Point(33, 0);
+            this.playButton.Location = new System.Drawing.Point(166, 0);
             this.playButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.playButton.Name = "playButton";
             this.playButton.Rotation = 0;
@@ -183,96 +134,127 @@
             this.playButton.ShowImageBorders = true;
             this.playButton.ShowSizeMarkers = false;
             this.playButton.Size = new System.Drawing.Size(40, 40);
-            this.playButton.TabIndex = 0;
+            this.playButton.TabIndex = 11;
             this.playButton.ToolTipText = "";
             this.playButton.WaitOnLoad = false;
             this.playButton.Zoom = 40;
             this.playButton.ZoomSpeed = 10;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
-            // songNamePanel
+            // fdeleteButton
             // 
-            this.songNamePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.songNamePanel.Controls.Add(this.songName);
-            this.songNamePanel.Location = new System.Drawing.Point(3, 0);
-            this.songNamePanel.Name = "songNamePanel";
-            this.songNamePanel.Size = new System.Drawing.Size(217, 40);
-            this.songNamePanel.TabIndex = 6;
-            this.songNamePanel.Click += new System.EventHandler(this.SongInfo_Click);
+            this.fdeleteButton.ActiveImage = null;
+            this.fdeleteButton.AllowAnimations = true;
+            this.fdeleteButton.AllowBuffering = false;
+            this.fdeleteButton.AllowToggling = false;
+            this.fdeleteButton.AllowZooming = true;
+            this.fdeleteButton.AllowZoomingOnFocus = false;
+            this.fdeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fdeleteButton.BackColor = System.Drawing.Color.Transparent;
+            this.fdeleteButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.fdeleteButton.ErrorImage = ((System.Drawing.Image)(resources.GetObject("fdeleteButton.ErrorImage")));
+            this.fdeleteButton.FadeWhenInactive = false;
+            this.fdeleteButton.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.fdeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("fdeleteButton.Image")));
+            this.fdeleteButton.ImageActive = null;
+            this.fdeleteButton.ImageLocation = null;
+            this.fdeleteButton.ImageMargin = 40;
+            this.fdeleteButton.ImageSize = new System.Drawing.Size(0, 0);
+            this.fdeleteButton.ImageZoomSize = new System.Drawing.Size(40, 40);
+            this.fdeleteButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("fdeleteButton.InitialImage")));
+            this.fdeleteButton.Location = new System.Drawing.Point(668, 0);
+            this.fdeleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fdeleteButton.Name = "fdeleteButton";
+            this.fdeleteButton.Rotation = 0;
+            this.fdeleteButton.ShowActiveImage = true;
+            this.fdeleteButton.ShowCursorChanges = true;
+            this.fdeleteButton.ShowImageBorders = true;
+            this.fdeleteButton.ShowSizeMarkers = false;
+            this.fdeleteButton.Size = new System.Drawing.Size(40, 40);
+            this.fdeleteButton.TabIndex = 0;
+            this.fdeleteButton.ToolTipText = "";
+            this.fdeleteButton.WaitOnLoad = false;
+            this.fdeleteButton.Zoom = 40;
+            this.fdeleteButton.ZoomSpeed = 10;
+            this.fdeleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // songName
+            // indexLabel
             // 
-            this.songName.AutoSize = true;
-            this.songName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.songName.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.songName.Location = new System.Drawing.Point(76, 9);
-            this.songName.Name = "songName";
-            this.songName.Size = new System.Drawing.Size(91, 20);
-            this.songName.TabIndex = 0;
-            this.songName.Text = "song name";
-            // 
-            // lengthPanel
-            // 
-            this.lengthPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.lengthPanel.Controls.Add(this.length);
-            this.lengthPanel.Location = new System.Drawing.Point(767, 0);
-            this.lengthPanel.Name = "lengthPanel";
-            this.lengthPanel.Size = new System.Drawing.Size(74, 40);
-            this.lengthPanel.TabIndex = 5;
-            this.lengthPanel.Click += new System.EventHandler(this.SongInfo_Click);
-            // 
-            // length
-            // 
-            this.length.AutoSize = true;
-            this.length.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.length.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.length.Location = new System.Drawing.Point(7, 9);
-            this.length.Name = "length";
-            this.length.Size = new System.Drawing.Size(44, 20);
-            this.length.TabIndex = 0;
-            this.length.Text = "label";
-            // 
-            // titlePanel
-            // 
-            this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.titlePanel.Controls.Add(this.title);
-            this.titlePanel.Location = new System.Drawing.Point(565, 0);
-            this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(203, 40);
-            this.titlePanel.TabIndex = 4;
-            this.titlePanel.Click += new System.EventHandler(this.SongInfo_Click);
+            this.indexLabel.AutoEllipsis = true;
+            this.indexLabel.AutoSize = true;
+            this.indexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.indexLabel.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.indexLabel.Location = new System.Drawing.Point(12, 11);
+            this.indexLabel.MaximumSize = new System.Drawing.Size(211, 20);
+            this.indexLabel.Name = "indexLabel";
+            this.indexLabel.Size = new System.Drawing.Size(41, 20);
+            this.indexLabel.TabIndex = 12;
+            this.indexLabel.Text = "num";
+            this.indexLabel.Click += new System.EventHandler(this.Click1);
+            this.indexLabel.DoubleClick += new System.EventHandler(this.DoubleClick1);
             // 
             // title
             // 
+            this.title.AutoEllipsis = true;
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.title.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.title.Location = new System.Drawing.Point(74, 9);
+            this.title.Location = new System.Drawing.Point(61, 11);
+            this.title.MaximumSize = new System.Drawing.Size(211, 20);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(36, 20);
-            this.title.TabIndex = 0;
+            this.title.TabIndex = 12;
             this.title.Text = "title";
-            // 
-            // artistPanel
-            // 
-            this.artistPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.artistPanel.Controls.Add(this.artist);
-            this.artistPanel.Location = new System.Drawing.Point(372, 0);
-            this.artistPanel.Name = "artistPanel";
-            this.artistPanel.Size = new System.Drawing.Size(197, 40);
-            this.artistPanel.TabIndex = 3;
-            this.artistPanel.Click += new System.EventHandler(this.SongInfo_Click);
+            this.title.Click += new System.EventHandler(this.Click1);
+            this.title.DoubleClick += new System.EventHandler(this.DoubleClick1);
             // 
             // artist
             // 
+            this.artist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.artist.AutoEllipsis = true;
             this.artist.AutoSize = true;
             this.artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.artist.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.artist.Location = new System.Drawing.Point(77, 9);
+            this.artist.Location = new System.Drawing.Point(342, 9);
+            this.artist.MaximumSize = new System.Drawing.Size(145, 20);
             this.artist.Name = "artist";
             this.artist.Size = new System.Drawing.Size(47, 20);
-            this.artist.TabIndex = 0;
+            this.artist.TabIndex = 13;
             this.artist.Text = "artist";
+            this.artist.Click += new System.EventHandler(this.Click1);
+            this.artist.DoubleClick += new System.EventHandler(this.DoubleClick1);
+            // 
+            // songName
+            // 
+            this.songName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.songName.AutoEllipsis = true;
+            this.songName.AutoSize = true;
+            this.songName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.songName.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.songName.Location = new System.Drawing.Point(448, 9);
+            this.songName.MaximumSize = new System.Drawing.Size(152, 20);
+            this.songName.Name = "songName";
+            this.songName.Size = new System.Drawing.Size(91, 20);
+            this.songName.TabIndex = 14;
+            this.songName.Text = "song name";
+            this.songName.Click += new System.EventHandler(this.Click1);
+            this.songName.DoubleClick += new System.EventHandler(this.DoubleClick1);
+            // 
+            // length
+            // 
+            this.length.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.length.AutoEllipsis = true;
+            this.length.AutoSize = true;
+            this.length.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.length.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.length.Location = new System.Drawing.Point(607, 9);
+            this.length.MaximumSize = new System.Drawing.Size(54, 20);
+            this.length.Name = "length";
+            this.length.Size = new System.Drawing.Size(54, 20);
+            this.length.TabIndex = 15;
+            this.length.Text = "length";
+            this.length.Click += new System.EventHandler(this.Click1);
+            this.length.DoubleClick += new System.EventHandler(this.DoubleClick1);
             // 
             // songInfoContextMenu
             // 
@@ -283,47 +265,46 @@
             this.addToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.songInfoContextMenu.Name = "contextMenuStrip1";
-            this.songInfoContextMenu.Size = new System.Drawing.Size(211, 104);
+            this.songInfoContextMenu.Size = new System.Drawing.Size(123, 76);
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.playToolStripMenuItem.Text = "Play";
+            this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // songInfoTimer
+            // 
+            this.songInfoTimer.Enabled = true;
+            this.songInfoTimer.Interval = 50;
+            this.songInfoTimer.Tick += new System.EventHandler(this.songInfoTimer_Tick);
             // 
             // SongInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 40);
+            this.ClientSize = new System.Drawing.Size(713, 40);
             this.Controls.Add(this.songPanel);
             this.Name = "SongInfoForm";
             this.Text = "NowPlayingForm";
             this.songPanel.ResumeLayout(false);
-            this.buttonPanel.ResumeLayout(false);
-            this.songNamePanel.ResumeLayout(false);
-            this.songNamePanel.PerformLayout();
-            this.lengthPanel.ResumeLayout(false);
-            this.lengthPanel.PerformLayout();
-            this.titlePanel.ResumeLayout(false);
-            this.titlePanel.PerformLayout();
-            this.artistPanel.ResumeLayout(false);
-            this.artistPanel.PerformLayout();
+            this.songPanel.PerformLayout();
             this.songInfoContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -332,21 +313,18 @@
         #endregion
 
         private System.Windows.Forms.Panel songPanel;
-        private System.Windows.Forms.Panel buttonPanel;
-        private System.Windows.Forms.Panel songNamePanel;
-        private System.Windows.Forms.Panel lengthPanel;
-        private System.Windows.Forms.Panel titlePanel;
-        private System.Windows.Forms.Panel artistPanel;
-        private System.Windows.Forms.Label songName;
-        private System.Windows.Forms.Label length;
-        private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Label artist;
-        private Bunifu.UI.WinForms.BunifuImageButton deleteButton;
-        private Bunifu.UI.WinForms.BunifuImageButton addButton;
-        private Bunifu.UI.WinForms.BunifuImageButton playButton;
+        private Bunifu.UI.WinForms.BunifuImageButton fdeleteButton;
         private System.Windows.Forms.ContextMenuStrip songInfoContextMenu;
         private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private Bunifu.UI.WinForms.BunifuImageButton addButton;
+        private Bunifu.UI.WinForms.BunifuImageButton playButton;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Label length;
+        private System.Windows.Forms.Label songName;
+        private System.Windows.Forms.Label artist;
+        private System.Windows.Forms.Timer songInfoTimer;
+        private System.Windows.Forms.Label indexLabel;
     }
 }

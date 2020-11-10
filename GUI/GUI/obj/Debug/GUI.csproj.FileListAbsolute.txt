@@ -263,3 +263,4 @@ D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.pdb
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.xml
 D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources
 D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
