@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Siticone.UI.WinForms.Suite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +41,10 @@ namespace GUI
             this.DoubleBuffered = true;
             this._index = index;
             this.songInfoContextMenu.Renderer = new MyRenderer();
+            this.addContextMenuStrip.Renderer = new MyRenderer();
+            this.addContextMenuStrip.ForeColor = SystemColors.GradientActiveCaption;
+            songInfoContextMenu.ShowImageMargin = false;
+            this.addContextMenuStrip.ShowImageMargin = false;
 
         }
 
@@ -91,6 +96,10 @@ namespace GUI
             {
 
                 songInfoContextMenu.Show(Cursor.Position);
+            }
+            else if (me.Button == MouseButtons.Left)
+            {
+                addToList();
             }
         }
 
@@ -147,6 +156,7 @@ namespace GUI
 
             if (me.Button == MouseButtons.Left)
             {
+                
                 if (this._parent.getLastPlayed() == -1)
                 {
                     this._parent.setUserChoice(_dir);
@@ -221,6 +231,36 @@ namespace GUI
             songName.ForeColor = title.ForeColor = artist.ForeColor = length.ForeColor = Color.FromArgb(250, 58, 95);
             this.songInfoTimer.Stop();
         }
-        
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addToList();
+            songInfoContextMenu.AutoClose = false;
+            addContextMenuStrip.Show(songInfoContextMenu, new System.Drawing.Point(80, 30));
+        }
+
+        private void addToList()
+        {
+            addContextMenuStrip.Items.Clear();
+            
+            this.addContextMenuStrip.Items.Add("create new playlist");
+            this.addContextMenuStrip.Items.Add(new ToolStripSeparator());
+            List<String> list = new List<String>();
+            list.Add("list1");
+            list.Add("list2");
+            //List<MenuItem>
+            foreach (String x in list)
+            {
+                this.addContextMenuStrip.Items.Add(x);
+            }
+            
+            
+        }
+
+        private void addContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            songInfoContextMenu.Close();
+            //MessageBox.Show(e.ClickedItem.Text);
+        }
     }
 }

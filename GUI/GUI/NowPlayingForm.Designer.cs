@@ -69,10 +69,12 @@
             this.songNameLabel.Size = new System.Drawing.Size(89, 20);
             this.songNameLabel.TabIndex = 1;
             this.songNameLabel.Text = "songName";
+            this.songNameLabel.Click += new System.EventHandler(this.songNameLabel_Click);
             // 
             // songImg
             // 
             this.songImg.AllowFocused = false;
+            this.songImg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.songImg.AutoSizeHeight = true;
             this.songImg.BorderRadius = 42;
             this.songImg.Image = ((System.Drawing.Image)(resources.GetObject("songImg.Image")));

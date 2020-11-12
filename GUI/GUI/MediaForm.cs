@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,7 +22,7 @@ namespace GUI
         private string _userChoice;
         private MainForm _parent;
         private List<SongInfoForm> _songInfo = null;
-        private int _lastPlayed = -1;
+        public int _lastPlayed = -1;
         //
         //event
         //
@@ -66,42 +67,43 @@ namespace GUI
 
         public void MediaForm_Load(object sender, EventArgs e)
         {
-            //songDataGridView.Rows.Clear();
+            
             for (int i = 0; i < this._list.Count;i++)
             {
-                var fileTag = TagLib.File.Create(_list[i]);
-                string title = fileTag.Tag.Title;
-                string artist = fileTag.Tag.FirstPerformer;
-                string album = fileTag.Tag.Album;
-                TimeSpan songlegth = fileTag.Properties.Duration;
-                string duration = songlegth.ToString(@"mm\:ss");
+               
+                string title = this._parent._title[i];
+                string artist = this._parent._firstPerformer[i];
+                string album = this._parent._ablum[i];
+                string duration = this._parent._length[i];
                 SongInfoForm temp = new SongInfoForm(this,i, _list[i], album, title, artist, duration);
                 this._songInfo.Add(temp);
                 addSongInfo(temp);
-                
+
+
             }
             if (this._parent.havePlayed())
             {
                 this.setup(this._parent.getNowPlayIndex());
                 if (this._parent.getNowPlayIndex() == 0) this._lastPlayed = this._parent.getNowPlayIndex();
             }
-
+            
 
         }
+
+        
         public void addNewSong(int index)
         {
             for (int i = index; i < this._list.Count;i++ )
             {
-                var fileTag = TagLib.File.Create(_list[i]);
-                string title = fileTag.Tag.Title;
-                string artist = fileTag.Tag.FirstPerformer;
-                string album = fileTag.Tag.Album;
-                TimeSpan songlegth = fileTag.Properties.Duration;
-                string duration = songlegth.ToString(@"mm\:ss");
-                SongInfoForm temp = new SongInfoForm(this,i, _list[i], album, title, artist, duration);
+                string title = this._parent._title[i];
+                string artist = this._parent._firstPerformer[i];
+                string album = this._parent._ablum[i];
+                string duration = this._parent._length[i];
+                SongInfoForm temp = new SongInfoForm(this, i, _list[i], album, title, artist, duration);
+                //temp.Visible = false;
                 this._songInfo.Add(temp);
+                //temp.Visible = true;
                 addSongInfo(temp);
-
             }
         }
 

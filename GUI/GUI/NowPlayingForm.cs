@@ -24,5 +24,10 @@ namespace GUI
             this.songNameLabel.Text = songName;
             this.artistLabel.Text = artist;
         }
+
+        private void songNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

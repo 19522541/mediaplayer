@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Windows.Forms;
 using AudioSwitcher.AudioApi.CoreAudio;
 using Bunifu.UI.WinForms;
@@ -15,17 +16,19 @@ namespace GUI
     public partial class MainForm : Form
     {
         
-        private Form _activeForm = null;
+        
         private int _bfHoverIndex = 0;
         private Player _music;
         private CoreAudioDevice _playBackDevice;
         private List<String> _list;
-        private int _nowPlayIndex = 0;
+        public  int _nowPlayIndex = 0;
         private int _check = 0;
         private int _min = 0;
         private int _sed = 0;
         private int _lastSoundValue = 0;
         private bool _random = false;
+        private bool _loop = false;
+        private bool _loopAll = false;
         private int _mouseX = 0;
         private MediaForm _mediaForm;
         private PictureForm _pictureForm;
@@ -35,6 +38,11 @@ namespace GUI
         private int _lastPlayed = -1;
         private bool _mediaCheck = false;
         private NowPlayingForm _nowPlayingForm;
+        public List<String> _ablum;
+        public List<String> _title;
+        public List<String> _firstPerformer;
+        public List<String> _length;
+        public List<Image> _songImg;
         public MainForm()
         {
             
@@ -61,6 +69,11 @@ namespace GUI
             this.mainBotPanel.Controls.Add(this._nowPlayingForm);
             _nowPlayingForm.BringToFront();
             this._nowPlayingForm.Visible = false;
+            this._ablum = new List<String>();
+            this._title = new List<String>();
+            this._length = new List<String>();
+            this._firstPerformer = new List<String>();
+            this._songImg = new List<Image>();
 
         }
 
@@ -73,9 +86,36 @@ namespace GUI
             playlistSubMenu.Visible = false;
             //   this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
             this.soundVolumeBar.Value = 50;
-          this._lastSoundValue = this.soundVolumeBar.Value;
+            this._lastSoundValue = this.soundVolumeBar.Value;
         }
-        
+
+        private void takeData(String dir)
+        {
+            var fileTag = TagLib.File.Create(dir);
+            string title = fileTag.Tag.Title;
+            string artist = fileTag.Tag.FirstPerformer;
+            string album = fileTag.Tag.Album;
+            TimeSpan songlegth = fileTag.Properties.Duration;
+            string duration = songlegth.ToString(@"mm\:ss");
+            if (album == null) album = "Unknown";
+            if (artist == null) artist = "Unknown";
+            Image temp = null;
+            if (fileTag.Tag.Pictures.Length >= 1)
+            {
+                var bin = (byte[])(fileTag.Tag.Pictures[0].Data.Data);
+                temp = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(100, 100, null, IntPtr.Zero);
+            }
+            else
+            {
+                temp = new Bitmap(GUI.Properties.Resources.songImg);
+            }
+            this._ablum.Add(album);
+            this._firstPerformer.Add(artist);
+            this._title.Add(title);
+            this._length.Add(duration);
+            this._songImg.Add(temp);
+        }
+
         private void hideSubMenu()
         {
             if (mediaSubMenu.Visible == true)
@@ -167,6 +207,35 @@ namespace GUI
             
         }
 
+        void getNextSong(int z) // 1 for next and 2 for back
+        {
+            if (this._random)
+            {
+                int temp = this._nowPlayIndex;
+                while (temp == this._nowPlayIndex)
+                {
+                    Random x = new Random();
+                    this._nowPlayIndex = x.Next(0, this._list.Count - 1);
+                }
+
+            }
+            else if (this._loop)
+            {
+
+            }
+            else if (z == 1)
+            {
+                if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
+                else if (this._loopAll) this._nowPlayIndex = 0;
+                else this._nowPlayIndex = -1;
+            }
+            else if (z == 2)
+            {
+                if (this._nowPlayIndex > 0) this._nowPlayIndex--;
+                else  this._nowPlayIndex = this._nowPlayIndex = this._list.Count - 1;
+                
+            }
+        }
         //---------------------event-----------------//
 
         
@@ -175,28 +244,19 @@ namespace GUI
         //
         public void playButton_Click(object sender, EventArgs e)
         {
-            
+            if (this._nowPlayIndex == -1)
+            {
+                playButton.BringToFront();
+                if (this._mediaCheck) this._mediaForm.restart(this._list.Count - 1);
+                this._nowPlayingForm.Visible = false;
+                this._nowPlayIndex = 0;
+                return;
+            }
             if (this.musicProcessBar.Value == 0)
             {
-                var fileTag = TagLib.File.Create(this._list[this._nowPlayIndex]);
-                TimeSpan songlegth = fileTag.Properties.Duration;
-                Image temp = null;
-                if (fileTag.Tag.Pictures.Length >= 1)
-                {
-                    var bin = (byte[])(fileTag.Tag.Pictures[0].Data.Data);
-                    temp = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(100, 100, null, IntPtr.Zero);
-                }
-                else
-                {
-                    temp = new Bitmap(GUI.Properties.Resources.songImg);
-                }
-                string songName = fileTag.Tag.Album;
-                if (songName == null) songName = "Unknown";
-                string artist = fileTag.Tag.FirstPerformer;
-                if (artist == null) artist = "Unknown";
-                this._nowPlayingForm.setNewInfo(temp,songName, artist);
                 this._nowPlayingForm.Visible = true;
-                //code de dung nhac//
+                this._nowPlayingForm.setNewInfo(_songImg[this._nowPlayIndex],_title[_nowPlayIndex],_firstPerformer[_nowPlayIndex]);
+                this._nowPlayingForm.Visible = true;
                 if (this._list[this._nowPlayIndex].Contains(".wav"))
                 {
                     _music = new WavPlayer(this._list[this._nowPlayIndex]);
@@ -205,7 +265,7 @@ namespace GUI
                 {
                     _music = new Mp3Player(this._list[this._nowPlayIndex]);
                 }
-                songLength.Text = songlegth.ToString(@"mm\:ss");
+                songLength.Text = this._length[_nowPlayIndex];
                 if (this._lastPlayed != this._nowPlayIndex && this._mediaCheck)
                 {
                     if (_lastPlayed == -1)
@@ -220,23 +280,19 @@ namespace GUI
                         this._mediaForm.setLastPlayed(this._nowPlayIndex);
                     }
                 }
+                else
+                {
+                    this._lastPlayed = this._nowPlayIndex;
+                }
             }
             this.musicProcessBar.Enabled = true;
-            stopButton.Enabled = true;
-            stopButton.Visible = true;
-            playButton.Enabled = false;
-            playButton.Visible = false;
-            
-            //music.SettimeAudio(musicProcessBar.Value);
-            //music.DisposeWave();
-           
+            stopButton.BringToFront();
             musicProcessBar.Minimum = 0;
-            musicProcessBar.Maximum = this._music.getTime();//tao gia tri cho musicProcessBar moi khi chon file
+            musicProcessBar.Maximum = this._music.getTime();
             _min = 0;
             _sed = 0;
             musicBarTimer.Start();
             count.Start();
-            
             _music.start();
             
             
@@ -268,10 +324,11 @@ namespace GUI
         //
         private void stopButton_Click(object sender, EventArgs e)
         {
-            stopButton.Enabled = false;
-            stopButton.Visible = false;
-            playButton.Enabled = true;
-            playButton.Visible = true;
+            //stopButton.Enabled = false;
+            //stopButton.Visible = false;
+            //playButton.Enabled = true;
+            //playButton.Visible = true;
+            playButton.BringToFront();
             musicBarTimer.Stop();
             count.Stop();
             this._music.pause();
@@ -303,23 +360,9 @@ namespace GUI
             this._music.stop();
             this.musicProcessBar.Value = 0;
             this._check = 0;
-            this._music = null;
+            //this._music = null;
             this._lastPlayed = this._nowPlayIndex;
-           
-            if (!this._random)
-            {
-                if (this._nowPlayIndex > 0) this._nowPlayIndex--;
-                else this._nowPlayIndex = this._nowPlayIndex = this._list.Count - 1;
-            }
-            else
-            {
-                int temp = this._nowPlayIndex;
-                while (temp == this._nowPlayIndex)
-                {
-                    Random x = new Random();
-                    this._nowPlayIndex = x.Next(0, this._list.Count - 1);
-                }
-            }
+            getNextSong(2);
             
             playButton_Click(sender, e);
             
@@ -331,16 +374,15 @@ namespace GUI
             musicBarTimer.Stop();
             this._music.stop();
             backButton.ImageIndex = 1;
-            playButton.Visible = true;
-            stopButton.Visible = false;
+            
+            
         }
 
 
         private void backButton_MouseUp(object sender, MouseEventArgs e)
         {
             backButton.ImageIndex = 2;
-            playButton.Visible = false;
-            stopButton.Visible = true;
+            
         }
 
         private void backButton_MouseHover(object sender, EventArgs e)
@@ -403,21 +445,7 @@ namespace GUI
             musicProcessBar.Value = 0;
             this._check = 0;
             this._lastPlayed = this._nowPlayIndex;
-            if (!this._random)
-            {
-                if (this._nowPlayIndex < this._list.Count - 1) this._nowPlayIndex++;
-                else this._nowPlayIndex = 0;
-            }
-            else
-            {
-                int temp = this._nowPlayIndex;
-                while (temp == this._nowPlayIndex)
-                {
-                    Random x = new Random();
-                    this._nowPlayIndex = x.Next(0, this._list.Count - 1);
-                }
-            }
-            
+            getNextSong(1);
             playButton_Click(sender, e);
         }
 
@@ -427,15 +455,14 @@ namespace GUI
             musicBarTimer.Stop();
             this._music.stop();
             nextButton.ImageIndex = 1;
-            playButton.Visible = true;
-            stopButton.Visible = false;
+            
+            
         }
 
         private void nextButton_MouseUp(object sender, MouseEventArgs e)
         {
             nextButton.ImageIndex = 2;
-            playButton.Visible = false;
-            stopButton.Visible = true;
+            
         }
 
         private void nextButton_MouseHover(object sender, EventArgs e)
@@ -452,7 +479,8 @@ namespace GUI
         //
         private void loopButton_Click(object sender, EventArgs e)
         {
-            
+            if (this._loop) this._loop = false;
+            else this._loop = true;
         }
         //
         // Exit button
@@ -716,13 +744,15 @@ namespace GUI
             foreach (var x in musicFiles)
             {
                 string dir = x.FullName;
-                this._list.Add(x.FullName);
+                this._list.Add(dir);
+                takeData(dir);
             }
             musicFiles = musicFolder.GetFiles("*.wav");
             foreach (var x in musicFiles)
             {
                 string dir = x.FullName;
-                this._list.Add(x.FullName);
+                this._list.Add(dir);
+                takeData(dir);
             }
             if (this._list.Count > 0)
             {
@@ -759,14 +789,20 @@ namespace GUI
             CommonOpenFileDialog open = new CommonOpenFileDialog();
             open.InitialDirectory = "C:\\Users";
             open.IsFolderPicker = true;
-            open.ShowDialog();
-            var files = Directory.EnumerateFiles(open.FileName,"*.*", SearchOption.AllDirectories)
-                .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
-            foreach( string filepath in files)
-                this._list.Add(filepath);
-            this.playButton.ImageIndex = 0;
-            this._mediaForm.addNewSong(temp);
-
+            
+            if (open.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var files = Directory.EnumerateFiles(open.FileName, "*.*", SearchOption.AllDirectories)
+                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
+                foreach (string filepath in files)
+                    this._list.Add(filepath);
+                this.playButton.ImageIndex = 0;
+                for (int i = temp; i< this._list.Count; i++)
+                {
+                    takeData(this._list[i]);
+                }
+                this._mediaForm.addNewSong(temp);
+            }
             
         }
         //
@@ -963,6 +999,74 @@ namespace GUI
         {
             return musicProcessBar.Enabled;
         }
-        
+
+        private void loopButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (loopButton.ImageIndex == 1)
+            {
+                loopButton.ImageIndex = 0;
+            }
+            else if (loopButton.ImageIndex == 4)
+            {
+                loopButton.ImageIndex = 2;
+            }
+            else if (loopButton.ImageIndex == 5)
+            {
+                loopButton.ImageIndex = 3;
+            }
+        }
+
+        private void loopButton_MouseHover(object sender, EventArgs e)
+        {
+           if (loopButton.ImageIndex == 0)
+           {
+                loopButton.ImageIndex = 1;
+           }
+           else if (loopButton.ImageIndex == 2)
+           {
+                loopButton.ImageIndex = 4;
+           }
+            else if (loopButton.ImageIndex == 3)
+           {
+                loopButton.ImageIndex = 5;
+           }
+        }
+
+        private void loopButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (loopButton.ImageIndex == 1)
+            {
+                loopButton.ImageIndex = 0;
+            }
+            else if (loopButton.ImageIndex == 4)
+            {
+                loopButton.ImageIndex = 2;
+            }
+            else if (loopButton.ImageIndex == 5)
+            {
+                loopButton.ImageIndex = 3;
+            }
+        }
+
+        private void loopButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (loopButton.ImageIndex == 0)
+            {
+                loopButton.ImageIndex = 4;
+            }
+            else if (loopButton.ImageIndex == 2)
+            {
+                loopButton.ImageIndex = 5;
+            }
+            else if (loopButton.ImageIndex == 3)
+            {
+                loopButton.ImageIndex = 1;
+            }
+        }
+
+        private void mainPicturebox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
