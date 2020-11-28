@@ -28,65 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.addbutton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.playListView = new System.Windows.Forms.ListView();
+            this.playlistName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // label1
+            // playListView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(333, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 55);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "PlayList";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // addbutton
-            // 
-            this.addbutton.Location = new System.Drawing.Point(118, 29);
-            this.addbutton.Name = "addbutton";
-            this.addbutton.Size = new System.Drawing.Size(105, 34);
-            this.addbutton.TabIndex = 3;
-            this.addbutton.Text = "Create ";
-            this.addbutton.UseVisualStyleBackColor = true;
-            this.addbutton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(623, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "delete";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.playListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.playListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.playlistName});
+            this.playListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playListView.HideSelection = false;
+            this.playListView.Location = new System.Drawing.Point(0, 0);
+            this.playListView.Name = "playListView";
+            this.playListView.Size = new System.Drawing.Size(1089, 471);
+            this.playListView.TabIndex = 0;
+            this.playListView.UseCompatibleStateImageBehavior = false;
+            this.playListView.DoubleClick += new System.EventHandler(this.playListView_DoubleClick);
             // 
             // PlayListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(975, 609);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.addbutton);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.ClientSize = new System.Drawing.Size(1089, 471);
+            this.Controls.Add(this.playListView);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PlayListForm";
             this.Text = "PlayListForm";
+            this.Load += new System.EventHandler(this.PlayListForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button addbutton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView playListView;
+        private System.Windows.Forms.ColumnHeader playlistName;
     }
 }

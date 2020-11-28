@@ -73,6 +73,13 @@ namespace GUI
 
             else if(me.Button == MouseButtons.Left)
             {
+                if (this._parent._firstPlay)
+                {
+                    //this._parent._parent.setInfo(0, -1);
+                    this._parent._firstPlay = false;
+                    
+                }
+                this._parent._parent.setPlayedList(this._parent._list,this._parent._ablum, this._parent._title, this._parent._firstPerformer, this._parent._length, this._parent._songImg);
                 if (this._parent.getLastPlayed() == -1)
                 {
                     this._parent.setUserChoice(_dir);
@@ -100,6 +107,7 @@ namespace GUI
             else if (me.Button == MouseButtons.Left)
             {
                 addToList();
+                addContextMenuStrip.Show(addButton, new System.Drawing.Point(40, 30));
             }
         }
 
@@ -245,11 +253,9 @@ namespace GUI
             
             this.addContextMenuStrip.Items.Add("create new playlist");
             this.addContextMenuStrip.Items.Add(new ToolStripSeparator());
-            List<String> list = new List<String>();
-            list.Add("list1");
-            list.Add("list2");
+            
             //List<MenuItem>
-            foreach (String x in list)
+            foreach (String x in this._parent._parent._playListForm.getPlaylistsName())
             {
                 this.addContextMenuStrip.Items.Add(x);
             }
@@ -259,8 +265,31 @@ namespace GUI
 
         private void addContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            if (e.ClickedItem.Text == "create new playlist")
+            {
+                NewPlayListForm newForm = new NewPlayListForm(this._parent._parent,this._dir);
+                newForm.FormBorderStyle = FormBorderStyle.None;
+                newForm.ShowDialog();
+                
+            }
+            else
+            {
+                string playlistName = e.ClickedItem.Text;
+                foreach (Playlist x in this._parent._parent._playListForm.GetPlaylist())
+                {
+                    if (x._name == playlistName)
+                    {
+                        x._songDir.Add(this._dir);
+                        break;
+                    }
+                }
+            }
             songInfoContextMenu.Close();
-            //MessageBox.Show(e.ClickedItem.Text);
+        }
+
+        private void addContextMenuStrip_MouseLeave(object sender, EventArgs e)
+        {
+            songInfoContextMenu.AutoClose = true;
         }
     }
 }

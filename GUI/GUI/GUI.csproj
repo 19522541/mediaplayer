@@ -149,6 +149,9 @@
     <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Siticone.UI">
       <HintPath>..\..\..\..\Desktop\Siticone.UI.dll</HintPath>
     </Reference>
@@ -177,19 +180,27 @@
     <Compile Include="createlistForm.Designer.cs">
       <DependentUpon>createlistForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataReader.cs" />
+    <Compile Include="DataSaver.cs" />
+    <Compile Include="NewPlayListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPlayListForm.Designer.cs">
+      <DependentUpon>NewPlayListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NowPlayingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NowPlayingForm.Designer.cs">
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Playlist.cs" />
     <Compile Include="SongInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SongInfoForm.Designer.cs">
       <DependentUpon>SongInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="playlist.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,12 +234,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SongForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SongForm.Designer.cs">
-      <DependentUpon>SongForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="VideoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MediaForm.resx">
       <DependentUpon>MediaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPlayListForm.resx">
+      <DependentUpon>NewPlayListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowPlayingForm.resx">
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
@@ -321,6 +329,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\songImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-video-playlist-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

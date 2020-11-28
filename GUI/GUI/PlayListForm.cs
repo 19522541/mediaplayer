@@ -14,160 +14,154 @@ using System.Windows.Forms;
 namespace GUI
 {
     public partial class PlayListForm : Form
-    { List<Panel> _listpanel = new List<Panel>();
+    {
+        private MainForm _parent;
+        private List<Playlist> _playlists;
+        private ImageList _imgList = new ImageList();
+        public MediaForm _mediaForm;
+        private DataReader _dataReader;
         public PlayListForm()
         {
-          
+            this._playlists = new List<Playlist>();
+            _imgList.ImageSize = new Size(200, 200);
+            _imgList.ColorDepth = ColorDepth.Depth32Bit;
+
             InitializeComponent();
-
-            foreach (string temp in _yourlist._listname) {
-
-                displaylist(temp);
-            
-            
-            }
-            
+            this.playListView.LargeImageList = _imgList;
+            //this.playListView.SmallImageList = _imgList;
         }
-        //-------------------------------------------
-        _list _yourlist = new _list();
-        List<PictureBox> listbox=new List<PictureBox>();
-        int x =10;
-        int y =80;
-        //----------------funtion-----------------------------------
-      
         
-        
-        public void displaylist(string listname)
+        public PlayListForm(MainForm parent)
         {
-            Panel listpanel = new Panel();
-            listpanel.DoubleClick += new EventHandler(imagelist_Click);
+            this._playlists = new List<Playlist>();
+            _imgList.ImageSize = new Size(200, 200);
+            _imgList.ColorDepth = ColorDepth.Depth32Bit;
+            this._parent = parent;
+            InitializeComponent();
+            this.playListView.LargeImageList = _imgList;
+            this._dataReader = new DataReader(@"D:/bt2/data.json");
             
-            listpanel.Size = new System.Drawing.Size(139, 160);
+        }
 
-            listpanel.Location = new System.Drawing.Point(this.x, this.y);
-            PictureBox image = new PictureBox();
-            image.DoubleClick += new EventHandler(imagelist_Click);
-            image.Click += new EventHandler(_panelclick);
-            
-            image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            image.Dock = DockStyle.Top;
-            //Bitmap pict = new Bitmap("D:\\object\\mediaplayer-master\\GUI\\GUI\\Resources\\listbox.png");
-            //image.Image = (Image)pict;
-            image.Size = new Size(139, 125);
-            listpanel.Controls.Add(image);
-            System.Windows.Forms.Label listn = new System.Windows.Forms.Label();
-            listn.Text = listname;
-            listn.Font = new Font("Microsoft Sans Serif", 12);
-            listn.ForeColor = System.Drawing.Color.Magenta;
-            listn.Location = new Point(34, 131);
-            listpanel.Controls.Add(listn);
-        //    listpanel.MouseClick += new MouseEventHandler(_panelclick);
-            _listpanel.Add(listpanel);
-            this.Controls.Add(listpanel);
-
-            this.x += 200;
-            if (this.x >= 700)
+        public void addNewPlayList(string Name,string imgDir,string songDir)
+        {
+            Playlist x;
+            if (songDir == String.Empty)
             {
-                this.x = 10; this.y += 200;
-
+                 x = new Playlist(Name, imgDir);
             }
-          //  addclickeven();
-
-        
-
-        }
-      private  void addclickeven() {
-            foreach (var temp in _listpanel) {
-                temp.Click += new EventHandler(imagelist_Click);
-
+            else
+            {
+                List<String> list = new List<String>();
+                list.Add(songDir);
+                 x = new Playlist(Name,imgDir,list);
             }
+            this._playlists.Add(x);
+            ListViewItem temp;
+            if (x._imgDir != string.Empty)
+            {
+                _imgList.Images.Add(x._imgDir, Image.FromFile(x._imgDir));
+                 temp = new ListViewItem(x._name, x._imgDir);
+            }
+            else
+            {
+                var bmp = new Bitmap(GUI.Properties.Resources.pic);
+                _imgList.Images.Add("default", bmp);
+                temp = new ListViewItem(x._name, "default");
+            }
+            temp.ForeColor = SystemColors.GradientActiveCaption;
+            this.playListView.Items.Add(temp);
         }
-        private void _check() {
-            List<string> temp = new List<string>();
-            
-            foreach (var temp1 in _listpanel) {
-                string strr = "";
-                foreach (Control temp2 in temp1.Controls) {
-                   
-                    if (temp2.GetType() == typeof(PictureBox) && temp2.BackColor == System.Drawing.Color.DodgerBlue) {
-                        temp.Add(strr);
-                    }
-                    if (temp2.GetType() == typeof(System.Windows.Forms.Label)) { strr = temp2.Text; }
 
+        private void playListView_DoubleClick(object sender, EventArgs e)
+        {
+            var selectedPlayList = playListView.SelectedItems;
+            if (selectedPlayList.Count == 0)
+            {
+                return;
+            }
+            var playlist = selectedPlayList[0];
+            int index = 0;
+            foreach(Playlist x in this._playlists)
+            {
+                if (x.getName() == playlist.SubItems[0].Text)
+                {
+                    break;
                 }
-                 strr = "";
+                else
+                {
+                    index++;
+                }
             }
-            foreach (var t in temp) {
-                _yourlist.deletelist(t);
+            List<String> songDir = this._playlists[index]._songDir;
+            this._parent._mediaForm._nowPlayIndex = this._parent._nowPlayIndex;
+            this._parent.setInfo(0, -1);
             
-            }
+            this._parent._backupMediaForm = new MediaForm(this._parent, songDir); 
+            this._parent._playedList = this._parent._backupMediaForm._list;
+            this._parent._backupMediaForm._mediaCheck = true;
+            this._parent._backupMediaForm.UserChoiceChanged += this._parent.playButton_Click;
+            this._parent._backupMediaForm.FormBorderStyle = FormBorderStyle.None;
+            this._parent._backupMediaForm.Dock = DockStyle.Fill;
+            this._parent._backupMediaForm.TopLevel = false;
+            this.playListView.Hide();
+            this.Controls.Add(this._parent._backupMediaForm);
+            this._parent._backupMediaForm.Show();
+            this._parent.setPlayedList(_parent._backupMediaForm._list, _parent._backupMediaForm._ablum, _parent._backupMediaForm._title, _parent._backupMediaForm._firstPerformer, _parent._backupMediaForm._length, _parent._backupMediaForm._songImg);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void PlayListForm_Load(object sender, EventArgs e)
         {
-            createlistForm formtemp = new createlistForm();
-            formtemp.ShowDialog();
-            if (formtemp.listname.Text != "")
+            this.playListView.Items.Clear();
+            this._playlists.Clear();
+            _dataReader.loadData();
+            var list = _dataReader.getData();
+            if (list.Count == 0)
             {
-                _yourlist._addlist(formtemp.listname.Text);
-                displaylist(formtemp.listname.Text);
+                return;
             }
-            //MessageBox.Show("hello");
-
-            // using (createlistForm _createform = new createlistForm()) {
-            //    _createform.ShowDialog();
-
-            //    _yourlist._addlist(_createform.name);
-            //displaylist(_createform.name);
-
-        }
-
-
-        private void redisplaylist() {
-            foreach (var t in  _listpanel) { this.Controls.Remove(t); }
-            foreach (string temp in _yourlist._listname)
+            else
             {
-
-                displaylist(temp);
-
-
+                foreach (Playlist x in list)
+                {
+                    this._playlists.Add(x);
+                    ListViewItem temp;
+                    if (x._imgDir != string.Empty)
+                    {
+                        _imgList.Images.Add(x._imgDir, Image.FromFile(x._imgDir));
+                        temp = new ListViewItem(x._name, x._imgDir);
+                    }
+                    else
+                    {
+                        var bmp = new Bitmap(GUI.Properties.Resources.pic);
+                        _imgList.Images.Add("default", bmp);
+                        temp = new ListViewItem(x._name, "default");
+                    }
+                    temp.ForeColor = SystemColors.GradientActiveCaption;
+                    this.playListView.Items.Add(temp);
+                }
             }
-
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public List<Playlist> GetPlaylist()
         {
-
+            return this._playlists;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        public List<String> getPlaylistsName()
         {
-            _check();
-            this.x = 10;
-            this.y = 80;
-            redisplaylist();
-
-           //---------delete----------------------
+            List<String> rs = new List<String>();
+            foreach (Playlist x in this._playlists)
+            {
+                rs.Add(x._name);
+            }
+            return rs;
         }
 
-        private void namelist_Click(object sender, EventArgs e)
+        public void showInfo()
         {
-
-        }
-
-        private void imagelist_Click(object sender, EventArgs e)
-        {
-           
-            foreach (var temp in _listpanel) { temp.Hide(); }
-
-
-        }
-        private void _panelclick(object sender, EventArgs e) {
-            PictureBox temp = (PictureBox)sender;
-            if (temp.BackColor != System.Drawing.Color.DodgerBlue)
-                temp.BackColor = System.Drawing.Color.DodgerBlue;
-            else temp.BackColor=System.Drawing.Color.FromArgb(32, 30, 45);
+            this.playListView.Show();
         }
     }
 }

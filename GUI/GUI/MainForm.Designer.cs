@@ -40,13 +40,11 @@
             this.openButton = new System.Windows.Forms.Button();
             this.playlistButton = new System.Windows.Forms.Button();
             this.playlistSubMenu = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
+            this.createPlaylist = new System.Windows.Forms.Button();
             this.pictureButton = new System.Windows.Forms.Button();
             this.videoButton = new System.Windows.Forms.Button();
             this.videoSubMenu = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.mainBotPanel = new System.Windows.Forms.Panel();
@@ -77,11 +75,16 @@
             this.count = new System.Windows.Forms.Timer(this.components);
             this.sideMenuAni = new Bunifu.UI.WinForms.BunifuTransition(this.components);
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.backwardButton = new System.Windows.Forms.Button();
+            this.backwardButtonList = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.mainMidPanel = new System.Windows.Forms.Panel();
             this.mainPicturebox = new System.Windows.Forms.PictureBox();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.sideMenuPanel.SuspendLayout();
             this.iconPanel.SuspendLayout();
             this.mediaSubMenu.SuspendLayout();
@@ -91,6 +94,7 @@
             this.titlePanel.SuspendLayout();
             this.mainMidPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPicturebox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideMenuPanel
@@ -102,8 +106,9 @@
             this.sideMenuPanel.Controls.Add(this.playlistButton);
             this.sideMenuPanel.Controls.Add(this.playlistSubMenu);
             this.sideMenuPanel.Controls.Add(this.pictureButton);
-            this.sideMenuPanel.Controls.Add(this.videoButton);
             this.sideMenuPanel.Controls.Add(this.videoSubMenu);
+            this.sideMenuPanel.Controls.Add(this.videoButton);
+            this.sideMenuPanel.Controls.Add(this.panel1);
             this.sideMenuPanel.Controls.Add(this.helpButton);
             this.sideMenuAni.SetDecoration(this.sideMenuPanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.sideMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -230,7 +235,7 @@
             // playlistSubMenu
             // 
             this.playlistSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.playlistSubMenu.Controls.Add(this.button9);
+            this.playlistSubMenu.Controls.Add(this.createPlaylist);
             this.sideMenuAni.SetDecoration(this.playlistSubMenu, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.playlistSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.playlistSubMenu.Location = new System.Drawing.Point(3, 260);
@@ -239,22 +244,23 @@
             this.playlistSubMenu.Size = new System.Drawing.Size(251, 43);
             this.playlistSubMenu.TabIndex = 4;
             // 
-            // button9
+            // createPlaylist
             // 
-            this.sideMenuAni.SetDecoration(this.button9, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(251, 39);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "button9";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = true;
+            this.sideMenuAni.SetDecoration(this.createPlaylist, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.createPlaylist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.createPlaylist.FlatAppearance.BorderSize = 0;
+            this.createPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createPlaylist.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.createPlaylist.Location = new System.Drawing.Point(0, 0);
+            this.createPlaylist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.createPlaylist.Name = "createPlaylist";
+            this.createPlaylist.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.createPlaylist.Size = new System.Drawing.Size(251, 43);
+            this.createPlaylist.TabIndex = 0;
+            this.createPlaylist.Text = "New Playlist";
+            this.createPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.createPlaylist.UseVisualStyleBackColor = true;
+            this.createPlaylist.Click += new System.EventHandler(this.createPlaylist_Click);
             // 
             // pictureButton
             // 
@@ -287,7 +293,7 @@
             this.videoButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.videoButton.Image = ((System.Drawing.Image)(resources.GetObject("videoButton.Image")));
             this.videoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.videoButton.Location = new System.Drawing.Point(3, 357);
+            this.videoButton.Location = new System.Drawing.Point(3, 439);
             this.videoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.videoButton.Name = "videoButton";
             this.videoButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -304,15 +310,13 @@
             // 
             this.videoSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.videoSubMenu.Controls.Add(this.button12);
-            this.videoSubMenu.Controls.Add(this.button13);
-            this.videoSubMenu.Controls.Add(this.button14);
             this.videoSubMenu.Controls.Add(this.button15);
             this.sideMenuAni.SetDecoration(this.videoSubMenu, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.videoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.videoSubMenu.Location = new System.Drawing.Point(3, 407);
+            this.videoSubMenu.Location = new System.Drawing.Point(3, 357);
             this.videoSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.videoSubMenu.Name = "videoSubMenu";
-            this.videoSubMenu.Size = new System.Drawing.Size(251, 162);
+            this.videoSubMenu.Size = new System.Drawing.Size(251, 78);
             this.videoSubMenu.TabIndex = 7;
             // 
             // button12
@@ -322,7 +326,7 @@
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button12.Location = new System.Drawing.Point(0, 117);
+            this.button12.Location = new System.Drawing.Point(0, 39);
             this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button12.Name = "button12";
             this.button12.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -331,40 +335,6 @@
             this.button12.Text = "button12";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.sideMenuAni.SetDecoration(this.button13, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button13.Location = new System.Drawing.Point(0, 78);
-            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(251, 39);
-            this.button13.TabIndex = 2;
-            this.button13.Text = "button13";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.sideMenuAni.SetDecoration(this.button14, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button14.Location = new System.Drawing.Point(0, 39);
-            this.button14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(251, 39);
-            this.button14.TabIndex = 1;
-            this.button14.Text = "button14";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.UseVisualStyleBackColor = true;
             // 
             // button15
             // 
@@ -392,7 +362,7 @@
             this.helpButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
             this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.Location = new System.Drawing.Point(3, 573);
+            this.helpButton.Location = new System.Drawing.Point(3, 577);
             this.helpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.helpButton.Name = "helpButton";
             this.helpButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -844,6 +814,7 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.titlePanel.Controls.Add(this.backwardButton);
             this.titlePanel.Controls.Add(this.label1);
             this.titlePanel.Controls.Add(this.exitButton);
             this.sideMenuAni.SetDecoration(this.titlePanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
@@ -854,6 +825,34 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1081, 102);
             this.titlePanel.TabIndex = 5;
+            // 
+            // backwardButton
+            // 
+            this.backwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.backwardButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.backwardButton.FlatAppearance.BorderSize = 0;
+            this.backwardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.backwardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.backwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backwardButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backwardButton.ImageIndex = 0;
+            this.backwardButton.ImageList = this.backwardButtonList;
+            this.backwardButton.Location = new System.Drawing.Point(48, 36);
+            this.backwardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.backwardButton.Name = "backwardButton";
+            this.backwardButton.Size = new System.Drawing.Size(54, 27);
+            this.backwardButton.TabIndex = 8;
+            this.backwardButton.UseVisualStyleBackColor = true;
+            this.backwardButton.Click += new System.EventHandler(this.backwardButton_Click);
+            this.backwardButton.MouseEnter += new System.EventHandler(this.backwardButton_MouseEnter);
+            this.backwardButton.MouseLeave += new System.EventHandler(this.backwardButton_MouseLeave);
+            // 
+            // backwardButtonList
+            // 
+            this.backwardButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("backwardButtonList.ImageStream")));
+            this.backwardButtonList.TransparentColor = System.Drawing.Color.Transparent;
+            this.backwardButtonList.Images.SetKeyName(0, "icons8-arrow-pointing-left-60 (2).png");
+            this.backwardButtonList.Images.SetKeyName(1, "icons8-arrow-pointing-left-60 (1).png");
             // 
             // label1
             // 
@@ -920,6 +919,53 @@
             this.dragControl.TargetControl = this.titlePanel;
             this.dragControl.Vertical = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button3);
+            this.sideMenuAni.SetDecoration(this.panel1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 489);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(251, 84);
+            this.panel1.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.sideMenuAni.SetDecoration(this.button2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button2.Location = new System.Drawing.Point(0, 39);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(251, 39);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.sideMenuAni.SetDecoration(this.button3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(251, 39);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "button3";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -934,6 +980,7 @@
             this.MinimumSize = new System.Drawing.Size(1363, 724);
             this.Name = "MainForm";
             this.Text = " Media Player";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.sideMenuPanel.ResumeLayout(false);
             this.iconPanel.ResumeLayout(false);
@@ -946,6 +993,7 @@
             this.titlePanel.PerformLayout();
             this.mainMidPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainPicturebox)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -962,8 +1010,6 @@
         private System.Windows.Forms.Button videoButton;
         private System.Windows.Forms.Panel videoSubMenu;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Panel mainBotPanel;
@@ -987,7 +1033,7 @@
         private System.Windows.Forms.Timer timeSync;
         private System.Windows.Forms.Label songLength;
         private System.Windows.Forms.Timer count;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button createPlaylist;
         private Bunifu.UI.WinForms.BunifuHSlider musicProcessBar;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.ImageList stopButtonList;
@@ -1003,6 +1049,11 @@
         private System.Windows.Forms.Panel mainMidPanel;
         private System.Windows.Forms.PictureBox mainPicturebox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button backwardButton;
+        private System.Windows.Forms.ImageList backwardButtonList;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.mediaPanel = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // mediaPanel
@@ -41,10 +39,6 @@
             this.mediaPanel.Name = "mediaPanel";
             this.mediaPanel.Size = new System.Drawing.Size(1089, 471);
             this.mediaPanel.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 50;
             // 
             // MediaForm
             // 
@@ -64,6 +58,5 @@
         #endregion
 
         private System.Windows.Forms.Panel mediaPanel;
-        private System.Windows.Forms.Timer timer1;
     }
 }

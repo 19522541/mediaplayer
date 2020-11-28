@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GUI
 {
@@ -14,6 +15,10 @@ namespace GUI
         [STAThread]
         static void Main()
         {
+            if (!File.Exists(@"D:/bt2/data.json"))
+            {
+                File.Create(@"D:/bt2/data.json");
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
