@@ -81,8 +81,9 @@ namespace GUI
         private void setup()
         { 
             mediaSubMenu.Visible = false;
-            videoSubMenu.Visible = false;
+            imageSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
+            videoSubMenu.Visible = false;
             //   this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
             this.soundVolumeBar.Value = 50;
             this._lastSoundValue = this.soundVolumeBar.Value;
@@ -95,8 +96,8 @@ namespace GUI
                 mediaSubMenu.Visible = false;
             if (playlistSubMenu.Visible == true)
                 playlistSubMenu.Visible = false;
-            if (videoSubMenu.Visible == true)
-                videoSubMenu.Visible = false;
+            if (imageSubMenu.Visible == true)
+                imageSubMenu.Visible = false;
         }
 
         private void showSubMenu(Panel temp)
@@ -654,6 +655,7 @@ namespace GUI
                 sideMenuButton_Click(sender, e);
             }
             openNewForm(this._pictureForm,3);
+            showSubMenu(imageSubMenu);
         }
 
         private void videoButton_Click(object sender, EventArgs e)
@@ -1146,6 +1148,6 @@ namespace GUI
             this._lastPlayed = lastPlayIndex;
         }
 
-        
+       
     }
 }
