@@ -1148,6 +1148,14 @@ namespace GUI
             this._lastPlayed = lastPlayIndex;
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            _pictureForm._add();
+        }
     }
 }

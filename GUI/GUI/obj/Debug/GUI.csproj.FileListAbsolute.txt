@@ -186,8 +186,6 @@ D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.dll
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.Deprecated.dll
-D:\object\mediaplayer-master\GUI\GUI\bin\Debug\MaterialDesignColors.dll
-D:\object\mediaplayer-master\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\NAudio.dll
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.xml
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
@@ -219,9 +217,6 @@ D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSw
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.xml
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
-D:\object\mediaplayer-master\GUI\GUI\bin\Debug\MaterialDesignColors.pdb
-D:\object\mediaplayer-master\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\object\mediaplayer-master\GUI\GUI\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\object\mediaplayer-master\GUI\GUI\bin\Debug\NAudio.xml
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.MainForm.resources
@@ -267,3 +262,8 @@ D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
 D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.dll
 D:\bt2\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Newtonsoft.Json.dll
+D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
+D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
+D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources
