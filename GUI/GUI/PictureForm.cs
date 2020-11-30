@@ -150,32 +150,50 @@ namespace GUI
 
 
         }
-      /*  public void afterchoiceimage(string path)
+        /*  public void afterchoiceimage(string path)
+          {
+              //   Image tempimage = Image.FromFile(path);
+              // Bitmap temp = new Bitmap(tempimage,this.pictureBox1.Width,this.pictureBox1.Height);
+              //  Graphics gr = Graphics.FromImage(tempimage);
+              // gr.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+              //   this.pictureBox1.Image =(Image)temp;
+
+              this.Controls.Add(panel1);
+              this.panel1.BringToFront();
+              Bitmap temp = new Bitmap(path);
+              this.pictureBox1.Image = new Bitmap(path);
+
+              int n = temp.Width / temp.Height;
+              this.tempimage = pictureBox1.Image;
+              this.pictureBox1.Image = null;
+              this.pictureBox1.Width = 659;
+              this.pictureBox1.Height = Convert.ToInt32(temp.Height * pictureBox1.Width / temp.Width);
+
+              this.pictureBox1.Image = tempimage;
+
+
+
+
+
+          }*/
+
+        private void rightRotate() {
+
+            tempimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            pictureBox1.Image = tempimage;
+            pictureBox1.Size = panel1.Size;
+
+        }
+        private void leftRotate()
         {
-            //   Image tempimage = Image.FromFile(path);
-            // Bitmap temp = new Bitmap(tempimage,this.pictureBox1.Width,this.pictureBox1.Height);
-            //  Graphics gr = Graphics.FromImage(tempimage);
-            // gr.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            //   this.pictureBox1.Image =(Image)temp;
 
-            this.Controls.Add(panel1);
-            this.panel1.BringToFront();
-            Bitmap temp = new Bitmap(path);
-            this.pictureBox1.Image = new Bitmap(path);
-           
-            int n = temp.Width / temp.Height;
-            this.tempimage = pictureBox1.Image;
-            this.pictureBox1.Image = null;
-            this.pictureBox1.Width = 659;
-            this.pictureBox1.Height = Convert.ToInt32(temp.Height * pictureBox1.Width / temp.Width);
+            tempimage.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            pictureBox1.Image = tempimage;
+            pictureBox1.Size = panel1.Size;
 
-            this.pictureBox1.Image = tempimage;
-
-          
+        }
 
 
-
-        }*/
         public void changeimage(string path)
         {
            
@@ -192,6 +210,7 @@ namespace GUI
             
             this.Controls.Add(panel1);
             this.panel1.BringToFront();
+
         }
         private void displayimage(Panel temp)
         {
@@ -334,7 +353,74 @@ namespace GUI
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (ListViewItem temp in listView1.Items) {
+                if (temp.Focused)
+                {
 
+                    changeimage(temp.Text);
+                    _mousecheck = true;
+                    break;
+                   
+
+                }
+            
+            }
+        }
+
+      
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) contextMenuStrip2.Show(Cursor.Position); 
+            else
+            {
+               
+                this.Controls.Remove(panel1);
+                _mousecheck = false;
+            }
+        }
+
+        private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rightRotate();
+        }
+
+        private void leftRotateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leftRotate();
+        }
+
+        private void nextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _mousecheck = true;
+            int selectedIndex = listView1.SelectedIndices[0];
+            listView1.Items[selectedIndex].Selected = false;
+            
+            // Prevents exception on the last element:      
+            if (selectedIndex < listView1.Items.Count-1)
+            {
+                selectedIndex++;
+            }
+            else{ selectedIndex = 0;   }
+            listView1.Items[selectedIndex].Selected = true;
+            listView1.Items[selectedIndex].Focused = true;
+        }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _mousecheck = true;
+            int selectedIndex = listView1.SelectedIndices[0];
+            listView1.Items[selectedIndex].Selected = false;
+          
+            // Prevents exception on the last element:      
+            if (selectedIndex >0)
+            {
+                selectedIndex--;
+               
+            }
+            else{ selectedIndex = listView1.Items.Count-1; }
+            listView1.Items[selectedIndex].Selected = true;
+            listView1.Items[selectedIndex].Focused = true;
         }
     }
 }
