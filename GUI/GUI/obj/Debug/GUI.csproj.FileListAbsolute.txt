@@ -267,3 +267,6 @@ D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.LyricForm.resources
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.CutSoundForm.resources
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.InformationForm.resources

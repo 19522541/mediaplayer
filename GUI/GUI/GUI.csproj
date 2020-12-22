@@ -182,6 +182,24 @@
     </Compile>
     <Compile Include="DataReader.cs" />
     <Compile Include="DataSaver.cs" />
+    <Compile Include="CutSoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CutSoundForm.Designer.cs">
+      <DependentUpon>CutSoundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformationForm.Designer.cs">
+      <DependentUpon>InformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LyricForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LyricForm.Designer.cs">
+      <DependentUpon>LyricForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPlayListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +261,15 @@
     <Compile Include="WavPlayer.cs" />
     <EmbeddedResource Include="createlistForm.resx">
       <DependentUpon>createlistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CutSoundForm.resx">
+      <DependentUpon>CutSoundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformationForm.resx">
+      <DependentUpon>InformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LyricForm.resx">
+      <DependentUpon>LyricForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

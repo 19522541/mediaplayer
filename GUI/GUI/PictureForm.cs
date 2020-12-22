@@ -40,24 +40,27 @@ namespace GUI
             InitializeComponent();
             this.DoubleBuffered = true;
             var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            int index = userName.IndexOf(@"\");
+            string temp = userName.Substring(index + 1, userName.Length - index - 1);
+            string path = @"C:\Users\" + temp + @"\Pictures";
 
-
-            imagepath = GetFilesFrom(@"C:\Users\Admin\Pictures\", filters, false);
-
+            imagepath = GetFilesFrom(path, filters, false);
+            
             listView1.ForeColor = Color.White;
-            foreach (var temp in imagepath)
+            foreach (var x in imagepath)
             {
 
-                imagelist.Images.Add(Image.FromFile(temp));
+                imagelist.Images.Add(Image.FromFile(x));
                 this.imagelist.ImageSize = new Size(100, 100);
                 this.listView1.LargeImageList = this.imagelist;
 
             }
 
-            foreach (var temp in imagepath)
+            foreach (var x in imagepath)
             {
                 ListViewItem item = new ListViewItem();
-                FileInfo file = new FileInfo(temp);
+                FileInfo file = new FileInfo(x);
                 item.ImageIndex = j;
 
                 item.Text = file.FullName;
