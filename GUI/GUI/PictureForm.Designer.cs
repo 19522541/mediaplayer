@@ -34,12 +34,15 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leftRotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eSCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,19 +69,20 @@
             this.openToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(107, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening_1);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.deleteToolStripMenuItem.Text = "delete";
             // 
             // panel1
@@ -86,12 +90,23 @@
             this.panel1.AllowDrop = true;
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(801, 344);
             this.panel1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(624, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // pictureBox1
             // 
@@ -101,7 +116,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick_1);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // contextMenuStrip2
             // 
@@ -109,37 +128,54 @@
             this.nextToolStripMenuItem,
             this.backToolStripMenuItem,
             this.rotateToolStripMenuItem,
-            this.leftRotateToolStripMenuItem});
+            this.leftRotateToolStripMenuItem,
+            this.cutToolStripMenuItem,
+            this.eSCToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 92);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(140, 136);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // nextToolStripMenuItem
             // 
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
             // backToolStripMenuItem
             // 
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
             // rotateToolStripMenuItem
             // 
             this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
-            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.rotateToolStripMenuItem.Text = "Right Rotate";
             this.rotateToolStripMenuItem.Click += new System.EventHandler(this.rotateToolStripMenuItem_Click);
             // 
             // leftRotateToolStripMenuItem
             // 
             this.leftRotateToolStripMenuItem.Name = "leftRotateToolStripMenuItem";
-            this.leftRotateToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.leftRotateToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.leftRotateToolStripMenuItem.Text = "Left Rotate";
             this.leftRotateToolStripMenuItem.Click += new System.EventHandler(this.leftRotateToolStripMenuItem_Click);
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            // 
+            // eSCToolStripMenuItem
+            // 
+            this.eSCToolStripMenuItem.Name = "eSCToolStripMenuItem";
+            this.eSCToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.eSCToolStripMenuItem.Text = "ESC";
+            this.eSCToolStripMenuItem.Click += new System.EventHandler(this.eSCToolStripMenuItem_Click);
             // 
             // PictureForm
             // 
@@ -173,5 +209,8 @@
         private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leftRotateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem eSCToolStripMenuItem;
     }
 }

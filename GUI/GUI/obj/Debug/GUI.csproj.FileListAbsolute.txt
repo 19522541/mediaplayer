@@ -267,6 +267,205 @@ D:\object\mediaplayer-master\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
 D:\object\mediaplayer-master\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources
-D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.LyricForm.resources
-D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.CutSoundForm.resources
-D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.InformationForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\GUI.exe.config
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\GUI.exe
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\GUI.pdb
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.Licensing.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGauge.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRating.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.Deprecated.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\NAudio.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.dll
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGauge.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRating.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\NAudio.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.pdb
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.xml
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.MainForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.MediaForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.PictureForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.PlayListForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.VideoForm.resources
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.exe.licenses
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CopyComplete
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.exe
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.pdb
+C:\Users\wjbu\OneDrive - Trường ĐH CNTT - University of Information Technology\Tài liệu\GitHub\mediaplayer\GUI\GUI\obj\Debug\GUI.trimmingForm.resources
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\GUI.exe.config
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\GUI.exe
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\GUI.pdb
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\AudioSwitcher.AudioApi.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.Licensing.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGauge.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRating.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.Deprecated.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\NAudio.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.dll
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGauge.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuRating.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\NAudio.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.pdb
+D:\git_\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.xml
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.MainForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.MediaForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.NowPlayingForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.SongInfoForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.PictureForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.PlayListForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.trimmingForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.VideoForm.resources
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.exe.licenses
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CopyComplete
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.exe
+D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.pdb

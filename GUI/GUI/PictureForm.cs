@@ -13,20 +13,25 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.CompilerServices;
 using Microsoft.WindowsAPICodePack.Dialogs;
-
+using System.Threading.Tasks;
 namespace GUI
 {
     public partial class PictureForm : Form
-    {
-        bool hided = false;
+    { Point fpt1 = new Point();
+        Point secpt2 = new Point();
+        bool mouse = false;
         bool _mousecheck = false;
+        bool _cutPicture = false;
         int j = 0;
         int x = 10;
         int y = 80;
+      
         ImageList imagelist = new ImageList();
         PictureBox yourpic = new PictureBox();
-
-
+        Bitmap alterpic;
+        Rectangle[] point = new Rectangle[2];
+        Rectangle rec;
+        
         // List<Panel> yourimage= new List<Panel>();
         //     List<Bitmap> yourimage = new List<Bitmap>();
         string[] imagepath;
@@ -40,27 +45,25 @@ namespace GUI
             InitializeComponent();
             this.DoubleBuffered = true;
             var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            int index = userName.IndexOf(@"\");
-            string temp = userName.Substring(index + 1, userName.Length - index - 1);
-            string path = @"C:\Users\" + temp + @"\Pictures";
+            this.point[0].Size = new Size(10, 10);
+            this.point[1].Size = new Size(10, 10);
 
-            imagepath = GetFilesFrom(path, filters, false);
-            
+            imagepath = GetFilesFrom(@"D:\image\", filters, false);
+
             listView1.ForeColor = Color.White;
-            foreach (var x in imagepath)
+            foreach (var temp in imagepath)
             {
 
-                imagelist.Images.Add(Image.FromFile(x));
+                imagelist.Images.Add(Image.FromFile(temp));
                 this.imagelist.ImageSize = new Size(100, 100);
                 this.listView1.LargeImageList = this.imagelist;
 
             }
 
-            foreach (var x in imagepath)
+            foreach (var temp in imagepath)
             {
                 ListViewItem item = new ListViewItem();
-                FileInfo file = new FileInfo(x);
+                FileInfo file = new FileInfo(temp);
                 item.ImageIndex = j;
 
                 item.Text = file.FullName;
@@ -179,7 +182,37 @@ namespace GUI
 
 
           }*/
+        public void save_image() {
+            if (pictureBox1.Image != null) {
 
+                SaveFileDialog savefil = new SaveFileDialog();
+                savefil.Filter = "image file(*.bmg,*.gif,*.jpg) |*.bmp;*.gif;*.jpg";
+                if (savefil.ShowDialog() == DialogResult.OK) {
+                    if (savefil.FileName.EndsWith(".bmp")){
+                        pictureBox1.Image.Save(savefil.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                    
+                    }
+                 
+                  else  if (savefil.FileName.EndsWith(".gif"))
+                    {
+                        pictureBox1.Image.Save(savefil.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+
+                    }
+                   else if (savefil.FileName.EndsWith(".jpg"))
+                    {
+                        pictureBox1.Image.Save(savefil.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    }
+                    else if (savefil.FileName.EndsWith(".png"))
+                    {
+                        pictureBox1.Image.Save(savefil.FileName, System.Drawing.Imaging.ImageFormat.Png);
+
+                    }
+                }
+            }
+        
+        
+        }
         private void rightRotate() {
 
             tempimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
@@ -196,7 +229,15 @@ namespace GUI
 
         }
 
-
+        public void setrec() {
+            rec = new Rectangle();
+            rec.X = Math.Min(fpt1.X, secpt2.X);
+            rec.Y = Math.Min(secpt2.Y, fpt1.Y);
+            rec.Size = new Size(Math.Abs(fpt1.X - secpt2.X), Math.Abs(fpt1.Y- secpt2.Y));
+            
+          
+            
+        }
         public void changeimage(string path)
         {
            
@@ -240,12 +281,16 @@ namespace GUI
 
 
         }
-        private void setscroll()
-        {
 
-        }
+   
         private void sethorizontalscroll(int value) { }
         private void setverticalscroll(int value) { }
+        public void redraw() {
+            Graphics g = this.pictureBox1.CreateGraphics();
+            g.FillRectangle(Brushes.Aqua, point[0]);
+            g.FillRectangle(Brushes.Aqua, point[1]);
+
+        }
         public static Image ResizeImage(Image image, Size imagesize)
         {
             return (Image)(new Bitmap(image, imagesize));
@@ -288,7 +333,7 @@ namespace GUI
                 this.pictureBox1.Width = Convert.ToInt32(this.pictureBox1.Width * 1.25);
                 this.pictureBox1.Height = Convert.ToInt32(this.pictureBox1.Height * 1.25);
                 this.pictureBox1.Image = tempimage;
-                setscroll();
+               
                 // this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 
 
@@ -374,13 +419,14 @@ namespace GUI
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            
             if (e.Button == MouseButtons.Right) contextMenuStrip2.Show(Cursor.Position); 
-            else
-            {
-               
-                this.Controls.Remove(panel1);
-                _mousecheck = false;
-            }
+           // else
+         //   {
+         //      
+           //     this.Controls.Remove(panel1);
+          //      _mousecheck = false;
+          //  }
         }
 
         private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -424,6 +470,111 @@ namespace GUI
             else{ selectedIndex = listView1.Items.Count-1; }
             listView1.Items[selectedIndex].Selected = true;
             listView1.Items[selectedIndex].Focused = true;
+        }
+
+        private void contextMenuStrip1_Opening_1(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _cutPicture = true;
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {   if (_cutPicture == true)
+            {
+                mouse = true;
+                fpt1 = e.Location;
+                this.pictureBox1.Refresh();
+                setrec();
+            }
+            // || point[0].Contains(e.Location)
+            
+          //  if (point[0].Contains(e.Location)) {
+      //          this.point[0].Location = e.Location;
+           //}
+        //    else if(point[1].Contains(e.Location)) this.point[0].Location = e.Location;
+         //   redraw();
+      }
+
+        private void eSCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Controls.Remove(panel1);
+                 _mousecheck = false;
+        }
+
+        private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) contextMenuStrip2.Show(Cursor.Position);
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse == true) {
+
+                secpt2 = e.Location;
+            
+            }
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (mouse == true) {
+
+                secpt2 = e.Location;
+                setrec();
+               
+                
+                drawa();
+                this.mouse = false;
+            }
+        }
+        void drawa()
+        {
+
+
+            if (rec != null)
+            {
+
+
+               var g1= this.pictureBox1.CreateGraphics();
+                Pen p = new Pen(Color.DarkOrange, 5);
+                g1.DrawRectangle(p, rec);
+            }
+         //   if (rec != null&& rec.Height>20 && rec.Width>20) {
+         //       draw_picture();
+            
+         //   }
+        }
+        public void draw_picture() {
+            Bitmap pic = new Bitmap(this.pictureBox1.Image, this.pictureBox1.Width,this.pictureBox1.Height);
+            Bitmap croppic = new Bitmap(rec.Width, rec.Height);
+            Graphics g = Graphics.FromImage(croppic);
+            g.DrawImage(pic, 0, 0, rec, GraphicsUnit.Pixel);
+            this.pictureBox1.Image = croppic;
+        
+        }
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+          
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (rec != null && rec.Height > 20 && rec.Width > 20)
+            {
+                    draw_picture();
+
+                 }
+                save_image();
+            _cutPicture = false;
         }
     }
 }
