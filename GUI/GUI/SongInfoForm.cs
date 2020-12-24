@@ -12,23 +12,22 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    
 
-    
+
+
     public partial class SongInfoForm : Form
     {
-        TrimForm trimForm ;
         int _index;
-        MediaForm _parent = null;
+        public MediaForm _parent = null;
         String _dir = null;
         bool _isPlaying = false;
         public SongInfoForm()
         {
             InitializeComponent();
-            
+
         }
 
-        public SongInfoForm(MediaForm parent,int index ,string dir,string songName,string title,string artist,string length)
+        public SongInfoForm(MediaForm parent, int index, string dir, string songName, string title, string artist, string length)
         {
             InitializeComponent();
             this._parent = parent;
@@ -49,15 +48,15 @@ namespace GUI
 
         }
 
-        
 
-        
+
+
         private void SongInfo_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
-                
+
                 songInfoContextMenu.Show(Cursor.Position);
             }
         }
@@ -72,15 +71,15 @@ namespace GUI
                 return;
             }
 
-            else if(me.Button == MouseButtons.Left)
+            else if (me.Button == MouseButtons.Left)
             {
                 if (this._parent._firstPlay)
                 {
                     //this._parent._parent.setInfo(0, -1);
                     this._parent._firstPlay = false;
-                    
+
                 }
-                this._parent._parent.setPlayedList(this._parent._list,this._parent._ablum, this._parent._title, this._parent._firstPerformer, this._parent._length, this._parent._songImg);
+                this._parent._parent.setPlayedList(this._parent._list, this._parent._ablum, this._parent._title, this._parent._firstPerformer, this._parent._length, this._parent._songImg);
                 if (this._parent.getLastPlayed() == -1)
                 {
                     this._parent.setUserChoice(_dir);
@@ -120,6 +119,26 @@ namespace GUI
 
                 songInfoContextMenu.Show(Cursor.Position);
             }
+            else if (me.Button == MouseButtons.Left)
+            {
+                this._parent._parent.backwardButton.Visible = true;
+                this._parent._parent._backMode = 1;
+                this._parent._parent._nowSongInfo = this;
+                var fileTag = TagLib.File.Create(this._dir);
+                string lyric = fileTag.Tag.Lyrics;
+                if (lyric != null)
+                {
+                    //this._parent._parent._lyricBox.Text = lyric;
+                    this._parent._parent._lyricBox = new LyricForm(lyric);
+                }
+                else
+                {
+                    this._parent._parent._lyricBox = new LyricForm("Bài hát hiện không có lời!!!");
+                }
+                this._parent.Hide();
+                this._parent._parent.openNewForm(this._parent._parent._lyricBox, -1);
+            }
+
         }
 
         private void songName_Click(object sender, EventArgs e)
@@ -138,12 +157,12 @@ namespace GUI
             if (ClientRectangle.Contains(this.PointToClient(Cursor.Position)))
             {
                 songPanel.BackColor = Color.FromArgb(21, 23, 26);
-                
+
             }
             else
             {
                 songPanel.BackColor = Color.FromArgb(33, 37, 41);
-                
+
             }
         }
 
@@ -165,7 +184,7 @@ namespace GUI
 
             if (me.Button == MouseButtons.Left)
             {
-                
+
                 if (this._parent.getLastPlayed() == -1)
                 {
                     this._parent.setUserChoice(_dir);
@@ -184,21 +203,21 @@ namespace GUI
 
         private void playToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
-                if (this._parent.getLastPlayed() == -1)
-                {
-                    this._parent.setUserChoice(_dir);
-                    this.setup();
-                    this._parent.setLastPlayed(this._index);
-                }
-                else
-                {
-                    this._parent.setUserChoice(_dir);
-                    this._parent.restart(this._parent.getLastPlayed());
-                    this.setup();
-                    this._parent.setLastPlayed(this._index);
-                }
-            
+
+            if (this._parent.getLastPlayed() == -1)
+            {
+                this._parent.setUserChoice(_dir);
+                this.setup();
+                this._parent.setLastPlayed(this._index);
+            }
+            else
+            {
+                this._parent.setUserChoice(_dir);
+                this._parent.restart(this._parent.getLastPlayed());
+                this.setup();
+                this._parent.setLastPlayed(this._index);
+            }
+
 
         }
 
@@ -233,7 +252,7 @@ namespace GUI
             songName.ForeColor = title.ForeColor = artist.ForeColor = length.ForeColor = SystemColors.GradientActiveCaption;
             this.songInfoTimer.Start();
         }
-        
+
         public void setup()
         {
             songPanel.BackColor = Color.FromArgb(21, 23, 26);
@@ -251,27 +270,27 @@ namespace GUI
         private void addToList()
         {
             addContextMenuStrip.Items.Clear();
-            
+
             this.addContextMenuStrip.Items.Add("create new playlist");
             this.addContextMenuStrip.Items.Add(new ToolStripSeparator());
-            
+
             //List<MenuItem>
             foreach (String x in this._parent._parent._playListForm.getPlaylistsName())
             {
                 this.addContextMenuStrip.Items.Add(x);
             }
-            
-            
+
+
         }
 
         private void addContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem.Text == "create new playlist")
             {
-                NewPlayListForm newForm = new NewPlayListForm(this._parent._parent,this._dir);
+                NewPlayListForm newForm = new NewPlayListForm(this._parent._parent, this._dir);
                 newForm.FormBorderStyle = FormBorderStyle.None;
                 newForm.ShowDialog();
-                
+
             }
             else
             {
@@ -293,11 +312,10 @@ namespace GUI
             songInfoContextMenu.AutoClose = true;
         }
 
-
         private void trimToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
-            trimForm = new TrimForm(_dir, this.length.Text);
-            trimForm.ShowDialog(); 
+        {
+            TrimForm x = new TrimForm(this._dir, this._parent._length[_index]);
+            x.Show();
         }
     }
 }

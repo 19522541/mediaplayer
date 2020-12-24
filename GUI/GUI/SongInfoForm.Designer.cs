@@ -94,7 +94,7 @@
             this.addButton.ImageZoomSize = new System.Drawing.Size(40, 39);
             this.addButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("addButton.InitialImage")));
             this.addButton.Location = new System.Drawing.Point(229, 0);
-            this.addButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.addButton.Margin = new System.Windows.Forms.Padding(5);
             this.addButton.Name = "addButton";
             this.addButton.Rotation = 0;
             this.addButton.ShowActiveImage = true;
@@ -131,7 +131,7 @@
             this.playButton.ImageZoomSize = new System.Drawing.Size(40, 39);
             this.playButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("playButton.InitialImage")));
             this.playButton.Location = new System.Drawing.Point(165, 0);
-            this.playButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.playButton.Margin = new System.Windows.Forms.Padding(5);
             this.playButton.Name = "playButton";
             this.playButton.Rotation = 0;
             this.playButton.ShowActiveImage = true;
@@ -168,7 +168,7 @@
             this.fdeleteButton.ImageZoomSize = new System.Drawing.Size(40, 39);
             this.fdeleteButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("fdeleteButton.InitialImage")));
             this.fdeleteButton.Location = new System.Drawing.Point(668, 0);
-            this.fdeleteButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fdeleteButton.Margin = new System.Windows.Forms.Padding(5);
             this.fdeleteButton.Name = "fdeleteButton";
             this.fdeleteButton.Rotation = 0;
             this.fdeleteButton.ShowActiveImage = true;

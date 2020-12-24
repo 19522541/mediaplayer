@@ -20,7 +20,7 @@ namespace GUI
     {
         public event UserChoiceHandler UserChoiceChanged;
         public List<String> _list;
-        private string _userChoice; 
+        private string _userChoice;
         public MainForm _parent;
         private List<SongInfoForm> _songInfo = null;
         public int _lastPlayed = -1;
@@ -51,7 +51,7 @@ namespace GUI
             //this.IsMdiContainer = true;
         }
 
-        public MediaForm(MainForm parent,List<String> list)
+        public MediaForm(MainForm parent, List<String> list)
         {
             this._list = list;
             this._parent = parent;
@@ -65,7 +65,7 @@ namespace GUI
 
         }
 
-        public MediaForm(MainForm parent,PlayListForm playListParent,List<String> list)
+        public MediaForm(MainForm parent, PlayListForm playListParent, List<String> list)
         {
             this._list = list;
             this._parent = parent;
@@ -77,7 +77,7 @@ namespace GUI
             this._length = new List<String>();
             this._firstPerformer = new List<String>();
             this._songImg = new List<Image>();
-            
+
         }
 
         void takeData(String dir)
@@ -129,14 +129,14 @@ namespace GUI
             {
                 takeData(x);
             }
-            for (int i = 0; i < this._list.Count;i++)
+            for (int i = 0; i < this._list.Count; i++)
             {
-               
+
                 string title = this._title[i];
                 string artist = this._firstPerformer[i];
                 string album = this._ablum[i];
                 string duration = this._length[i];
-                SongInfoForm temp = new SongInfoForm(this,i, _list[i], album, title, artist, duration);
+                SongInfoForm temp = new SongInfoForm(this, i, _list[i], album, title, artist, duration);
                 this._songInfo.Add(temp);
                 addSongInfo(temp);
 
@@ -147,28 +147,27 @@ namespace GUI
                 this.setup(this._parent.getNowPlayIndex());
                 if (this._parent.getNowPlayIndex() == 0) this._lastPlayed = this._parent.getNowPlayIndex();
             }
-            
+
 
         }
 
-        
-        public void addNewSong(int index)
+
+        public void addNewSong(List<String> newSongs)
         {
             //check
-            for (int i = index; i < this._list.Count; i++)
+            if (this._list.Count == 0) this._list = newSongs;
+            foreach (String x in newSongs)
             {
-                takeData(this._list[i]);
+                takeData(x);
             }
-            for (int i = index; i < this._list.Count;i++ )
+            for (int i = this._list.Count - newSongs.Count; i < this._list.Count; i++)
             {
                 string title = this._title[i];
                 string artist = this._firstPerformer[i];
                 string album = this._ablum[i];
                 string duration = this._length[i];
                 SongInfoForm temp = new SongInfoForm(this, i, _list[i], album, title, artist, duration);
-                //temp.Visible = false;
                 this._songInfo.Add(temp);
-                //temp.Visible = true;
                 addSongInfo(temp);
             }
         }
@@ -207,6 +206,19 @@ namespace GUI
         {
             this._lastPlayed = index;
             this._parent.setLastPlayed(index);
+        }
+
+        public void clear()
+        {
+
+            this.mediaPanel.Controls.Clear();
+            this._list.Clear();
+            _ablum.Clear();
+            _title.Clear();
+            _firstPerformer.Clear();
+            _length.Clear();
+            _songImg.Clear();
+            this._songInfo.Clear();
         }
     }
 }

@@ -15,13 +15,11 @@ namespace GUI
     public delegate void UserChoiceHandler(object sender, EventArgs e);
     public partial class MainForm : Form
     {
-        
-        
         private int _bfHoverIndex = 0;
         private Player _music;
         private CoreAudioDevice _playBackDevice;
         public List<String> _playedList;
-        public  int _nowPlayIndex = 0;
+        public int _nowPlayIndex = 0;
         private int _check = 0;
         private int _min = 0;
         private int _sed = 0;
@@ -33,12 +31,11 @@ namespace GUI
         public MediaForm _mediaForm;
         private PictureForm _pictureForm;
         private VideoForm _videoForm;
-        private TrimForm _editForm;
         public PlayListForm _playListForm;
         public MediaForm _backupMediaForm;
         private int _curForm = 0;
         public int _lastPlayed = -1;
-        
+        public int _backMode = -1;
         private NowPlayingForm _nowPlayingForm;
         public List<String> _allSong;
         public List<String> _ablum;
@@ -46,6 +43,9 @@ namespace GUI
         public List<String> _firstPerformer;
         public List<String> _length;
         public List<Image> _songImg;
+        public LyricForm _lyricBox;
+        public SongInfoForm _nowSongInfo = null;
+        private bool _playlistCheck = false;
         public MainForm()
         {
             
@@ -115,7 +115,7 @@ namespace GUI
             }
         }
 
-        private void openNewForm(Form newForm, int index)
+        public void openNewForm(Form newForm, int index)
         {
             if (this._curForm == 1) this._mediaForm.Hide();
             else if (this._curForm == 2) this._playListForm.Hide();
@@ -514,8 +514,16 @@ namespace GUI
         //
         private void loopButton_Click(object sender, EventArgs e)
         {
-            if (this._loop) this._loop = false;
-            else this._loop = true;
+            if (!(_loop || _loopAll)) this._loopAll = true;
+            else if (_loopAll)
+            {
+                this._loop = true;
+                this._loopAll = false;
+            }
+            else if (_loop)
+            {
+                this._loop = this._loopAll;
+            }
         }
         //
         // Exit button
@@ -620,6 +628,7 @@ namespace GUI
 
         private void mediaButton_Click(object sender, EventArgs e)
         {
+            this._playlistCheck = false;
             this.setPlayedList(this._mediaForm._list, this._mediaForm._ablum, this._mediaForm._title, this._mediaForm._firstPerformer, this._mediaForm._length, this._mediaForm._songImg);
             this.setInfo(0, -1);
             if (this._mediaForm._nowPlayIndex != -1) this._mediaForm.restart(this._mediaForm._nowPlayIndex);
@@ -631,14 +640,16 @@ namespace GUI
             {
                 sideMenuButton_Click(sender, e);
             }
-            openNewForm(this._mediaForm,1);
-            
+            openNewForm(this._mediaForm, 1);
+
             showSubMenu(mediaSubMenu);
-            
+
         }
 
         private void playlistButton_Click(object sender, EventArgs e)
         {
+            this._playlistCheck = true;
+            this._backMode = 2;
             this.backwardButton.Visible = true;
             this._mediaForm._mediaCheck = false;
             if (sideMenuPanel.Width < 70)
@@ -646,30 +657,32 @@ namespace GUI
                 sideMenuButton_Click(sender, e);
             }
             showSubMenu(playlistSubMenu);
-            openNewForm(this._playListForm,2);
+            openNewForm(this._playListForm, 2);
         }
 
         private void pictureButton_Click(object sender, EventArgs e)
         {
+            this._playlistCheck = false;
             this.backwardButton.Visible = true;
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
             }
-            openNewForm(this._pictureForm,3);
+            openNewForm(this._pictureForm, 3);
             showSubMenu(imageSubMenu);
         }
 
         private void videoButton_Click(object sender, EventArgs e)
         {
+            this._playlistCheck = false;
             this.backwardButton.Visible = false;
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
             }
             showSubMenu(videoSubMenu);
-            
-            openNewForm(this._videoForm,4);
+
+            openNewForm(this._videoForm, 4);
         }
         //
         // music bar
@@ -814,21 +827,24 @@ namespace GUI
         //Shrink problem
         private void openButton_Click(object sender, EventArgs e)
         {
-            int temp = this._playedList.Count;
-            CommonOpenFileDialog open = new CommonOpenFileDialog();
+            List<String> temp = new List<String>();
+            OpenFileDialog open = new OpenFileDialog();
+            open.Title = "Chose your music file";
             open.InitialDirectory = "C:\\Users";
-            open.IsFolderPicker = true;
-            
-            if (open.ShowDialog() == CommonFileDialogResult.Ok)
+            open.Filter = "Mp3 file(*.mp3)| *.mp3| Wav file(*.wav)|*wav";
+            if (open.ShowDialog() == DialogResult.OK)
             {
-                var files = Directory.EnumerateFiles(open.FileName, "*.*", SearchOption.AllDirectories)
-                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
-                foreach (string filepath in files)
-                    this._playedList.Add(filepath);
+                this._playedList.Add(open.FileName);
                 this.playButton.ImageIndex = 0;
+                DialogResult check = MessageBox.Show("Bạn có muốn giữ lại những bài hát cũ", "", MessageBoxButtons.YesNo);
+                if (check == DialogResult.No)
+                {
+                    this._mediaForm.clear();
+                }
+                temp.Add(open.FileName);
                 this._mediaForm.addNewSong(temp);
             }
-            
+
         }
         //
         // Song Time Label
@@ -1119,8 +1135,31 @@ namespace GUI
 
         private void backwardButton_Click(object sender, EventArgs e)
         {
-            this._playListForm.showInfo();
-            if (this._backupMediaForm != null) this._backupMediaForm.Close();
+            switch (_backMode)
+            {
+                case 1:
+                    {
+                        if (this._lyricBox != null)
+                            this._lyricBox.Close();
+                        this.openNewForm(this._nowSongInfo._parent, -1);
+                        if (_playlistCheck)
+                        {
+                            this._backMode = 2;
+                        }
+                        else
+                        {
+                            this.backwardButton.Visible = false;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        if (this._backupMediaForm != null) this._backupMediaForm.Close();
+                        this._playListForm.showInfo();
+                        this.openNewForm(this._playListForm, 2);
+                        break;
+                    }
+            }
         }
 
         private void backwardButton_MouseEnter(object sender, EventArgs e)
@@ -1158,6 +1197,38 @@ namespace GUI
         private void button15_Click(object sender, EventArgs e)
         {
             _pictureForm._add();
+        }
+
+        private void openMusicFolderButton_Click(object sender, EventArgs e)
+        {
+            List<String> temp = new List<String>();
+            CommonOpenFileDialog open = new CommonOpenFileDialog();
+            open.InitialDirectory = "C:\\Users";
+            open.IsFolderPicker = true;
+
+            if (open.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var files = Directory.EnumerateFiles(open.FileName, "*.*", SearchOption.AllDirectories)
+                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".wav"));
+                foreach (string filepath in files)
+                {
+                    this._playedList.Add(filepath);
+                    temp.Add(filepath);
+                }
+                DialogResult check = MessageBox.Show("Bạn có muốn giữ lại những bài hát cũ", "", MessageBoxButtons.YesNo);
+                if (check == DialogResult.No)
+                {
+                    this._mediaForm.clear();
+                }
+                this.playButton.ImageIndex = 0;
+                this._mediaForm.addNewSong(temp);
+            }
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            InformationForm x = new InformationForm();
+            openNewForm(x, -1);
         }
     }
 }
