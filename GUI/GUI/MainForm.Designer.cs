@@ -51,6 +51,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.mainBotPanel = new System.Windows.Forms.Panel();
+            this.soundVolumeBar = new Bunifu.UI.WinForms.BunifuHSlider();
             this.musicProcessBar = new Bunifu.UI.WinForms.BunifuHSlider();
             this.songLength = new System.Windows.Forms.Label();
             this.loopButton = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.nextButtonList = new System.Windows.Forms.ImageList(this.components);
             this.backButton = new System.Windows.Forms.Button();
             this.backButtonList = new System.Windows.Forms.ImageList(this.components);
-            this.cutButton = new System.Windows.Forms.Button();
             this.cutButtonList = new System.Windows.Forms.ImageList(this.components);
             this.randomButton = new System.Windows.Forms.Button();
             this.shuffleButtonList = new System.Windows.Forms.ImageList(this.components);
@@ -68,7 +68,6 @@
             this.soundButtonList = new System.Windows.Forms.ImageList(this.components);
             this.muteButton = new System.Windows.Forms.Button();
             this.muteButtonList = new System.Windows.Forms.ImageList(this.components);
-            this.soundVolumeBar = new Siticone.UI.WinForms.SiticoneSlider();
             this.playButton = new System.Windows.Forms.Button();
             this.playButtonList = new System.Windows.Forms.ImageList(this.components);
             this.stopButton = new System.Windows.Forms.Button();
@@ -429,17 +428,16 @@
             // mainBotPanel
             // 
             this.mainBotPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.mainBotPanel.Controls.Add(this.soundVolumeBar);
             this.mainBotPanel.Controls.Add(this.musicProcessBar);
             this.mainBotPanel.Controls.Add(this.songLength);
             this.mainBotPanel.Controls.Add(this.loopButton);
             this.mainBotPanel.Controls.Add(this.nextButton);
             this.mainBotPanel.Controls.Add(this.backButton);
-            this.mainBotPanel.Controls.Add(this.cutButton);
             this.mainBotPanel.Controls.Add(this.randomButton);
             this.mainBotPanel.Controls.Add(this.time);
             this.mainBotPanel.Controls.Add(this.soundButton);
             this.mainBotPanel.Controls.Add(this.muteButton);
-            this.mainBotPanel.Controls.Add(this.soundVolumeBar);
             this.mainBotPanel.Controls.Add(this.playButton);
             this.mainBotPanel.Controls.Add(this.stopButton);
             this.sideMenuAni.SetDecoration(this.mainBotPanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
@@ -449,6 +447,56 @@
             this.mainBotPanel.Name = "mainBotPanel";
             this.mainBotPanel.Size = new System.Drawing.Size(1083, 122);
             this.mainBotPanel.TabIndex = 1;
+            // 
+            // soundVolumeBar
+            // 
+            this.soundVolumeBar.AllowCursorChanges = true;
+            this.soundVolumeBar.AllowHomeEndKeysDetection = false;
+            this.soundVolumeBar.AllowIncrementalClickMoves = true;
+            this.soundVolumeBar.AllowMouseDownEffects = false;
+            this.soundVolumeBar.AllowMouseHoverEffects = false;
+            this.soundVolumeBar.AllowScrollingAnimations = true;
+            this.soundVolumeBar.AllowScrollKeysDetection = true;
+            this.soundVolumeBar.AllowScrollOptionsMenu = true;
+            this.soundVolumeBar.AllowShrinkingOnFocusLost = false;
+            this.soundVolumeBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("soundVolumeBar.BackgroundImage")));
+            this.soundVolumeBar.BindingContainer = null;
+            this.soundVolumeBar.BorderRadius = 2;
+            this.soundVolumeBar.BorderThickness = 1;
+            this.soundVolumeBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sideMenuAni.SetDecoration(this.soundVolumeBar, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.soundVolumeBar.DrawThickBorder = false;
+            this.soundVolumeBar.DurationBeforeShrink = 2000;
+            this.soundVolumeBar.ElapsedColor = System.Drawing.Color.DodgerBlue;
+            this.soundVolumeBar.LargeChange = 10;
+            this.soundVolumeBar.Location = new System.Drawing.Point(892, 42);
+            this.soundVolumeBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.soundVolumeBar.Maximum = 100;
+            this.soundVolumeBar.Minimum = 0;
+            this.soundVolumeBar.MinimumSize = new System.Drawing.Size(0, 31);
+            this.soundVolumeBar.MinimumThumbLength = 18;
+            this.soundVolumeBar.Name = "soundVolumeBar";
+            this.soundVolumeBar.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.soundVolumeBar.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.soundVolumeBar.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.soundVolumeBar.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.soundVolumeBar.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.soundVolumeBar.ShrinkSizeLimit = 3;
+            this.soundVolumeBar.Size = new System.Drawing.Size(126, 31);
+            this.soundVolumeBar.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.soundVolumeBar.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
+            this.soundVolumeBar.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
+            this.soundVolumeBar.SmallChange = 1;
+            this.soundVolumeBar.TabIndex = 14;
+            this.soundVolumeBar.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.soundVolumeBar.ThumbFillColor = System.Drawing.SystemColors.Control;
+            this.soundVolumeBar.ThumbLength = 18;
+            this.soundVolumeBar.ThumbMargin = 1;
+            this.soundVolumeBar.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
+            this.soundVolumeBar.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
+            this.soundVolumeBar.Value = 50;
+            this.soundVolumeBar.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.soundVolumeBar_ValueChanged);
+            this.soundVolumeBar.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.soundVolumeBar_Scroll);
             // 
             // musicProcessBar
             // 
@@ -613,30 +661,6 @@
             this.backButtonList.Images.SetKeyName(1, "icons8-skip-to-start-30.png");
             this.backButtonList.Images.SetKeyName(2, "icons8-skip-to-start-30 (1).png");
             // 
-            // cutButton
-            // 
-            this.cutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.cutButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.cutButton.FlatAppearance.BorderSize = 0;
-            this.cutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.cutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.cutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cutButton.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.cutButton.ImageIndex = 0;
-            this.cutButton.ImageList = this.cutButtonList;
-            this.cutButton.Location = new System.Drawing.Point(160, 40);
-            this.cutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cutButton.Name = "cutButton";
-            this.cutButton.Size = new System.Drawing.Size(32, 27);
-            this.cutButton.TabIndex = 7;
-            this.cutButton.UseMnemonic = false;
-            this.cutButton.UseVisualStyleBackColor = true;
-            this.cutButton.Click += new System.EventHandler(this.cutButton_Click);
-            this.cutButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cutButton_MouseDown);
-            this.cutButton.MouseEnter += new System.EventHandler(this.cutButton_MouseEnter);
-            this.cutButton.MouseLeave += new System.EventHandler(this.cutButton_MouseLeave);
-            this.cutButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.cutButton_MouseUp);
-            // 
             // cutButtonList
             // 
             this.cutButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("cutButtonList.ImageStream")));
@@ -761,20 +785,6 @@
             this.muteButtonList.Images.SetKeyName(3, "icons8-mute-30 (5).png");
             this.muteButtonList.Images.SetKeyName(4, "icons8-no-audio-30 (1).png");
             this.muteButtonList.Images.SetKeyName(5, "icons8-mute-30 (4).png");
-            // 
-            // soundVolumeBar
-            // 
-            this.soundVolumeBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.sideMenuAni.SetDecoration(this.soundVolumeBar, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.soundVolumeBar.Location = new System.Drawing.Point(879, 22);
-            this.soundVolumeBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.soundVolumeBar.Name = "soundVolumeBar";
-            this.soundVolumeBar.Size = new System.Drawing.Size(163, 73);
-            this.soundVolumeBar.TabIndex = 11;
-            this.soundVolumeBar.Value = 50;
-            this.soundVolumeBar.ValueChanged += new System.EventHandler(this.soundVolumeBar_ValueChanged);
-            this.soundVolumeBar.Scroll += new System.EventHandler(this.soundVolumeBar_Scroll);
             // 
             // playButton
             // 
@@ -982,7 +992,6 @@
             this.mainMidPanel.Name = "mainMidPanel";
             this.mainMidPanel.Size = new System.Drawing.Size(1083, 461);
             this.mainMidPanel.TabIndex = 6;
-            this.mainMidPanel.Click += new System.EventHandler(this.cutButton_Click);
             // 
             // mainPicturebox
             // 
@@ -1065,7 +1074,6 @@
         private System.Windows.Forms.ImageList menuButtonList;
         private System.Windows.Forms.Panel iconPanel;
         private System.Windows.Forms.Button sideMenuButton;
-        private Siticone.UI.WinForms.SiticoneSlider soundVolumeBar;
         private System.Windows.Forms.Timer musicBarTimer  ;
         private System.Windows.Forms.Timer timeSync;
         private System.Windows.Forms.Label songLength;
@@ -1091,9 +1099,9 @@
         private System.Windows.Forms.Panel videoSubMenu;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button cutButton;
         private System.Windows.Forms.ImageList cutButtonList;
         private System.Windows.Forms.Button openMusicFolderButton;
+        private Bunifu.UI.WinForms.BunifuHSlider soundVolumeBar;
     }
 }
 

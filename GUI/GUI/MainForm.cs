@@ -1197,34 +1197,7 @@ namespace GUI
         {
             _pictureForm._add();
         }
-        // cut button 
-        private void cutButton_Click(object sender, EventArgs e)
-        {
-
-            CutSoundForm temp = new CutSoundForm(@"D:/bt2/test1.wav",@"D:/bt2/test2.wav");
-            temp.Show();
-            
-        }
-
-        private void cutButton_MouseLeave(object sender, EventArgs e)
-        {
-            cutButton.ImageIndex = 0;
-        }
-
-        private void cutButton_MouseEnter(object sender, EventArgs e)
-        {
-            cutButton.ImageIndex = 1;
-        }
-
-        private void cutButton_MouseUp(object sender, MouseEventArgs e)
-        {
-            cutButton.ImageIndex = 1;
-        }
-
-        private void cutButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            cutButton.ImageIndex = 2;
-        }
+        
         // Open folder button
         private void openMusicFolderButton_Click(object sender, EventArgs e)
         {

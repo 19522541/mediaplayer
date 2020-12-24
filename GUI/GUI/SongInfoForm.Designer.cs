@@ -268,13 +268,13 @@
             this.addToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.songInfoContextMenu.Name = "contextMenuStrip1";
-            this.songInfoContextMenu.Size = new System.Drawing.Size(123, 76);
+            this.songInfoContextMenu.Size = new System.Drawing.Size(211, 104);
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
@@ -285,27 +285,28 @@
             this.toolStripSeparator1});
             this.addToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // newPlaylistToolStripMenuItem
             // 
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
-            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Text = "Cut";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // songInfoTimer
             // 
@@ -318,7 +319,7 @@
             this.addContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.addContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.addContextMenuStrip.Name = "addContextMenuStrip";
-            this.addContextMenuStrip.Size = new System.Drawing.Size(211, 32);
+            this.addContextMenuStrip.Size = new System.Drawing.Size(61, 4);
             this.addContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.addContextMenuStrip_ItemClicked);
             this.addContextMenuStrip.MouseLeave += new System.EventHandler(this.addContextMenuStrip_MouseLeave);
             // 

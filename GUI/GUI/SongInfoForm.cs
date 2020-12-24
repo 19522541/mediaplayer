@@ -311,5 +311,11 @@ namespace GUI
         {
             songInfoContextMenu.AutoClose = true;
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CutSoundForm temp = new CutSoundForm(@"D:/bt2/test1.wav", @"D:/bt2/test2.wav");
+            temp.Show();
+        }
     }
 }
