@@ -182,24 +182,6 @@
     </Compile>
     <Compile Include="DataReader.cs" />
     <Compile Include="DataSaver.cs" />
-    <Compile Include="CutSoundForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CutSoundForm.Designer.cs">
-      <DependentUpon>CutSoundForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InformationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InformationForm.Designer.cs">
-      <DependentUpon>InformationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LyricForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LyricForm.Designer.cs">
-      <DependentUpon>LyricForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="NewPlayListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +234,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="trimmingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="trimmingForm.Designer.cs">
+      <DependentUpon>trimmingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,15 +249,6 @@
     <Compile Include="WavPlayer.cs" />
     <EmbeddedResource Include="createlistForm.resx">
       <DependentUpon>createlistForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CutSoundForm.resx">
-      <DependentUpon>CutSoundForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InformationForm.resx">
-      <DependentUpon>InformationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LyricForm.resx">
-      <DependentUpon>LyricForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -288,6 +267,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PictureForm.resx">
       <DependentUpon>PictureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayListForm.resx">
       <DependentUpon>PlayListForm.cs</DependentUpon>
@@ -297,6 +277,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="trimmingForm.resx">
+      <DependentUpon>trimmingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoForm.resx">
       <DependentUpon>VideoForm.cs</DependentUpon>

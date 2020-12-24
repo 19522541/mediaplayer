@@ -17,8 +17,9 @@ namespace GUI
     
     public partial class SongInfoForm : Form
     {
+        trimmingForm trimForm ;
         int _index;
-        public MediaForm _parent = null;
+        MediaForm _parent = null;
         String _dir = null;
         bool _isPlaying = false;
         public SongInfoForm()
@@ -119,26 +120,6 @@ namespace GUI
 
                 songInfoContextMenu.Show(Cursor.Position);
             }
-            else if (me.Button == MouseButtons.Left)
-            {
-                this._parent._parent.backwardButton.Visible = true;
-                this._parent._parent._backMode = 1;
-                this._parent._parent._nowSongInfo = this;
-                var fileTag = TagLib.File.Create(this._dir);
-                string lyric = fileTag.Tag.Lyrics;
-                if (lyric != null)
-                {
-                    //this._parent._parent._lyricBox.Text = lyric;
-                    this._parent._parent._lyricBox = new LyricForm(lyric);
-                }
-                else
-                {
-                    this._parent._parent._lyricBox = new LyricForm("Bài hát hiện không có lời!!!");
-                }
-                this._parent.Hide();
-                this._parent._parent.openNewForm(this._parent._parent._lyricBox, -1);
-            }
-
         }
 
         private void songName_Click(object sender, EventArgs e)
@@ -310,6 +291,17 @@ namespace GUI
         private void addContextMenuStrip_MouseLeave(object sender, EventArgs e)
         {
             songInfoContextMenu.AutoClose = true;
+        }
+
+        private void songInfoContextMenu_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void trimToolStripMenuItem_Click(object sender, EventArgs e)
+        {   
+             trimForm = new trimmingForm(_dir, this.length.Text);
+            trimForm.ShowDialog(); 
         }
     }
 }
