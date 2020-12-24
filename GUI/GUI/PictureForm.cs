@@ -48,7 +48,7 @@ namespace GUI
             this.point[0].Size = new Size(10, 10);
             this.point[1].Size = new Size(10, 10);
 
-            imagepath = GetFilesFrom(@"D:\image\", filters, false);
+            imagepath = GetFilesFrom(@"C:\Users\DELL\Pictures", filters, false);
 
             listView1.ForeColor = Color.White;
             foreach (var temp in imagepath)

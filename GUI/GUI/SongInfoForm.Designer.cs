@@ -45,9 +45,9 @@
             this.newPlaylistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songInfoTimer = new System.Windows.Forms.Timer(this.components);
             this.addContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.trimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songPanel.SuspendLayout();
             this.songInfoContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -65,9 +65,9 @@
             this.songPanel.Controls.Add(this.length);
             this.songPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.songPanel.Location = new System.Drawing.Point(0, 0);
-            this.songPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.songPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.songPanel.Name = "songPanel";
-            this.songPanel.Size = new System.Drawing.Size(535, 32);
+            this.songPanel.Size = new System.Drawing.Size(713, 39);
             this.songPanel.TabIndex = 0;
             this.songPanel.Click += new System.EventHandler(this.Click1);
             this.songPanel.DoubleClick += new System.EventHandler(this.DoubleClick1);
@@ -90,17 +90,18 @@
             this.addButton.ImageActive = null;
             this.addButton.ImageLocation = null;
             this.addButton.ImageMargin = 40;
-            this.addButton.ImageSize = new System.Drawing.Size(-10, -8);
-            this.addButton.ImageZoomSize = new System.Drawing.Size(30, 32);
+            this.addButton.ImageSize = new System.Drawing.Size(0, -1);
+            this.addButton.ImageZoomSize = new System.Drawing.Size(40, 39);
             this.addButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("addButton.InitialImage")));
-            this.addButton.Location = new System.Drawing.Point(172, 0);
+            this.addButton.Location = new System.Drawing.Point(229, 0);
+            this.addButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.addButton.Name = "addButton";
             this.addButton.Rotation = 0;
             this.addButton.ShowActiveImage = true;
             this.addButton.ShowCursorChanges = true;
             this.addButton.ShowImageBorders = true;
             this.addButton.ShowSizeMarkers = false;
-            this.addButton.Size = new System.Drawing.Size(30, 32);
+            this.addButton.Size = new System.Drawing.Size(40, 39);
             this.addButton.TabIndex = 10;
             this.addButton.ToolTipText = "";
             this.addButton.WaitOnLoad = false;
@@ -126,17 +127,18 @@
             this.playButton.ImageActive = null;
             this.playButton.ImageLocation = null;
             this.playButton.ImageMargin = 40;
-            this.playButton.ImageSize = new System.Drawing.Size(-10, -8);
-            this.playButton.ImageZoomSize = new System.Drawing.Size(30, 32);
+            this.playButton.ImageSize = new System.Drawing.Size(0, -1);
+            this.playButton.ImageZoomSize = new System.Drawing.Size(40, 39);
             this.playButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("playButton.InitialImage")));
-            this.playButton.Location = new System.Drawing.Point(124, 0);
+            this.playButton.Location = new System.Drawing.Point(165, 0);
+            this.playButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.playButton.Name = "playButton";
             this.playButton.Rotation = 0;
             this.playButton.ShowActiveImage = true;
             this.playButton.ShowCursorChanges = true;
             this.playButton.ShowImageBorders = true;
             this.playButton.ShowSizeMarkers = false;
-            this.playButton.Size = new System.Drawing.Size(30, 32);
+            this.playButton.Size = new System.Drawing.Size(40, 39);
             this.playButton.TabIndex = 11;
             this.playButton.ToolTipText = "";
             this.playButton.WaitOnLoad = false;
@@ -162,17 +164,18 @@
             this.fdeleteButton.ImageActive = null;
             this.fdeleteButton.ImageLocation = null;
             this.fdeleteButton.ImageMargin = 40;
-            this.fdeleteButton.ImageSize = new System.Drawing.Size(-10, -8);
-            this.fdeleteButton.ImageZoomSize = new System.Drawing.Size(30, 32);
+            this.fdeleteButton.ImageSize = new System.Drawing.Size(0, -1);
+            this.fdeleteButton.ImageZoomSize = new System.Drawing.Size(40, 39);
             this.fdeleteButton.InitialImage = ((System.Drawing.Image)(resources.GetObject("fdeleteButton.InitialImage")));
-            this.fdeleteButton.Location = new System.Drawing.Point(501, 0);
+            this.fdeleteButton.Location = new System.Drawing.Point(668, 0);
+            this.fdeleteButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.fdeleteButton.Name = "fdeleteButton";
             this.fdeleteButton.Rotation = 0;
             this.fdeleteButton.ShowActiveImage = true;
             this.fdeleteButton.ShowCursorChanges = true;
             this.fdeleteButton.ShowImageBorders = true;
             this.fdeleteButton.ShowSizeMarkers = false;
-            this.fdeleteButton.Size = new System.Drawing.Size(30, 32);
+            this.fdeleteButton.Size = new System.Drawing.Size(40, 39);
             this.fdeleteButton.TabIndex = 0;
             this.fdeleteButton.ToolTipText = "";
             this.fdeleteButton.WaitOnLoad = false;
@@ -186,11 +189,10 @@
             this.indexLabel.AutoSize = true;
             this.indexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.indexLabel.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.indexLabel.Location = new System.Drawing.Point(9, 9);
-            this.indexLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.indexLabel.MaximumSize = new System.Drawing.Size(158, 16);
+            this.indexLabel.Location = new System.Drawing.Point(12, 11);
+            this.indexLabel.MaximumSize = new System.Drawing.Size(211, 20);
             this.indexLabel.Name = "indexLabel";
-            this.indexLabel.Size = new System.Drawing.Size(35, 16);
+            this.indexLabel.Size = new System.Drawing.Size(41, 20);
             this.indexLabel.TabIndex = 12;
             this.indexLabel.Text = "num";
             this.indexLabel.Click += new System.EventHandler(this.Click1);
@@ -202,11 +204,10 @@
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.title.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.title.Location = new System.Drawing.Point(46, 9);
-            this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.title.MaximumSize = new System.Drawing.Size(158, 16);
+            this.title.Location = new System.Drawing.Point(61, 11);
+            this.title.MaximumSize = new System.Drawing.Size(211, 20);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(30, 16);
+            this.title.Size = new System.Drawing.Size(36, 20);
             this.title.TabIndex = 12;
             this.title.Text = "title";
             this.title.Click += new System.EventHandler(this.Click1);
@@ -219,11 +220,10 @@
             this.artist.AutoSize = true;
             this.artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.artist.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.artist.Location = new System.Drawing.Point(256, 7);
-            this.artist.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.artist.MaximumSize = new System.Drawing.Size(109, 16);
+            this.artist.Location = new System.Drawing.Point(341, 9);
+            this.artist.MaximumSize = new System.Drawing.Size(145, 20);
             this.artist.Name = "artist";
-            this.artist.Size = new System.Drawing.Size(39, 16);
+            this.artist.Size = new System.Drawing.Size(47, 20);
             this.artist.TabIndex = 13;
             this.artist.Text = "artist";
             this.artist.Click += new System.EventHandler(this.Click1);
@@ -236,11 +236,10 @@
             this.songName.AutoSize = true;
             this.songName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.songName.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.songName.Location = new System.Drawing.Point(336, 7);
-            this.songName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.songName.MaximumSize = new System.Drawing.Size(114, 16);
+            this.songName.Location = new System.Drawing.Point(448, 9);
+            this.songName.MaximumSize = new System.Drawing.Size(152, 20);
             this.songName.Name = "songName";
-            this.songName.Size = new System.Drawing.Size(78, 16);
+            this.songName.Size = new System.Drawing.Size(91, 20);
             this.songName.TabIndex = 14;
             this.songName.Text = "song name";
             this.songName.Click += new System.EventHandler(this.Click1);
@@ -253,11 +252,10 @@
             this.length.AutoSize = true;
             this.length.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.length.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.length.Location = new System.Drawing.Point(455, 7);
-            this.length.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.length.MaximumSize = new System.Drawing.Size(40, 16);
+            this.length.Location = new System.Drawing.Point(607, 9);
+            this.length.MaximumSize = new System.Drawing.Size(53, 20);
             this.length.Name = "length";
-            this.length.Size = new System.Drawing.Size(39, 16);
+            this.length.Size = new System.Drawing.Size(45, 20);
             this.length.TabIndex = 15;
             this.length.Text = "length";
             this.length.Click += new System.EventHandler(this.Click1);
@@ -273,14 +271,13 @@
             this.deleteToolStripMenuItem,
             this.trimToolStripMenuItem});
             this.songInfoContextMenu.Name = "contextMenuStrip1";
-            this.songInfoContextMenu.Size = new System.Drawing.Size(181, 114);
-            this.songInfoContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.songInfoContextMenu_Opening);
+            this.songInfoContextMenu.Size = new System.Drawing.Size(211, 128);
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
@@ -291,27 +288,35 @@
             this.toolStripSeparator1});
             this.addToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // newPlaylistToolStripMenuItem
             // 
             this.newPlaylistToolStripMenuItem.Name = "newPlaylistToolStripMenuItem";
-            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.newPlaylistToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.newPlaylistToolStripMenuItem.Text = "New Playlist";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(135, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // trimToolStripMenuItem
+            // 
+            this.trimToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.trimToolStripMenuItem.Name = "trimToolStripMenuItem";
+            this.trimToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.trimToolStripMenuItem.Text = "Trim";
+            this.trimToolStripMenuItem.Click += new System.EventHandler(this.trimToolStripMenuItem_Click);
             // 
             // songInfoTimer
             // 
@@ -328,20 +333,13 @@
             this.addContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.addContextMenuStrip_ItemClicked);
             this.addContextMenuStrip.MouseLeave += new System.EventHandler(this.addContextMenuStrip_MouseLeave);
             // 
-            // trimToolStripMenuItem
-            // 
-            this.trimToolStripMenuItem.Name = "trimToolStripMenuItem";
-            this.trimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.trimToolStripMenuItem.Text = "Trim";
-            this.trimToolStripMenuItem.Click += new System.EventHandler(this.trimToolStripMenuItem_Click);
-            // 
             // SongInfoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 32);
+            this.ClientSize = new System.Drawing.Size(713, 39);
             this.Controls.Add(this.songPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SongInfoForm";
             this.Text = "NowPlayingForm";
             this.songPanel.ResumeLayout(false);

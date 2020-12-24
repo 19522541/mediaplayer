@@ -33,7 +33,7 @@ namespace GUI
         public MediaForm _mediaForm;
         private PictureForm _pictureForm;
         private VideoForm _videoForm;
-        private trimmingForm _editForm;
+        private TrimForm _editForm;
         public PlayListForm _playListForm;
         public MediaForm _backupMediaForm;
         private int _curForm = 0;
@@ -651,7 +651,7 @@ namespace GUI
 
         private void pictureButton_Click(object sender, EventArgs e)
         {
-            this.backwardButton.Visible = false;
+            this.backwardButton.Visible = true;
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);

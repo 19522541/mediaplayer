@@ -469,3 +469,4 @@ D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.exe
 D:\git_\mediaplayer\GUI\GUI\obj\Debug\GUI.pdb
+D:\bt2\mediaplayer\GUI\GUI\obj\Debug\GUI.TrimForm.resources

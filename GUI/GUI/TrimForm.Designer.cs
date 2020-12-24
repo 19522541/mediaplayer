@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class trimmingForm
+    partial class TrimForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,24 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(trimmingForm));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrimForm));
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.trimmingslider = new Bunifu.Framework.UI.BunifuRange();
             this.lengthlabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.startlabel = new System.Windows.Forms.Label();
             this.endlabel = new System.Windows.Forms.Label();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.namebox = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.cancelButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.dragPanel = new System.Windows.Forms.Panel();
+            this.trimFormDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.SuspendLayout();
             // 
             // bunifuLabel1
@@ -56,12 +60,13 @@ namespace GUI
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuLabel1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.bunifuLabel1.Location = new System.Drawing.Point(109, 109);
+            this.bunifuLabel1.Location = new System.Drawing.Point(145, 134);
+            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(98, 22);
+            this.bunifuLabel1.Size = new System.Drawing.Size(93, 27);
             this.bunifuLabel1.TabIndex = 2;
-            this.bunifuLabel1.Text = "bunifuLabel1";
+            this.bunifuLabel1.Text = "File Name";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -71,12 +76,13 @@ namespace GUI
             this.trimmingslider.BackgroudColor = System.Drawing.Color.DarkGray;
             this.trimmingslider.BorderRadius = 0;
             this.trimmingslider.IndicatorColor = System.Drawing.Color.Magenta;
-            this.trimmingslider.Location = new System.Drawing.Point(120, 196);
+            this.trimmingslider.Location = new System.Drawing.Point(160, 241);
+            this.trimmingslider.Margin = new System.Windows.Forms.Padding(5);
             this.trimmingslider.MaximumRange = 100;
             this.trimmingslider.Name = "trimmingslider";
             this.trimmingslider.RangeMax = 100;
             this.trimmingslider.RangeMin = 0;
-            this.trimmingslider.Size = new System.Drawing.Size(550, 30);
+            this.trimmingslider.Size = new System.Drawing.Size(733, 35);
             this.trimmingslider.TabIndex = 3;
             this.trimmingslider.RangeMaxChanged += new System.EventHandler(this.trimmingslider_RangeMaxChanged);
             this.trimmingslider.RangeMinChanged += new System.EventHandler(this.trimmingslider_RangeMinChanged);
@@ -89,12 +95,13 @@ namespace GUI
             this.lengthlabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.lengthlabel.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lengthlabel.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.lengthlabel.Location = new System.Drawing.Point(710, 196);
+            this.lengthlabel.Location = new System.Drawing.Point(947, 241);
+            this.lengthlabel.Margin = new System.Windows.Forms.Padding(4);
             this.lengthlabel.Name = "lengthlabel";
             this.lengthlabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lengthlabel.Size = new System.Drawing.Size(77, 21);
+            this.lengthlabel.Size = new System.Drawing.Size(111, 26);
             this.lengthlabel.TabIndex = 4;
-            this.lengthlabel.Text = "lengthlabel";
+            this.lengthlabel.Text = "Song Length";
             this.lengthlabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lengthlabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -103,9 +110,10 @@ namespace GUI
             this.startlabel.AutoSize = true;
             this.startlabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startlabel.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.startlabel.Location = new System.Drawing.Point(105, 168);
+            this.startlabel.Location = new System.Drawing.Point(140, 207);
+            this.startlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.startlabel.Name = "startlabel";
-            this.startlabel.Size = new System.Drawing.Size(72, 21);
+            this.startlabel.Size = new System.Drawing.Size(90, 25);
             this.startlabel.TabIndex = 5;
             this.startlabel.Text = "starttime";
             // 
@@ -114,12 +122,12 @@ namespace GUI
             this.endlabel.AutoSize = true;
             this.endlabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endlabel.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.endlabel.Location = new System.Drawing.Point(640, 168);
+            this.endlabel.Location = new System.Drawing.Point(853, 207);
+            this.endlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.endlabel.Name = "endlabel";
-            this.endlabel.Size = new System.Drawing.Size(67, 21);
+            this.endlabel.Size = new System.Drawing.Size(84, 25);
             this.endlabel.TabIndex = 6;
             this.endlabel.Text = "endtime";
-            this.endlabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // bunifuButton1
             // 
@@ -135,16 +143,16 @@ namespace GUI
             this.bunifuButton1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.bunifuButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.BackgroundImage")));
             this.bunifuButton1.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton1.ButtonText = "Path";
+            this.bunifuButton1.ButtonText = "Save";
             this.bunifuButton1.ButtonTextMarginLeft = 0;
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
             this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.bunifuButton1.CustomizableEdges = borderEdges1;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.bunifuButton1.CustomizableEdges = borderEdges3;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -168,7 +176,8 @@ namespace GUI
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(644, 268);
+            this.bunifuButton1.Location = new System.Drawing.Point(901, 353);
+            this.bunifuButton1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 1;
@@ -202,7 +211,7 @@ namespace GUI
             this.bunifuButton1.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnPressedState.IconLeftImage = null;
             this.bunifuButton1.OnPressedState.IconRightImage = null;
-            this.bunifuButton1.Size = new System.Drawing.Size(93, 39);
+            this.bunifuButton1.Size = new System.Drawing.Size(124, 29);
             this.bunifuButton1.TabIndex = 7;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -210,17 +219,6 @@ namespace GUI
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(78, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 45);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // namebox
             // 
@@ -249,33 +247,34 @@ namespace GUI
             this.namebox.IconRight = null;
             this.namebox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.namebox.Lines = new string[0];
-            this.namebox.Location = new System.Drawing.Point(335, 87);
+            this.namebox.Location = new System.Drawing.Point(382, 128);
+            this.namebox.Margin = new System.Windows.Forms.Padding(4);
             this.namebox.MaxLength = 32767;
             this.namebox.MinimumSize = new System.Drawing.Size(1, 1);
             this.namebox.Modified = false;
             this.namebox.Multiline = false;
             this.namebox.Name = "namebox";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.namebox.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.namebox.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.namebox.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.namebox.OnIdleState = stateProperties4;
-            this.namebox.Padding = new System.Windows.Forms.Padding(3);
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.namebox.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.namebox.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.namebox.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.namebox.OnIdleState = stateProperties8;
+            this.namebox.Padding = new System.Windows.Forms.Padding(4);
             this.namebox.PasswordChar = '\0';
             this.namebox.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.namebox.PlaceholderText = "Enter text";
@@ -285,7 +284,7 @@ namespace GUI
             this.namebox.SelectionLength = 0;
             this.namebox.SelectionStart = 0;
             this.namebox.ShortcutsEnabled = true;
-            this.namebox.Size = new System.Drawing.Size(218, 34);
+            this.namebox.Size = new System.Drawing.Size(291, 33);
             this.namebox.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.namebox.TabIndex = 9;
             this.namebox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -296,21 +295,129 @@ namespace GUI
             this.namebox.UseSystemPasswordChar = false;
             this.namebox.WordWrap = true;
             // 
-            // trimmingForm
+            // cancelButton
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.cancelButton.AllowAnimations = true;
+            this.cancelButton.AllowMouseEffects = true;
+            this.cancelButton.AllowToggling = false;
+            this.cancelButton.AnimationSpeed = 200;
+            this.cancelButton.AutoGenerateColors = false;
+            this.cancelButton.AutoRoundBorders = false;
+            this.cancelButton.AutoSizeLeftIcon = true;
+            this.cancelButton.AutoSizeRightIcon = true;
+            this.cancelButton.BackColor = System.Drawing.Color.Transparent;
+            this.cancelButton.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.cancelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cancelButton.BackgroundImage")));
+            this.cancelButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.cancelButton.ButtonText = "Cancel";
+            this.cancelButton.ButtonTextMarginLeft = 0;
+            this.cancelButton.ColorContrastOnClick = 45;
+            this.cancelButton.ColorContrastOnHover = 45;
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.cancelButton.CustomizableEdges = borderEdges4;
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.cancelButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.cancelButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cancelButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.cancelButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancelButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.cancelButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.cancelButton.IconMarginLeft = 11;
+            this.cancelButton.IconPadding = 10;
+            this.cancelButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cancelButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.cancelButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.cancelButton.IconSize = 25;
+            this.cancelButton.IdleBorderColor = System.Drawing.Color.Purple;
+            this.cancelButton.IdleBorderRadius = 1;
+            this.cancelButton.IdleBorderThickness = 1;
+            this.cancelButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.cancelButton.IdleIconLeftImage = null;
+            this.cancelButton.IdleIconRightImage = null;
+            this.cancelButton.IndicateFocus = false;
+            this.cancelButton.Location = new System.Drawing.Point(751, 353);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.cancelButton.OnDisabledState.BorderRadius = 1;
+            this.cancelButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.cancelButton.OnDisabledState.BorderThickness = 1;
+            this.cancelButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cancelButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.cancelButton.OnDisabledState.IconLeftImage = null;
+            this.cancelButton.OnDisabledState.IconRightImage = null;
+            this.cancelButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.cancelButton.onHoverState.BorderRadius = 1;
+            this.cancelButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.cancelButton.onHoverState.BorderThickness = 1;
+            this.cancelButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.cancelButton.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.onHoverState.IconLeftImage = null;
+            this.cancelButton.onHoverState.IconRightImage = null;
+            this.cancelButton.OnIdleState.BorderColor = System.Drawing.Color.Purple;
+            this.cancelButton.OnIdleState.BorderRadius = 1;
+            this.cancelButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.cancelButton.OnIdleState.BorderThickness = 1;
+            this.cancelButton.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.cancelButton.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.OnIdleState.IconLeftImage = null;
+            this.cancelButton.OnIdleState.IconRightImage = null;
+            this.cancelButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.cancelButton.OnPressedState.BorderRadius = 1;
+            this.cancelButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.cancelButton.OnPressedState.BorderThickness = 1;
+            this.cancelButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.cancelButton.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.OnPressedState.IconLeftImage = null;
+            this.cancelButton.OnPressedState.IconRightImage = null;
+            this.cancelButton.Size = new System.Drawing.Size(124, 29);
+            this.cancelButton.TabIndex = 7;
+            this.cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cancelButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cancelButton.TextMarginLeft = 0;
+            this.cancelButton.TextPadding = new System.Windows.Forms.Padding(0);
+            this.cancelButton.UseDefaultRadiusAndThickness = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // dragPanel
+            // 
+            this.dragPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dragPanel.Location = new System.Drawing.Point(0, 0);
+            this.dragPanel.Name = "dragPanel";
+            this.dragPanel.Size = new System.Drawing.Size(1068, 78);
+            this.dragPanel.TabIndex = 10;
+            // 
+            // trimFormDragControl
+            // 
+            this.trimFormDragControl.Fixed = true;
+            this.trimFormDragControl.Horizontal = true;
+            this.trimFormDragControl.TargetControl = this.dragPanel;
+            this.trimFormDragControl.Vertical = true;
+            // 
+            // TrimForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(801, 344);
+            this.ClientSize = new System.Drawing.Size(1068, 423);
+            this.Controls.Add(this.dragPanel);
             this.Controls.Add(this.namebox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.bunifuButton1);
             this.Controls.Add(this.endlabel);
             this.Controls.Add(this.startlabel);
             this.Controls.Add(this.lengthlabel);
             this.Controls.Add(this.trimmingslider);
             this.Controls.Add(this.bunifuLabel1);
-            this.Name = "trimmingForm";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "TrimForm";
             this.Text = "trimmingForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -325,7 +432,9 @@ namespace GUI
         private System.Windows.Forms.Label startlabel;
         private System.Windows.Forms.Label endlabel;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private System.Windows.Forms.Button button1;
         private Bunifu.UI.WinForms.BunifuTextBox namebox;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton cancelButton;
+        private System.Windows.Forms.Panel dragPanel;
+        private Bunifu.Framework.UI.BunifuDragControl trimFormDragControl;
     }
 }

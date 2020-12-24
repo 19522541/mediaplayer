@@ -17,7 +17,7 @@ namespace GUI
     
     public partial class SongInfoForm : Form
     {
-        trimmingForm trimForm ;
+        TrimForm trimForm ;
         int _index;
         MediaForm _parent = null;
         String _dir = null;
@@ -293,14 +293,10 @@ namespace GUI
             songInfoContextMenu.AutoClose = true;
         }
 
-        private void songInfoContextMenu_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
 
         private void trimToolStripMenuItem_Click(object sender, EventArgs e)
         {   
-             trimForm = new trimmingForm(_dir, this.length.Text);
+            trimForm = new TrimForm(_dir, this.length.Text);
             trimForm.ShowDialog(); 
         }
     }

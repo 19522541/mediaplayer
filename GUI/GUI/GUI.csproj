@@ -234,11 +234,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="trimmingForm.cs">
+    <Compile Include="TrimForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="trimmingForm.Designer.cs">
-      <DependentUpon>trimmingForm.cs</DependentUpon>
+    <Compile Include="TrimForm.Designer.cs">
+      <DependentUpon>TrimForm.cs</DependentUpon>
     </Compile>
     <Compile Include="VideoForm.cs">
       <SubType>Form</SubType>
@@ -278,8 +278,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="trimmingForm.resx">
-      <DependentUpon>trimmingForm.cs</DependentUpon>
+    <EmbeddedResource Include="TrimForm.resx">
+      <DependentUpon>TrimForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoForm.resx">
       <DependentUpon>VideoForm.cs</DependentUpon>
