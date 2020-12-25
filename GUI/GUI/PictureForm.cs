@@ -39,6 +39,8 @@ namespace GUI
         //  ListView imagelist = new ListView();
         //   ListViewItem lstviewItem ;
         //---------------
+        public string user = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
         public PictureForm(MainForm parent)
         {
             this.DoubleBuffered = true;
@@ -49,7 +51,8 @@ namespace GUI
             this.point[0].Size = new Size(10, 10);
             this.point[1].Size = new Size(10, 10);
 
-            imagepath = GetFilesFrom(@"C:\Users\DELL\Pictures", filters, false);
+            var root_path = user + @"\Pictures";
+            imagepath = GetFilesFrom(root_path, filters, false);
 
             listView1.ForeColor = Color.White;
             foreach (var temp in imagepath)

@@ -46,6 +46,13 @@ namespace GUI
         public LyricForm _lyricBox;
         public SongInfoForm _nowSongInfo = null;
         private bool _playlistCheck = false;
+
+        // user directory path
+        public string user = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+        //store user's choice of Music or Videos
+        enum Choice { None, Musics, Pictures, Videos };
+        Choice userChoice;
         public MainForm()
         {
             
@@ -786,8 +793,8 @@ namespace GUI
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             int index = userName.IndexOf(@"\");
             string temp = userName.Substring(index + 1, userName.Length - index -1);
-            string path = @"C:\Users\" + temp + @"\Music";
-            DirectoryInfo musicFolder = new DirectoryInfo(path);
+            string root_path = user + @"\Music";
+            DirectoryInfo musicFolder = new DirectoryInfo(root_path);
             FileInfo[] musicFiles = musicFolder.GetFiles("*.mp3");
             foreach (var x in musicFiles)
             {
