@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Windows.Forms;
-using AudioSwitcher.AudioApi.CoreAudio;
+//using AudioSwitcher.AudioApi.CoreAudio;
 using Bunifu.UI.WinForms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 namespace GUI
@@ -17,7 +17,7 @@ namespace GUI
     {
         private int _bfHoverIndex = 0;
         private Player _music;
-        private CoreAudioDevice _playBackDevice;
+        //private CoreAudioDevice _playBackDevice;
         public List<String> _playedList;
         public int _nowPlayIndex = 0;
         private int _check = 0;
@@ -55,7 +55,7 @@ namespace GUI
             this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
             this.DoubleBuffered = true;
-            this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
+            //this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._allSong = new List<string>();
             
             this.musicProcessBar.Enabled = false;
@@ -86,7 +86,7 @@ namespace GUI
             imageSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
             videoSubMenu.Visible = false;
-            this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
+            //this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
             this.soundVolumeBar.Value = 50;
             this._lastSoundValue = this.soundVolumeBar.Value;
         }
@@ -977,7 +977,7 @@ namespace GUI
                 setMuteButtonImg();
                 setSoundButtonImg();
             }
-            _playBackDevice.Volume = soundVolumeBar.Value;
+            //_playBackDevice.Volume = soundVolumeBar.Value;
 
         }
 
