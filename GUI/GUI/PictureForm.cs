@@ -590,5 +590,10 @@ namespace GUI
                 save_image();
             _cutPicture = false;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
