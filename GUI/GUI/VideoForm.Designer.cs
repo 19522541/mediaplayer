@@ -33,6 +33,7 @@
             // 
             // videolistView
             // 
+            this.videolistView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.videolistView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videolistView.HideSelection = false;
             this.videolistView.Location = new System.Drawing.Point(0, 0);

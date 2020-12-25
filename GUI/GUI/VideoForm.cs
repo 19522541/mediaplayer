@@ -19,7 +19,7 @@ namespace GUI
         //var picture_path = user + @"\Pictures\";
         //imagepath = GetFilesFrom(picture_path, filters, false);
 
-        ImageList thumbnail_list = new ImageList();
+        public ImageList thumbnail_list = new ImageList();
         List<string> vid_path;
         int vid_index = 0;
         public VideoForm()
@@ -89,44 +89,65 @@ namespace GUI
             //read the first frame 
             Bitmap videoframe = reader.ReadVideoFrame();
             string name = Path.GetFileNameWithoutExtension(path);
-            videoframe.Save(name + ".bmp");
+            name += ".bmp";
+            DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+            string temp = @"thumbnail";
+            string save_path = Path.Combine(dir.FullName,temp,name);
+            videoframe.Save(save_path);
 
             //dispose video frame
             videoframe.Dispose();
             reader.Close();
         }
 
-        private ImageList GetVideoThumbnail(string[] vid_path)
-        {
-            ImageList thumbnails = new ImageList();
-            foreach (var video in vid_path)
-            {
-                // create a thumbnail [video's name].bmp
-                getFirstFrame(video);
-                var temp = Path.GetFileNameWithoutExtension(video);
-                var thumbnail = Directory.GetFiles(temp, ".bmp")[0];
+        //private ImageList GetVideoThumbnail(string[] vid_path)
+        //{
+        //    ImageList thumbnails = new ImageList();
+        //    foreach (var video in vid_path)
+        //    {
+        //        // create a thumbnail [video's name].bmp
+        //        getFirstFrame(video);
+        //        var temp = Path.GetFileNameWithoutExtension(video);
+        //        var thumbnail = Directory.GetFiles(temp, ".bmp")[0];
 
-                thumbnails.Images.Add(Image.FromFile(thumbnail));
-
-
-
-            }
+        //        thumbnails.Images.Add(Image.FromFile(thumbnail));
 
 
-            return thumbnails;
-        }
 
-        private string GetVideoThumbnail(string vid_path)
+        //    }
+
+
+        //    return thumbnails;
+        //}
+
+        private string GetVideoThumbnail(string vid_path) //get the bitmap thumbnail path of video
         {
             getFirstFrame(vid_path);
-            var temp = Path.GetFileNameWithoutExtension(vid_path);
-            temp += ".bmp";
+            var file = Path.GetFileNameWithoutExtension(vid_path);
+            file += ".bmp";
+            string thumbnail_path = @"thumbnail";
             DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
-            temp = Path.Combine(dir.FullName, temp);
+            // combine current directory + thumbnail + filename (./Debug/thumbnail/filename.bmp)
+            var temp = Path.Combine(dir.FullName,thumbnail_path, file);
 
 
             return temp;
         }
 
+        public void DeleteThumbnail()
+        {
+            foreach(Image image in this.thumbnail_list.Images)
+            {
+                image.Dispose();
+            }
+            DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+            string temp = @"thumbnail";
+            string thumbnail_path = Path.Combine(dir.FullName, temp);
+            DirectoryInfo del_folder = new DirectoryInfo(thumbnail_path);
+            foreach(FileInfo fi in del_folder.EnumerateFiles())
+            {
+                fi.Delete();
+            }
+        }
     }
 }
