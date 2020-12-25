@@ -17,7 +17,8 @@ using System.Threading.Tasks;
 namespace GUI
 {
     public partial class PictureForm : Form
-    { Point fpt1 = new Point();
+    { 
+        Point fpt1 = new Point();
         Point secpt2 = new Point();
         bool mouse = false;
         bool _mousecheck = false;
@@ -25,7 +26,7 @@ namespace GUI
         int j = 0;
         int x = 10;
         int y = 80;
-      
+        MainForm _parent;
         ImageList imagelist = new ImageList();
         PictureBox yourpic = new PictureBox();
         Bitmap alterpic;
@@ -38,10 +39,10 @@ namespace GUI
         //  ListView imagelist = new ListView();
         //   ListViewItem lstviewItem ;
         //---------------
-        public PictureForm()
+        public PictureForm(MainForm parent)
         {
             this.DoubleBuffered = true;
-
+            this._parent = parent;
             InitializeComponent();
             this.DoubleBuffered = true;
             var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
@@ -485,8 +486,13 @@ namespace GUI
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _cutPicture = true;
+            this._parent.pictureFormCtrlAppear();
+            
         }
-
+        public void cancel()
+        {
+            _cutPicture = false;
+        }
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {   if (_cutPicture == true)
             {
@@ -506,8 +512,13 @@ namespace GUI
 
         private void eSCToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            escapse();
+        }
+
+        public void escapse()
+        {
             this.Controls.Remove(panel1);
-                 _mousecheck = false;
+            _mousecheck = false;
         }
 
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
@@ -566,7 +577,7 @@ namespace GUI
           
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        public void save()
         {
             if (rec != null && rec.Height > 20 && rec.Width > 20)
             {

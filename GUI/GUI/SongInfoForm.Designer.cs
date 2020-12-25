@@ -271,13 +271,13 @@
             this.deleteToolStripMenuItem,
             this.trimToolStripMenuItem});
             this.songInfoContextMenu.Name = "contextMenuStrip1";
-            this.songInfoContextMenu.Size = new System.Drawing.Size(211, 128);
+            this.songInfoContextMenu.Size = new System.Drawing.Size(123, 100);
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.playToolStripMenuItem.Text = "Play";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
@@ -288,7 +288,7 @@
             this.toolStripSeparator1});
             this.addToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -307,14 +307,14 @@
             // 
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // trimToolStripMenuItem
             // 
             this.trimToolStripMenuItem.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.trimToolStripMenuItem.Name = "trimToolStripMenuItem";
-            this.trimToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.trimToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.trimToolStripMenuItem.Text = "Trim";
             this.trimToolStripMenuItem.Click += new System.EventHandler(this.trimToolStripMenuItem_Click);
             // 

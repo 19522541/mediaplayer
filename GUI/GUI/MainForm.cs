@@ -62,7 +62,7 @@ namespace GUI
             setup();
             this.DoubleBuffered = true;
             this._mediaForm = new MediaForm(this, this._playedList);
-            this._pictureForm = new PictureForm();
+            this._pictureForm = new PictureForm(this);
          
             this._videoForm = new VideoForm();
             this._playListForm = new PlayListForm(this);
@@ -86,7 +86,7 @@ namespace GUI
             imageSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
             videoSubMenu.Visible = false;
-            //   this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
+            this.soundVolumeBar.Value = Convert.ToInt32(this._playBackDevice.Volume);
             this.soundVolumeBar.Value = 50;
             this._lastSoundValue = this.soundVolumeBar.Value;
         }
@@ -185,6 +185,10 @@ namespace GUI
 
         void getNextSong(int z) // 1 for next and 2 for back
         {
+            if (_nowPlayIndex > this._playedList.Count)
+            {
+                _nowPlayIndex = 0;
+            }
             if (this._random)
             {
                 int temp = this._nowPlayIndex;
@@ -639,6 +643,8 @@ namespace GUI
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
+                this._nowPlayIndex = 0;
+                this._lastPlayed = -1;
             }
             openNewForm(this._mediaForm, 1);
 
@@ -663,6 +669,7 @@ namespace GUI
         private void pictureButton_Click(object sender, EventArgs e)
         {
             this._playlistCheck = false;
+            this._backMode = 3;
             this.backwardButton.Visible = true;
             if (sideMenuPanel.Width < 70)
             {
@@ -840,6 +847,9 @@ namespace GUI
                 if (check == DialogResult.No)
                 {
                     this._mediaForm.clear();
+                    this._nowPlayIndex = 0;
+                    this._lastPlayed = -1;
+                    this._playedList = temp;
                 }
                 temp.Add(open.FileName);
                 this._mediaForm.addNewSong(temp);
@@ -967,6 +977,8 @@ namespace GUI
                 setMuteButtonImg();
                 setSoundButtonImg();
             }
+            _playBackDevice.Volume = soundVolumeBar.Value;
+
         }
 
         private void muteButton_MouseHover(object sender, EventArgs e)
@@ -1159,6 +1171,11 @@ namespace GUI
                         this.openNewForm(this._playListForm, 2);
                         break;
                     }
+                case 3:
+                    {
+                        _pictureForm.escapse();
+                        break;
+                    }
             }
         }
 
@@ -1219,6 +1236,9 @@ namespace GUI
                 if (check == DialogResult.No)
                 {
                     this._mediaForm.clear();
+                    this._nowPlayIndex = 0;
+                    this._lastPlayed = -1;
+                    this._playedList = temp;
                 }
                 this.playButton.ImageIndex = 0;
                 this._mediaForm.addNewSong(temp);
@@ -1229,6 +1249,29 @@ namespace GUI
         {
             InformationForm x = new InformationForm();
             openNewForm(x, -1);
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this._pictureForm.cancel();
+            pictureFormCtrlHide();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            this._pictureForm.save();
+            pictureFormCtrlHide();
+        }
+
+        public void pictureFormCtrlAppear()
+        {
+            this.cancelButton.Visible = true;
+            this.saveButton.Visible = true;
+        }
+        public void pictureFormCtrlHide()
+        {
+            this.cancelButton.Visible = false;
+            this.saveButton.Visible = false;
         }
     }
 }

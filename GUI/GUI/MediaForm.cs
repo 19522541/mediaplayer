@@ -193,7 +193,7 @@ namespace GUI
 
         public void restart(int index)
         {
-            this._songInfo[index].restart();
+            if (index >= 0) this._songInfo[index].restart();
 
         }
 
@@ -219,6 +219,7 @@ namespace GUI
             _length.Clear();
             _songImg.Clear();
             this._songInfo.Clear();
+            
         }
     }
 }
