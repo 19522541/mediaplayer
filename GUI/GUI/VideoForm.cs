@@ -22,6 +22,8 @@ namespace GUI
         public ImageList thumbnail_list = new ImageList();
         List<string> vid_path;
         int vid_index = 0;
+
+        VideoPlayer videoPlayer;
         public VideoForm()
         {
             InitializeComponent();
@@ -62,6 +64,7 @@ namespace GUI
                 item.ImageIndex = vid_index;
 
                 item.Text = file.Name;
+                item.Tag = vid;
                 this.videolistView.Items.Add(item);
 
                 vid_index++;
@@ -148,6 +151,29 @@ namespace GUI
             {
                 fi.Delete();
             }
+        }
+
+        private void videolistView_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void videolistView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo hit = videolistView.HitTest(e.Location);
+
+            if (hit.Item != null)
+
+            {
+                if(videoPlayer!=null)
+                {
+                    videoPlayer.Dispose();
+                }    
+                videoPlayer = new VideoPlayer();
+                videoPlayer.Show();
+                //MessageBox.Show(this, hit.Item.Tag.ToString());
+
+            };
         }
     }
 }

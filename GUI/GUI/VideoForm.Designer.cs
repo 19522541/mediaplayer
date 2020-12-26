@@ -41,6 +41,8 @@
             this.videolistView.Size = new System.Drawing.Size(1300, 876);
             this.videolistView.TabIndex = 0;
             this.videolistView.UseCompatibleStateImageBehavior = false;
+            this.videolistView.DoubleClick += new System.EventHandler(this.videolistView_DoubleClick);
+            this.videolistView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.videolistView_MouseDoubleClick);
             // 
             // VideoForm
             // 

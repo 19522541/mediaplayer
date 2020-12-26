@@ -267,6 +267,12 @@
     <Compile Include="VideoForm.Designer.cs">
       <DependentUpon>VideoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VideoPlayer.Designer.cs">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="WavPlayer.cs" />
     <EmbeddedResource Include="createlistForm.resx">
       <DependentUpon>createlistForm.cs</DependentUpon>
