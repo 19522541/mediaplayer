@@ -28,7 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.videolistView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
+            // 
+            // videolistView
+            // 
+            this.videolistView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.videolistView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videolistView.HideSelection = false;
+            this.videolistView.Location = new System.Drawing.Point(0, 0);
+            this.videolistView.Name = "videolistView";
+            this.videolistView.Size = new System.Drawing.Size(1300, 876);
+            this.videolistView.TabIndex = 0;
+            this.videolistView.UseCompatibleStateImageBehavior = false;
+            this.videolistView.DoubleClick += new System.EventHandler(this.videolistView_DoubleClick);
+            this.videolistView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.videolistView_MouseDoubleClick);
             // 
             // VideoForm
             // 
@@ -36,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1300, 876);
+            this.Controls.Add(this.videolistView);
             this.Name = "VideoForm";
             this.Text = "VideoForm";
             this.ResumeLayout(false);
@@ -43,5 +58,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ListView videolistView;
     }
 }
