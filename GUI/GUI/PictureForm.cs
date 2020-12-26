@@ -29,7 +29,7 @@ namespace GUI
         MainForm _parent;
         ImageList imagelist = new ImageList();
         PictureBox yourpic = new PictureBox();
-        Bitmap alterpic;
+        bool selected = false;
         Rectangle[] point = new Rectangle[2];
         Rectangle rec;
         
@@ -267,6 +267,7 @@ namespace GUI
         {
             if (_mousecheck)
             {
+                this.selected = true;
                 ListView lstview = sender as ListView;
                 this.panel1.BringToFront();
                 if (lstview.SelectedItems.Count > 0)
@@ -283,7 +284,7 @@ namespace GUI
 
         }
 
-   
+      
         private void sethorizontalscroll(int value) { }
         private void setverticalscroll(int value) { }
         public void redraw() {
@@ -439,38 +440,60 @@ namespace GUI
         {
             leftRotate();
         }
+        public void next() {
+            if(selected)
+            {
+                int selectedIndex = listView1.SelectedIndices[0];
+                listView1.Items[selectedIndex].Selected = false;
 
+                // Prevents exception on the last element:      
+                if (selectedIndex < listView1.Items.Count - 1)
+                {
+                    selectedIndex++;
+                }
+                else { selectedIndex = 0; }
+                listView1.Items[selectedIndex].Selected = true;
+                listView1.Items[selectedIndex].Focused = true;
+            }
+
+        }
         private void nextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _mousecheck = true;
-            int selectedIndex = listView1.SelectedIndices[0];
-            listView1.Items[selectedIndex].Selected = false;
-            
-            // Prevents exception on the last element:      
-            if (selectedIndex < listView1.Items.Count-1)
-            {
-                selectedIndex++;
-            }
-            else{ selectedIndex = 0;   }
-            listView1.Items[selectedIndex].Selected = true;
-            listView1.Items[selectedIndex].Focused = true;
-        }
+             _mousecheck = true;
+            //int selectedIndex = listView1.SelectedIndices[0];
+            //listView1.Items[selectedIndex].Selected = false;
 
+            //// Prevents exception on the last element:      
+            //if (selectedIndex < listView1.Items.Count-1)
+            //{
+            //    selectedIndex++;
+            //}
+            //else{ selectedIndex = 0;   }
+            //listView1.Items[selectedIndex].Selected = true;
+            //listView1.Items[selectedIndex].Focused = true;
+            next();
+        }
+        public void back() {
+            if (selected)
+            {
+                int selectedIndex = listView1.SelectedIndices[0];
+                listView1.Items[selectedIndex].Selected = false;
+
+                // Prevents exception on the last element:      
+                if (selectedIndex > 0)
+                {
+                    selectedIndex--;
+
+                }
+                else { selectedIndex = listView1.Items.Count - 1; }
+                listView1.Items[selectedIndex].Selected = true;
+                listView1.Items[selectedIndex].Focused = true;
+            }
+        }
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _mousecheck = true;
-            int selectedIndex = listView1.SelectedIndices[0];
-            listView1.Items[selectedIndex].Selected = false;
-          
-            // Prevents exception on the last element:      
-            if (selectedIndex >0)
-            {
-                selectedIndex--;
-               
-            }
-            else{ selectedIndex = listView1.Items.Count-1; }
-            listView1.Items[selectedIndex].Selected = true;
-            listView1.Items[selectedIndex].Focused = true;
+            back();
         }
 
         private void contextMenuStrip1_Opening_1(object sender, CancelEventArgs e)
@@ -492,6 +515,7 @@ namespace GUI
         public void cancel()
         {
             _cutPicture = false;
+            rec = new Rectangle();
         }
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {   if (_cutPicture == true)
@@ -531,7 +555,12 @@ namespace GUI
             if (mouse == true) {
 
                 secpt2 = e.Location;
-            
+                this.pictureBox1.Invalidate();
+                setrec();
+
+
+                drawa();
+
             }
         }
 
@@ -540,6 +569,7 @@ namespace GUI
             if (mouse == true) {
 
                 secpt2 = e.Location;
+               
                 setrec();
                
                 
@@ -556,7 +586,7 @@ namespace GUI
 
 
                var g1= this.pictureBox1.CreateGraphics();
-                Pen p = new Pen(Color.DarkOrange, 5);
+                Pen p = new Pen(Color.DarkOrange, 4);
                 g1.DrawRectangle(p, rec);
             }
          //   if (rec != null&& rec.Height>20 && rec.Width>20) {
@@ -565,11 +595,12 @@ namespace GUI
          //   }
         }
         public void draw_picture() {
-            Bitmap pic = new Bitmap(this.pictureBox1.Image, this.pictureBox1.Width,this.pictureBox1.Height);
-            Bitmap croppic = new Bitmap(rec.Width, rec.Height);
-            Graphics g = Graphics.FromImage(croppic);
-            g.DrawImage(pic, 0, 0, rec, GraphicsUnit.Pixel);
-            this.pictureBox1.Image = croppic;
+            var rect = this.pictureBox1.ClientRectangle;
+            using (var output = new Bitmap(rect.Width, rect.Height, pictureBox1.Image.PixelFormat)) {
+                this.pictureBox1.DrawToBitmap(output,rect);
+                this.pictureBox1.Image = output.Clone(rec, output.PixelFormat);
+            
+            }
         
         }
         private void pictureBox1_Paint(object sender, PaintEventArgs e)

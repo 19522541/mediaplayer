@@ -32,6 +32,7 @@ namespace GUI
             this.FormBorderStyle = FormBorderStyle.None;
             this._startTime = new TimeSpan(0);
             this._endTime = new TimeSpan(0);
+            bunifuButton1.Enabled = false;
         }
         void trimming(string startDir,string endPath)
         {
@@ -108,6 +109,7 @@ namespace GUI
             this.endlabel.Location = new Point((105 + (this.trimmingslider.RangeMax * this.trimmingslider.Size.Width / this.trimmingslider.MaximumRange) ), this.endlabel.Location.Y);
             this.endlabel.Text = Convert.ToString(this.trimmingslider.RangeMax / 60) + ":" + Convert.ToString(this.trimmingslider.RangeMax % 60);
             this._endTime = new TimeSpan(0, this.trimmingslider.RangeMax / 60, this.trimmingslider.RangeMax % 60);
+            bunifuButton1.Enabled = true;
         }
 
         private void trimmingslider_RangeMinChanged(object sender, EventArgs e)

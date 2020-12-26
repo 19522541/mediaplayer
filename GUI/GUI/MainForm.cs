@@ -48,22 +48,22 @@ namespace GUI
         private bool _playlistCheck = false;
         public MainForm()
         {
-            
+
             InitializeComponent();
-            
+
             this.Text = String.Empty;
             this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this._playBackDevice = new CoreAudioController().DefaultPlaybackDevice;
             this._allSong = new List<string>();
-            
+
             this.musicProcessBar.Enabled = false;
             setup();
             this.DoubleBuffered = true;
             this._mediaForm = new MediaForm(this, this._playedList);
             this._pictureForm = new PictureForm(this);
-         
+
             this._videoForm = new VideoForm();
             this._playListForm = new PlayListForm(this);
             this._nowPlayingForm = new NowPlayingForm();
@@ -81,7 +81,7 @@ namespace GUI
 
         //-------------------function------------------//
         private void setup()
-        { 
+        {
             mediaSubMenu.Visible = false;
             imageSubMenu.Visible = false;
             playlistSubMenu.Visible = false;
@@ -135,7 +135,7 @@ namespace GUI
         {
             if (soundVolumeBar.Value > 50)
             {
-                soundButton.ImageIndex = 0; 
+                soundButton.ImageIndex = 0;
             }
             else if (soundVolumeBar.Value <= 50)
             {
@@ -149,7 +149,7 @@ namespace GUI
             {
                 muteButton.ImageIndex = 0;
             }
-            else 
+            else
             {
                 muteButton.ImageIndex = 1;
             }
@@ -180,7 +180,7 @@ namespace GUI
             }
             rs = minStr + ":" + sedStr;
             return rs;
-            
+
         }
 
         void getNextSong(int z) // 1 for next and 2 for back
@@ -212,13 +212,13 @@ namespace GUI
             else if (z == 2)
             {
                 if (this._nowPlayIndex > 0) this._nowPlayIndex--;
-                else  this._nowPlayIndex = this._nowPlayIndex = this._playedList.Count - 1;
-                
+                else this._nowPlayIndex = this._nowPlayIndex = this._playedList.Count - 1;
+
             }
         }
         //---------------------event-----------------//
 
-        
+
         //
         // Play button
         //
@@ -321,8 +321,8 @@ namespace GUI
                 {
                     _music = new Mp3Player(this._playedList[this._nowPlayIndex]);
                 }
-                
-                
+
+
             }
             this.musicProcessBar.Enabled = true;
             stopButton.BringToFront();
@@ -333,9 +333,9 @@ namespace GUI
             musicBarTimer.Start();
             count.Start();
             _music.start();
-            
-            
-            
+
+
+
 
         }
 
@@ -395,26 +395,48 @@ namespace GUI
         // Back button
         //
         private void backButton_Click(object sender, EventArgs e)
-        {
-            this._music.stop();
-            this.musicProcessBar.Value = 0;
-            this._check = 0;
-            //this._music = null;
-            this._lastPlayed = this._nowPlayIndex;
-            getNextSong(2);
-            
-            playButton_Click(sender, e);
-            
+        { switch (_backMode)
+            { case 1:
+                    {
+                        this._music.stop();
+                        this.musicProcessBar.Value = 0;
+                        this._check = 0;
+                        //this._music = null;
+                        this._lastPlayed = this._nowPlayIndex;
+                        getNextSong(2);
+                        playButton_Click(sender, e);
+                        break;
+                    }
+                case 2:
+                    {
+                        this._music.stop();
+                        this.musicProcessBar.Value = 0;
+                        this._check = 0;
+                        //this._music = null;
+                        this._lastPlayed = this._nowPlayIndex;
+                        getNextSong(2);
+                        playButton_Click(sender, e);
+                        break;
+                    }
+                case 3:
+                    {
+                        this._pictureForm.back();
+                        break;
+                    }
+        } 
         }
 
         private void backButton_MouseDown(object sender, MouseEventArgs e)
         {
-            count.Stop();
-            musicBarTimer.Stop();
-            this._music.stop();
+            if (_backMode != 3)
+            {
+                count.Stop();
+                musicBarTimer.Stop();
+                this._music.stop();
+                
+            }
             backButton.ImageIndex = 1;
-            
-            
+
         }
 
 
@@ -479,23 +501,49 @@ namespace GUI
         //
         private void nextButton_Click(object sender, EventArgs e)
         {
-            if (!musicProcessBar.Enabled) musicProcessBar.Enabled = true;
-            this._music.stop();
-            musicProcessBar.Value = 0;
-            this._check = 0;
-            this._lastPlayed = this._nowPlayIndex;
-            getNextSong(1);
-            playButton_Click(sender, e);
+            switch (_backMode)
+            {
+                case 1:
+                    {
+                        this._music.stop();
+                        this.musicProcessBar.Value = 0;
+                        this._check = 0;
+                        //this._music = null;
+                        this._lastPlayed = this._nowPlayIndex;
+                        getNextSong(2);
+                        playButton_Click(sender, e);
+                        break;
+                    }
+                case 2:
+                    {
+                        this._music.stop();
+                        this.musicProcessBar.Value = 0;
+                        this._check = 0;
+                        //this._music = null;
+                        this._lastPlayed = this._nowPlayIndex;
+                        getNextSong(2);
+                        playButton_Click(sender, e);
+                        break;
+                    }
+                case 3:
+                    {
+                        this._pictureForm.next();
+                        break;
+                    }
+            }
         }
 
         private void nextButton_MouseDown(object sender, MouseEventArgs e)
         {
-            count.Stop();
-            musicBarTimer.Stop();
-            this._music.stop();
+            if (_backMode != 3)
+            {
+                count.Stop();
+                musicBarTimer.Stop();
+                this._music.stop();
+                
+            }
             nextButton.ImageIndex = 1;
-            
-            
+
         }
 
         private void nextButton_MouseUp(object sender, MouseEventArgs e)
@@ -633,6 +681,7 @@ namespace GUI
         private void mediaButton_Click(object sender, EventArgs e)
         {
             this._playlistCheck = false;
+            this._backMode = 1;
             this.setPlayedList(this._mediaForm._list, this._mediaForm._ablum, this._mediaForm._title, this._mediaForm._firstPerformer, this._mediaForm._length, this._mediaForm._songImg);
             this.setInfo(0, -1);
             if (this._mediaForm._nowPlayIndex != -1) this._mediaForm.restart(this._mediaForm._nowPlayIndex);
@@ -1272,6 +1321,11 @@ namespace GUI
         {
             this.cancelButton.Visible = false;
             this.saveButton.Visible = false;
+        }
+
+        private void mainMidPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

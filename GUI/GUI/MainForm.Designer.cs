@@ -46,7 +46,7 @@
             this.createPlaylist = new System.Windows.Forms.Button();
             this.pictureButton = new System.Windows.Forms.Button();
             this.imageSubMenu = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
+            this.openPictureFileBt = new System.Windows.Forms.Button();
             this.videoButton = new System.Windows.Forms.Button();
             this.videoSubMenu = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -89,6 +89,7 @@
             this.mainMidPanel = new System.Windows.Forms.Panel();
             this.mainPicturebox = new System.Windows.Forms.PictureBox();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.openPictureFoldeBt = new System.Windows.Forms.Button();
             this.sideMenuPanel.SuspendLayout();
             this.iconPanel.SuspendLayout();
             this.mediaSubMenu.SuspendLayout();
@@ -310,32 +311,33 @@
             // imageSubMenu
             // 
             this.imageSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.imageSubMenu.Controls.Add(this.button15);
+            this.imageSubMenu.Controls.Add(this.openPictureFoldeBt);
+            this.imageSubMenu.Controls.Add(this.openPictureFileBt);
             this.sideMenuAni.SetDecoration(this.imageSubMenu, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.imageSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.imageSubMenu.Location = new System.Drawing.Point(3, 402);
             this.imageSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imageSubMenu.Name = "imageSubMenu";
-            this.imageSubMenu.Size = new System.Drawing.Size(251, 40);
+            this.imageSubMenu.Size = new System.Drawing.Size(251, 95);
             this.imageSubMenu.TabIndex = 7;
             // 
-            // button15
+            // openPictureFileBt
             // 
-            this.sideMenuAni.SetDecoration(this.button15, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button15.Location = new System.Drawing.Point(0, 0);
-            this.button15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(251, 39);
-            this.button15.TabIndex = 0;
-            this.button15.Text = "&Open";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.sideMenuAni.SetDecoration(this.openPictureFileBt, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.openPictureFileBt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.openPictureFileBt.FlatAppearance.BorderSize = 0;
+            this.openPictureFileBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openPictureFileBt.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.openPictureFileBt.Location = new System.Drawing.Point(0, 0);
+            this.openPictureFileBt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.openPictureFileBt.Name = "openPictureFileBt";
+            this.openPictureFileBt.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.openPictureFileBt.Size = new System.Drawing.Size(251, 43);
+            this.openPictureFileBt.TabIndex = 0;
+            this.openPictureFileBt.Text = "&Open File";
+            this.openPictureFileBt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openPictureFileBt.UseVisualStyleBackColor = true;
+            this.openPictureFileBt.Click += new System.EventHandler(this.button15_Click);
             // 
             // videoButton
             // 
@@ -346,7 +348,7 @@
             this.videoButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.videoButton.Image = ((System.Drawing.Image)(resources.GetObject("videoButton.Image")));
             this.videoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.videoButton.Location = new System.Drawing.Point(3, 446);
+            this.videoButton.Location = new System.Drawing.Point(3, 501);
             this.videoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.videoButton.Name = "videoButton";
             this.videoButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -366,7 +368,7 @@
             this.videoSubMenu.Controls.Add(this.button3);
             this.sideMenuAni.SetDecoration(this.videoSubMenu, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.videoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.videoSubMenu.Location = new System.Drawing.Point(3, 496);
+            this.videoSubMenu.Location = new System.Drawing.Point(3, 551);
             this.videoSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.videoSubMenu.Name = "videoSubMenu";
             this.videoSubMenu.Size = new System.Drawing.Size(251, 84);
@@ -415,7 +417,7 @@
             this.helpButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
             this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.Location = new System.Drawing.Point(3, 584);
+            this.helpButton.Location = new System.Drawing.Point(3, 639);
             this.helpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.helpButton.Name = "helpButton";
             this.helpButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
@@ -1196,6 +1198,23 @@
             this.dragControl.TargetControl = this.titlePanel;
             this.dragControl.Vertical = true;
             // 
+            // openPictureFoldeBt
+            // 
+            this.sideMenuAni.SetDecoration(this.openPictureFoldeBt, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.openPictureFoldeBt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.openPictureFoldeBt.FlatAppearance.BorderSize = 0;
+            this.openPictureFoldeBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openPictureFoldeBt.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.openPictureFoldeBt.Location = new System.Drawing.Point(0, 43);
+            this.openPictureFoldeBt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.openPictureFoldeBt.Name = "openPictureFoldeBt";
+            this.openPictureFoldeBt.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.openPictureFoldeBt.Size = new System.Drawing.Size(251, 43);
+            this.openPictureFoldeBt.TabIndex = 1;
+            this.openPictureFoldeBt.Text = "&Open Folder";
+            this.openPictureFoldeBt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openPictureFoldeBt.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1239,7 +1258,7 @@
         private System.Windows.Forms.Button pictureButton;
         private System.Windows.Forms.Button videoButton;
         private System.Windows.Forms.Panel imageSubMenu;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button openPictureFileBt;
         private System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.Panel mainBotPanel;
         private System.Windows.Forms.Label time;
@@ -1286,6 +1305,7 @@
         private Bunifu.UI.WinForms.BunifuHSlider soundVolumeBar;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton cancelButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton saveButton;
+        private System.Windows.Forms.Button openPictureFoldeBt;
     }
 }
 

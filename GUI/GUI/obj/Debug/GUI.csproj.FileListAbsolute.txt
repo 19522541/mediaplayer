@@ -554,7 +554,6 @@ D:\bt2\mls\mediaplayer\GUI\GUI\bin\Debug\Newtonsoft.Json.xml
 D:\bt2\mls\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.pdb
 D:\bt2\mls\mediaplayer\GUI\GUI\bin\Debug\TagLibSharp.xml
 D:\bt2\mls\mediaplayer\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
-D:\bt2\mls\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources
 D:\bt2\mls\mediaplayer\GUI\GUI\obj\Debug\GUI.MainForm.resources
 D:\bt2\mls\mediaplayer\GUI\GUI\obj\Debug\GUI.MediaForm.resources
 D:\bt2\mls\mediaplayer\GUI\GUI\obj\Debug\GUI.NewPlayListForm.resources
