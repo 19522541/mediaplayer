@@ -244,6 +244,12 @@
     <Compile Include="NowPlayingForm.Designer.cs">
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpenURLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenURLForm.Designer.cs">
+      <DependentUpon>OpenURLForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Playlist.cs" />
     <Compile Include="SongInfoForm.cs">
       <SubType>Form</SubType>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NowPlayingForm.resx">
       <DependentUpon>NowPlayingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenURLForm.resx">
+      <DependentUpon>OpenURLForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SongInfoForm.resx">
       <DependentUpon>SongInfoForm.cs</DependentUpon>

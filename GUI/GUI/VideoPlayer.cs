@@ -74,7 +74,12 @@ namespace GUI
             pauseButton.BringToFront();
         }
 
-        
+        public void PlayURL()
+        {
+            _mp.Play(new Media(this._libVLC, new Uri(this.filepath)));
+            this.isPlaying = true;
+        }
+
         private void playButton_Click(object sender, EventArgs e)
         {
             //this.videoProcessBar.Enabled = true;

@@ -3091,3 +3091,4 @@ D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visua
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visualization\libgoom_plugin.dll
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visualization\libprojectm_plugin.dll
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visualization\libvisual_plugin.dll
+D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.OpenURLForm.resources

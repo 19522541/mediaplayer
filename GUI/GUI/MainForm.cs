@@ -1286,7 +1286,8 @@ namespace GUI
 
         private void playURLButton_Click(object sender, EventArgs e)
         {
-            
+            OpenURLForm url_form = new OpenURLForm();
+            url_form.Show();
         }
     }
 }

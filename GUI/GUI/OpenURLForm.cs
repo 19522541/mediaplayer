@@ -16,5 +16,17 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            VideoPlayer vd = new VideoPlayer(urlTextBox.Text);
+            vd.PlayURL();
+            vd.Show();
+            if (vd.isPlaying)
+            {
+
+                this.Close();
+            }
+        }
     }
 }
