@@ -1949,7 +1949,6 @@ D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Core.pdb
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Core.xml
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Xaml.pdb
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Xaml.xml
-D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.createlistForm.resources
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.InformationForm.resources
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.LyricForm.resources
@@ -3092,3 +3091,7 @@ D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visua
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visualization\libprojectm_plugin.dll
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\libvlc\win-x86\plugins\visualization\libvisual_plugin.dll
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.OpenURLForm.resources
+D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\MediaToolkit.dll
+D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\NReco.VideoInfo.dll
+D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\NReco.VideoInfo.xml
+D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache

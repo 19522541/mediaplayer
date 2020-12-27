@@ -9,7 +9,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibVLCSharp.Shared;
-
+using MediaToolkit;
+using MediaToolkit.Model;
+using NReco.VideoInfo;
 namespace GUI
 {
     public partial class VideoPlayer : Form
@@ -26,13 +28,16 @@ namespace GUI
         public Size oldVideoSize;
         public Size oldFormSize;
         public Point oldVideoLocation;
-
+        
         //mouse location for progress bar
         int _mouseloc;
         string filepath;
 
         //a variable to check whether timer start (to ignore when assign value to media player)
         int _progressbar_value = 0;
+
+        //Media Info
+        TimeSpan duration;
         public VideoPlayer()
         {
             InitializeComponent();
@@ -60,10 +65,23 @@ namespace GUI
             //play a video from double click
             this.filepath = filepath;
             PlayFile(this.filepath);
-            
+
+            // Media Info
+            var ffProbe = new FFProbe();
+            var videoInfo = ffProbe.GetMediaInfo(filepath);
+            duration = videoInfo.Duration;
+
+            //set maximum for progress bar
+            var boo = 234;
+            var temp = boo / 1000f;
+            int temp_2 = (int)_mp.Length;
+            this.videoProgressBar.Minimum = 0;
+            this.videoProgressBar.Maximum = (int)duration.TotalSeconds;
+
             //display duration
             
-            
+            this.videoLength.Text = videoInfo.Duration.ToString(@"hh\:mm\:ss");
+
 
             //timer
             videoTimer.Start();
@@ -79,11 +97,12 @@ namespace GUI
             _mp.Play(media);
             isPlaying = true;
             pauseButton.BringToFront();
-            double vidlength = _mp.Length;
-            TimeSpan length = TimeSpan.FromMilliseconds(vidlength);
+            //double vidlength = media.Duration;
+            //TimeSpan length = TimeSpan.FromMilliseconds(vidlength);
 
-            string duration = length.ToString(@"hh\:mm\:ss");
-            this.videoLength.Text = duration;
+            //string duration = length.ToString(@"hh\:mm\:ss");
+            //this.videoLength.Text = getVideoDuration();
+            //this.label1.Text = getVideoDuration();
         }
 
         public void PlayURL()
@@ -91,8 +110,8 @@ namespace GUI
             
             _mp.Play(new Media(this._libVLC, new Uri(this.filepath)));
             this.isPlaying = true;
-            TimeSpan length = TimeSpan.FromMilliseconds(_mp.Length);
-            this.videoLength.Text = length.ToString(@"mm\:ss");
+            //TimeSpan length = TimeSpan.FromMilliseconds(_mp.Length);
+            //this.videoLength.Text = length.ToString(@"mm\:ss");
             
         }
 
@@ -132,7 +151,7 @@ namespace GUI
 
         private void videoProgressBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
-            videoTime.Text = getCurTime(videoProgressBar.Value);
+            videoTime.Text = getCurrentTime();
             if (videoProgressBar.Value == videoProgressBar.Maximum)
             {
                 //videoProgressBar.Enabled = false;
@@ -183,13 +202,16 @@ namespace GUI
 
         private void videoProgressBar_MouseUp(object sender, MouseEventArgs e)
         {
-            _mp.Position = videoProgressBar.Value / 1000f;
+            _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
         }
 
         private void videoTimer_Tick(object sender, EventArgs e)
         {
             if (this.videoProgressBar.Value < this.videoProgressBar.Maximum)
+            {
                 this.videoProgressBar.Value++;
+            }
+                
         }
 
         private void maximizeButton_Click(object sender, EventArgs e)
@@ -206,10 +228,11 @@ namespace GUI
         {
             int preVal = videoProgressBar.Value;
             //int totalVal = videoProgressBar.Maximum - videoProgressBar.Minimum;
-            int totalPix = videoProgressBar.Size.Width;
-            float temp = (float)this._mouseloc * 1000f / (float)totalPix;
-            if (temp > preVal) temp -= 9;
-            else if (temp < preVal) temp += 9;
+            int barWidth = videoProgressBar.Size.Width;
+            float percentage = (float)this._mouseloc / (float)barWidth;
+            float temp = percentage * this.videoProgressBar.Maximum;
+            if (temp > preVal) temp -= 0;
+            else if (temp < preVal) temp += 0;
             videoProgressBar.Value = Convert.ToInt32(temp);
         }
 
@@ -335,6 +358,67 @@ namespace GUI
             }
             rs = minStr + ":" + sedStr;
             return rs;
+
+        }
+
+        public string getCurrentTime()
+        {
+            string rs = "";
+            var curent_time = this.videoProgressBar.Value;
+            int mins = Convert.ToInt32(curent_time) / 60;
+            int second = Convert.ToInt32(curent_time) % 60;
+            string minStr, sedStr;
+            if (mins < 10)
+            {
+                minStr = "0" + mins.ToString();
+            }
+            else
+            {
+                minStr = mins.ToString();
+            }
+
+            if (second < 10)
+            {
+                sedStr = "0" + second.ToString();
+            }
+            else
+            {
+                sedStr = second.ToString();
+            }
+            rs = minStr + ":" + sedStr;
+            return rs;
+        }
+
+        public string getVideoDuration()
+        {
+            string rs = "";
+            TimeSpan cur = TimeSpan.FromMilliseconds(_mp.Length);
+            int seconds = cur.Seconds;
+            int mins = Convert.ToInt32(seconds) / 60;
+            int second = Convert.ToInt32(seconds) % 60;
+            string minStr, sedStr;
+            if (mins < 10)
+            {
+                minStr = "0" + mins.ToString();
+            }
+            else
+            {
+                minStr = mins.ToString();
+            }
+
+            if (second < 10)
+            {
+                sedStr = "0" + second.ToString();
+            }
+            else
+            {
+                sedStr = second.ToString();
+            }
+            rs = minStr + ":" + sedStr;
+            return rs;
+        }
+        private void videoProgressBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
+        {
 
         }
     }
