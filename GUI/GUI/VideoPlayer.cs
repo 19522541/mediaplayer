@@ -234,7 +234,14 @@ namespace GUI
 
         private void addSubtitleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _mp.AddSlave(MediaSlaveType.Subtitle, "file:///C:\\Users\\volin\\Downloads\\[English] 05 - Future Simple Will Going to Listening Speaking Practice - Common Questions Possible Responses [DownSub.com].srt", true);
+            OpenFileDialog ofd = new OpenFileDialog();
+            string formats = "Subtitle Text Files |*.srt; *.txt";
+            ofd.Filter = formats;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var filename = @"file:///" + ofd.FileName;
+                _mp.AddSlave(MediaSlaveType.Subtitle, filename, true);
+            }
         }
 
         private void xToolStripMenuItem1_Click(object sender, EventArgs e)
