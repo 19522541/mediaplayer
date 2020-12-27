@@ -37,7 +37,7 @@ namespace GUI
         int _progressbar_value = 0;
 
         //Media Info
-        TimeSpan duration;
+        public TimeSpan duration;
         public VideoPlayer()
         {
             InitializeComponent();
@@ -198,7 +198,7 @@ namespace GUI
 
             // skip 10 seconds
             _mp.Position += 10f / videoProgressBar.Maximum;
-
+            this.videoProgressBar.Value += 10;
 
             //this.videoProgressBar.Value += 1000;
             //_mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
@@ -208,6 +208,7 @@ namespace GUI
         private void backwardButton_Click(object sender, EventArgs e)
         {
             _mp.Position -= 5f / videoProgressBar.Maximum;
+            this.videoProgressBar.Value -= 5;
         }
 
         private void videoProgressBar_MouseUp(object sender, MouseEventArgs e)
@@ -244,8 +245,13 @@ namespace GUI
             int barWidth = videoProgressBar.Size.Width;
             float percentage = (float)this._mouseloc / (float)barWidth;
             float temp = percentage * this.videoProgressBar.Maximum;
-            if (temp > preVal) temp -= 10;
-            else if (temp < preVal) temp += 10;
+            int offset;
+            if(this.duration.TotalSeconds>=30)
+            {
+                
+            }    
+            //if (temp > preVal) temp -= 10;
+            //else if (temp < preVal) temp += 10;
             videoProgressBar.Value = Convert.ToInt32(temp);
             _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
         }
