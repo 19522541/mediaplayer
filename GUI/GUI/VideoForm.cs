@@ -167,9 +167,12 @@ namespace GUI
             {
                 if(videoPlayer!=null)
                 {
+                    if(videoPlayer.isPlaying)
+                        videoPlayer._mp.Stop();
                     videoPlayer.Dispose();
-                }    
-                videoPlayer = new VideoPlayer();
+                }
+                var filepath = hit.Item.Tag.ToString();
+                videoPlayer = new VideoPlayer(filepath);
                 videoPlayer.Show();
                 //MessageBox.Show(this, hit.Item.Tag.ToString());
 
