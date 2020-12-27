@@ -72,11 +72,9 @@ namespace GUI
             duration = videoInfo.Duration;
 
             //set maximum for progress bar
-            var boo = 234;
-            var temp = boo / 1000f;
-            int temp_2 = (int)_mp.Length;
+            
             this.videoProgressBar.Minimum = 0;
-            this.videoProgressBar.Maximum = (int)duration.TotalMilliseconds;
+            this.videoProgressBar.Maximum = (int)duration.TotalSeconds;
 
             //display duration
             this.videoTime.Text = getCurrentTime();
@@ -155,8 +153,9 @@ namespace GUI
             if (videoProgressBar.Value == videoProgressBar.Maximum)
             {
                 //videoProgressBar.Enabled = false;
+                //StopVideo();
+                stopButton_Click(sender, e);
 
-                playButton.BringToFront();
             }
 
             //if (videoProgressBar.Focused == false)
@@ -187,10 +186,10 @@ namespace GUI
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-
-            _mp.Position = 0;
+            _mp.Stop();
+            videoTimer.Stop();
             this.videoProgressBar.Value = 0;
-            pauseButton_Click(sender, e);
+            playButton.BringToFront();
         }
 
         private void forwardButton_Click(object sender, EventArgs e)
@@ -198,7 +197,7 @@ namespace GUI
             //_mp.Position += 0.005f;
 
             // skip 10 seconds
-            _mp.Position += 30000f / videoProgressBar.Maximum;
+            _mp.Position += 10f / videoProgressBar.Maximum;
 
 
             //this.videoProgressBar.Value += 1000;
@@ -208,12 +207,14 @@ namespace GUI
 
         private void backwardButton_Click(object sender, EventArgs e)
         {
-            _mp.Position -= 10000f / videoProgressBar.Maximum;
+            _mp.Position -= 5f / videoProgressBar.Maximum;
         }
 
         private void videoProgressBar_MouseUp(object sender, MouseEventArgs e)
         {
-            //_mp.Time = videoProgressBar.Value * 1000;
+            
+            _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
+            //this.playButton_Click(sender, e);
         }
 
         private void videoTimer_Tick(object sender, EventArgs e)
@@ -222,6 +223,7 @@ namespace GUI
             {
                 this.videoProgressBar.Value++;
             }
+             
                 
         }
 
@@ -242,14 +244,28 @@ namespace GUI
             int barWidth = videoProgressBar.Size.Width;
             float percentage = (float)this._mouseloc / (float)barWidth;
             float temp = percentage * this.videoProgressBar.Maximum;
-            if (temp > preVal) temp -= 0;
-            else if (temp < preVal) temp += 0;
+            if (temp > preVal) temp -= 10;
+            else if (temp < preVal) temp += 10;
             videoProgressBar.Value = Convert.ToInt32(temp);
+            _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
         }
 
         private void videoProgressBar_MouseMove(object sender, MouseEventArgs e)
         {
+            
             this._mouseloc = e.X;
+            //if(e.Button==MouseButtons.Left)
+            //{
+                
+            //    int barWidth = videoProgressBar.Size.Width;
+            //    float percentage = (float)this._mouseloc / (float)barWidth;
+            //    float temp = percentage * this.videoProgressBar.Maximum;
+
+            //    videoProgressBar.Value = Convert.ToInt32(temp);
+            //    _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
+            //    pauseButton_Click(sender, e);
+            //}
+            
         }
 
         private void MediaEndReached(object sender, EventArgs e)
@@ -431,6 +447,20 @@ namespace GUI
         private void videoProgressBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
 
+        }
+
+        private void videoProgressBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            //this.pauseButton_Click(sender,e);
+            
+        }
+
+        private void StopVideo()
+        {
+            _mp.Stop();
+            videoTimer.Stop();
+            this.videoProgressBar.Value = 0;
+            playButton.BringToFront();
         }
     }
 }
