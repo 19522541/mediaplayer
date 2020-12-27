@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibVLCSharp.Shared;
@@ -24,6 +25,13 @@ namespace GUI
         public Size oldVideoSize;
         public Size oldFormSize;
         public Point oldVideoLocation;
+
+        //mouse location for progress bar
+        int _mouseloc;
+        string filepath;
+
+        //a variable to check whether timer start (to ignore when assign value to media player)
+        int _progressbar_value =0;
         public VideoPlayer()
         {
             InitializeComponent();
@@ -33,10 +41,11 @@ namespace GUI
         {
             InitializeComponent();
             Core.Initialize();
-
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
             //this.KeyDown += new KeyEventHandler(ShortcutEvent);
             oldVideoSize = videoView.Size;
+            oldFormSize = this.Size;
             oldVideoLocation = videoView.Location;
 
             // VLC stuff
@@ -45,8 +54,12 @@ namespace GUI
             videoView.MediaPlayer = _mp;
 
             //play a video from double click
-            PlayFile(filepath);
+            this.filepath = filepath;
+            PlayFile(this.filepath);
             //videoProcessBar.Enabled = false;
+
+            //timer
+            videoTimer.Start();
         }
 
         public void PlayFile(string file)
@@ -62,10 +75,13 @@ namespace GUI
             //stopButton.BringToFront();
             //videoProcessBar.Minimum = 0;
             //videoProcessBar.Maximum = (int)this._mp.Time;
+            
             if (!_mp.IsPlaying)
             {
                 _mp.Play();
+                videoTimer.Start();
                 pauseButton.BringToFront();
+                
             }   
         }
 
@@ -73,7 +89,9 @@ namespace GUI
         {
             if (_mp.IsPlaying)
             {
+                
                 _mp.Pause();
+                videoTimer.Stop();
                 playButton.BringToFront();
             }
         }
@@ -83,6 +101,114 @@ namespace GUI
             _mp.Stop();
             this.Dispose();
             this.Close();
+        }
+
+        private void videoProgressBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
+        {
+            //time.Text = getCurTime(videoProgressBar.Value);
+            if (videoProgressBar.Value == videoProgressBar.Maximum)
+            {
+                //videoProgressBar.Enabled = false;
+                
+                playButton.BringToFront();
+            }
+
+            //if (videoProgressBar.Focused == false)
+            //{
+            //    if (videoProgressBar.Value/100 - this._mp.Position != 1 && videoProgressBar.Value != 0)
+            //    {
+            //        TimeSpan x = TimeSpan.FromSeconds(videoProgressBar.Value);
+            //        this._mp.Position = x.Milliseconds /this._mp.Length;
+
+            //    }
+            //}
+
+            //this._mp.Position = videoProgressBar.Value/100f;
+            if(videoProgressBar.Focused == false)
+            {
+                // ignore when timer just start
+                if(this.videoProgressBar.Value - this._progressbar_value != 1)
+                {
+                    this._mp.Time = (long)TimeSpan.FromSeconds(this.videoProgressBar.Value).TotalMilliseconds;
+                }    
+            }
+            this._progressbar_value = this.videoProgressBar.Value;
+
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            
+            _mp.Position = 0;
+            this.videoProgressBar.Value = 0;
+            pauseButton_Click(sender, e);
+        }
+
+        private void forwardButton_Click(object sender, EventArgs e)
+        {
+            _mp.Position += 0.005f;
+        }
+
+        private void backwardButton_Click(object sender, EventArgs e)
+        {
+            _mp.Position -= 0.005f;
+        }
+
+        private void videoProgressBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mp.Position = videoProgressBar.Value / 1000f;
+        }
+
+        private void videoTimer_Tick(object sender, EventArgs e)
+        {
+            if (this.videoProgressBar.Value < this.videoProgressBar.Maximum)
+                this.videoProgressBar.Value++;
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+            videoView.Size = this.Size;
+            videoView.Location = this.Location;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            isFullScreen = true;
+            restoredownButton.BringToFront();
+        }
+
+        private void videoProgressBar_Click(object sender, EventArgs e)
+        {
+            int preVal = videoProgressBar.Value;
+            //int totalVal = videoProgressBar.Maximum - videoProgressBar.Minimum;
+            int totalPix = videoProgressBar.Size.Width;
+            float temp = (float)this._mouseloc * 1000f / (float)totalPix;
+            if (temp > preVal) temp -= 9;
+            else if (temp < preVal) temp += 9;
+            videoProgressBar.Value = Convert.ToInt32(temp);
+        }
+
+        private void videoProgressBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            this._mouseloc = e.X;
+        }
+
+        private void MediaEndReached(object sender, EventArgs e)
+        {
+            ThreadPool.QueueUserWorkItem(_ => this._mp.Play(new Media(_libVLC,this.filepath)));
+        }
+
+        private void restoredownButton_Click(object sender, EventArgs e)
+        {
+            //this.FormBorderStyle = FormBorderStyle.None; // change form style
+            this.WindowState = FormWindowState.Normal; // back to normal size
+            this.Size = oldFormSize;
+            videoView.Size = oldVideoSize; // make video the same size as form
+            videoView.Location = oldVideoLocation; // remove offset
+            maximizeButton.BringToFront();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

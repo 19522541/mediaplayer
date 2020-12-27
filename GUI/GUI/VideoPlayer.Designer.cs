@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
@@ -42,25 +43,41 @@
             this.forwardButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.stopButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.exitButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.titlePanel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.maximizeButton = new Bunifu.Framework.UI.BunifuTileButton();
             this.minimizeButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.maximizeButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.restoredownButton = new Bunifu.Framework.UI.BunifuTileButton();
             this.pauseButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.videoProgressBar = new Bunifu.UI.WinForms.BunifuHSlider();
+            this.videoTimer = new System.Windows.Forms.Timer(this.components);
+            this.bottomPanel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.videoView)).BeginInit();
-            this.bunifuPanel1.SuspendLayout();
+            this.titlePanel.SuspendLayout();
+            this.bottomPanel.SuspendLayout();
+            this.bunifuPanel3.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoView
             // 
-            this.videoView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.videoView.BackColor = System.Drawing.Color.Black;
-            this.videoView.Location = new System.Drawing.Point(0, 56);
+            this.videoView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoView.Location = new System.Drawing.Point(0, 0);
             this.videoView.MediaPlayer = null;
             this.videoView.Name = "videoView";
-            this.videoView.Size = new System.Drawing.Size(907, 389);
+            this.videoView.Size = new System.Drawing.Size(907, 371);
             this.videoView.TabIndex = 0;
             this.videoView.Text = "videoView1";
             // 
@@ -69,6 +86,7 @@
             this.bunifuButton4.AllowAnimations = true;
             this.bunifuButton4.AllowMouseEffects = true;
             this.bunifuButton4.AllowToggling = false;
+            this.bunifuButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton4.AnimationSpeed = 200;
             this.bunifuButton4.AutoGenerateColors = false;
             this.bunifuButton4.AutoRoundBorders = false;
@@ -111,7 +129,7 @@
             this.bunifuButton4.IdleIconLeftImage = null;
             this.bunifuButton4.IdleIconRightImage = null;
             this.bunifuButton4.IndicateFocus = false;
-            this.bunifuButton4.Location = new System.Drawing.Point(853, 444);
+            this.bunifuButton4.Location = new System.Drawing.Point(838, 3);
             this.bunifuButton4.Name = "bunifuButton4";
             this.bunifuButton4.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton4.OnDisabledState.BorderRadius = 1;
@@ -158,6 +176,7 @@
             this.playButton.AllowAnimations = true;
             this.playButton.AllowMouseEffects = true;
             this.playButton.AllowToggling = false;
+            this.playButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.playButton.AnimationSpeed = 200;
             this.playButton.AutoGenerateColors = false;
             this.playButton.AutoRoundBorders = false;
@@ -200,7 +219,7 @@
             this.playButton.IdleIconLeftImage = null;
             this.playButton.IdleIconRightImage = null;
             this.playButton.IndicateFocus = false;
-            this.playButton.Location = new System.Drawing.Point(336, 451);
+            this.playButton.Location = new System.Drawing.Point(334, 5);
             this.playButton.Name = "playButton";
             this.playButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.playButton.OnDisabledState.BorderRadius = 1;
@@ -248,6 +267,7 @@
             this.backwardButton.AllowAnimations = true;
             this.backwardButton.AllowMouseEffects = true;
             this.backwardButton.AllowToggling = false;
+            this.backwardButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.backwardButton.AnimationSpeed = 200;
             this.backwardButton.AutoGenerateColors = false;
             this.backwardButton.AutoRoundBorders = false;
@@ -290,7 +310,7 @@
             this.backwardButton.IdleIconLeftImage = null;
             this.backwardButton.IdleIconRightImage = null;
             this.backwardButton.IndicateFocus = false;
-            this.backwardButton.Location = new System.Drawing.Point(273, 451);
+            this.backwardButton.Location = new System.Drawing.Point(271, 5);
             this.backwardButton.Name = "backwardButton";
             this.backwardButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.backwardButton.OnDisabledState.BorderRadius = 1;
@@ -331,12 +351,14 @@
             this.backwardButton.TextMarginLeft = 0;
             this.backwardButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.backwardButton.UseDefaultRadiusAndThickness = true;
+            this.backwardButton.Click += new System.EventHandler(this.backwardButton_Click);
             // 
             // forwardButton
             // 
             this.forwardButton.AllowAnimations = true;
             this.forwardButton.AllowMouseEffects = true;
             this.forwardButton.AllowToggling = false;
+            this.forwardButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.forwardButton.AnimationSpeed = 200;
             this.forwardButton.AutoGenerateColors = false;
             this.forwardButton.AutoRoundBorders = false;
@@ -379,7 +401,7 @@
             this.forwardButton.IdleIconLeftImage = null;
             this.forwardButton.IdleIconRightImage = null;
             this.forwardButton.IndicateFocus = false;
-            this.forwardButton.Location = new System.Drawing.Point(399, 451);
+            this.forwardButton.Location = new System.Drawing.Point(397, 5);
             this.forwardButton.Name = "forwardButton";
             this.forwardButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.forwardButton.OnDisabledState.BorderRadius = 1;
@@ -420,12 +442,14 @@
             this.forwardButton.TextMarginLeft = 0;
             this.forwardButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.forwardButton.UseDefaultRadiusAndThickness = true;
+            this.forwardButton.Click += new System.EventHandler(this.forwardButton_Click);
             // 
             // stopButton
             // 
             this.stopButton.AllowAnimations = true;
             this.stopButton.AllowMouseEffects = true;
             this.stopButton.AllowToggling = false;
+            this.stopButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.stopButton.AnimationSpeed = 200;
             this.stopButton.AutoGenerateColors = false;
             this.stopButton.AutoRoundBorders = false;
@@ -468,7 +492,7 @@
             this.stopButton.IdleIconLeftImage = null;
             this.stopButton.IdleIconRightImage = null;
             this.stopButton.IndicateFocus = false;
-            this.stopButton.Location = new System.Drawing.Point(460, 451);
+            this.stopButton.Location = new System.Drawing.Point(458, 5);
             this.stopButton.Name = "stopButton";
             this.stopButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.stopButton.OnDisabledState.BorderRadius = 1;
@@ -509,9 +533,11 @@
             this.stopButton.TextMarginLeft = 0;
             this.stopButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.stopButton.UseDefaultRadiusAndThickness = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // exitButton
             // 
+            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitButton.BackColor = System.Drawing.Color.SeaGreen;
             this.exitButton.color = System.Drawing.Color.SeaGreen;
             this.exitButton.colorActive = System.Drawing.Color.MediumSeaGreen;
@@ -530,6 +556,41 @@
             this.exitButton.TabIndex = 11;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // titlePanel
+            // 
+            this.titlePanel.BackgroundColor = System.Drawing.Color.Transparent;
+            this.titlePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("titlePanel.BackgroundImage")));
+            this.titlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.titlePanel.BorderColor = System.Drawing.Color.Transparent;
+            this.titlePanel.BorderRadius = 3;
+            this.titlePanel.BorderThickness = 1;
+            this.titlePanel.Controls.Add(this.bunifuPanel2);
+            this.titlePanel.Controls.Add(this.bunifuPanel1);
+            this.titlePanel.Controls.Add(this.minimizeButton);
+            this.titlePanel.Controls.Add(this.maximizeButton);
+            this.titlePanel.Controls.Add(this.exitButton);
+            this.titlePanel.Controls.Add(this.restoredownButton);
+            this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titlePanel.Location = new System.Drawing.Point(0, 0);
+            this.titlePanel.Name = "titlePanel";
+            this.titlePanel.ShowBorders = true;
+            this.titlePanel.Size = new System.Drawing.Size(907, 54);
+            this.titlePanel.TabIndex = 12;
+            // 
+            // bunifuPanel2
+            // 
+            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
+            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel2.BorderRadius = 3;
+            this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Location = new System.Drawing.Point(1, 53);
+            this.bunifuPanel2.Name = "bunifuPanel2";
+            this.bunifuPanel2.ShowBorders = true;
+            this.bunifuPanel2.Size = new System.Drawing.Size(905, 390);
+            this.bunifuPanel2.TabIndex = 15;
+            // 
             // bunifuPanel1
             // 
             this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
@@ -538,36 +599,15 @@
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.minimizeButton);
-            this.bunifuPanel1.Controls.Add(this.maximizeButton);
-            this.bunifuPanel1.Controls.Add(this.exitButton);
-            this.bunifuPanel1.Location = new System.Drawing.Point(1, -4);
+            this.bunifuPanel1.Location = new System.Drawing.Point(3, 50);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(906, 54);
-            this.bunifuPanel1.TabIndex = 12;
-            // 
-            // maximizeButton
-            // 
-            this.maximizeButton.BackColor = System.Drawing.Color.SeaGreen;
-            this.maximizeButton.color = System.Drawing.Color.SeaGreen;
-            this.maximizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
-            this.maximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.maximizeButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.maximizeButton.ForeColor = System.Drawing.Color.White;
-            this.maximizeButton.Image = ((System.Drawing.Image)(resources.GetObject("maximizeButton.Image")));
-            this.maximizeButton.ImagePosition = 20;
-            this.maximizeButton.ImageZoom = 50;
-            this.maximizeButton.LabelPosition = 41;
-            this.maximizeButton.LabelText = "Tile 1";
-            this.maximizeButton.Location = new System.Drawing.Point(801, 14);
-            this.maximizeButton.Margin = new System.Windows.Forms.Padding(6);
-            this.maximizeButton.Name = "maximizeButton";
-            this.maximizeButton.Size = new System.Drawing.Size(40, 34);
-            this.maximizeButton.TabIndex = 12;
+            this.bunifuPanel1.Size = new System.Drawing.Size(903, 394);
+            this.bunifuPanel1.TabIndex = 14;
             // 
             // minimizeButton
             // 
+            this.minimizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizeButton.BackColor = System.Drawing.Color.SeaGreen;
             this.minimizeButton.color = System.Drawing.Color.SeaGreen;
             this.minimizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
@@ -579,17 +619,61 @@
             this.minimizeButton.ImageZoom = 50;
             this.minimizeButton.LabelPosition = 41;
             this.minimizeButton.LabelText = "Tile 1";
-            this.minimizeButton.Location = new System.Drawing.Point(736, 14);
+            this.minimizeButton.Location = new System.Drawing.Point(756, 14);
             this.minimizeButton.Margin = new System.Windows.Forms.Padding(6);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(40, 34);
             this.minimizeButton.TabIndex = 13;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // maximizeButton
+            // 
+            this.maximizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximizeButton.BackColor = System.Drawing.Color.SeaGreen;
+            this.maximizeButton.color = System.Drawing.Color.SeaGreen;
+            this.maximizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.maximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.maximizeButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.maximizeButton.ForeColor = System.Drawing.Color.White;
+            this.maximizeButton.Image = ((System.Drawing.Image)(resources.GetObject("maximizeButton.Image")));
+            this.maximizeButton.ImagePosition = 20;
+            this.maximizeButton.ImageZoom = 50;
+            this.maximizeButton.LabelPosition = 41;
+            this.maximizeButton.LabelText = "Tile 1";
+            this.maximizeButton.Location = new System.Drawing.Point(808, 14);
+            this.maximizeButton.Margin = new System.Windows.Forms.Padding(6);
+            this.maximizeButton.Name = "maximizeButton";
+            this.maximizeButton.Size = new System.Drawing.Size(40, 34);
+            this.maximizeButton.TabIndex = 12;
+            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
+            // 
+            // restoredownButton
+            // 
+            this.restoredownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.restoredownButton.BackColor = System.Drawing.Color.SeaGreen;
+            this.restoredownButton.color = System.Drawing.Color.SeaGreen;
+            this.restoredownButton.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.restoredownButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.restoredownButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.restoredownButton.ForeColor = System.Drawing.Color.White;
+            this.restoredownButton.Image = ((System.Drawing.Image)(resources.GetObject("restoredownButton.Image")));
+            this.restoredownButton.ImagePosition = 20;
+            this.restoredownButton.ImageZoom = 50;
+            this.restoredownButton.LabelPosition = 41;
+            this.restoredownButton.LabelText = "Tile 1";
+            this.restoredownButton.Location = new System.Drawing.Point(808, 14);
+            this.restoredownButton.Margin = new System.Windows.Forms.Padding(6);
+            this.restoredownButton.Name = "restoredownButton";
+            this.restoredownButton.Size = new System.Drawing.Size(40, 34);
+            this.restoredownButton.TabIndex = 16;
+            this.restoredownButton.Click += new System.EventHandler(this.restoredownButton_Click);
             // 
             // pauseButton
             // 
             this.pauseButton.AllowAnimations = true;
             this.pauseButton.AllowMouseEffects = true;
             this.pauseButton.AllowToggling = false;
+            this.pauseButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pauseButton.AnimationSpeed = 200;
             this.pauseButton.AutoGenerateColors = false;
             this.pauseButton.AutoRoundBorders = false;
@@ -632,7 +716,7 @@
             this.pauseButton.IdleIconLeftImage = null;
             this.pauseButton.IdleIconRightImage = null;
             this.pauseButton.IndicateFocus = false;
-            this.pauseButton.Location = new System.Drawing.Point(336, 451);
+            this.pauseButton.Location = new System.Drawing.Point(334, 5);
             this.pauseButton.Name = "pauseButton";
             this.pauseButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.pauseButton.OnDisabledState.BorderRadius = 1;
@@ -686,18 +770,19 @@
             this.videoProgressBar.AllowScrollKeysDetection = true;
             this.videoProgressBar.AllowScrollOptionsMenu = true;
             this.videoProgressBar.AllowShrinkingOnFocusLost = false;
+            this.videoProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.videoProgressBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("videoProgressBar.BackgroundImage")));
             this.videoProgressBar.BindingContainer = null;
-            this.videoProgressBar.BorderRadius = 1;
+            this.videoProgressBar.BorderRadius = 2;
             this.videoProgressBar.BorderThickness = 1;
             this.videoProgressBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.videoProgressBar.DrawThickBorder = false;
             this.videoProgressBar.DurationBeforeShrink = 2000;
             this.videoProgressBar.ElapsedColor = System.Drawing.Color.DodgerBlue;
             this.videoProgressBar.LargeChange = 10;
-            this.videoProgressBar.Location = new System.Drawing.Point(5, 485);
+            this.videoProgressBar.Location = new System.Drawing.Point(3, 48);
             this.videoProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.videoProgressBar.Maximum = 100;
+            this.videoProgressBar.Maximum = 1000;
             this.videoProgressBar.Minimum = 0;
             this.videoProgressBar.MinimumSize = new System.Drawing.Size(0, 31);
             this.videoProgressBar.MinimumThumbLength = 18;
@@ -716,11 +801,121 @@
             this.videoProgressBar.TabIndex = 14;
             this.videoProgressBar.ThumbColor = System.Drawing.Color.DodgerBlue;
             this.videoProgressBar.ThumbFillColor = System.Drawing.SystemColors.Control;
-            this.videoProgressBar.ThumbLength = 67;
+            this.videoProgressBar.ThumbLength = 18;
             this.videoProgressBar.ThumbMargin = 1;
             this.videoProgressBar.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.videoProgressBar.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
-            this.videoProgressBar.Value = 50;
+            this.videoProgressBar.Value = 0;
+            this.videoProgressBar.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.videoProgressBar_ValueChanged);
+            this.videoProgressBar.Click += new System.EventHandler(this.videoProgressBar_Click);
+            this.videoProgressBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.videoProgressBar_MouseMove);
+            this.videoProgressBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.videoProgressBar_MouseUp);
+            // 
+            // videoTimer
+            // 
+            this.videoTimer.Interval = 1000;
+            this.videoTimer.Tick += new System.EventHandler(this.videoTimer_Tick);
+            // 
+            // bottomPanel
+            // 
+            this.bottomPanel.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bottomPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomPanel.BackgroundImage")));
+            this.bottomPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bottomPanel.BorderColor = System.Drawing.Color.Transparent;
+            this.bottomPanel.BorderRadius = 3;
+            this.bottomPanel.BorderThickness = 1;
+            this.bottomPanel.Controls.Add(this.videoProgressBar);
+            this.bottomPanel.Controls.Add(this.pauseButton);
+            this.bottomPanel.Controls.Add(this.bunifuButton4);
+            this.bottomPanel.Controls.Add(this.stopButton);
+            this.bottomPanel.Controls.Add(this.forwardButton);
+            this.bottomPanel.Controls.Add(this.backwardButton);
+            this.bottomPanel.Controls.Add(this.playButton);
+            this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomPanel.Location = new System.Drawing.Point(0, 425);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.ShowBorders = true;
+            this.bottomPanel.Size = new System.Drawing.Size(907, 119);
+            this.bottomPanel.TabIndex = 15;
+            // 
+            // bunifuPanel3
+            // 
+            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
+            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BorderRadius = 3;
+            this.bunifuPanel3.BorderThickness = 1;
+            this.bunifuPanel3.Controls.Add(this.videoView);
+            this.bunifuPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuPanel3.Location = new System.Drawing.Point(0, 54);
+            this.bunifuPanel3.Name = "bunifuPanel3";
+            this.bunifuPanel3.ShowBorders = true;
+            this.bunifuPanel3.Size = new System.Drawing.Size(907, 371);
+            this.bunifuPanel3.TabIndex = 16;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.normalToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.xToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 196);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(128, 24);
+            this.toolStripMenuItem2.Text = "0.25";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(128, 24);
+            this.toolStripMenuItem3.Text = "0.5";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(128, 24);
+            this.toolStripMenuItem4.Text = "0.75";
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
+            this.normalToolStripMenuItem.Text = "Normal";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(128, 24);
+            this.toolStripMenuItem5.Text = "1.25";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(128, 24);
+            this.toolStripMenuItem6.Text = "1.5";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(128, 24);
+            this.toolStripMenuItem7.Text = "1.75";
+            // 
+            // xToolStripMenuItem
+            // 
+            this.xToolStripMenuItem.Name = "xToolStripMenuItem";
+            this.xToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
+            this.xToolStripMenuItem.Text = "2X";
             // 
             // VideoPlayer
             // 
@@ -728,20 +923,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(907, 544);
-            this.Controls.Add(this.videoProgressBar);
-            this.Controls.Add(this.pauseButton);
-            this.Controls.Add(this.bunifuPanel1);
-            this.Controls.Add(this.stopButton);
-            this.Controls.Add(this.forwardButton);
-            this.Controls.Add(this.backwardButton);
-            this.Controls.Add(this.playButton);
-            this.Controls.Add(this.bunifuButton4);
-            this.Controls.Add(this.videoView);
+            this.Controls.Add(this.bunifuPanel3);
+            this.Controls.Add(this.bottomPanel);
+            this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VideoPlayer";
             this.Text = "VideoPlayer";
             ((System.ComponentModel.ISupportInitialize)(this.videoView)).EndInit();
-            this.bunifuPanel1.ResumeLayout(false);
+            this.titlePanel.ResumeLayout(false);
+            this.bottomPanel.ResumeLayout(false);
+            this.bunifuPanel3.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -755,10 +947,25 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton forwardButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton stopButton;
         private Bunifu.Framework.UI.BunifuTileButton exitButton;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
+        private Bunifu.UI.WinForms.BunifuPanel titlePanel;
         private Bunifu.Framework.UI.BunifuTileButton minimizeButton;
         private Bunifu.Framework.UI.BunifuTileButton maximizeButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton pauseButton;
         private Bunifu.UI.WinForms.BunifuHSlider videoProgressBar;
+        private System.Windows.Forms.Timer videoTimer;
+        private Bunifu.UI.WinForms.BunifuPanel bottomPanel;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
+        private Bunifu.Framework.UI.BunifuTileButton restoredownButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem xToolStripMenuItem;
     }
 }
