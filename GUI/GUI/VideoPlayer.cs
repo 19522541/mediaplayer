@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibVLCSharp.Shared;
+
 namespace GUI
 {
     public partial class VideoPlayer : Form
@@ -31,7 +32,7 @@ namespace GUI
         string filepath;
 
         //a variable to check whether timer start (to ignore when assign value to media player)
-        int _progressbar_value =0;
+        int _progressbar_value = 0;
         public VideoPlayer()
         {
             InitializeComponent();
@@ -60,6 +61,10 @@ namespace GUI
 
             //timer
             videoTimer.Start();
+
+            //hamburger menu strip
+            this.hamburgerMenuStrip.ShowImageMargin = false;
+
         }
 
         public void PlayFile(string file)
@@ -69,27 +74,28 @@ namespace GUI
             pauseButton.BringToFront();
         }
 
+        
         private void playButton_Click(object sender, EventArgs e)
         {
             //this.videoProcessBar.Enabled = true;
             //stopButton.BringToFront();
             //videoProcessBar.Minimum = 0;
             //videoProcessBar.Maximum = (int)this._mp.Time;
-            
+
             if (!_mp.IsPlaying)
             {
                 _mp.Play();
                 videoTimer.Start();
                 pauseButton.BringToFront();
-                
-            }   
+
+            }
         }
 
         private void pauseButton_Click(object sender, EventArgs e)
         {
             if (_mp.IsPlaying)
             {
-                
+
                 _mp.Pause();
                 videoTimer.Stop();
                 playButton.BringToFront();
@@ -109,7 +115,7 @@ namespace GUI
             if (videoProgressBar.Value == videoProgressBar.Maximum)
             {
                 //videoProgressBar.Enabled = false;
-                
+
                 playButton.BringToFront();
             }
 
@@ -124,13 +130,13 @@ namespace GUI
             //}
 
             //this._mp.Position = videoProgressBar.Value/100f;
-            if(videoProgressBar.Focused == false)
+            if (videoProgressBar.Focused == false)
             {
                 // ignore when timer just start
-                if(this.videoProgressBar.Value - this._progressbar_value != 1)
+                if (this.videoProgressBar.Value - this._progressbar_value != 1)
                 {
                     this._mp.Time = (long)TimeSpan.FromSeconds(this.videoProgressBar.Value).TotalMilliseconds;
-                }    
+                }
             }
             this._progressbar_value = this.videoProgressBar.Value;
 
@@ -138,7 +144,7 @@ namespace GUI
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            
+
             _mp.Position = 0;
             this.videoProgressBar.Value = 0;
             pauseButton_Click(sender, e);
@@ -193,7 +199,7 @@ namespace GUI
 
         private void MediaEndReached(object sender, EventArgs e)
         {
-            ThreadPool.QueueUserWorkItem(_ => this._mp.Play(new Media(_libVLC,this.filepath)));
+            ThreadPool.QueueUserWorkItem(_ => this._mp.Play(new Media(_libVLC, this.filepath)));
         }
 
         private void restoredownButton_Click(object sender, EventArgs e)
@@ -209,6 +215,71 @@ namespace GUI
         private void minimizeButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hamburgerButton_Click(object sender, EventArgs e)
+        {
+            
+            MouseEventArgs me = (MouseEventArgs)e;
+            this.hamburgerMenuStrip.Show(Cursor.Position);
+            
+        }
+
+        
+
+        private void addSubtitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _mp.AddSlave(MediaSlaveType.Subtitle, "file:///C:\\Users\\volin\\Downloads\\[English] 05 - Future Simple Will Going to Listening Speaking Practice - Common Questions Possible Responses [DownSub.com].srt", true);
+        }
+
+        private void xToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(0.25f);
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(0.5f);
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(0.75f);
+        }
+
+        private void normalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(1.0f);
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(1.25f);
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(1.5f);
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(1.75f);
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            _mp.SetRate(2f);
         }
     }
 }

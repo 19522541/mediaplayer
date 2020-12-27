@@ -53,6 +53,8 @@ namespace GUI
         //store user's choice of Music or Videos
         enum Choice { None, Musics, Pictures, Videos };
         Choice userChoice;
+
+        VideoPlayer _player;
         public MainForm()
         {
             
@@ -1280,6 +1282,11 @@ namespace GUI
         {
             this.cancelButton.Visible = false;
             this.saveButton.Visible = false;
+        }
+
+        private void playURLButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

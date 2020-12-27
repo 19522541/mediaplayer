@@ -1824,3 +1824,11 @@ D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\System.Memory.xml
 D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\System.Numerics.Vectors.xml
 D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\obj\Debug\GUI.VideoPlayer.resources
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Core.dll
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Platform.dll
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Xaml.dll
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Core.pdb
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Core.xml
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Xaml.pdb
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\bin\Debug\Xamarin.Forms.Xaml.xml
+D:\Code\C#\mediaPL_v2\mediaplayer\GUI\GUI\obj\Debug\XamlC.stamp

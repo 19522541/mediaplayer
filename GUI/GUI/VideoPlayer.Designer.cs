@@ -37,7 +37,7 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.videoView = new LibVLCSharp.WinForms.VideoView();
-            this.bunifuButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.hamburgerButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.playButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.backwardButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.forwardButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -54,20 +54,22 @@
             this.videoTimer = new System.Windows.Forms.Timer(this.components);
             this.bottomPanel = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hamburgerMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.speedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addSubtitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.videoView)).BeginInit();
             this.titlePanel.SuspendLayout();
             this.bottomPanel.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.hamburgerMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoView
@@ -81,95 +83,96 @@
             this.videoView.TabIndex = 0;
             this.videoView.Text = "videoView1";
             // 
-            // bunifuButton4
+            // hamburgerButton
             // 
-            this.bunifuButton4.AllowAnimations = true;
-            this.bunifuButton4.AllowMouseEffects = true;
-            this.bunifuButton4.AllowToggling = false;
-            this.bunifuButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuButton4.AnimationSpeed = 200;
-            this.bunifuButton4.AutoGenerateColors = false;
-            this.bunifuButton4.AutoRoundBorders = false;
-            this.bunifuButton4.AutoSizeLeftIcon = true;
-            this.bunifuButton4.AutoSizeRightIcon = true;
-            this.bunifuButton4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuButton4.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.bunifuButton4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton4.BackgroundImage")));
-            this.bunifuButton4.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton4.ButtonText = "bunifuButton4";
-            this.bunifuButton4.ButtonTextMarginLeft = 0;
-            this.bunifuButton4.ColorContrastOnClick = 45;
-            this.bunifuButton4.ColorContrastOnHover = 45;
-            this.bunifuButton4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.hamburgerButton.AllowAnimations = true;
+            this.hamburgerButton.AllowMouseEffects = true;
+            this.hamburgerButton.AllowToggling = false;
+            this.hamburgerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.hamburgerButton.AnimationSpeed = 200;
+            this.hamburgerButton.AutoGenerateColors = false;
+            this.hamburgerButton.AutoRoundBorders = false;
+            this.hamburgerButton.AutoSizeLeftIcon = true;
+            this.hamburgerButton.AutoSizeRightIcon = true;
+            this.hamburgerButton.BackColor = System.Drawing.Color.Transparent;
+            this.hamburgerButton.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.hamburgerButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hamburgerButton.BackgroundImage")));
+            this.hamburgerButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.hamburgerButton.ButtonText = "bunifuButton4";
+            this.hamburgerButton.ButtonTextMarginLeft = 0;
+            this.hamburgerButton.ColorContrastOnClick = 45;
+            this.hamburgerButton.ColorContrastOnHover = 45;
+            this.hamburgerButton.Cursor = System.Windows.Forms.Cursors.Default;
             borderEdges1.BottomLeft = true;
             borderEdges1.BottomRight = true;
             borderEdges1.TopLeft = true;
             borderEdges1.TopRight = true;
-            this.bunifuButton4.CustomizableEdges = borderEdges1;
-            this.bunifuButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.bunifuButton4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.bunifuButton4.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuButton4.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.bunifuButton4.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.bunifuButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuButton4.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton4.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuButton4.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton4.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.bunifuButton4.IconMarginLeft = 11;
-            this.bunifuButton4.IconPadding = 10;
-            this.bunifuButton4.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.bunifuButton4.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuButton4.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.bunifuButton4.IconSize = 25;
-            this.bunifuButton4.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuButton4.IdleBorderRadius = 1;
-            this.bunifuButton4.IdleBorderThickness = 1;
-            this.bunifuButton4.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuButton4.IdleIconLeftImage = null;
-            this.bunifuButton4.IdleIconRightImage = null;
-            this.bunifuButton4.IndicateFocus = false;
-            this.bunifuButton4.Location = new System.Drawing.Point(838, 3);
-            this.bunifuButton4.Name = "bunifuButton4";
-            this.bunifuButton4.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.bunifuButton4.OnDisabledState.BorderRadius = 1;
-            this.bunifuButton4.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton4.OnDisabledState.BorderThickness = 1;
-            this.bunifuButton4.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuButton4.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.bunifuButton4.OnDisabledState.IconLeftImage = null;
-            this.bunifuButton4.OnDisabledState.IconRightImage = null;
-            this.bunifuButton4.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuButton4.onHoverState.BorderRadius = 1;
-            this.bunifuButton4.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton4.onHoverState.BorderThickness = 1;
-            this.bunifuButton4.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.bunifuButton4.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton4.onHoverState.IconLeftImage = null;
-            this.bunifuButton4.onHoverState.IconRightImage = null;
-            this.bunifuButton4.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuButton4.OnIdleState.BorderRadius = 1;
-            this.bunifuButton4.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton4.OnIdleState.BorderThickness = 1;
-            this.bunifuButton4.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuButton4.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton4.OnIdleState.IconLeftImage = null;
-            this.bunifuButton4.OnIdleState.IconRightImage = null;
-            this.bunifuButton4.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.bunifuButton4.OnPressedState.BorderRadius = 1;
-            this.bunifuButton4.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton4.OnPressedState.BorderThickness = 1;
-            this.bunifuButton4.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.bunifuButton4.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.bunifuButton4.OnPressedState.IconLeftImage = null;
-            this.bunifuButton4.OnPressedState.IconRightImage = null;
-            this.bunifuButton4.Size = new System.Drawing.Size(48, 45);
-            this.bunifuButton4.TabIndex = 5;
-            this.bunifuButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuButton4.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.bunifuButton4.TextMarginLeft = 0;
-            this.bunifuButton4.TextPadding = new System.Windows.Forms.Padding(0);
-            this.bunifuButton4.UseDefaultRadiusAndThickness = true;
+            this.hamburgerButton.CustomizableEdges = borderEdges1;
+            this.hamburgerButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.hamburgerButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.hamburgerButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.hamburgerButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.hamburgerButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.hamburgerButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hamburgerButton.ForeColor = System.Drawing.Color.White;
+            this.hamburgerButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hamburgerButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.hamburgerButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.hamburgerButton.IconMarginLeft = 11;
+            this.hamburgerButton.IconPadding = 10;
+            this.hamburgerButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hamburgerButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.hamburgerButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.hamburgerButton.IconSize = 25;
+            this.hamburgerButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.hamburgerButton.IdleBorderRadius = 1;
+            this.hamburgerButton.IdleBorderThickness = 1;
+            this.hamburgerButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.hamburgerButton.IdleIconLeftImage = null;
+            this.hamburgerButton.IdleIconRightImage = null;
+            this.hamburgerButton.IndicateFocus = false;
+            this.hamburgerButton.Location = new System.Drawing.Point(838, 3);
+            this.hamburgerButton.Name = "hamburgerButton";
+            this.hamburgerButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.hamburgerButton.OnDisabledState.BorderRadius = 1;
+            this.hamburgerButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.hamburgerButton.OnDisabledState.BorderThickness = 1;
+            this.hamburgerButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.hamburgerButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.hamburgerButton.OnDisabledState.IconLeftImage = null;
+            this.hamburgerButton.OnDisabledState.IconRightImage = null;
+            this.hamburgerButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.hamburgerButton.onHoverState.BorderRadius = 1;
+            this.hamburgerButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.hamburgerButton.onHoverState.BorderThickness = 1;
+            this.hamburgerButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.hamburgerButton.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.hamburgerButton.onHoverState.IconLeftImage = null;
+            this.hamburgerButton.onHoverState.IconRightImage = null;
+            this.hamburgerButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.hamburgerButton.OnIdleState.BorderRadius = 1;
+            this.hamburgerButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.hamburgerButton.OnIdleState.BorderThickness = 1;
+            this.hamburgerButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.hamburgerButton.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.hamburgerButton.OnIdleState.IconLeftImage = null;
+            this.hamburgerButton.OnIdleState.IconRightImage = null;
+            this.hamburgerButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.hamburgerButton.OnPressedState.BorderRadius = 1;
+            this.hamburgerButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.hamburgerButton.OnPressedState.BorderThickness = 1;
+            this.hamburgerButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.hamburgerButton.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.hamburgerButton.OnPressedState.IconLeftImage = null;
+            this.hamburgerButton.OnPressedState.IconRightImage = null;
+            this.hamburgerButton.Size = new System.Drawing.Size(48, 45);
+            this.hamburgerButton.TabIndex = 5;
+            this.hamburgerButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.hamburgerButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.hamburgerButton.TextMarginLeft = 0;
+            this.hamburgerButton.TextPadding = new System.Windows.Forms.Padding(0);
+            this.hamburgerButton.UseDefaultRadiusAndThickness = true;
+            this.hamburgerButton.Click += new System.EventHandler(this.hamburgerButton_Click);
             // 
             // playButton
             // 
@@ -826,7 +829,7 @@
             this.bottomPanel.BorderThickness = 1;
             this.bottomPanel.Controls.Add(this.videoProgressBar);
             this.bottomPanel.Controls.Add(this.pauseButton);
-            this.bottomPanel.Controls.Add(this.bunifuButton4);
+            this.bottomPanel.Controls.Add(this.hamburgerButton);
             this.bottomPanel.Controls.Add(this.stopButton);
             this.bottomPanel.Controls.Add(this.forwardButton);
             this.bottomPanel.Controls.Add(this.backwardButton);
@@ -854,68 +857,123 @@
             this.bunifuPanel3.Size = new System.Drawing.Size(907, 371);
             this.bunifuPanel3.TabIndex = 16;
             // 
-            // contextMenuStrip1
+            // hamburgerMenuStrip
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.normalToolStripMenuItem,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.xToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 196);
+            this.hamburgerMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.hamburgerMenuStrip.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hamburgerMenuStrip.ImageScalingSize = new System.Drawing.Size(0, 0);
+            this.hamburgerMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.speedToolStripMenuItem,
+            this.addSubtitleToolStripMenuItem});
+            this.hamburgerMenuStrip.Name = "contextMenuStrip1";
+            this.hamburgerMenuStrip.Size = new System.Drawing.Size(196, 64);
             // 
-            // toolStripMenuItem2
+            // speedToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(128, 24);
-            this.toolStripMenuItem2.Text = "0.25";
+            this.speedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem10,
+            this.normalToolStripMenuItem1,
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem13,
+            this.toolStripMenuItem14});
+            this.speedToolStripMenuItem.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speedToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.speedToolStripMenuItem.Name = "speedToolStripMenuItem";
+            this.speedToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.speedToolStripMenuItem.Text = "Speed";
+            this.speedToolStripMenuItem.Click += new System.EventHandler(this.xToolStripMenuItem1_Click);
             // 
-            // toolStripMenuItem3
+            // toolStripMenuItem9
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(128, 24);
-            this.toolStripMenuItem3.Text = "0.5";
+            this.toolStripMenuItem9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem9.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem9.Text = "0.25";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
-            // toolStripMenuItem4
+            // toolStripMenuItem8
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(128, 24);
-            this.toolStripMenuItem4.Text = "0.75";
+            this.toolStripMenuItem8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem8.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem8.Text = "0.5";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
-            // normalToolStripMenuItem
+            // toolStripMenuItem10
             // 
-            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
-            this.normalToolStripMenuItem.Text = "Normal";
+            this.toolStripMenuItem10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem10.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem10.Text = "0.75";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
-            // toolStripMenuItem5
+            // normalToolStripMenuItem1
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(128, 24);
-            this.toolStripMenuItem5.Text = "1.25";
+            this.normalToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.normalToolStripMenuItem1.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.normalToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.normalToolStripMenuItem1.Name = "normalToolStripMenuItem1";
+            this.normalToolStripMenuItem1.Size = new System.Drawing.Size(224, 30);
+            this.normalToolStripMenuItem1.Text = "Normal";
+            this.normalToolStripMenuItem1.Click += new System.EventHandler(this.normalToolStripMenuItem1_Click);
             // 
-            // toolStripMenuItem6
+            // toolStripMenuItem11
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(128, 24);
-            this.toolStripMenuItem6.Text = "1.5";
+            this.toolStripMenuItem11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem11.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem11.Text = "1.25";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
-            // toolStripMenuItem7
+            // toolStripMenuItem12
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(128, 24);
-            this.toolStripMenuItem7.Text = "1.75";
+            this.toolStripMenuItem12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem12.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem12.Text = "1.5";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
-            // xToolStripMenuItem
+            // toolStripMenuItem13
             // 
-            this.xToolStripMenuItem.Name = "xToolStripMenuItem";
-            this.xToolStripMenuItem.Size = new System.Drawing.Size(128, 24);
-            this.xToolStripMenuItem.Text = "2X";
+            this.toolStripMenuItem13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem13.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem13.Text = "1.75";
+            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.toolStripMenuItem14.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem14.Text = "2";
+            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
+            // 
+            // addSubtitleToolStripMenuItem
+            // 
+            this.addSubtitleToolStripMenuItem.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSubtitleToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addSubtitleToolStripMenuItem.Name = "addSubtitleToolStripMenuItem";
+            this.addSubtitleToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.addSubtitleToolStripMenuItem.Text = "Add Subtitle";
+            this.addSubtitleToolStripMenuItem.Click += new System.EventHandler(this.addSubtitleToolStripMenuItem_Click);
             // 
             // VideoPlayer
             // 
@@ -933,7 +991,7 @@
             this.titlePanel.ResumeLayout(false);
             this.bottomPanel.ResumeLayout(false);
             this.bunifuPanel3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.hamburgerMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -941,7 +999,7 @@
         #endregion
 
         private LibVLCSharp.WinForms.VideoView videoView;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton4;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton hamburgerButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton playButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton backwardButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton forwardButton;
@@ -958,14 +1016,16 @@
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
         private Bunifu.Framework.UI.BunifuTileButton restoredownButton;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem xToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip hamburgerMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem speedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addSubtitleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
     }
 }

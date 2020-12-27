@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation1 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation2 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.sideMenuPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.iconPanel = new System.Windows.Forms.Panel();
             this.sideMenuButton = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.button15 = new System.Windows.Forms.Button();
             this.videoButton = new System.Windows.Forms.Button();
             this.videoSubMenu = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.playURLButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.mainBotPanel = new System.Windows.Forms.Panel();
@@ -362,7 +362,7 @@
             // videoSubMenu
             // 
             this.videoSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.videoSubMenu.Controls.Add(this.button2);
+            this.videoSubMenu.Controls.Add(this.playURLButton);
             this.videoSubMenu.Controls.Add(this.button3);
             this.sideMenuAni.SetDecoration(this.videoSubMenu, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.videoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -372,22 +372,23 @@
             this.videoSubMenu.Size = new System.Drawing.Size(251, 84);
             this.videoSubMenu.TabIndex = 9;
             // 
-            // button2
+            // playURLButton
             // 
-            this.sideMenuAni.SetDecoration(this.button2, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button2.Location = new System.Drawing.Point(0, 39);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(251, 43);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
+            this.sideMenuAni.SetDecoration(this.playURLButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.playURLButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.playURLButton.FlatAppearance.BorderSize = 0;
+            this.playURLButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playURLButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.playURLButton.Location = new System.Drawing.Point(0, 39);
+            this.playURLButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.playURLButton.Name = "playURLButton";
+            this.playURLButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.playURLButton.Size = new System.Drawing.Size(251, 43);
+            this.playURLButton.TabIndex = 2;
+            this.playURLButton.Text = "Open URL";
+            this.playURLButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.playURLButton.UseVisualStyleBackColor = true;
+            this.playURLButton.Click += new System.EventHandler(this.playURLButton_Click);
             // 
             // button3
             // 
@@ -883,22 +884,22 @@
             // 
             this.sideMenuAni.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.HorizSlide;
             this.sideMenuAni.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.sideMenuAni.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.sideMenuAni.DefaultAnimation = animation2;
             // 
             // titlePanel
             // 
@@ -936,11 +937,11 @@
             this.cancelButton.ColorContrastOnClick = 45;
             this.cancelButton.ColorContrastOnHover = 45;
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.cancelButton.CustomizableEdges = borderEdges1;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.cancelButton.CustomizableEdges = borderEdges3;
             this.sideMenuAni.SetDecoration(this.cancelButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.cancelButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1029,11 +1030,11 @@
             this.saveButton.ColorContrastOnClick = 45;
             this.saveButton.ColorContrastOnHover = 45;
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.saveButton.CustomizableEdges = borderEdges2;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.saveButton.CustomizableEdges = borderEdges4;
             this.sideMenuAni.SetDecoration(this.saveButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.saveButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1280,7 +1281,7 @@
         public System.Windows.Forms.Button backwardButton;
         private System.Windows.Forms.ImageList backwardButtonList;
         private System.Windows.Forms.Panel videoSubMenu;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button playURLButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button openMusicFolderButton;
         private Bunifu.UI.WinForms.BunifuHSlider soundVolumeBar;
