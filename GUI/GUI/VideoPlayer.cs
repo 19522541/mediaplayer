@@ -76,7 +76,7 @@ namespace GUI
             var temp = boo / 1000f;
             int temp_2 = (int)_mp.Length;
             this.videoProgressBar.Minimum = 0;
-            this.videoProgressBar.Maximum = (int)duration.TotalSeconds;
+            this.videoProgressBar.Maximum = (int)duration.TotalMilliseconds;
 
             //display duration
             this.videoTime.Text = getCurrentTime();
@@ -170,8 +170,8 @@ namespace GUI
             //}
 
             //this._mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
-
-            //_mp.Time = videoProgressBar.Value * 1000;
+            //uneccessary to change Position or Time (cause lagging)
+            //_mp.Time = videoProgressBar.Value * 10;
 
             if (videoProgressBar.Focused == false)
             {
@@ -196,9 +196,14 @@ namespace GUI
         private void forwardButton_Click(object sender, EventArgs e)
         {
             //_mp.Position += 0.005f;
-            
+
             // skip 10 seconds
-            this.videoProgressBar.Value += 10;
+            _mp.Position += 1000f / videoProgressBar.Maximum;
+
+
+            //this.videoProgressBar.Value += 1000;
+            //_mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
+            //videoTime.Text = getCurrentTime();
         }
 
         private void backwardButton_Click(object sender, EventArgs e)
@@ -208,7 +213,7 @@ namespace GUI
 
         private void videoProgressBar_MouseUp(object sender, MouseEventArgs e)
         {
-            _mp.Time = videoProgressBar.Value * 1000;
+            //_mp.Time = videoProgressBar.Value * 1000;
         }
 
         private void videoTimer_Tick(object sender, EventArgs e)

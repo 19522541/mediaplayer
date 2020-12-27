@@ -823,7 +823,7 @@
             // 
             // videoTimer
             // 
-            this.videoTimer.Interval = 1000;
+            this.videoTimer.Interval = 1;
             this.videoTimer.Tick += new System.EventHandler(this.videoTimer_Tick);
             // 
             // bottomPanel
