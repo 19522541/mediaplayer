@@ -198,7 +198,7 @@ namespace GUI
             //_mp.Position += 0.005f;
 
             // skip 10 seconds
-            _mp.Position += 1000f / videoProgressBar.Maximum;
+            _mp.Position += 30000f / videoProgressBar.Maximum;
 
 
             //this.videoProgressBar.Value += 1000;
@@ -208,7 +208,7 @@ namespace GUI
 
         private void backwardButton_Click(object sender, EventArgs e)
         {
-            _mp.Position -= 0.005f;
+            _mp.Position -= 10000f / videoProgressBar.Maximum;
         }
 
         private void videoProgressBar_MouseUp(object sender, MouseEventArgs e)
