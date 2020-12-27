@@ -97,7 +97,7 @@ namespace GUI
             string temp = @"thumbnail";
             string save_path = Path.Combine(dir.FullName,temp,name);
             videoframe.Save(save_path);
-
+            
             //dispose video frame
             videoframe.Dispose();
             reader.Close();

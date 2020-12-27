@@ -54,10 +54,16 @@ namespace GUI
             _mp = new MediaPlayer(_libVLC);
             videoView.MediaPlayer = _mp;
 
+
+            
+
             //play a video from double click
             this.filepath = filepath;
             PlayFile(this.filepath);
-            //videoProcessBar.Enabled = false;
+            
+            //display duration
+            
+            
 
             //timer
             videoTimer.Start();
@@ -69,15 +75,25 @@ namespace GUI
 
         public void PlayFile(string file)
         {
-            _mp.Play(new Media(_libVLC, file));
+            media = new Media(_libVLC, file);
+            _mp.Play(media);
             isPlaying = true;
             pauseButton.BringToFront();
+            double vidlength = _mp.Length;
+            TimeSpan length = TimeSpan.FromMilliseconds(vidlength);
+
+            string duration = length.ToString(@"hh\:mm\:ss");
+            this.videoLength.Text = duration;
         }
 
         public void PlayURL()
         {
+            
             _mp.Play(new Media(this._libVLC, new Uri(this.filepath)));
             this.isPlaying = true;
+            TimeSpan length = TimeSpan.FromMilliseconds(_mp.Length);
+            this.videoLength.Text = length.ToString(@"mm\:ss");
+            
         }
 
         private void playButton_Click(object sender, EventArgs e)
@@ -116,7 +132,7 @@ namespace GUI
 
         private void videoProgressBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
-            //time.Text = getCurTime(videoProgressBar.Value);
+            videoTime.Text = getCurTime(videoProgressBar.Value);
             if (videoProgressBar.Value == videoProgressBar.Maximum)
             {
                 //videoProgressBar.Enabled = false;
@@ -292,6 +308,34 @@ namespace GUI
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
             _mp.SetRate(2f);
+        }
+
+        public String getCurTime(int time)
+        {
+            String rs = "";
+            int mins = Convert.ToInt32(time) / 60;
+            int second = Convert.ToInt32(time) % 60;
+            string minStr, sedStr;
+            if (mins < 10)
+            {
+                minStr = "0" + mins.ToString();
+            }
+            else
+            {
+                minStr = mins.ToString();
+            }
+
+            if (second < 10)
+            {
+                sedStr = "0" + second.ToString();
+            }
+            else
+            {
+                sedStr = second.ToString();
+            }
+            rs = minStr + ":" + sedStr;
+            return rs;
+
         }
     }
 }

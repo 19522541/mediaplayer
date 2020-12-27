@@ -1289,5 +1289,15 @@ namespace GUI
             OpenURLForm url_form = new OpenURLForm();
             url_form.Show();
         }
+
+        private void songLength_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void time_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

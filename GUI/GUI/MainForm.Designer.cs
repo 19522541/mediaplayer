@@ -568,6 +568,7 @@
             this.songLength.Size = new System.Drawing.Size(44, 17);
             this.songLength.TabIndex = 12;
             this.songLength.Text = "00:00";
+            this.songLength.Click += new System.EventHandler(this.songLength_Click);
             // 
             // loopButton
             // 
@@ -707,6 +708,7 @@
             this.time.Size = new System.Drawing.Size(44, 17);
             this.time.TabIndex = 8;
             this.time.Text = "00:00";
+            this.time.Click += new System.EventHandler(this.time_Click);
             // 
             // soundButton
             // 
