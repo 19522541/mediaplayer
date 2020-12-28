@@ -197,9 +197,15 @@ namespace GUI
             //_mp.Position += 0.005f;
 
             // skip 10 seconds
+            if(this.videoProgressBar.Value + 10 >= videoProgressBar.Maximum)
+            {
+                this.videoProgressBar.Value = videoProgressBar.Maximum;
+                _mp.Position = 1f;
+                return;
+            }    
             _mp.Position += 10f / videoProgressBar.Maximum;
             this.videoProgressBar.Value += 10;
-
+            
             //this.videoProgressBar.Value += 1000;
             //_mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
             //videoTime.Text = getCurrentTime();
@@ -245,13 +251,17 @@ namespace GUI
             int barWidth = videoProgressBar.Size.Width;
             float percentage = (float)this._mouseloc / (float)barWidth;
             float temp = percentage * this.videoProgressBar.Maximum;
-            int offset;
+            int offset =0;
             if(this.duration.TotalSeconds>=30)
             {
-                
+                offset = 10;
             }    
-            //if (temp > preVal) temp -= 10;
-            //else if (temp < preVal) temp += 10;
+            else if(this.duration.TotalSeconds<30)
+            {
+                offset = 0;
+            }
+            if (temp > preVal) temp -= offset;
+            else if (temp < preVal) temp += offset;
             videoProgressBar.Value = Convert.ToInt32(temp);
             _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
         }
@@ -467,6 +477,11 @@ namespace GUI
             videoTimer.Stop();
             this.videoProgressBar.Value = 0;
             playButton.BringToFront();
+        }
+
+        private void bunifuHSlider1_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
+        {
+            this._mp.Volume = bunifuHSlider1.Value;
         }
     }
 }

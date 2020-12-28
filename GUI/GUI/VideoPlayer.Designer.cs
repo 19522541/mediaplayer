@@ -944,6 +944,7 @@
             // videoLength
             // 
             this.videoLength.AllowParentOverrides = false;
+            this.videoLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.videoLength.AutoEllipsis = true;
             this.videoLength.CursorType = null;
             this.videoLength.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -965,7 +966,7 @@
             this.videoTime.CursorType = System.Windows.Forms.Cursors.Default;
             this.videoTime.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.videoTime.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.videoTime.Location = new System.Drawing.Point(4, 66);
+            this.videoTime.Location = new System.Drawing.Point(12, 66);
             this.videoTime.Name = "videoTime";
             this.videoTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.videoTime.Size = new System.Drawing.Size(70, 20);
@@ -1020,6 +1021,7 @@
             this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
             this.bunifuHSlider1.Value = 50;
+            this.bunifuHSlider1.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.bunifuHSlider1_Scroll);
             // 
             // bunifuPanel3
             // 
