@@ -103,6 +103,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-window-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_end_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-end-30", resourceCulture);
@@ -143,6 +153,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_maximize_window_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-maximize-window-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_menu_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-30", resourceCulture);
@@ -156,6 +176,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_menu_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_minimize_window_52 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-minimize-window-52", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +266,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_repeat_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-repeat-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_window_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restore-window-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation2 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation1 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.sideMenuPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.iconPanel = new System.Windows.Forms.Panel();
             this.sideMenuButton = new System.Windows.Forms.Button();
@@ -887,24 +887,24 @@
             // 
             // sideMenuAni
             // 
-            //this.sideMenuAni.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.HorizSlide;
-            //this.sideMenuAni.Cursor = null;
-            //animation2.AnimateOnlyDifferences = true;
-            //animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            //animation2.LeafCoeff = 0F;
-            //animation2.MaxTime = 1F;
-            //animation2.MinTime = 0F;
-            //animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            //animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            //animation2.MosaicSize = 0;
-            //animation2.Padding = new System.Windows.Forms.Padding(0);
-            //animation2.RotateCoeff = 0F;
-            //animation2.RotateLimit = 0F;
-            //animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            //animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            //animation2.TimeCoeff = 0F;
-            //animation2.TransparencyCoeff = 0F;
-            //this.sideMenuAni.DefaultAnimation = animation2;
+            this.sideMenuAni.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
+            this.sideMenuAni.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.sideMenuAni.DefaultAnimation = animation1;
             // 
             // titlePanel
             // 
@@ -942,11 +942,11 @@
             this.cancelButton.ColorContrastOnClick = 45;
             this.cancelButton.ColorContrastOnHover = 45;
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.cancelButton.CustomizableEdges = borderEdges4;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.cancelButton.CustomizableEdges = borderEdges1;
             this.sideMenuAni.SetDecoration(this.cancelButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.cancelButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1035,11 +1035,11 @@
             this.saveButton.ColorContrastOnClick = 45;
             this.saveButton.ColorContrastOnHover = 45;
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.saveButton.CustomizableEdges = borderEdges5;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.saveButton.CustomizableEdges = borderEdges2;
             this.sideMenuAni.SetDecoration(this.saveButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.saveButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1172,8 +1172,8 @@
             // mainMidPanel
             // 
             this.mainMidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.mainMidPanel.Controls.Add(this.openFolderButton);
             this.mainMidPanel.Controls.Add(this.mainPicturebox);
+            this.mainMidPanel.Controls.Add(this.openFolderButton);
             this.sideMenuAni.SetDecoration(this.mainMidPanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.mainMidPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainMidPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1194,19 +1194,19 @@
             this.openFolderButton.AutoSizeLeftIcon = true;
             this.openFolderButton.AutoSizeRightIcon = true;
             this.openFolderButton.BackColor = System.Drawing.Color.Transparent;
-            this.openFolderButton.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.openFolderButton.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.openFolderButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("openFolderButton.BackgroundImage")));
             this.openFolderButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.openFolderButton.ButtonText = "Browse";
+            this.openFolderButton.ButtonText = "";
             this.openFolderButton.ButtonTextMarginLeft = 0;
             this.openFolderButton.ColorContrastOnClick = 45;
             this.openFolderButton.ColorContrastOnHover = 45;
             this.openFolderButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.openFolderButton.CustomizableEdges = borderEdges6;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.openFolderButton.CustomizableEdges = borderEdges3;
             this.sideMenuAni.SetDecoration(this.openFolderButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.openFolderButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.openFolderButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1224,14 +1224,14 @@
             this.openFolderButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.openFolderButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.openFolderButton.IconSize = 25;
-            this.openFolderButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.openFolderButton.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.openFolderButton.IdleBorderRadius = 1;
             this.openFolderButton.IdleBorderThickness = 1;
-            this.openFolderButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.openFolderButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.openFolderButton.IdleIconLeftImage = null;
             this.openFolderButton.IdleIconRightImage = null;
             this.openFolderButton.IndicateFocus = false;
-            this.openFolderButton.Location = new System.Drawing.Point(886, 23);
+            this.openFolderButton.Location = new System.Drawing.Point(913, 26);
             this.openFolderButton.Name = "openFolderButton";
             this.openFolderButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.openFolderButton.OnDisabledState.BorderRadius = 1;
@@ -1249,11 +1249,11 @@
             this.openFolderButton.onHoverState.ForeColor = System.Drawing.Color.White;
             this.openFolderButton.onHoverState.IconLeftImage = null;
             this.openFolderButton.onHoverState.IconRightImage = null;
-            this.openFolderButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.openFolderButton.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.openFolderButton.OnIdleState.BorderRadius = 1;
             this.openFolderButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.openFolderButton.OnIdleState.BorderThickness = 1;
-            this.openFolderButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.openFolderButton.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.openFolderButton.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.openFolderButton.OnIdleState.IconLeftImage = null;
             this.openFolderButton.OnIdleState.IconRightImage = null;
@@ -1272,6 +1272,7 @@
             this.openFolderButton.TextMarginLeft = 0;
             this.openFolderButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.openFolderButton.UseDefaultRadiusAndThickness = true;
+            this.openFolderButton.Visible = false;
             // 
             // mainPicturebox
             // 

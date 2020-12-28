@@ -51,6 +51,10 @@
             this.addSubtitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.titlePanel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.minimizeButton = new Bunifu.Framework.UI.BunifuTileButton();
@@ -59,24 +63,24 @@
             this.restoredownButton = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bottomPanel = new Bunifu.UI.WinForms.BunifuPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.playButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.videoLength = new Bunifu.UI.WinForms.BunifuLabel();
             this.videoTime = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuHSlider1 = new Bunifu.UI.WinForms.BunifuHSlider();
             this.videoProgressBar = new Bunifu.UI.WinForms.BunifuHSlider();
             this.hamburgerButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.stopButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.forwardButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.backwardButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pauseButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.muteButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.playButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.bunifuHSlider1 = new Bunifu.UI.WinForms.BunifuHSlider();
+            this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.videoView)).BeginInit();
             this.hamburgerMenuStrip.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -235,16 +239,70 @@
             this.titlePanel.BorderThickness = 1;
             this.titlePanel.Controls.Add(this.bunifuPanel2);
             this.titlePanel.Controls.Add(this.bunifuPanel1);
-            this.titlePanel.Controls.Add(this.minimizeButton);
-            this.titlePanel.Controls.Add(this.maximizeButton);
+            this.titlePanel.Controls.Add(this.button11);
+            this.titlePanel.Controls.Add(this.button5);
             this.titlePanel.Controls.Add(this.exitButton);
+            this.titlePanel.Controls.Add(this.maximizeButton);
+            this.titlePanel.Controls.Add(this.minimizeButton);
             this.titlePanel.Controls.Add(this.restoredownButton);
+            this.titlePanel.Controls.Add(this.button10);
+            this.titlePanel.Controls.Add(this.button9);
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.ShowBorders = true;
             this.titlePanel.Size = new System.Drawing.Size(907, 54);
             this.titlePanel.TabIndex = 12;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.BackColor = System.Drawing.Color.White;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Image = global::GUI.Properties.Resources.icons8_close_window_48;
+            this.button11.Location = new System.Drawing.Point(852, 14);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(48, 34);
+            this.button11.TabIndex = 20;
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Image = global::GUI.Properties.Resources.icons8_maximize_window_48;
+            this.button10.Location = new System.Drawing.Point(809, 13);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(46, 34);
+            this.button10.TabIndex = 19;
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Image = global::GUI.Properties.Resources.icons8_restore_window_48;
+            this.button9.Location = new System.Drawing.Point(809, 14);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(42, 34);
+            this.button9.TabIndex = 18;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = global::GUI.Properties.Resources.icons8_minimize_window_52;
+            this.button5.Location = new System.Drawing.Point(767, 14);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(46, 37);
+            this.button5.TabIndex = 17;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // bunifuPanel2
             // 
@@ -276,7 +334,6 @@
             // 
             // minimizeButton
             // 
-            this.minimizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizeButton.BackColor = System.Drawing.Color.SeaGreen;
             this.minimizeButton.color = System.Drawing.Color.SeaGreen;
             this.minimizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
@@ -288,11 +345,12 @@
             this.minimizeButton.ImageZoom = 50;
             this.minimizeButton.LabelPosition = 41;
             this.minimizeButton.LabelText = "Tile 1";
-            this.minimizeButton.Location = new System.Drawing.Point(756, 14);
+            this.minimizeButton.Location = new System.Drawing.Point(773, 14);
             this.minimizeButton.Margin = new System.Windows.Forms.Padding(6);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(40, 34);
             this.minimizeButton.TabIndex = 13;
+            this.minimizeButton.Visible = false;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
             // maximizeButton
@@ -309,11 +367,12 @@
             this.maximizeButton.ImageZoom = 50;
             this.maximizeButton.LabelPosition = 41;
             this.maximizeButton.LabelText = "Tile 1";
-            this.maximizeButton.Location = new System.Drawing.Point(808, 14);
+            this.maximizeButton.Location = new System.Drawing.Point(650, 7);
             this.maximizeButton.Margin = new System.Windows.Forms.Padding(6);
             this.maximizeButton.Name = "maximizeButton";
             this.maximizeButton.Size = new System.Drawing.Size(40, 34);
             this.maximizeButton.TabIndex = 12;
+            this.maximizeButton.Visible = false;
             this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
             // 
             // exitButton
@@ -335,6 +394,7 @@
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(40, 34);
             this.exitButton.TabIndex = 11;
+            this.exitButton.Visible = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // restoredownButton
@@ -351,11 +411,12 @@
             this.restoredownButton.ImageZoom = 50;
             this.restoredownButton.LabelPosition = 41;
             this.restoredownButton.LabelText = "Tile 1";
-            this.restoredownButton.Location = new System.Drawing.Point(808, 14);
+            this.restoredownButton.Location = new System.Drawing.Point(501, 7);
             this.restoredownButton.Margin = new System.Windows.Forms.Padding(6);
             this.restoredownButton.Name = "restoredownButton";
             this.restoredownButton.Size = new System.Drawing.Size(40, 34);
             this.restoredownButton.TabIndex = 16;
+            this.restoredownButton.Visible = false;
             this.restoredownButton.Click += new System.EventHandler(this.restoredownButton_Click);
             // 
             // bunifuPanel3
@@ -382,24 +443,24 @@
             this.bottomPanel.BorderColor = System.Drawing.Color.Transparent;
             this.bottomPanel.BorderRadius = 3;
             this.bottomPanel.BorderThickness = 1;
-            this.bottomPanel.Controls.Add(this.button3);
-            this.bottomPanel.Controls.Add(this.playButton);
             this.bottomPanel.Controls.Add(this.videoLength);
             this.bottomPanel.Controls.Add(this.videoTime);
-            this.bottomPanel.Controls.Add(this.bunifuHSlider1);
             this.bottomPanel.Controls.Add(this.videoProgressBar);
             this.bottomPanel.Controls.Add(this.hamburgerButton);
             this.bottomPanel.Controls.Add(this.stopButton);
             this.bottomPanel.Controls.Add(this.forwardButton);
             this.bottomPanel.Controls.Add(this.backwardButton);
             this.bottomPanel.Controls.Add(this.pauseButton);
-            this.bottomPanel.Controls.Add(this.button1);
             this.bottomPanel.Controls.Add(this.muteButton);
-            this.bottomPanel.Controls.Add(this.button2);
+            this.bottomPanel.Controls.Add(this.playButton);
+            this.bottomPanel.Controls.Add(this.button1);
+            this.bottomPanel.Controls.Add(this.button3);
+            this.bottomPanel.Controls.Add(this.bunifuHSlider1);
+            this.bottomPanel.Controls.Add(this.button6);
             this.bottomPanel.Controls.Add(this.button4);
             this.bottomPanel.Controls.Add(this.button7);
             this.bottomPanel.Controls.Add(this.button8);
-            this.bottomPanel.Controls.Add(this.button6);
+            this.bottomPanel.Controls.Add(this.button2);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.Location = new System.Drawing.Point(0, 425);
             this.bottomPanel.Name = "bottomPanel";
@@ -407,110 +468,6 @@
             this.bottomPanel.Size = new System.Drawing.Size(907, 119);
             this.bottomPanel.TabIndex = 15;
             this.bottomPanel.Click += new System.EventHandler(this.bottomPanel_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::GUI.Properties.Resources.icons8_menu_40;
-            this.button3.Location = new System.Drawing.Point(850, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 50);
-            this.button3.TabIndex = 25;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // playButton
-            // 
-            this.playButton.AllowAnimations = true;
-            this.playButton.AllowMouseEffects = true;
-            this.playButton.AllowToggling = false;
-            this.playButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.playButton.AnimationSpeed = 200;
-            this.playButton.AutoGenerateColors = false;
-            this.playButton.AutoRoundBorders = false;
-            this.playButton.AutoSizeLeftIcon = true;
-            this.playButton.AutoSizeRightIcon = true;
-            this.playButton.BackColor = System.Drawing.Color.Transparent;
-            this.playButton.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.playButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playButton.BackgroundImage")));
-            this.playButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.playButton.ButtonText = "play";
-            this.playButton.ButtonTextMarginLeft = 0;
-            this.playButton.ColorContrastOnClick = 45;
-            this.playButton.ColorContrastOnHover = 45;
-            this.playButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.playButton.CustomizableEdges = borderEdges1;
-            this.playButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.playButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.playButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.playButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.playButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.playButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.playButton.ForeColor = System.Drawing.Color.White;
-            this.playButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.playButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.playButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.playButton.IconMarginLeft = 11;
-            this.playButton.IconPadding = 10;
-            this.playButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.playButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.playButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.playButton.IconSize = 25;
-            this.playButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.playButton.IdleBorderRadius = 1;
-            this.playButton.IdleBorderThickness = 1;
-            this.playButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.playButton.IdleIconLeftImage = null;
-            this.playButton.IdleIconRightImage = null;
-            this.playButton.IndicateFocus = false;
-            this.playButton.Location = new System.Drawing.Point(81, 3);
-            this.playButton.Name = "playButton";
-            this.playButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.playButton.OnDisabledState.BorderRadius = 1;
-            this.playButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.playButton.OnDisabledState.BorderThickness = 1;
-            this.playButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.playButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.playButton.OnDisabledState.IconLeftImage = null;
-            this.playButton.OnDisabledState.IconRightImage = null;
-            this.playButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.playButton.onHoverState.BorderRadius = 1;
-            this.playButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.playButton.onHoverState.BorderThickness = 1;
-            this.playButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.playButton.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.playButton.onHoverState.IconLeftImage = null;
-            this.playButton.onHoverState.IconRightImage = null;
-            this.playButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.playButton.OnIdleState.BorderRadius = 1;
-            this.playButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.playButton.OnIdleState.BorderThickness = 1;
-            this.playButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.playButton.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.playButton.OnIdleState.IconLeftImage = null;
-            this.playButton.OnIdleState.IconRightImage = null;
-            this.playButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.playButton.OnPressedState.BorderRadius = 1;
-            this.playButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.playButton.OnPressedState.BorderThickness = 1;
-            this.playButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.playButton.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.playButton.OnPressedState.IconLeftImage = null;
-            this.playButton.OnPressedState.IconRightImage = null;
-            this.playButton.Size = new System.Drawing.Size(48, 45);
-            this.playButton.TabIndex = 7;
-            this.playButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.playButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.playButton.TextMarginLeft = 0;
-            this.playButton.TextPadding = new System.Windows.Forms.Padding(0);
-            this.playButton.UseDefaultRadiusAndThickness = true;
-            this.playButton.Visible = false;
-            this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // videoLength
             // 
@@ -545,56 +502,6 @@
             this.videoTime.Text = "videoTime";
             this.videoTime.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.videoTime.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuHSlider1
-            // 
-            this.bunifuHSlider1.AllowCursorChanges = true;
-            this.bunifuHSlider1.AllowHomeEndKeysDetection = false;
-            this.bunifuHSlider1.AllowIncrementalClickMoves = true;
-            this.bunifuHSlider1.AllowMouseDownEffects = false;
-            this.bunifuHSlider1.AllowMouseHoverEffects = false;
-            this.bunifuHSlider1.AllowScrollingAnimations = true;
-            this.bunifuHSlider1.AllowScrollKeysDetection = true;
-            this.bunifuHSlider1.AllowScrollOptionsMenu = true;
-            this.bunifuHSlider1.AllowShrinkingOnFocusLost = false;
-            this.bunifuHSlider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuHSlider1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuHSlider1.BackgroundImage")));
-            this.bunifuHSlider1.BindingContainer = null;
-            this.bunifuHSlider1.BorderRadius = 2;
-            this.bunifuHSlider1.BorderThickness = 1;
-            this.bunifuHSlider1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuHSlider1.DrawThickBorder = false;
-            this.bunifuHSlider1.DurationBeforeShrink = 2000;
-            this.bunifuHSlider1.ElapsedColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuHSlider1.LargeChange = 10;
-            this.bunifuHSlider1.Location = new System.Drawing.Point(671, 10);
-            this.bunifuHSlider1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuHSlider1.Maximum = 100;
-            this.bunifuHSlider1.Minimum = 0;
-            this.bunifuHSlider1.MinimumSize = new System.Drawing.Size(0, 31);
-            this.bunifuHSlider1.MinimumThumbLength = 18;
-            this.bunifuHSlider1.Name = "bunifuHSlider1";
-            this.bunifuHSlider1.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.bunifuHSlider1.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
-            this.bunifuHSlider1.OnDisable.ThumbColor = System.Drawing.Color.Silver;
-            this.bunifuHSlider1.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuHSlider1.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuHSlider1.ShrinkSizeLimit = 3;
-            this.bunifuHSlider1.Size = new System.Drawing.Size(152, 37);
-            this.bunifuHSlider1.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuHSlider1.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
-            this.bunifuHSlider1.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
-            this.bunifuHSlider1.SmallChange = 1;
-            this.bunifuHSlider1.TabIndex = 15;
-            this.bunifuHSlider1.ThumbColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuHSlider1.ThumbFillColor = System.Drawing.SystemColors.Control;
-            this.bunifuHSlider1.ThumbLength = 18;
-            this.bunifuHSlider1.ThumbMargin = 1;
-            this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
-            this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
-            this.bunifuHSlider1.Value = 50;
-            this.bunifuHSlider1.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.bunifuHSlider1_ValueChanged);
-            this.bunifuHSlider1.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.bunifuHSlider1_Scroll);
             // 
             // videoProgressBar
             // 
@@ -670,11 +577,11 @@
             this.hamburgerButton.ColorContrastOnClick = 45;
             this.hamburgerButton.ColorContrastOnHover = 45;
             this.hamburgerButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.hamburgerButton.CustomizableEdges = borderEdges2;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.hamburgerButton.CustomizableEdges = borderEdges1;
             this.hamburgerButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.hamburgerButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.hamburgerButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -762,11 +669,11 @@
             this.stopButton.ColorContrastOnClick = 45;
             this.stopButton.ColorContrastOnHover = 45;
             this.stopButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.stopButton.CustomizableEdges = borderEdges3;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.stopButton.CustomizableEdges = borderEdges2;
             this.stopButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.stopButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.stopButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -854,11 +761,11 @@
             this.forwardButton.ColorContrastOnClick = 45;
             this.forwardButton.ColorContrastOnHover = 45;
             this.forwardButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.forwardButton.CustomizableEdges = borderEdges4;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.forwardButton.CustomizableEdges = borderEdges3;
             this.forwardButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.forwardButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.forwardButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -946,11 +853,11 @@
             this.backwardButton.ColorContrastOnClick = 45;
             this.backwardButton.ColorContrastOnHover = 45;
             this.backwardButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.backwardButton.CustomizableEdges = borderEdges5;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.backwardButton.CustomizableEdges = borderEdges4;
             this.backwardButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.backwardButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.backwardButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1038,11 +945,11 @@
             this.pauseButton.ColorContrastOnClick = 45;
             this.pauseButton.ColorContrastOnHover = 45;
             this.pauseButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.pauseButton.CustomizableEdges = borderEdges6;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.pauseButton.CustomizableEdges = borderEdges5;
             this.pauseButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.pauseButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.pauseButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1107,53 +1014,207 @@
             this.pauseButton.TextMarginLeft = 0;
             this.pauseButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.pauseButton.UseDefaultRadiusAndThickness = true;
+            this.pauseButton.Visible = false;
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::GUI.Properties.Resources.icons8_audio_40;
-            this.button1.Location = new System.Drawing.Point(613, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 41);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // muteButton
             // 
             this.muteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.muteButton.Image = global::GUI.Properties.Resources.icons8_mute_40;
-            this.muteButton.Location = new System.Drawing.Point(613, 7);
+            this.muteButton.Location = new System.Drawing.Point(624, 14);
             this.muteButton.Name = "muteButton";
             this.muteButton.Size = new System.Drawing.Size(51, 41);
             this.muteButton.TabIndex = 19;
             this.muteButton.UseVisualStyleBackColor = true;
             this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
             // 
-            // button2
+            // playButton
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(435, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 50);
-            this.button2.TabIndex = 20;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.playButton.AllowAnimations = true;
+            this.playButton.AllowMouseEffects = true;
+            this.playButton.AllowToggling = false;
+            this.playButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.playButton.AnimationSpeed = 200;
+            this.playButton.AutoGenerateColors = false;
+            this.playButton.AutoRoundBorders = false;
+            this.playButton.AutoSizeLeftIcon = true;
+            this.playButton.AutoSizeRightIcon = true;
+            this.playButton.BackColor = System.Drawing.Color.Transparent;
+            this.playButton.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.playButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playButton.BackgroundImage")));
+            this.playButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.playButton.ButtonText = "play";
+            this.playButton.ButtonTextMarginLeft = 0;
+            this.playButton.ColorContrastOnClick = 45;
+            this.playButton.ColorContrastOnHover = 45;
+            this.playButton.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.playButton.CustomizableEdges = borderEdges6;
+            this.playButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.playButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.playButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.playButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.playButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.playButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.playButton.ForeColor = System.Drawing.Color.White;
+            this.playButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.playButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.playButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.playButton.IconMarginLeft = 11;
+            this.playButton.IconPadding = 10;
+            this.playButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.playButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.playButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.playButton.IconSize = 25;
+            this.playButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.playButton.IdleBorderRadius = 1;
+            this.playButton.IdleBorderThickness = 1;
+            this.playButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.playButton.IdleIconLeftImage = null;
+            this.playButton.IdleIconRightImage = null;
+            this.playButton.IndicateFocus = false;
+            this.playButton.Location = new System.Drawing.Point(81, 3);
+            this.playButton.Name = "playButton";
+            this.playButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.playButton.OnDisabledState.BorderRadius = 1;
+            this.playButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.playButton.OnDisabledState.BorderThickness = 1;
+            this.playButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.playButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.playButton.OnDisabledState.IconLeftImage = null;
+            this.playButton.OnDisabledState.IconRightImage = null;
+            this.playButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.playButton.onHoverState.BorderRadius = 1;
+            this.playButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.playButton.onHoverState.BorderThickness = 1;
+            this.playButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.playButton.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.playButton.onHoverState.IconLeftImage = null;
+            this.playButton.onHoverState.IconRightImage = null;
+            this.playButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.playButton.OnIdleState.BorderRadius = 1;
+            this.playButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.playButton.OnIdleState.BorderThickness = 1;
+            this.playButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.playButton.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.playButton.OnIdleState.IconLeftImage = null;
+            this.playButton.OnIdleState.IconRightImage = null;
+            this.playButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.playButton.OnPressedState.BorderRadius = 1;
+            this.playButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.playButton.OnPressedState.BorderThickness = 1;
+            this.playButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.playButton.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.playButton.OnPressedState.IconLeftImage = null;
+            this.playButton.OnPressedState.IconRightImage = null;
+            this.playButton.Size = new System.Drawing.Size(48, 45);
+            this.playButton.TabIndex = 7;
+            this.playButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.playButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.playButton.TextMarginLeft = 0;
+            this.playButton.TextPadding = new System.Windows.Forms.Padding(0);
+            this.playButton.UseDefaultRadiusAndThickness = true;
+            this.playButton.Visible = false;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::GUI.Properties.Resources.icons8_audio_40;
+            this.button1.Location = new System.Drawing.Point(624, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(51, 41);
+            this.button1.TabIndex = 18;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::GUI.Properties.Resources.icons8_menu_40;
+            this.button3.Location = new System.Drawing.Point(853, 9);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(50, 50);
+            this.button3.TabIndex = 25;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // bunifuHSlider1
+            // 
+            this.bunifuHSlider1.AllowCursorChanges = true;
+            this.bunifuHSlider1.AllowHomeEndKeysDetection = false;
+            this.bunifuHSlider1.AllowIncrementalClickMoves = true;
+            this.bunifuHSlider1.AllowMouseDownEffects = false;
+            this.bunifuHSlider1.AllowMouseHoverEffects = false;
+            this.bunifuHSlider1.AllowScrollingAnimations = true;
+            this.bunifuHSlider1.AllowScrollKeysDetection = true;
+            this.bunifuHSlider1.AllowScrollOptionsMenu = true;
+            this.bunifuHSlider1.AllowShrinkingOnFocusLost = false;
+            this.bunifuHSlider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuHSlider1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuHSlider1.BackgroundImage")));
+            this.bunifuHSlider1.BindingContainer = null;
+            this.bunifuHSlider1.BorderRadius = 2;
+            this.bunifuHSlider1.BorderThickness = 1;
+            this.bunifuHSlider1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuHSlider1.DrawThickBorder = false;
+            this.bunifuHSlider1.DurationBeforeShrink = 2000;
+            this.bunifuHSlider1.ElapsedColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuHSlider1.LargeChange = 10;
+            this.bunifuHSlider1.Location = new System.Drawing.Point(682, 16);
+            this.bunifuHSlider1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuHSlider1.Maximum = 100;
+            this.bunifuHSlider1.Minimum = 0;
+            this.bunifuHSlider1.MinimumSize = new System.Drawing.Size(0, 31);
+            this.bunifuHSlider1.MinimumThumbLength = 18;
+            this.bunifuHSlider1.Name = "bunifuHSlider1";
+            this.bunifuHSlider1.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.bunifuHSlider1.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.bunifuHSlider1.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.bunifuHSlider1.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.bunifuHSlider1.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.bunifuHSlider1.ShrinkSizeLimit = 3;
+            this.bunifuHSlider1.Size = new System.Drawing.Size(152, 37);
+            this.bunifuHSlider1.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.bunifuHSlider1.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
+            this.bunifuHSlider1.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
+            this.bunifuHSlider1.SmallChange = 1;
+            this.bunifuHSlider1.TabIndex = 15;
+            this.bunifuHSlider1.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuHSlider1.ThumbFillColor = System.Drawing.SystemColors.Control;
+            this.bunifuHSlider1.ThumbLength = 18;
+            this.bunifuHSlider1.ThumbMargin = 1;
+            this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
+            this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
+            this.bunifuHSlider1.Value = 50;
+            this.bunifuHSlider1.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.bunifuHSlider1_ValueChanged);
+            this.bunifuHSlider1.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.bunifuHSlider1_Scroll);
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::GUI.Properties.Resources.icons8_pause_80;
+            this.button6.Location = new System.Drawing.Point(421, 11);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(50, 46);
+            this.button6.TabIndex = 24;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = global::GUI.Properties.Resources.icons8_rewind_80;
-            this.button4.Location = new System.Drawing.Point(379, 3);
+            this.button4.Location = new System.Drawing.Point(356, 13);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 50);
+            this.button4.Size = new System.Drawing.Size(59, 43);
             this.button4.TabIndex = 22;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -1165,9 +1226,9 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.button7.Image = global::GUI.Properties.Resources.icons8_fast_forward_80;
-            this.button7.Location = new System.Drawing.Point(491, 3);
+            this.button7.Location = new System.Drawing.Point(477, 11);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(50, 50);
+            this.button7.Size = new System.Drawing.Size(64, 46);
             this.button7.TabIndex = 21;
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -1177,24 +1238,25 @@
             this.button8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Image = global::GUI.Properties.Resources.icons8_stop_80;
-            this.button8.Location = new System.Drawing.Point(547, 3);
+            this.button8.Location = new System.Drawing.Point(547, 9);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(50, 50);
             this.button8.TabIndex = 23;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button6
+            // button2
             // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Image = global::GUI.Properties.Resources.icons8_pause_80;
-            this.button6.Location = new System.Drawing.Point(435, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(50, 50);
-            this.button6.TabIndex = 24;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(421, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 50);
+            this.button2.TabIndex = 20;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // VideoPlayer
             // 
@@ -1262,5 +1324,9 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -97,7 +97,7 @@ namespace GUI
             media = new Media(_libVLC, file);
             _mp.Play(media);
             isPlaying = true;
-            pauseButton.BringToFront();
+            button6.BringToFront();
             //double vidlength = media.Duration;
             //TimeSpan length = TimeSpan.FromMilliseconds(vidlength);
 
@@ -111,6 +111,7 @@ namespace GUI
             
             _mp.Play(new Media(this._libVLC, new Uri(this.filepath)));
             this.isPlaying = true;
+            button6.BringToFront();
             //TimeSpan length = TimeSpan.FromMilliseconds(_mp.Length);
             //this.videoLength.Text = length.ToString(@"mm\:ss");
             
@@ -192,7 +193,7 @@ namespace GUI
             _mp.Stop();
             videoTimer.Stop();
             this.videoProgressBar.Value = 0;
-            playButton.BringToFront();
+            button2.BringToFront();
         }
 
         private void forwardButton_Click(object sender, EventArgs e)
@@ -244,7 +245,7 @@ namespace GUI
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             isFullScreen = true;
-            restoredownButton.BringToFront();
+            button9.BringToFront();
         }
 
         private void videoProgressBar_Click(object sender, EventArgs e)
@@ -300,7 +301,7 @@ namespace GUI
             this.Size = oldFormSize;
             videoView.Size = oldVideoSize; // make video the same size as form
             videoView.Location = oldVideoLocation; // remove offset
-            maximizeButton.BringToFront();
+            button10.BringToFront();
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -524,7 +525,8 @@ namespace GUI
             int temp = bunifuHSlider1.Value;
             bunifuHSlider1.Value = 0;
             this.volume = temp;
-            setMuteButtonImg();
+            muteButton.BringToFront();
+            //setMuteButtonImg();
         }
 
         private void muteButton_Click(object sender, EventArgs e)
@@ -536,8 +538,9 @@ namespace GUI
             if (this.volume != 0)
                 bunifuHSlider1.Value = this.volume;
             else
-                bunifuHSlider1.Value = 30;
-            setSoundButtonImg();
+                bunifuHSlider1.Value = 50;
+            button1.BringToFront();
+            //setSoundButtonImg();
         }
 
         private void bunifuHSlider1_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
@@ -553,8 +556,8 @@ namespace GUI
             }
             else
             {
-                setMuteButtonImg();
-                setSoundButtonImg();
+                //setMuteButtonImg();
+                //setSoundButtonImg();
             }
             //_playBackDevice.Volume = soundVolumeBar.Value;
         }
@@ -571,10 +574,14 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            playButton_Click(sender, e);
-            button2.Visible = false;
-            button6.Visible = true;
-            button6.BringToFront();
+            
+            if (!_mp.IsPlaying)
+            {
+                _mp.Play();
+                videoTimer.Start();
+                button6.BringToFront();
+
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -589,15 +596,33 @@ namespace GUI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            pauseButton_Click(sender, e);
-            button2.Visible = true;
-            button2.BringToFront();
-            button6.Visible = false;
+            if (_mp.IsPlaying)
+            {
+
+                _mp.Pause();
+                videoTimer.Stop();
+                button2.BringToFront();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             hamburgerButton_Click(sender, e);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            restoredownButton_Click(sender, e);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            maximizeButton_Click(sender, e);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            exitButton_Click(sender, e);
         }
     }
 }

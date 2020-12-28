@@ -1329,5 +1329,10 @@ namespace GUI
 
 
         }
+
+        private void soundVolumeBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
+        {
+
+        }
     }
 }
