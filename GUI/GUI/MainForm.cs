@@ -49,7 +49,8 @@ namespace GUI
 
         // user directory path
         public string user = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
+        // folder for loading video
+        public string folder = @"\test\";
         //store user's choice of Music or Videos
         enum Choice { None, Musics, Pictures, Videos };
         Choice userChoice;
@@ -73,7 +74,8 @@ namespace GUI
             this._mediaForm = new MediaForm(this, this._playedList);
             this._pictureForm = new PictureForm(this);
          
-            this._videoForm = new VideoForm();
+
+            this._videoForm = new VideoForm(folder);
             this._playListForm = new PlayListForm(this);
             this._nowPlayingForm = new NowPlayingForm();
             this._mediaForm.UserChoiceChanged += playButton_Click;

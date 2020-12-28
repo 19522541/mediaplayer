@@ -14,6 +14,8 @@ namespace GUI
     public partial class VideoForm : Form
     {
         public string user = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        
+        
         //public string videoPath;
         public List<string> videos;
         //var picture_path = user + @"\Pictures\";
@@ -24,13 +26,15 @@ namespace GUI
         int vid_index = 0;
 
         VideoPlayer videoPlayer;
-        public VideoForm()
+        public VideoForm(string folder)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             //thumbnail_list = new ImageList();
             vid_path = new List<string>();
-            string root_path = user + @"\Downloads\";
+
+            string root_path = user + folder;
+
             var filters = new string[]
             {
                 "*.dat", "*.wmv", "*.amv", "*.asf", "*.avi",
@@ -69,8 +73,15 @@ namespace GUI
 
                 vid_index++;
             }
-            videolistView.LargeImageList.ColorDepth = ColorDepth.Depth32Bit;
-            this.videolistView.BringToFront();
+            if (videolistView.LargeImageList != null)
+            {
+                videolistView.LargeImageList.ColorDepth = ColorDepth.Depth32Bit;
+                this.videolistView.BringToFront();
+            }
+            else
+                this.emptyListLabel.BringToFront();
+            
+            
         }
 
         public static String[] GetFilesFrom(String searchFolder, String[] filters, bool isRecursive)

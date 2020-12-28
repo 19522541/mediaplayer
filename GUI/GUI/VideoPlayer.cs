@@ -304,8 +304,8 @@ namespace GUI
 
         private void minimizeButton_Click(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Minimized;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Minimized;
         }
 
         private void bunifuButton4_Click(object sender, EventArgs e)
