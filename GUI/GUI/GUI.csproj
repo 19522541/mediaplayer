@@ -426,6 +426,33 @@
   <ItemGroup>
     <None Include="Resources\pic.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-fast-forward-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-fast-forward-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rewind-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-stop-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pause-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-audio-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-audio-80 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-mute-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-audio-40.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

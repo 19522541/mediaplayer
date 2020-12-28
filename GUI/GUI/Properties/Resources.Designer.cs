@@ -73,9 +73,59 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_audio_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-audio-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_audio_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-audio-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_audio_80__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-audio-80 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_end_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-end-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_fast_forward_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-fast-forward-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_fast_forward_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-fast-forward-80", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +193,36 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_mute_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mute-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_mute_401 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mute-401", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pause_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pause-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_play_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-play-30", resourceCulture);
@@ -163,6 +243,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_rewind_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-rewind-80", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_shuffle_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-shuffle-30", resourceCulture);
@@ -176,6 +266,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap icons8_skip_to_start_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-skip-to-start-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_stop_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-stop-80", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

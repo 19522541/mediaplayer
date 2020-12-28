@@ -558,5 +558,46 @@ namespace GUI
             }
             //_playBackDevice.Volume = soundVolumeBar.Value;
         }
+
+        private void bottomPanel_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            backwardButton_Click(sender, e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            playButton_Click(sender, e);
+            button2.Visible = false;
+            button6.Visible = true;
+            button6.BringToFront();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            forwardButton_Click(sender, e);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            stopButton_Click(sender, e);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            pauseButton_Click(sender, e);
+            button2.Visible = true;
+            button2.BringToFront();
+            button6.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            hamburgerButton_Click(sender, e);
+        }
     }
 }
