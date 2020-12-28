@@ -70,6 +70,7 @@
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubtitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.videoView)).BeginInit();
             this.titlePanel.SuspendLayout();
             this.bottomPanel.SuspendLayout();
@@ -834,8 +835,6 @@
             this.bottomPanel.BorderColor = System.Drawing.Color.Transparent;
             this.bottomPanel.BorderRadius = 3;
             this.bottomPanel.BorderThickness = 1;
-            this.bottomPanel.Controls.Add(this.muteButton);
-            this.bottomPanel.Controls.Add(this.button1);
             this.bottomPanel.Controls.Add(this.playButton);
             this.bottomPanel.Controls.Add(this.videoLength);
             this.bottomPanel.Controls.Add(this.videoTime);
@@ -846,6 +845,8 @@
             this.bottomPanel.Controls.Add(this.forwardButton);
             this.bottomPanel.Controls.Add(this.backwardButton);
             this.bottomPanel.Controls.Add(this.pauseButton);
+            this.bottomPanel.Controls.Add(this.button1);
+            this.bottomPanel.Controls.Add(this.muteButton);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.Location = new System.Drawing.Point(0, 425);
             this.bottomPanel.Name = "bottomPanel";
@@ -855,9 +856,10 @@
             // 
             // muteButton
             // 
-            this.muteButton.Location = new System.Drawing.Point(224, 8);
+            this.muteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.muteButton.Location = new System.Drawing.Point(613, 6);
             this.muteButton.Name = "muteButton";
-            this.muteButton.Size = new System.Drawing.Size(47, 47);
+            this.muteButton.Size = new System.Drawing.Size(51, 51);
             this.muteButton.TabIndex = 19;
             this.muteButton.Text = "mute";
             this.muteButton.UseVisualStyleBackColor = true;
@@ -865,11 +867,12 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(613, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(51, 51);
             this.button1.TabIndex = 18;
-            this.button1.Text = "button1";
+            this.button1.Text = "sound";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -918,6 +921,7 @@
             this.bunifuHSlider1.AllowScrollKeysDetection = true;
             this.bunifuHSlider1.AllowScrollOptionsMenu = true;
             this.bunifuHSlider1.AllowShrinkingOnFocusLost = false;
+            this.bunifuHSlider1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuHSlider1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuHSlider1.BackgroundImage")));
             this.bunifuHSlider1.BindingContainer = null;
             this.bunifuHSlider1.BorderRadius = 2;
@@ -1090,6 +1094,13 @@
             this.addSubtitleToolStripMenuItem.Text = "Add Subtitle";
             this.addSubtitleToolStripMenuItem.Click += new System.EventHandler(this.addSubtitleToolStripMenuItem_Click);
             // 
+            // dragControl
+            // 
+            this.dragControl.Fixed = true;
+            this.dragControl.Horizontal = true;
+            this.dragControl.TargetControl = this.titlePanel;
+            this.dragControl.Vertical = true;
+            // 
             // VideoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1149,5 +1160,6 @@
         private System.Windows.Forms.Button button1;
         private Bunifu.UI.WinForms.BunifuImageButton soundButton1;
         private System.Windows.Forms.Button muteButton;
+        private Bunifu.Framework.UI.BunifuDragControl dragControl;
     }
 }

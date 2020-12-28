@@ -13,7 +13,7 @@ namespace GUI
 {
     public partial class VideoForm : Form
     {
-        public string user = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        public string root_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)+@"\Downloads\";
         
         
         //public string videoPath;
@@ -26,6 +26,9 @@ namespace GUI
         int vid_index = 0;
 
         VideoPlayer videoPlayer;
+
+        //check if folder not have media files
+        public bool isMediaNotFound;
         public VideoForm(string folder)
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace GUI
             //thumbnail_list = new ImageList();
             vid_path = new List<string>();
 
-            string root_path = user + folder;
+            if (folder != "") root_path = folder;
 
             var filters = new string[]
             {
@@ -76,10 +79,19 @@ namespace GUI
             if (videolistView.LargeImageList != null)
             {
                 videolistView.LargeImageList.ColorDepth = ColorDepth.Depth32Bit;
+                this.videolistView.Show();
                 this.videolistView.BringToFront();
+                this.topPanel.Hide();
+                this.emptyListLabel.Hide();
             }
             else
+            {
+                isMediaNotFound = true;
+                this.emptyListLabel.Show();
                 this.emptyListLabel.BringToFront();
+                this.videolistView.Hide();
+            }    
+                
             
             
         }
@@ -107,7 +119,11 @@ namespace GUI
             DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
             string temp = @"thumbnail";
             string save_path = Path.Combine(dir.FullName,temp,name);
-            videoframe.Save(save_path);
+            if (!File.Exists(save_path))
+            {
+                videoframe.Save(save_path);
+            }    
+            
             
             //dispose video frame
             videoframe.Dispose();
@@ -188,6 +204,21 @@ namespace GUI
                 //MessageBox.Show(this, hit.Item.Tag.ToString());
 
             };
+        }
+
+        private void openFolderButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VideoForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void videolistView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -50,7 +50,7 @@ namespace GUI
         // user directory path
         public string user = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         // folder for loading video
-        public string folder = @"\test\";
+        public string folder = "";
         //store user's choice of Music or Videos
         enum Choice { None, Musics, Pictures, Videos };
         Choice userChoice;
@@ -60,7 +60,8 @@ namespace GUI
         {
             
             InitializeComponent();
-            
+
+            openFolderButton.Hide();
             this.Text = String.Empty;
             this.FormBorderStyle = FormBorderStyle.None;
             this.ControlBox = false;
@@ -76,6 +77,8 @@ namespace GUI
          
 
             this._videoForm = new VideoForm(folder);
+            openFolderButton.Show();
+            openFolderButton.BringToFront();
             this._playListForm = new PlayListForm(this);
             this._nowPlayingForm = new NowPlayingForm();
             this._mediaForm.UserChoiceChanged += playButton_Click;
@@ -138,7 +141,9 @@ namespace GUI
             mainMidPanel.Controls.Add(newForm);
             mainMidPanel.Tag = newForm;
             newForm.BringToFront();
+            
             newForm.Show();
+            if (this._curForm == 4) openFolderButton.BringToFront();
             this._curForm = index;
         }
 
@@ -1304,6 +1309,24 @@ namespace GUI
 
         private void soundVolumeBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
+
+        }
+
+        private void openFolderButton_Click(object sender, EventArgs e)
+        {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                folder = dialog.FileName;
+                _videoForm.Dispose();
+                _videoForm = new VideoForm(folder);
+                openNewForm(this._videoForm, 4);
+                //if (this._curForm == 4) openFolderButton.BringToFront();
+                
+            }    
+
+
 
         }
     }

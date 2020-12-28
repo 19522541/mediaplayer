@@ -263,10 +263,11 @@ namespace GUI
             {
                 offset = 0;
             }
-            if (temp > preVal) temp -= offset;
-            else if (temp < preVal) temp += offset;
+            //if (temp > preVal) temp -= offset;
+            //else if (temp < preVal) temp += offset;
             videoProgressBar.Value = Convert.ToInt32(temp);
             _mp.Position = (float)videoProgressBar.Value / (float)videoProgressBar.Maximum;
+            videoProgressBar.Value = Convert.ToInt32(_mp.Position * videoProgressBar.Maximum);
         }
 
         private void videoProgressBar_MouseMove(object sender, MouseEventArgs e)
@@ -410,30 +411,32 @@ namespace GUI
 
         public string getCurrentTime()
         {
-            string rs = "";
-            var curent_time = this.videoProgressBar.Value;
-            int mins = Convert.ToInt32(curent_time) / 60;
-            int second = Convert.ToInt32(curent_time) % 60;
-            string minStr, sedStr;
-            if (mins < 10)
-            {
-                minStr = "0" + mins.ToString();
-            }
-            else
-            {
-                minStr = mins.ToString();
-            }
+            //string rs = "";
+            //var curent_time = this.videoProgressBar.Value;
+            //int mins = Convert.ToInt32(curent_time) / 60;
+            //int second = Convert.ToInt32(curent_time) % 60;
+            //string minStr, sedStr;
+            //if (mins < 10)
+            //{
+            //    minStr = "0" + mins.ToString();
+            //}
+            //else
+            //{
+            //    minStr = mins.ToString();
+            //}
 
-            if (second < 10)
-            {
-                sedStr = "0" + second.ToString();
-            }
-            else
-            {
-                sedStr = second.ToString();
-            }
-            rs = minStr + ":" + sedStr;
-            return rs;
+            //if (second < 10)
+            //{
+            //    sedStr = "0" + second.ToString();
+            //}
+            //else
+            //{
+            //    sedStr = second.ToString();
+            //}
+            //rs = minStr + ":" + sedStr;
+            //return rs;
+            TimeSpan current = TimeSpan.FromSeconds(this.videoProgressBar.Value);
+            return current.ToString(@"hh\:mm\:ss");
         }
 
         public string getVideoDuration()
