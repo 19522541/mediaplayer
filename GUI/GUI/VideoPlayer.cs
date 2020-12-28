@@ -38,6 +38,9 @@ namespace GUI
 
         //Media Info
         public TimeSpan duration;
+
+        //Volume
+        int volume = 0;
         public VideoPlayer()
         {
             InitializeComponent();
@@ -301,7 +304,8 @@ namespace GUI
 
         private void minimizeButton_Click(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void bunifuButton4_Click(object sender, EventArgs e)
@@ -482,6 +486,74 @@ namespace GUI
         private void bunifuHSlider1_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
             this._mp.Volume = bunifuHSlider1.Value;
+        }
+
+        void setSoundButtonImg()
+        {
+            if (bunifuHSlider1.Value > 50)
+            {
+                button1.ImageIndex = 0;
+            }
+            else if (bunifuHSlider1.Value <= 50)
+            {
+                button1.ImageIndex = 1;
+            }
+        }
+
+        void setMuteButtonImg()
+        {
+            if (bunifuHSlider1.Value > 0)
+            {
+                muteButton.ImageIndex = 0;
+            }
+            else
+            {
+                muteButton.ImageIndex = 1;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            button1.Visible = false;
+            muteButton.Enabled = true;
+            muteButton.Visible = true;
+            int temp = bunifuHSlider1.Value;
+            bunifuHSlider1.Value = 0;
+            this.volume = temp;
+            setMuteButtonImg();
+        }
+
+        private void muteButton_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+            button1.Visible = true;
+            muteButton.Enabled = false;
+            muteButton.Visible = false;
+            if (this.volume != 0)
+                bunifuHSlider1.Value = this.volume;
+            else
+                bunifuHSlider1.Value = 30;
+            setSoundButtonImg();
+        }
+
+        private void bunifuHSlider1_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
+        {
+            this._mp.Volume = bunifuHSlider1.Value;
+            if (bunifuHSlider1.Value == 0 && button1.Enabled == true)
+            {
+                button1_Click(sender, e);
+            }
+            else if (bunifuHSlider1.Value > 0 && bunifuHSlider1.Enabled == false)
+            {
+                muteButton_Click(sender, e);
+            }
+            else
+            {
+                setMuteButtonImg();
+                setSoundButtonImg();
+            }
+            //_playBackDevice.Volume = soundVolumeBar.Value;
         }
     }
 }

@@ -1299,5 +1299,10 @@ namespace GUI
         {
 
         }
+
+        private void soundVolumeBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
+        {
+
+        }
     }
 }

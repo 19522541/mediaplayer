@@ -415,14 +415,6 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="soundButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAYAAACoYAD2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABbSURBVFhH7c6hAQAgDMAwLtnL8B9n4Dc4AFkxURFV0xEr
-        d6yqvnK/yV/oxUmKkxQnKU5SnKQ4SXGS4iTFSYqTFCcpTlKcpDhJcZLiJMVJipMUJykjZp5faGPmubEo
-        jAaOZlSQAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="videoLength.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 9pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(255, 255, 255); text-align: left; }</value>
   </data>

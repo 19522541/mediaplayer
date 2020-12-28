@@ -36,7 +36,6 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.videoView = new LibVLCSharp.WinForms.VideoView();
             this.hamburgerButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.playButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -54,7 +53,8 @@
             this.videoProgressBar = new Bunifu.UI.WinForms.BunifuHSlider();
             this.videoTimer = new System.Windows.Forms.Timer(this.components);
             this.bottomPanel = new Bunifu.UI.WinForms.BunifuPanel();
-            this.soundButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.muteButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.videoLength = new Bunifu.UI.WinForms.BunifuLabel();
             this.videoTime = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuHSlider1 = new Bunifu.UI.WinForms.BunifuHSlider();
@@ -834,8 +834,9 @@
             this.bottomPanel.BorderColor = System.Drawing.Color.Transparent;
             this.bottomPanel.BorderRadius = 3;
             this.bottomPanel.BorderThickness = 1;
+            this.bottomPanel.Controls.Add(this.muteButton);
+            this.bottomPanel.Controls.Add(this.button1);
             this.bottomPanel.Controls.Add(this.playButton);
-            this.bottomPanel.Controls.Add(this.soundButton);
             this.bottomPanel.Controls.Add(this.videoLength);
             this.bottomPanel.Controls.Add(this.videoTime);
             this.bottomPanel.Controls.Add(this.bunifuHSlider1);
@@ -852,94 +853,25 @@
             this.bottomPanel.Size = new System.Drawing.Size(907, 119);
             this.bottomPanel.TabIndex = 15;
             // 
-            // soundButton
+            // muteButton
             // 
-            this.soundButton.AllowAnimations = true;
-            this.soundButton.AllowMouseEffects = true;
-            this.soundButton.AllowToggling = false;
-            this.soundButton.AnimationSpeed = 200;
-            this.soundButton.AutoGenerateColors = false;
-            this.soundButton.AutoRoundBorders = false;
-            this.soundButton.AutoSizeLeftIcon = true;
-            this.soundButton.AutoSizeRightIcon = true;
-            this.soundButton.BackColor = System.Drawing.Color.Transparent;
-            this.soundButton.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.soundButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("soundButton.BackgroundImage")));
-            this.soundButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.soundButton.ButtonText = "sound";
-            this.soundButton.ButtonTextMarginLeft = 0;
-            this.soundButton.ColorContrastOnClick = 45;
-            this.soundButton.ColorContrastOnHover = 45;
-            this.soundButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges7.BottomLeft = true;
-            borderEdges7.BottomRight = true;
-            borderEdges7.TopLeft = true;
-            borderEdges7.TopRight = true;
-            this.soundButton.CustomizableEdges = borderEdges7;
-            this.soundButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.soundButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.soundButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.soundButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.soundButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.soundButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.soundButton.ForeColor = System.Drawing.Color.White;
-            this.soundButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.soundButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.soundButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.soundButton.IconMarginLeft = 11;
-            this.soundButton.IconPadding = 10;
-            this.soundButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.soundButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.soundButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.soundButton.IconSize = 25;
-            this.soundButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.soundButton.IdleBorderRadius = 1;
-            this.soundButton.IdleBorderThickness = 1;
-            this.soundButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.soundButton.IdleIconLeftImage = null;
-            this.soundButton.IdleIconRightImage = null;
-            this.soundButton.IndicateFocus = false;
-            this.soundButton.Location = new System.Drawing.Point(623, 7);
-            this.soundButton.Name = "soundButton";
-            this.soundButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.soundButton.OnDisabledState.BorderRadius = 1;
-            this.soundButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.soundButton.OnDisabledState.BorderThickness = 1;
-            this.soundButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.soundButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.soundButton.OnDisabledState.IconLeftImage = null;
-            this.soundButton.OnDisabledState.IconRightImage = null;
-            this.soundButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.soundButton.onHoverState.BorderRadius = 1;
-            this.soundButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.soundButton.onHoverState.BorderThickness = 1;
-            this.soundButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.soundButton.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.soundButton.onHoverState.IconLeftImage = null;
-            this.soundButton.onHoverState.IconRightImage = null;
-            this.soundButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.soundButton.OnIdleState.BorderRadius = 1;
-            this.soundButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.soundButton.OnIdleState.BorderThickness = 1;
-            this.soundButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.soundButton.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.soundButton.OnIdleState.IconLeftImage = null;
-            this.soundButton.OnIdleState.IconRightImage = null;
-            this.soundButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.soundButton.OnPressedState.BorderRadius = 1;
-            this.soundButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.soundButton.OnPressedState.BorderThickness = 1;
-            this.soundButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.soundButton.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.soundButton.OnPressedState.IconLeftImage = null;
-            this.soundButton.OnPressedState.IconRightImage = null;
-            this.soundButton.Size = new System.Drawing.Size(41, 41);
-            this.soundButton.TabIndex = 17;
-            this.soundButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.soundButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.soundButton.TextMarginLeft = 0;
-            this.soundButton.TextPadding = new System.Windows.Forms.Padding(0);
-            this.soundButton.UseDefaultRadiusAndThickness = true;
+            this.muteButton.Location = new System.Drawing.Point(224, 8);
+            this.muteButton.Name = "muteButton";
+            this.muteButton.Size = new System.Drawing.Size(47, 47);
+            this.muteButton.TabIndex = 19;
+            this.muteButton.Text = "mute";
+            this.muteButton.UseVisualStyleBackColor = true;
+            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(613, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(51, 51);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // videoLength
             // 
@@ -1021,6 +953,7 @@
             this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
             this.bunifuHSlider1.Value = 50;
+            this.bunifuHSlider1.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.bunifuHSlider1_ValueChanged);
             this.bunifuHSlider1.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.bunifuHSlider1_Scroll);
             // 
             // bunifuPanel3
@@ -1211,8 +1144,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private Bunifu.UI.WinForms.BunifuHSlider bunifuHSlider1;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton soundButton;
         private Bunifu.UI.WinForms.BunifuLabel videoLength;
         private Bunifu.UI.WinForms.BunifuLabel videoTime;
+        private System.Windows.Forms.Button button1;
+        private Bunifu.UI.WinForms.BunifuImageButton soundButton1;
+        private System.Windows.Forms.Button muteButton;
     }
 }
