@@ -24,7 +24,7 @@ namespace GUI
 
         //utils
         public bool isFullScreen = false;
-        public bool isPlaying = false;
+        //public bool isPlaying = false;
         public Size oldVideoSize;
         public Size oldFormSize;
         public Point oldVideoLocation;
@@ -60,6 +60,7 @@ namespace GUI
             // VLC stuff
             _libVLC = new LibVLC();
             _mp = new MediaPlayer(_libVLC);
+            
             videoView.MediaPlayer = _mp;
 
 
@@ -96,7 +97,7 @@ namespace GUI
         {
             media = new Media(_libVLC, file);
             _mp.Play(media);
-            isPlaying = true;
+            //isPlaying = true;
             button6.BringToFront();
             //double vidlength = media.Duration;
             //TimeSpan length = TimeSpan.FromMilliseconds(vidlength);
@@ -110,7 +111,7 @@ namespace GUI
         {
             
             _mp.Play(new Media(this._libVLC, new Uri(this.filepath)));
-            this.isPlaying = true;
+            //this.isPlaying = true;
             button6.BringToFront();
             //TimeSpan length = TimeSpan.FromMilliseconds(_mp.Length);
             //this.videoLength.Text = length.ToString(@"mm\:ss");
@@ -147,6 +148,7 @@ namespace GUI
         private void exitButton_Click(object sender, EventArgs e)
         {
             _mp.Stop();
+            _mp.Dispose();
             this.Dispose();
             this.Close();
         }
@@ -333,8 +335,14 @@ namespace GUI
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 var filename = @"file:///" + ofd.FileName;
-                _mp.AddSlave(MediaSlaveType.Subtitle, filename, true);
+                var boo = _mp.AddSlave(MediaSlaveType.Subtitle, filename, true);
             }
+            //test
+            //var sub = @"file:///C:\Users\volin\Downloads\[English]05-Future Simple Will Going to Listening Speaking Practice
+            //    - Common Questions Possible Responses [DownSub.com].srt";
+            //_mp.AddSlave(MediaSlaveType.Subtitle, sub, true);
+
+            
         }
 
         private void xToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -623,6 +631,11 @@ namespace GUI
         private void button11_Click(object sender, EventArgs e)
         {
             exitButton_Click(sender, e);
+        }
+
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            media.AddOption(":freetype-color=16711680");
         }
     }
 }

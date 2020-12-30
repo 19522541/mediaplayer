@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges13 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges14 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges15 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges16 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges17 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges18 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.videoView = new LibVLCSharp.WinForms.VideoView();
             this.videoTimer = new System.Windows.Forms.Timer(this.components);
             this.hamburgerMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -49,18 +49,24 @@
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubtitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeAspectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.scaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.titlePanel = new Bunifu.UI.WinForms.BunifuPanel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.minimizeButton = new Bunifu.Framework.UI.BunifuTileButton();
-            this.maximizeButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.exitButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.maximizeButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.minimizeButton = new Bunifu.Framework.UI.BunifuTileButton();
             this.restoredownButton = new Bunifu.Framework.UI.BunifuTileButton();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bottomPanel = new Bunifu.UI.WinForms.BunifuPanel();
             this.videoLength = new Bunifu.UI.WinForms.BunifuLabel();
@@ -111,9 +117,12 @@
             this.hamburgerMenuStrip.ImageScalingSize = new System.Drawing.Size(0, 0);
             this.hamburgerMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.speedToolStripMenuItem,
-            this.addSubtitleToolStripMenuItem});
+            this.addSubtitleToolStripMenuItem,
+            this.changeAspectToolStripMenuItem,
+            this.scaleToolStripMenuItem,
+            this.colorToolStripMenuItem});
             this.hamburgerMenuStrip.Name = "contextMenuStrip1";
-            this.hamburgerMenuStrip.Size = new System.Drawing.Size(196, 64);
+            this.hamburgerMenuStrip.Size = new System.Drawing.Size(211, 154);
             // 
             // speedToolStripMenuItem
             // 
@@ -129,7 +138,7 @@
             this.speedToolStripMenuItem.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.speedToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.speedToolStripMenuItem.Name = "speedToolStripMenuItem";
-            this.speedToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.speedToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.speedToolStripMenuItem.Text = "Speed";
             this.speedToolStripMenuItem.Click += new System.EventHandler(this.xToolStripMenuItem1_Click);
             // 
@@ -218,9 +227,51 @@
             this.addSubtitleToolStripMenuItem.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSubtitleToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.addSubtitleToolStripMenuItem.Name = "addSubtitleToolStripMenuItem";
-            this.addSubtitleToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.addSubtitleToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.addSubtitleToolStripMenuItem.Text = "Add Subtitle";
             this.addSubtitleToolStripMenuItem.Click += new System.EventHandler(this.addSubtitleToolStripMenuItem_Click);
+            // 
+            // changeAspectToolStripMenuItem
+            // 
+            this.changeAspectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.changeAspectToolStripMenuItem.Name = "changeAspectToolStripMenuItem";
+            this.changeAspectToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.changeAspectToolStripMenuItem.Text = "Change Aspect";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(134, 26);
+            this.toolStripMenuItem2.Text = "16:9";
+            // 
+            // scaleToolStripMenuItem
+            // 
+            this.scaleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.scaleToolStripMenuItem.Name = "scaleToolStripMenuItem";
+            this.scaleToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.scaleToolStripMenuItem.Text = "Scale";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(84, 26);
+            // 
+            // colorToolStripMenuItem
+            // 
+            this.colorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.redToolStripMenuItem});
+            this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.colorToolStripMenuItem.Text = "Color";
+            // 
+            // redToolStripMenuItem
+            // 
+            this.redToolStripMenuItem.Name = "redToolStripMenuItem";
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.redToolStripMenuItem.Text = "Red";
+            this.redToolStripMenuItem.Click += new System.EventHandler(this.redToolStripMenuItem_Click);
             // 
             // dragControl
             // 
@@ -254,56 +305,6 @@
             this.titlePanel.Size = new System.Drawing.Size(907, 54);
             this.titlePanel.TabIndex = 12;
             // 
-            // button11
-            // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.BackColor = System.Drawing.Color.White;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Image = global::GUI.Properties.Resources.icons8_close_window_48;
-            this.button11.Location = new System.Drawing.Point(852, 14);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(48, 34);
-            this.button11.TabIndex = 20;
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button10
-            // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button10.BackColor = System.Drawing.Color.White;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Image = global::GUI.Properties.Resources.icons8_maximize_window_48;
-            this.button10.Location = new System.Drawing.Point(809, 13);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(46, 34);
-            this.button10.TabIndex = 19;
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button9
-            // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Image = global::GUI.Properties.Resources.icons8_restore_window_48;
-            this.button9.Location = new System.Drawing.Point(809, 14);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(42, 34);
-            this.button9.TabIndex = 18;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Image = global::GUI.Properties.Resources.icons8_minimize_window_52;
-            this.button5.Location = new System.Drawing.Point(767, 14);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(46, 37);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
             // bunifuPanel2
             // 
             this.bunifuPanel2.BackgroundColor = System.Drawing.Color.Transparent;
@@ -332,48 +333,31 @@
             this.bunifuPanel1.Size = new System.Drawing.Size(903, 394);
             this.bunifuPanel1.TabIndex = 14;
             // 
-            // minimizeButton
+            // button11
             // 
-            this.minimizeButton.BackColor = System.Drawing.Color.SeaGreen;
-            this.minimizeButton.color = System.Drawing.Color.SeaGreen;
-            this.minimizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
-            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.minimizeButton.ForeColor = System.Drawing.Color.White;
-            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
-            this.minimizeButton.ImagePosition = 20;
-            this.minimizeButton.ImageZoom = 50;
-            this.minimizeButton.LabelPosition = 41;
-            this.minimizeButton.LabelText = "Tile 1";
-            this.minimizeButton.Location = new System.Drawing.Point(773, 14);
-            this.minimizeButton.Margin = new System.Windows.Forms.Padding(6);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(40, 34);
-            this.minimizeButton.TabIndex = 13;
-            this.minimizeButton.Visible = false;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.BackColor = System.Drawing.Color.White;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Image = global::GUI.Properties.Resources.icons8_close_window_48;
+            this.button11.Location = new System.Drawing.Point(852, 14);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(48, 34);
+            this.button11.TabIndex = 20;
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // maximizeButton
+            // button5
             // 
-            this.maximizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximizeButton.BackColor = System.Drawing.Color.SeaGreen;
-            this.maximizeButton.color = System.Drawing.Color.SeaGreen;
-            this.maximizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
-            this.maximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.maximizeButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.maximizeButton.ForeColor = System.Drawing.Color.White;
-            this.maximizeButton.Image = ((System.Drawing.Image)(resources.GetObject("maximizeButton.Image")));
-            this.maximizeButton.ImagePosition = 20;
-            this.maximizeButton.ImageZoom = 50;
-            this.maximizeButton.LabelPosition = 41;
-            this.maximizeButton.LabelText = "Tile 1";
-            this.maximizeButton.Location = new System.Drawing.Point(650, 7);
-            this.maximizeButton.Margin = new System.Windows.Forms.Padding(6);
-            this.maximizeButton.Name = "maximizeButton";
-            this.maximizeButton.Size = new System.Drawing.Size(40, 34);
-            this.maximizeButton.TabIndex = 12;
-            this.maximizeButton.Visible = false;
-            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = global::GUI.Properties.Resources.icons8_minimize_window_52;
+            this.button5.Location = new System.Drawing.Point(767, 14);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(46, 34);
+            this.button5.TabIndex = 17;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // exitButton
             // 
@@ -397,6 +381,49 @@
             this.exitButton.Visible = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // maximizeButton
+            // 
+            this.maximizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximizeButton.BackColor = System.Drawing.Color.SeaGreen;
+            this.maximizeButton.color = System.Drawing.Color.SeaGreen;
+            this.maximizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.maximizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.maximizeButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.maximizeButton.ForeColor = System.Drawing.Color.White;
+            this.maximizeButton.Image = ((System.Drawing.Image)(resources.GetObject("maximizeButton.Image")));
+            this.maximizeButton.ImagePosition = 20;
+            this.maximizeButton.ImageZoom = 50;
+            this.maximizeButton.LabelPosition = 41;
+            this.maximizeButton.LabelText = "Tile 1";
+            this.maximizeButton.Location = new System.Drawing.Point(650, 7);
+            this.maximizeButton.Margin = new System.Windows.Forms.Padding(6);
+            this.maximizeButton.Name = "maximizeButton";
+            this.maximizeButton.Size = new System.Drawing.Size(40, 34);
+            this.maximizeButton.TabIndex = 12;
+            this.maximizeButton.Visible = false;
+            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackColor = System.Drawing.Color.SeaGreen;
+            this.minimizeButton.color = System.Drawing.Color.SeaGreen;
+            this.minimizeButton.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.minimizeButton.ForeColor = System.Drawing.Color.White;
+            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
+            this.minimizeButton.ImagePosition = 20;
+            this.minimizeButton.ImageZoom = 50;
+            this.minimizeButton.LabelPosition = 41;
+            this.minimizeButton.LabelText = "Tile 1";
+            this.minimizeButton.Location = new System.Drawing.Point(773, 14);
+            this.minimizeButton.Margin = new System.Windows.Forms.Padding(6);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(40, 34);
+            this.minimizeButton.TabIndex = 13;
+            this.minimizeButton.Visible = false;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
             // restoredownButton
             // 
             this.restoredownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -418,6 +445,30 @@
             this.restoredownButton.TabIndex = 16;
             this.restoredownButton.Visible = false;
             this.restoredownButton.Click += new System.EventHandler(this.restoredownButton_Click);
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Image = global::GUI.Properties.Resources.icons8_maximize_window_48;
+            this.button10.Location = new System.Drawing.Point(809, 13);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(46, 34);
+            this.button10.TabIndex = 19;
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Image = global::GUI.Properties.Resources.icons8_restore_window_48;
+            this.button9.Location = new System.Drawing.Point(809, 14);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(42, 34);
+            this.button9.TabIndex = 18;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // bunifuPanel3
             // 
@@ -456,11 +507,11 @@
             this.bottomPanel.Controls.Add(this.button1);
             this.bottomPanel.Controls.Add(this.button3);
             this.bottomPanel.Controls.Add(this.bunifuHSlider1);
-            this.bottomPanel.Controls.Add(this.button6);
             this.bottomPanel.Controls.Add(this.button4);
             this.bottomPanel.Controls.Add(this.button7);
             this.bottomPanel.Controls.Add(this.button8);
             this.bottomPanel.Controls.Add(this.button2);
+            this.bottomPanel.Controls.Add(this.button6);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.Location = new System.Drawing.Point(0, 425);
             this.bottomPanel.Name = "bottomPanel";
@@ -577,11 +628,11 @@
             this.hamburgerButton.ColorContrastOnClick = 45;
             this.hamburgerButton.ColorContrastOnHover = 45;
             this.hamburgerButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.hamburgerButton.CustomizableEdges = borderEdges1;
+            borderEdges13.BottomLeft = true;
+            borderEdges13.BottomRight = true;
+            borderEdges13.TopLeft = true;
+            borderEdges13.TopRight = true;
+            this.hamburgerButton.CustomizableEdges = borderEdges13;
             this.hamburgerButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.hamburgerButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.hamburgerButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -669,11 +720,11 @@
             this.stopButton.ColorContrastOnClick = 45;
             this.stopButton.ColorContrastOnHover = 45;
             this.stopButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.stopButton.CustomizableEdges = borderEdges2;
+            borderEdges14.BottomLeft = true;
+            borderEdges14.BottomRight = true;
+            borderEdges14.TopLeft = true;
+            borderEdges14.TopRight = true;
+            this.stopButton.CustomizableEdges = borderEdges14;
             this.stopButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.stopButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.stopButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -761,11 +812,11 @@
             this.forwardButton.ColorContrastOnClick = 45;
             this.forwardButton.ColorContrastOnHover = 45;
             this.forwardButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.forwardButton.CustomizableEdges = borderEdges3;
+            borderEdges15.BottomLeft = true;
+            borderEdges15.BottomRight = true;
+            borderEdges15.TopLeft = true;
+            borderEdges15.TopRight = true;
+            this.forwardButton.CustomizableEdges = borderEdges15;
             this.forwardButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.forwardButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.forwardButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -853,11 +904,11 @@
             this.backwardButton.ColorContrastOnClick = 45;
             this.backwardButton.ColorContrastOnHover = 45;
             this.backwardButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.backwardButton.CustomizableEdges = borderEdges4;
+            borderEdges16.BottomLeft = true;
+            borderEdges16.BottomRight = true;
+            borderEdges16.TopLeft = true;
+            borderEdges16.TopRight = true;
+            this.backwardButton.CustomizableEdges = borderEdges16;
             this.backwardButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.backwardButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.backwardButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -945,11 +996,11 @@
             this.pauseButton.ColorContrastOnClick = 45;
             this.pauseButton.ColorContrastOnHover = 45;
             this.pauseButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.pauseButton.CustomizableEdges = borderEdges5;
+            borderEdges17.BottomLeft = true;
+            borderEdges17.BottomRight = true;
+            borderEdges17.TopLeft = true;
+            borderEdges17.TopRight = true;
+            this.pauseButton.CustomizableEdges = borderEdges17;
             this.pauseButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.pauseButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.pauseButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1049,11 +1100,11 @@
             this.playButton.ColorContrastOnClick = 45;
             this.playButton.ColorContrastOnHover = 45;
             this.playButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.playButton.CustomizableEdges = borderEdges6;
+            borderEdges18.BottomLeft = true;
+            borderEdges18.BottomRight = true;
+            borderEdges18.TopLeft = true;
+            borderEdges18.TopRight = true;
+            this.playButton.CustomizableEdges = borderEdges18;
             this.playButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.playButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.playButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1294,7 +1345,6 @@
         private Bunifu.Framework.UI.BunifuTileButton maximizeButton;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton pauseButton;
         private Bunifu.UI.WinForms.BunifuHSlider videoProgressBar;
-        private System.Windows.Forms.Timer videoTimer;
         private Bunifu.UI.WinForms.BunifuPanel bottomPanel;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
@@ -1328,5 +1378,12 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem changeAspectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem scaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
+        public System.Windows.Forms.Timer videoTimer;
     }
 }

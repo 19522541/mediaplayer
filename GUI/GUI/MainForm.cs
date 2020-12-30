@@ -30,7 +30,7 @@ namespace GUI
         private int _mouseX = 0;
         public MediaForm _mediaForm;
         private PictureForm _pictureForm;
-        private VideoForm _videoForm;
+        public VideoForm _videoForm;
         public PlayListForm _playListForm;
         public MediaForm _backupMediaForm;
         private int _curForm = 0;
@@ -55,7 +55,7 @@ namespace GUI
         enum Choice { None, Musics, Pictures, Videos };
         Choice userChoice;
 
-        VideoPlayer _player;
+        public VideoPlayer _player;
         public MainForm()
         {
             
@@ -76,9 +76,9 @@ namespace GUI
             this._pictureForm = new PictureForm(this);
          
 
-            this._videoForm = new VideoForm(folder);
-            openFolderButton.Show();
-            openFolderButton.BringToFront();
+            this._videoForm = new VideoForm(this,folder);
+            //openFolderButton.Show();
+            //openFolderButton.BringToFront();
             this._playListForm = new PlayListForm(this);
             this._nowPlayingForm = new NowPlayingForm();
             this._mediaForm.UserChoiceChanged += playButton_Click;
@@ -90,6 +90,8 @@ namespace GUI
             this._nowPlayingForm.Visible = false;
             this.backwardButton.Visible = false;
 
+            //video player
+            this._player = _videoForm.videoPlayer;
         }
 
 
@@ -143,7 +145,7 @@ namespace GUI
             newForm.BringToFront();
             
             newForm.Show();
-            if (this._curForm == 4) openFolderButton.BringToFront();
+            
             this._curForm = index;
         }
 
@@ -240,119 +242,139 @@ namespace GUI
         //
         public void playButton_Click(object sender, EventArgs e)
         {
-            if (this._nowPlayIndex == -1)
+            
+
+            switch (this._backMode)
             {
-                playButton.BringToFront();
-                if (this._mediaForm._mediaCheck) this._mediaForm.restart(this._playedList.Count - 1);
-                this._nowPlayingForm.Visible = false;
-                this._nowPlayIndex = 0;
-                return;
-            }
-            if (this.musicProcessBar.Value == 0)
-            {
-                if (this._mediaForm._mediaCheck)
-                {
-                    if (this._lastPlayed != this._nowPlayIndex)
+                case 1:
+                    if (this._nowPlayIndex == -1)
                     {
-                        if (_lastPlayed == -1)
+                        playButton.BringToFront();
+                        if (this._mediaForm._mediaCheck) this._mediaForm.restart(this._playedList.Count - 1);
+                        this._nowPlayingForm.Visible = false;
+                        this._nowPlayIndex = 0;
+                        return;
+                    }
+                    if (this.musicProcessBar.Value == 0)
+                    {
+                        if (this._mediaForm._mediaCheck)
                         {
-                            this._mediaForm.setup(_nowPlayIndex);
-                            this._mediaForm.setLastPlayed(this._nowPlayIndex);
+                            if (this._lastPlayed != this._nowPlayIndex)
+                            {
+                                if (_lastPlayed == -1)
+                                {
+                                    this._mediaForm.setup(_nowPlayIndex);
+                                    this._mediaForm.setLastPlayed(this._nowPlayIndex);
+                                }
+                                else
+                                {
+                                    this._mediaForm.restart(_lastPlayed);
+                                    this._mediaForm.setup(_nowPlayIndex);
+                                    this._mediaForm.setLastPlayed(this._nowPlayIndex);
+                                }
+                            }
+                            else
+                            {
+                                this._lastPlayed = this._nowPlayIndex;
+                            }
+                        }
+                        if (this._backupMediaForm != null && this._backupMediaForm._mediaCheck)
+                        {
+                            if (this._backupMediaForm._firstPlay)
+                            {
+                                //this.setInfo(0, -1);
+                                this._backupMediaForm._firstPlay = false;
+                                //this._playedList = this._backupMediaForm._list;
+                            }
+                            if (this._lastPlayed != this._nowPlayIndex)
+                            {
+                                if (_lastPlayed == -1)
+                                {
+                                    this._backupMediaForm.setup(_nowPlayIndex);
+                                    this._backupMediaForm.setLastPlayed(this._nowPlayIndex);
+                                }
+                                else
+                                {
+                                    this._backupMediaForm.restart(_lastPlayed);
+                                    this._backupMediaForm.setup(_nowPlayIndex);
+                                    this._backupMediaForm.setLastPlayed(this._nowPlayIndex);
+                                }
+                            }
+                            else
+                            {
+                                this._lastPlayed = this._nowPlayIndex;
+                            }
+                        }
+                        this._nowPlayingForm.Visible = true;
+                        if (this._songImg != null)
+                        {
+                            this._nowPlayingForm.setNewInfo(this._songImg[this._nowPlayIndex], _title[_nowPlayIndex], _firstPerformer[_nowPlayIndex]);
+                            songLength.Text = this._length[_nowPlayIndex];
                         }
                         else
                         {
-                            this._mediaForm.restart(_lastPlayed);
-                            this._mediaForm.setup(_nowPlayIndex);
-                            this._mediaForm.setLastPlayed(this._nowPlayIndex);
-                        }
-                    }
-                    else
-                    {
-                        this._lastPlayed = this._nowPlayIndex;
-                    }
-                }
-                if (this._backupMediaForm != null && this._backupMediaForm._mediaCheck)
-                {
-                    if (this._backupMediaForm._firstPlay)
-                    {
-                        //this.setInfo(0, -1);
-                        this._backupMediaForm._firstPlay = false;
-                        //this._playedList = this._backupMediaForm._list;
-                    }
-                    if (this._lastPlayed != this._nowPlayIndex)
-                    {
-                        if (_lastPlayed == -1)
-                        {
-                            this._backupMediaForm.setup(_nowPlayIndex);
-                            this._backupMediaForm.setLastPlayed(this._nowPlayIndex);
-                        }
-                        else
-                        {
-                            this._backupMediaForm.restart(_lastPlayed);
-                            this._backupMediaForm.setup(_nowPlayIndex);
-                            this._backupMediaForm.setLastPlayed(this._nowPlayIndex);
-                        }
-                    }
-                    else
-                    {
-                        this._lastPlayed = this._nowPlayIndex;
-                    }
-                }
-                this._nowPlayingForm.Visible = true;
-                if (this._songImg != null)
-                {
-                    this._nowPlayingForm.setNewInfo(this._songImg[this._nowPlayIndex], _title[_nowPlayIndex], _firstPerformer[_nowPlayIndex]);
-                    songLength.Text = this._length[_nowPlayIndex];
-                }
-                else
-                {
-                    var fileTag = TagLib.File.Create(this._playedList[_nowPlayIndex]);
-                    string title = fileTag.Tag.Title;
-                    string artist = fileTag.Tag.FirstPerformer;
-                    string album = fileTag.Tag.Album;
-                    TimeSpan songlegth = fileTag.Properties.Duration;
-                    string duration = songlegth.ToString(@"mm\:ss");
-                    if (album == null) album = "Unknown";
-                    if (artist == null) artist = "Unknown";
-                    Image temp = null;
-                    if (fileTag.Tag.Pictures.Length >= 1)
-                    {
-                        var bin = (byte[])(fileTag.Tag.Pictures[0].Data.Data);
+                            var fileTag = TagLib.File.Create(this._playedList[_nowPlayIndex]);
+                            string title = fileTag.Tag.Title;
+                            string artist = fileTag.Tag.FirstPerformer;
+                            string album = fileTag.Tag.Album;
+                            TimeSpan songlegth = fileTag.Properties.Duration;
+                            string duration = songlegth.ToString(@"mm\:ss");
+                            if (album == null) album = "Unknown";
+                            if (artist == null) artist = "Unknown";
+                            Image temp = null;
+                            if (fileTag.Tag.Pictures.Length >= 1)
+                            {
+                                var bin = (byte[])(fileTag.Tag.Pictures[0].Data.Data);
 
-                        temp = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(100, 100, null, IntPtr.Zero);
+                                temp = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(100, 100, null, IntPtr.Zero);
+                            }
+                            else
+                            {
+                                temp = new Bitmap(GUI.Properties.Resources.songImg);
+                            }
+                            this._nowPlayingForm.setNewInfo(temp, title, artist);
+                            songLength.Text = duration;
+                        }
+                        this._nowPlayingForm.Visible = true;
+                        if (this._playedList[this._nowPlayIndex].Contains(".wav"))
+                        {
+                            _music = new WavPlayer(this._playedList[this._nowPlayIndex]);
+                        }
+                        else if (this._playedList[this._nowPlayIndex].Contains(".mp3"))
+                        {
+                            _music = new Mp3Player(this._playedList[this._nowPlayIndex]);
+                        }
+
+
                     }
-                    else
-                    {
-                        temp = new Bitmap(GUI.Properties.Resources.songImg);
-                    }
-                    this._nowPlayingForm.setNewInfo(temp, title, artist);
-                    songLength.Text = duration;
-                }
-                this._nowPlayingForm.Visible = true;
-                if (this._playedList[this._nowPlayIndex].Contains(".wav"))
-                {
-                    _music = new WavPlayer(this._playedList[this._nowPlayIndex]);
-                }
-                else if (this._playedList[this._nowPlayIndex].Contains(".mp3"))
-                {
-                    _music = new Mp3Player(this._playedList[this._nowPlayIndex]);
-                }
-                
-                
+                    this.musicProcessBar.Enabled = true;
+                    stopButton.BringToFront();
+                    musicProcessBar.Minimum = 0;
+                    musicProcessBar.Maximum = this._music.getTime();
+                    _min = 0;
+                    _sed = 0;
+                    musicBarTimer.Start();
+                    count.Start();
+                    _music.start();
+                    break;
+
+                case 4:
+
+                    videoPlayButton_Click(sender, e);
+                    break;
             }
-            this.musicProcessBar.Enabled = true;
-            stopButton.BringToFront();
-            musicProcessBar.Minimum = 0;
-            musicProcessBar.Maximum = this._music.getTime();
-            _min = 0;
-            _sed = 0;
-            musicBarTimer.Start();
-            count.Start();
-            _music.start();
-            
-            
             
 
+        }
+
+        private void videoPlayButton_Click(object sender, EventArgs e)
+        {
+            if (!this._player._mp.IsPlaying)
+            {
+                this._player._mp.Play();
+                this._player.videoTimer.Start();
+                stopButton.BringToFront();
+            }
         }
 
         private void playButton_MouseDown(object sender, MouseEventArgs e)
@@ -379,15 +401,37 @@ namespace GUI
         //
         private void stopButton_Click(object sender, EventArgs e)
         {
-            //stopButton.Enabled = false;
-            //stopButton.Visible = false;
-            //playButton.Enabled = true;
-            //playButton.Visible = true;
-            playButton.BringToFront();
-            musicBarTimer.Stop();
-            count.Stop();
-            this._music.pause();
+            
+
+            switch(this._backMode)
+            {
+                case 1:
+                    stopButton.Enabled = false;
+                    stopButton.Visible = false;
+                    playButton.Enabled = true;
+                    playButton.Visible = true;
+                    playButton.BringToFront();
+                    musicBarTimer.Stop();
+                    count.Stop();
+                    this._music.pause();
+                    break;
+                case 4:
+                    stopVideo(sender, e);
+                    break;
+            }
         }
+
+        private void stopVideo(object sender, EventArgs e)
+        {
+            if(this._player._mp.IsPlaying)
+            {
+
+                this._player._mp.Pause();
+                this._player.videoTimer.Stop();
+                playButton.BringToFront();
+            }
+        }
+
         private void stopButton_MouseDown(object sender, MouseEventArgs e)
         {
             stopButton.ImageIndex = 1;
@@ -700,6 +744,7 @@ namespace GUI
         {
             this._playlistCheck = false;
             this.backwardButton.Visible = false;
+            this._backMode = 4;
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
@@ -707,6 +752,10 @@ namespace GUI
             showSubMenu(videoSubMenu);
 
             openNewForm(this._videoForm, 4);
+            if(this._player!=null)
+            {
+                this._player.BringToFront();
+            }    
         }
         //
         // music bar
@@ -1320,7 +1369,7 @@ namespace GUI
             {
                 folder = dialog.FileName;
                 _videoForm.Dispose();
-                _videoForm = new VideoForm(folder);
+                _videoForm = new VideoForm(this,folder);
                 openNewForm(this._videoForm, 4);
                 //if (this._curForm == 4) openFolderButton.BringToFront();
                 
@@ -1333,6 +1382,19 @@ namespace GUI
         private void soundVolumeBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
 
+        }
+
+        public void PlayVideo(object sender, EventArgs e)
+        {
+            //this._player.TopLevel = false;
+            //this._player.FormBorderStyle = FormBorderStyle.None;
+            //this._player.Dock = DockStyle.Fill;
+
+            this.mainMidPanel.Controls.Add(_player);
+            this.mainMidPanel.Tag = _player;
+            this._player.BringToFront();
+            this._player.Show();
+            stopButton.BringToFront();
         }
     }
 }

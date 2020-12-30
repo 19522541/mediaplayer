@@ -13,6 +13,8 @@ namespace GUI
 {
     public partial class VideoForm : Form
     {
+        //MainForm as parent to assign video player to mainform's player
+        MainForm _parent;
         public string root_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)+@"\Downloads\";
         
         
@@ -25,13 +27,16 @@ namespace GUI
         List<string> vid_path;
         int vid_index = 0;
 
-        VideoPlayer videoPlayer;
+        public VideoPlayer videoPlayer;
 
         //check if folder not have media files
         public bool isMediaNotFound;
-        public VideoForm(string folder)
+        public VideoForm(MainForm parent, string folder)
         {
             InitializeComponent();
+
+            this._parent = parent;
+
             this.DoubleBuffered = true;
             //thumbnail_list = new ImageList();
             vid_path = new List<string>();
@@ -79,10 +84,21 @@ namespace GUI
             if (videolistView.LargeImageList != null)
             {
                 videolistView.LargeImageList.ColorDepth = ColorDepth.Depth32Bit;
-                this.videolistView.Show();
+                
+                //this.videolistView.Show();
+                //this.videolistView.BringToFront();
+                //this.topPanel.Hide();
+                //this.emptyListLabel.Hide();
+
+                //add videoListView to mainPanel
+                mainPanel.Controls.Add(videolistView);
+                mainPanel.Tag = videolistView;
                 this.videolistView.BringToFront();
                 this.topPanel.Hide();
                 this.emptyListLabel.Hide();
+
+                //assign player to MainForm's video player
+                
             }
             else
             {
@@ -90,6 +106,7 @@ namespace GUI
                 this.emptyListLabel.Show();
                 this.emptyListLabel.BringToFront();
                 this.videolistView.Hide();
+                
             }    
                 
             
@@ -192,17 +209,43 @@ namespace GUI
             if (hit.Item != null)
 
             {
-                if(videoPlayer!=null)
+                // open in a seperate window
+
+                if (videoPlayer != null)
                 {
-                    if(videoPlayer.isPlaying)
-                        videoPlayer._mp.Stop();
-                    videoPlayer.Dispose();
+                    if (!videoPlayer.IsDisposed)
+                    {
+                        //videoPlayer._mp.Stop();
+                        if(videoPlayer._mp.WillPlay)
+                            videoPlayer._mp.Dispose();
+                        videoPlayer.Dispose();
+                        videoPlayer.Close();
+                    }                      
+                    
                 }
                 var filepath = hit.Item.Tag.ToString();
                 videoPlayer = new VideoPlayer(filepath);
-                videoPlayer.Show();
+
+                //modify video player
+                videoPlayer.TopLevel = false;
+                videoPlayer.FormBorderStyle = FormBorderStyle.None;
+                videoPlayer.Dock = DockStyle.Fill;
+                
+                //assign video player to MainForm's player
+                this._parent._player = this.videoPlayer;
+                this._parent.PlayVideo(sender, e);
+
+                //add video player to main Panel
+                    //this.mainPanel.Controls.Add(videoPlayer);
+                    //this.mainPanel.Tag = videoPlayer;
+                    //this.videoPlayer.BringToFront();
+                    //this.videoPlayer.Show();
+                //this.videolistView.Hide();
+
                 //MessageBox.Show(this, hit.Item.Tag.ToString());
 
+                //open inside the main panel
+                
             };
         }
 
@@ -217,6 +260,11 @@ namespace GUI
         }
 
         private void videolistView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void videoPlayerView_Click(object sender, EventArgs e)
         {
 
         }

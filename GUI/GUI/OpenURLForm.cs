@@ -22,7 +22,7 @@ namespace GUI
             VideoPlayer vd = new VideoPlayer(urlTextBox.Text);
             vd.PlayURL();
             vd.Show();
-            if (vd.isPlaying)
+            if (vd._mp.IsPlaying)
             {
 
                 this.Close();
