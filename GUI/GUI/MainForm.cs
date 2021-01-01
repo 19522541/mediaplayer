@@ -52,10 +52,13 @@ namespace GUI
         // folder for loading video
         public string folder = "";
         //store user's choice of Music or Videos
-        enum Choice { None, Musics, Pictures, Videos };
+        enum Choice { None, Musics, Playlists, Pictures, Videos };
         Choice userChoice;
 
         public VideoPlayer _player;
+
+        int music_progressbar_value = 0;
+        int video_progressbar_value = 0;
         public MainForm()
         {
             
@@ -244,9 +247,9 @@ namespace GUI
         {
             
 
-            switch (this._backMode)
+            switch (this.userChoice)
             {
-                case 1:
+                case Choice.Musics:
                     if (this._nowPlayIndex == -1)
                     {
                         playButton.BringToFront();
@@ -358,7 +361,7 @@ namespace GUI
                     _music.start();
                     break;
 
-                case 4:
+                case Choice.Videos:
 
                     videoPlayButton_Click(sender, e);
                     break;
@@ -373,7 +376,11 @@ namespace GUI
             {
                 this._player._mp.Play();
                 this._player.videoTimer.Start();
+                this.musicBarTimer.Start();
                 stopButton.BringToFront();
+                stopButton.Enabled = true;
+
+                
             }
         }
 
@@ -403,9 +410,9 @@ namespace GUI
         {
             
 
-            switch(this._backMode)
+            switch(this.userChoice)
             {
-                case 1:
+                case Choice.Musics:
                     stopButton.Enabled = false;
                     stopButton.Visible = false;
                     playButton.Enabled = true;
@@ -415,8 +422,9 @@ namespace GUI
                     count.Stop();
                     this._music.pause();
                     break;
-                case 4:
+                case Choice.Videos:
                     stopVideo(sender, e);
+                    
                     break;
             }
         }
@@ -428,7 +436,9 @@ namespace GUI
 
                 this._player._mp.Pause();
                 this._player.videoTimer.Stop();
+                this.musicBarTimer.Stop();
                 playButton.BringToFront();
+                playButton.Enabled = true;
             }
         }
 
@@ -694,6 +704,8 @@ namespace GUI
         private void mediaButton_Click(object sender, EventArgs e)
         {
             this._playlistCheck = false;
+            this.userChoice = Choice.Musics;
+            this.musicProcessBar.Value = this.music_progressbar_value;
             this.setPlayedList(this._mediaForm._list, this._mediaForm._ablum, this._mediaForm._title, this._mediaForm._firstPerformer, this._mediaForm._length, this._mediaForm._songImg);
             this.setInfo(0, -1);
             if (this._mediaForm._nowPlayIndex != -1) this._mediaForm.restart(this._mediaForm._nowPlayIndex);
@@ -717,6 +729,7 @@ namespace GUI
         {
             this._playlistCheck = true;
             this._backMode = 2;
+            this.userChoice = Choice.Playlists;
             this.backwardButton.Visible = true;
             this._mediaForm._mediaCheck = false;
             if (sideMenuPanel.Width < 70)
@@ -731,6 +744,7 @@ namespace GUI
         {
             this._playlistCheck = false;
             this._backMode = 3;
+            this.userChoice = Choice.Pictures;
             this.backwardButton.Visible = true;
             if (sideMenuPanel.Width < 70)
             {
@@ -743,8 +757,13 @@ namespace GUI
         private void videoButton_Click(object sender, EventArgs e)
         {
             this._playlistCheck = false;
+
+            // assign current video timepoint to the progress bar value
+            this.musicProcessBar.Value = this.video_progressbar_value;
+
             this.backwardButton.Visible = false;
             this._backMode = 4;
+            this.userChoice = Choice.Videos;
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
@@ -782,18 +801,28 @@ namespace GUI
 
         private void musicProcessBar_MouseUp(object sender, MouseEventArgs e)
         {
-           
-           if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
-           {
-                TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
-                this._music.setCur(x);
+           switch(this.userChoice)
+            {
+                case Choice.Musics:
+                    if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
+                    {
+                        TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
+                        this._music.setCur(x);
 
-           }
+                    }
+
+                    if (playButton.Enabled && this.musicProcessBar.Value < this.musicProcessBar.Maximum)
+                    {
+                        playButton_Click(sender, e);
+                    }
+                    break;
+                case Choice.Videos:
+                    this._player._mp.Position = (float)musicProcessBar.Value / (float)musicProcessBar.Maximum;
+                    playButton_Click(sender, e);
+                    break;
+
+            }
            
-           if (playButton.Enabled && this.musicProcessBar.Value < this.musicProcessBar.Maximum)
-           {
-                playButton_Click(sender, e);
-           }
         }
 
         private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
@@ -816,6 +845,12 @@ namespace GUI
                }
             }
             this._check = musicProcessBar.Value;
+            switch (this.userChoice)
+            {
+                case Choice.Videos:
+
+                    break;
+            }
         }
 
         private void musicProcessBar_MouseMove(object sender, MouseEventArgs e)
@@ -1342,7 +1377,7 @@ namespace GUI
 
         private void playURLButton_Click(object sender, EventArgs e)
         {
-            OpenURLForm url_form = new OpenURLForm();
+            OpenURLForm url_form = new OpenURLForm(this);
             url_form.Show();
         }
 
@@ -1394,7 +1429,36 @@ namespace GUI
             this.mainMidPanel.Tag = _player;
             this._player.BringToFront();
             this._player.Show();
+            
+            // change play button to pause button and enable
             stopButton.BringToFront();
+            stopButton.Enabled = true;
+            
+            //change progress bar value to video timepoint
+            this.musicProcessBar.Value = this.video_progressbar_value;
+
+            //restart timer
+            this.musicBarTimer.Start();
+
+            //enable progress bar
+            this.musicProcessBar.Enabled = true;
+        }
+
+        public void videoClose(object sender, EventArgs e)
+        {
+            playButton.BringToFront();
+            stopButton.Enabled = false;
+            playButton.Enabled = false;
+
+            //stop timer
+            this.musicBarTimer.Stop();
+
+            //set current time to 0
+            this.video_progressbar_value = 0;
+            this.musicProcessBar.Value = 0;
+
+            //
+            this.musicProcessBar.Enabled = false;
         }
     }
 }

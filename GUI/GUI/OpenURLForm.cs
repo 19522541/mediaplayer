@@ -12,14 +12,16 @@ namespace GUI
 {
     public partial class OpenURLForm : Form
     {
-        public OpenURLForm()
+        MainForm parent;
+        public OpenURLForm(MainForm parent)
         {
             InitializeComponent();
+            this.parent = parent;
         }
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            VideoPlayer vd = new VideoPlayer(urlTextBox.Text);
+            VideoPlayer vd = new VideoPlayer(this.parent,urlTextBox.Text);
             vd.PlayURL();
             vd.Show();
             if (vd._mp.IsPlaying)

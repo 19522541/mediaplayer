@@ -224,7 +224,7 @@ namespace GUI
                     
                 }
                 var filepath = hit.Item.Tag.ToString();
-                videoPlayer = new VideoPlayer(filepath);
+                videoPlayer = new VideoPlayer(this._parent,filepath);
 
                 //modify video player
                 videoPlayer.TopLevel = false;
@@ -268,5 +268,7 @@ namespace GUI
         {
 
         }
+
+        
     }
 }

@@ -41,12 +41,17 @@ namespace GUI
 
         //Volume
         int volume = 0;
+
+        //parent MainForm
+        MainForm parent;
+        
+
         public VideoPlayer()
         {
             InitializeComponent();
         }
 
-        public VideoPlayer(string filepath)
+        public VideoPlayer(MainForm parent, string filepath)
         {
             InitializeComponent();
             Core.Initialize();
@@ -56,6 +61,9 @@ namespace GUI
             oldVideoSize = videoView.Size;
             oldFormSize = this.Size;
             oldVideoLocation = videoView.Location;
+
+            //assign parent
+            this.parent = parent;
 
             // VLC stuff
             _libVLC = new LibVLC();
@@ -149,6 +157,7 @@ namespace GUI
         {
             _mp.Stop();
             _mp.Dispose();
+            this.parent.videoClose(sender, e);
             this.Dispose();
             this.Close();
         }
@@ -160,6 +169,7 @@ namespace GUI
             {
                 //videoProgressBar.Enabled = false;
                 //StopVideo();
+                
                 stopButton_Click(sender, e);
 
             }
@@ -483,7 +493,7 @@ namespace GUI
 
         private void videoProgressBar_MouseDown(object sender, MouseEventArgs e)
         {
-            //this.pauseButton_Click(sender,e);
+            
             
         }
 
