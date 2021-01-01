@@ -51,7 +51,7 @@ namespace GUI
             InitializeComponent();
         }
 
-        public VideoPlayer(MainForm parent, string filepath)
+        public VideoPlayer(MainForm parent, string filepath, bool isURL=false)
         {
             InitializeComponent();
             Core.Initialize();
@@ -76,11 +76,21 @@ namespace GUI
 
             //play a video from double click
             this.filepath = filepath;
-            PlayFile(this.filepath);
+            if(isURL)
+            {
+                if(!PlayURL(this.filepath)) //if play unsuccessfully (invalid link)
+                {
+                    this.Dispose();
+                    return;
+                }
+            }    
+            else
+                PlayFile(this.filepath);
 
             // Media Info
             var ffProbe = new FFProbe();
             var videoInfo = ffProbe.GetMediaInfo(filepath);
+            
             duration = videoInfo.Duration;
 
             //set maximum for progress bar
@@ -90,7 +100,7 @@ namespace GUI
 
             //display duration
             this.videoTime.Text = getCurrentTime();
-            this.videoLength.Text = videoInfo.Duration.ToString(@"hh\:mm\:ss");
+            this.videoLength.Text = duration.ToString(@"hh\:mm\:ss");
 
 
             //timer
@@ -115,15 +125,28 @@ namespace GUI
             //this.label1.Text = getVideoDuration();
         }
 
-        public void PlayURL()
+        public bool PlayURL(string file)
         {
-            
-            _mp.Play(new Media(this._libVLC, new Uri(this.filepath)));
+
+            try
+            {
+                _mp.Play(new Media(this._libVLC, new Uri(file)));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot open the link.");
+                return false;
+            }
+            finally
+            {
+                button6.BringToFront();
+                
+            }
             //this.isPlaying = true;
-            button6.BringToFront();
+            return true;
             //TimeSpan length = TimeSpan.FromMilliseconds(_mp.Length);
             //this.videoLength.Text = length.ToString(@"mm\:ss");
-            
+
         }
 
         private void playButton_Click(object sender, EventArgs e)

@@ -723,6 +723,13 @@ namespace GUI
 
             showSubMenu(mediaSubMenu);
 
+            //display video duration
+            if(this._player.duration!=null)
+            {
+                songLength.Text = this._player.duration.ToString(@"hh\:mm\:ss");
+            }
+            
+
         }
 
         private void playlistButton_Click(object sender, EventArgs e)
@@ -1442,7 +1449,21 @@ namespace GUI
 
             //enable progress bar
             this.musicProcessBar.Enabled = true;
+
+            //display video duration
+            songLength.Text=this._player.duration.ToString(@"hh\:mm\:ss");
         }
+
+        //public void PlayURL(object sender, EventArgs e)
+        //{
+        //    this._player.PlayURL();
+        //    this._player.Show();
+        //    if (this._player._mp.IsPlaying)
+        //    {
+
+        //        this.Close();
+        //    }
+        //}
 
         public void videoClose(object sender, EventArgs e)
         {

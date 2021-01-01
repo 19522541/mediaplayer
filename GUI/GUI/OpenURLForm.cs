@@ -21,14 +21,32 @@ namespace GUI
 
         private void openButton_Click(object sender, EventArgs e)
         {
-            VideoPlayer vd = new VideoPlayer(this.parent,urlTextBox.Text);
-            vd.PlayURL();
-            vd.Show();
-            if (vd._mp.IsPlaying)
+            var videoPlayer = new VideoPlayer(this.parent,urlTextBox.Text,true);
+            
+            if(!videoPlayer.IsDisposed)
             {
+                if (this.parent._player != null)
+                {
+                    if (!this.parent._player.IsDisposed)
+                    {
+                        //videoPlayer._mp.Stop();
+                        if (this.parent._player._mp.WillPlay)
+                            this.parent._player._mp.Dispose();
+                        this.parent._player.Dispose();
+                        this.parent._player.Close();
+                    }
+                }
+                
+                //modify video player
+                videoPlayer.TopLevel = false;
+                videoPlayer.FormBorderStyle = FormBorderStyle.None;
+                videoPlayer.Dock = DockStyle.Fill;
 
-                this.Close();
+                //assign video player to MainForm's player
+                this.parent._player = videoPlayer;
+                this.parent.PlayVideo(sender, e);
             }
+            
         }
     }
 }
