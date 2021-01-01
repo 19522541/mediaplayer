@@ -45,8 +45,14 @@ namespace GUI
                 //assign video player to MainForm's player
                 this.parent._player = videoPlayer;
                 this.parent.PlayVideo(sender, e);
+                this.Close();
             }
             
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
