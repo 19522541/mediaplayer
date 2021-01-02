@@ -105,6 +105,7 @@ namespace GUI
                 isMediaNotFound = true;
                 this.emptyListLabel.Show();
                 this.emptyListLabel.BringToFront();
+                this.mainPanel.Hide();
                 this.videolistView.Hide();
                 
             }    
@@ -138,7 +139,7 @@ namespace GUI
             string save_path = Path.Combine(dir.FullName,temp,name);
             if (!File.Exists(save_path))
             {
-                videoframe.Save(save_path);
+                 videoframe.Save(save_path);
             }    
             
             

@@ -43,8 +43,8 @@
             this.topPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("topPanel.BackgroundImage")));
             this.topPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.topPanel.BorderColor = System.Drawing.Color.Transparent;
-            this.topPanel.BorderRadius = 3;
-            this.topPanel.BorderThickness = 1;
+            this.topPanel.BorderRadius = 0;
+            this.topPanel.BorderThickness = 0;
             this.topPanel.Controls.Add(this.emptyListLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -90,15 +90,15 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.BackgroundColor = System.Drawing.Color.DimGray;
+            this.mainPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.mainPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mainPanel.BackgroundImage")));
             this.mainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainPanel.BorderColor = System.Drawing.Color.Transparent;
-            this.mainPanel.BorderRadius = 3;
-            this.mainPanel.BorderThickness = 1;
+            this.mainPanel.BorderRadius = 0;
+            this.mainPanel.BorderThickness = 0;
             this.mainPanel.Controls.Add(this.videolistView);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mainPanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mainPanel.Location = new System.Drawing.Point(0, 135);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.ShowBorders = true;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1346, 612);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.topPanel);
