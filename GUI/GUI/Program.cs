@@ -15,6 +15,10 @@ namespace GUI
         [STAThread]
         static void Main()
         {
+            if (!Directory.Exists(@"\thumbnail"))
+            {
+                Directory.CreateDirectory(@"thumbnail");
+            }
             if (!File.Exists(@"D:/bt2/data.json"))
             {
                 File.Create(@"D:/bt2/data.json");

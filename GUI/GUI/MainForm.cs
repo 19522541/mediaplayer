@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 //using AudioSwitcher.AudioApi.CoreAudio;
 using Bunifu.UI.WinForms;
@@ -1728,6 +1729,76 @@ namespace GUI
         private void videoTime_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void maximizeVideo(object sender, EventArgs e)
+        {
+            mainMidPanel.Size = this.Size;
+            this._player.Size = this.Size;
+            this._player.Location = this.Location;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this._player.FormBorderStyle = FormBorderStyle.None;
+            this._player.WindowState = FormWindowState.Maximized;
+            this._player.isFullScreen = true;
+        }
+
+        private void BunifuPanel_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BunifuPanel_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainBotPanel_MouseHover(object sender, EventArgs e)
+        {
+            //mainBotPanel.Visible = true;
+        }
+
+        private void mainBotPanel_MouseLeave(object sender, EventArgs e)
+        {
+            //mainBotPanel.Hide();
+        }
+
+        private void mainBotPanel_MouseEnter(object sender, EventArgs e)
+        {
+            //mainBotPanel.Show();
+        }
+
+        private void takeSnapshotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this._player._mp.TakeSnapshot(0, @"screenshot.bmp",1024,768);
+        }
+
+        private void changeAspectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void scaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void takeSnapshotToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if(!Directory.Exists(@"snapshot"))
+            {
+                Directory.CreateDirectory(@"snapshot");
+            }
+            var date = DateTime.Now.ToString();
+            string temp = Regex.Replace(date, "[^a-zA-z0-9]", "");
+            //MessageBox.Show(temp);
+            var file = @"snapshot\snapshot-"+temp + @".jpg";
+            this._player._mp.TakeSnapshot(0, file, 1600, 1200);
         }
     }
 }

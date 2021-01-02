@@ -278,11 +278,15 @@ namespace GUI
 
         private void maximizeButton_Click(object sender, EventArgs e)
         {
-            videoView.Size = this.Size;
-            videoView.Location = this.Location;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            isFullScreen = true;
+            //this.parent.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;
+
+            //videoView.Size = this.Size;
+            //videoView.Location = this.Location;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+            //isFullScreen = true;
+            
+            this.parent.maximizeVideo(sender, e);
             button9.BringToFront();
         }
 
