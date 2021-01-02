@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Windows.Forms;
 //using AudioSwitcher.AudioApi.CoreAudio;
 using Bunifu.UI.WinForms;
+using LibVLCSharp.Shared;
 using Microsoft.WindowsAPICodePack.Dialogs;
 namespace GUI
 {
@@ -730,6 +731,11 @@ namespace GUI
         {
             this._playlistCheck = false;
             this.userChoice = Choice.Musics;
+
+            loopButton.Visible = true;
+            stopVideoButton.Visible = false;
+            loopButton.BringToFront();
+
             this.musicProcessBar.Value = this.music_progressbar_value;
             this.setPlayedList(this._mediaForm._list, this._mediaForm._ablum, this._mediaForm._title, this._mediaForm._firstPerformer, this._mediaForm._length, this._mediaForm._songImg);
             this.setInfo(0, -1);
@@ -739,9 +745,7 @@ namespace GUI
             this._mediaForm._mediaCheck = true;
             if (this._backupMediaForm != null) this._backupMediaForm._mediaCheck = false;
 
-            loopButton.Visible = true;
-            stopVideoButton.Visible = false;
-            loopButton.BringToFront();
+            
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
@@ -1542,7 +1546,82 @@ namespace GUI
 
         private void stopVideoButton_Click(object sender, EventArgs e)
         {
+            this._player._mp.Stop();
+            musicBarTimer.Stop();
+            this.musicProcessBar.Value = 0;
+            playButton.BringToFront();
+        }
 
+        private void mainBotPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void hamburgerButton_Click(object sender, EventArgs e)
+        {
+            this.hamburgerMenuStrip.Show(Cursor.Position);
+        }
+
+        private void mainBotPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(0.25f);
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(0.5f);
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(0.75f);
+        }
+
+        private void normalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(1.0f);
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(1.25f);
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(1.5f);
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(1.75f);
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            this._player._mp.SetRate(2f);
+        }
+
+        private void normalToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addSubtitleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            string formats = "Subtitle Text Files |*.srt; *.txt";
+            ofd.Filter = formats;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var filename = @"file:///" + ofd.FileName;
+                var boo = this._player._mp.AddSlave(MediaSlaveType.Subtitle, filename, true);
+            }
         }
     }
 }
