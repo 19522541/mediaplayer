@@ -466,14 +466,24 @@ namespace GUI
         //
         private void backButton_Click(object sender, EventArgs e)
         {
-            this._music.stop();
-            this.musicProcessBar.Value = 0;
-            this._check = 0;
-            //this._music = null;
-            this._lastPlayed = this._nowPlayIndex;
-            getNextSong(2);
-            
-            playButton_Click(sender, e);
+            switch(this.userChoice)
+            {
+                case Choice.Musics:
+                    this._music.stop();
+                    this.musicProcessBar.Value = 0;
+                    this._check = 0;
+                    //this._music = null;
+                    this._lastPlayed = this._nowPlayIndex;
+                    getNextSong(2);
+
+                    playButton_Click(sender, e);
+                    break;
+                case Choice.Videos:
+                    this._player._mp.Position -= 5f / musicProcessBar.Maximum;
+                    this.musicProcessBar.Value -= 5;
+                    break;
+            }
+
             
         }
 
@@ -549,13 +559,28 @@ namespace GUI
         //
         private void nextButton_Click(object sender, EventArgs e)
         {
-            if (!musicProcessBar.Enabled) musicProcessBar.Enabled = true;
-            this._music.stop();
-            musicProcessBar.Value = 0;
-            this._check = 0;
-            this._lastPlayed = this._nowPlayIndex;
-            getNextSong(1);
-            playButton_Click(sender, e);
+            switch(this.userChoice)
+            {
+                case Choice.Musics:
+                    if (!musicProcessBar.Enabled) musicProcessBar.Enabled = true;
+                    this._music.stop();
+                    musicProcessBar.Value = 0;
+                    this._check = 0;
+                    this._lastPlayed = this._nowPlayIndex;
+                    getNextSong(1);
+                    playButton_Click(sender, e);
+                    break;
+                case Choice.Videos:
+                    if (this.musicProcessBar.Value + 10 >= musicProcessBar.Maximum)
+                    {
+                        this.musicProcessBar.Value = musicProcessBar.Maximum;
+                        _player._mp.Position = 1f;
+                        return;
+                    }
+                    _player._mp.Position += 10f / musicProcessBar.Maximum;
+                    this.musicProcessBar.Value += 10;
+                    break;
+            }
         }
 
         private void nextButton_MouseDown(object sender, MouseEventArgs e)
@@ -723,11 +748,7 @@ namespace GUI
 
             showSubMenu(mediaSubMenu);
 
-            //display video duration
-            if(this._player.duration!=null)
-            {
-                songLength.Text = this._player.duration.ToString(@"hh\:mm\:ss");
-            }
+            
             
 
         }
@@ -781,6 +802,8 @@ namespace GUI
             if(this._player!=null)
             {
                 this._player.BringToFront();
+                //display video duration
+                songLength.Text = this._player.duration.ToString(@"hh\:mm\:ss");
             }    
         }
         //
@@ -875,6 +898,7 @@ namespace GUI
         {
             
             this._music.setvolumn(soundVolumeBar.Value);
+            this._player._mp.Volume = soundVolumeBar.Value;
             this._lastSoundValue = soundVolumeBar.Value; 
         }
         
@@ -1400,7 +1424,10 @@ namespace GUI
 
         private void soundVolumeBar_Scroll(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs e)
         {
-
+            this._music.setvolumn(soundVolumeBar.Value);
+            if(this._player!=null&&!this._player.IsDisposed)
+                this._player._mp.Volume = soundVolumeBar.Value;
+            this._lastSoundValue = soundVolumeBar.Value;
         }
 
         private void openFolderButton_Click(object sender, EventArgs e)
@@ -1423,6 +1450,23 @@ namespace GUI
 
         private void soundVolumeBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
+            if (soundVolumeBar.Value == 0 && soundButton.Enabled == true)
+            {
+                soundButton_Click(sender, e);
+            }
+            else if (soundVolumeBar.Value > 0 && soundButton.Enabled == false)
+            {
+                muteButton_Click(sender, e);
+            }
+            else
+            {
+                setMuteButtonImg();
+                setSoundButtonImg();
+            }
+            if(this._music!=null)
+                this._music.setvolumn(soundVolumeBar.Value);
+            if(this._player!=null&&!this._player.IsDisposed)
+                this._player._mp.Volume = soundVolumeBar.Value;
 
         }
 

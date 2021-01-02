@@ -130,7 +130,10 @@ namespace GUI
 
             try
             {
-                _mp.Play(new Media(this._libVLC, new Uri(file)));
+                if(!_mp.Play(new Media(this._libVLC, new Uri(file))))
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
