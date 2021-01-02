@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.CompilerServices;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using System.Threading.Tasks;
+
 namespace GUI
 {
     public partial class PictureForm : Form

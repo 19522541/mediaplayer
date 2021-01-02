@@ -3094,4 +3094,3 @@ D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.OpenURLForm.resources
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\MediaToolkit.dll
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\NReco.VideoInfo.dll
 D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\bin\Debug\NReco.VideoInfo.xml
-D:\Code\C#\mediaPL_v3\mediaplayer\GUI\GUI\obj\Debug\GUI.csprojAssemblyReference.cache

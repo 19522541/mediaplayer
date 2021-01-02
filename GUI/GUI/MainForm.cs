@@ -738,6 +738,10 @@ namespace GUI
             this.backwardButton.Visible = false;
             this._mediaForm._mediaCheck = true;
             if (this._backupMediaForm != null) this._backupMediaForm._mediaCheck = false;
+
+            loopButton.Visible = true;
+            stopVideoButton.Visible = false;
+            loopButton.BringToFront();
             if (sideMenuPanel.Width < 70)
             {
                 sideMenuButton_Click(sender, e);
@@ -796,6 +800,11 @@ namespace GUI
             {
                 sideMenuButton_Click(sender, e);
             }
+
+            loopButton.Visible = false;
+            stopVideoButton.Visible = true;
+            stopVideoButton.BringToFront();
+
             showSubMenu(videoSubMenu);
 
             openNewForm(this._videoForm, 4);
@@ -1524,6 +1533,16 @@ namespace GUI
 
             //
             this.musicProcessBar.Enabled = false;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopVideoButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
