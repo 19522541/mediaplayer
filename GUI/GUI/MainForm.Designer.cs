@@ -29,34 +29,51 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation2 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation1 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.sideMenuPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.iconPanel = new System.Windows.Forms.Panel();
+            this.sideMenuButton = new System.Windows.Forms.Button();
             this.menuButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.mediaButton = new System.Windows.Forms.Button();
             this.mediaSubMenu = new System.Windows.Forms.Panel();
             this.openMusicFolderButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
+            this.playlistButton = new System.Windows.Forms.Button();
             this.playlistSubMenu = new System.Windows.Forms.Panel();
             this.createPlaylist = new System.Windows.Forms.Button();
+            this.pictureButton = new System.Windows.Forms.Button();
             this.imageSubMenu = new System.Windows.Forms.Panel();
             this.button15 = new System.Windows.Forms.Button();
+            this.videoButton = new System.Windows.Forms.Button();
             this.videoSubMenu = new System.Windows.Forms.Panel();
             this.playURLButton = new System.Windows.Forms.Button();
             this.openFileButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             this.mainBotPanel = new System.Windows.Forms.Panel();
+            this.stopVideoButton = new System.Windows.Forms.Button();
+            this.soundVolumeBar = new Bunifu.UI.WinForms.BunifuHSlider();
+            this.musicProcessBar = new Bunifu.UI.WinForms.BunifuHSlider();
             this.songLength = new System.Windows.Forms.Label();
+            this.loopButton = new System.Windows.Forms.Button();
             this.leapButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.nextButton = new System.Windows.Forms.Button();
             this.nextButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.backButton = new System.Windows.Forms.Button();
             this.backButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.randomButton = new System.Windows.Forms.Button();
             this.shuffleButtonList = new System.Windows.Forms.ImageList(this.components);
             this.time = new System.Windows.Forms.Label();
+            this.soundButton = new System.Windows.Forms.Button();
             this.soundButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.muteButton = new System.Windows.Forms.Button();
             this.muteButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.playButton = new System.Windows.Forms.Button();
             this.playButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.stopButton = new System.Windows.Forms.Button();
             this.stopButtonList = new System.Windows.Forms.ImageList(this.components);
             this.controlImageList = new System.Windows.Forms.ImageList(this.components);
             this.exitButtonList = new System.Windows.Forms.ImageList(this.components);
@@ -65,33 +82,16 @@
             this.count = new System.Windows.Forms.Timer(this.components);
             this.sideMenuAni = new Bunifu.UI.WinForms.BunifuTransition(this.components);
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.backwardButtonList = new System.Windows.Forms.ImageList(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.mainMidPanel = new System.Windows.Forms.Panel();
-            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.mainPicturebox = new System.Windows.Forms.PictureBox();
-            this.openFolderButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.cancelButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.saveButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.backwardButton = new System.Windows.Forms.Button();
+            this.backwardButtonList = new System.Windows.Forms.ImageList(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
-            this.stopVideoButton = new System.Windows.Forms.Button();
-            this.soundVolumeBar = new Bunifu.UI.WinForms.BunifuHSlider();
-            this.musicProcessBar = new Bunifu.UI.WinForms.BunifuHSlider();
-            this.loopButton = new System.Windows.Forms.Button();
-            this.nextButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
-            this.randomButton = new System.Windows.Forms.Button();
-            this.soundButton = new System.Windows.Forms.Button();
-            this.muteButton = new System.Windows.Forms.Button();
-            this.playButton = new System.Windows.Forms.Button();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.sideMenuButton = new System.Windows.Forms.Button();
-            this.mediaButton = new System.Windows.Forms.Button();
-            this.playlistButton = new System.Windows.Forms.Button();
-            this.pictureButton = new System.Windows.Forms.Button();
-            this.videoButton = new System.Windows.Forms.Button();
-            this.helpButton = new System.Windows.Forms.Button();
+            this.mainMidPanel = new System.Windows.Forms.Panel();
+            this.mainPicturebox = new System.Windows.Forms.PictureBox();
+            this.openFolderButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.sideMenuPanel.SuspendLayout();
             this.iconPanel.SuspendLayout();
             this.mediaSubMenu.SuspendLayout();
@@ -136,12 +136,56 @@
             this.iconPanel.Size = new System.Drawing.Size(251, 100);
             this.iconPanel.TabIndex = 0;
             // 
+            // sideMenuButton
+            // 
+            this.sideMenuAni.SetDecoration(this.sideMenuButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.sideMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatAppearance.BorderSize = 0;
+            this.sideMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.sideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sideMenuButton.ImageIndex = 0;
+            this.sideMenuButton.ImageList = this.menuButtonList;
+            this.sideMenuButton.Location = new System.Drawing.Point(3, 27);
+            this.sideMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sideMenuButton.Name = "sideMenuButton";
+            this.sideMenuButton.Size = new System.Drawing.Size(44, 46);
+            this.sideMenuButton.TabIndex = 3;
+            this.sideMenuButton.UseVisualStyleBackColor = true;
+            this.sideMenuButton.Click += new System.EventHandler(this.sideMenuButton_Click);
+            this.sideMenuButton.MouseLeave += new System.EventHandler(this.sideMenuButton_MouseLeave);
+            this.sideMenuButton.MouseHover += new System.EventHandler(this.sideMenuButton_MouseHover);
+            // 
             // menuButtonList
             // 
             this.menuButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuButtonList.ImageStream")));
             this.menuButtonList.TransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.menuButtonList.Images.SetKeyName(0, "icons8-menu-40.png");
             this.menuButtonList.Images.SetKeyName(1, "icons8-menu-40 (1).png");
+            // 
+            // mediaButton
+            // 
+            this.sideMenuAni.SetDecoration(this.mediaButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.mediaButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mediaButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(39)))));
+            this.mediaButton.FlatAppearance.BorderSize = 0;
+            this.mediaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(218)))), ((int)(((byte)(110)))));
+            this.mediaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mediaButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.mediaButton.Image = global::GUI.Properties.Resources.icons8_music_30;
+            this.mediaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mediaButton.Location = new System.Drawing.Point(3, 106);
+            this.mediaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mediaButton.Name = "mediaButton";
+            this.mediaButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.mediaButton.Size = new System.Drawing.Size(251, 46);
+            this.mediaButton.TabIndex = 1;
+            this.mediaButton.Text = "Media";
+            this.mediaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.mediaButton.UseVisualStyleBackColor = true;
+            this.mediaButton.Click += new System.EventHandler(this.mediaButton_Click);
+            this.mediaButton.MouseLeave += new System.EventHandler(this.mediaButton_MouseLeave);
+            this.mediaButton.MouseHover += new System.EventHandler(this.mediaButton_MouseHover);
             // 
             // mediaSubMenu
             // 
@@ -192,6 +236,28 @@
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
+            // playlistButton
+            // 
+            this.sideMenuAni.SetDecoration(this.playlistButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.playlistButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.playlistButton.FlatAppearance.BorderSize = 0;
+            this.playlistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playlistButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.playlistButton.Image = ((System.Drawing.Image)(resources.GetObject("playlistButton.Image")));
+            this.playlistButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.playlistButton.Location = new System.Drawing.Point(3, 255);
+            this.playlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.playlistButton.Name = "playlistButton";
+            this.playlistButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.playlistButton.Size = new System.Drawing.Size(251, 46);
+            this.playlistButton.TabIndex = 3;
+            this.playlistButton.Text = "Playlist Management";
+            this.playlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.playlistButton.UseVisualStyleBackColor = true;
+            this.playlistButton.Click += new System.EventHandler(this.playlistButton_Click);
+            this.playlistButton.MouseLeave += new System.EventHandler(this.playlistButton_MouseLeave);
+            this.playlistButton.MouseHover += new System.EventHandler(this.playlistButton_MouseHover);
+            // 
             // playlistSubMenu
             // 
             this.playlistSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
@@ -222,6 +288,28 @@
             this.createPlaylist.UseVisualStyleBackColor = true;
             this.createPlaylist.Click += new System.EventHandler(this.createPlaylist_Click);
             // 
+            // pictureButton
+            // 
+            this.sideMenuAni.SetDecoration(this.pictureButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.pictureButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureButton.FlatAppearance.BorderSize = 0;
+            this.pictureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pictureButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pictureButton.Image = ((System.Drawing.Image)(resources.GetObject("pictureButton.Image")));
+            this.pictureButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureButton.Location = new System.Drawing.Point(3, 352);
+            this.pictureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureButton.Name = "pictureButton";
+            this.pictureButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.pictureButton.Size = new System.Drawing.Size(251, 46);
+            this.pictureButton.TabIndex = 5;
+            this.pictureButton.Text = "Picture";
+            this.pictureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pictureButton.UseVisualStyleBackColor = true;
+            this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
+            this.pictureButton.MouseLeave += new System.EventHandler(this.pictureButton_MouseLeave);
+            this.pictureButton.MouseHover += new System.EventHandler(this.pictureButton_MouseHover);
+            // 
             // imageSubMenu
             // 
             this.imageSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
@@ -251,6 +339,28 @@
             this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // videoButton
+            // 
+            this.sideMenuAni.SetDecoration(this.videoButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.videoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.videoButton.FlatAppearance.BorderSize = 0;
+            this.videoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.videoButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.videoButton.Image = ((System.Drawing.Image)(resources.GetObject("videoButton.Image")));
+            this.videoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.videoButton.Location = new System.Drawing.Point(3, 446);
+            this.videoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.videoButton.Name = "videoButton";
+            this.videoButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.videoButton.Size = new System.Drawing.Size(251, 46);
+            this.videoButton.TabIndex = 6;
+            this.videoButton.Text = "Video";
+            this.videoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.videoButton.UseVisualStyleBackColor = true;
+            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
+            this.videoButton.MouseLeave += new System.EventHandler(this.videoButton_MouseLeave);
+            this.videoButton.MouseHover += new System.EventHandler(this.videoButton_MouseHover);
             // 
             // videoSubMenu
             // 
@@ -301,6 +411,28 @@
             this.openFileButton.UseVisualStyleBackColor = true;
             this.openFileButton.Click += new System.EventHandler(this.openFolderButton_Click);
             // 
+            // helpButton
+            // 
+            this.sideMenuAni.SetDecoration(this.helpButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.helpButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
+            this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.helpButton.Location = new System.Drawing.Point(3, 584);
+            this.helpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.helpButton.Size = new System.Drawing.Size(251, 46);
+            this.helpButton.TabIndex = 8;
+            this.helpButton.Text = "Help";
+            this.helpButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.MouseLeave += new System.EventHandler(this.helpButton_MouseLeave);
+            this.helpButton.MouseHover += new System.EventHandler(this.helpButton_MouseHover);
+            // 
             // mainBotPanel
             // 
             this.mainBotPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
@@ -325,6 +457,127 @@
             this.mainBotPanel.Size = new System.Drawing.Size(1083, 122);
             this.mainBotPanel.TabIndex = 1;
             // 
+            // stopVideoButton
+            // 
+            this.stopVideoButton.BackColor = System.Drawing.Color.Silver;
+            this.sideMenuAni.SetDecoration(this.stopVideoButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.stopVideoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopVideoButton.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.stopVideoButton.Location = new System.Drawing.Point(666, 40);
+            this.stopVideoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.stopVideoButton.Name = "stopVideoButton";
+            this.stopVideoButton.Size = new System.Drawing.Size(27, 27);
+            this.stopVideoButton.TabIndex = 15;
+            this.stopVideoButton.UseVisualStyleBackColor = false;
+            this.stopVideoButton.Click += new System.EventHandler(this.stopVideoButton_Click);
+            // 
+            // soundVolumeBar
+            // 
+            this.soundVolumeBar.AllowCursorChanges = true;
+            this.soundVolumeBar.AllowHomeEndKeysDetection = false;
+            this.soundVolumeBar.AllowIncrementalClickMoves = true;
+            this.soundVolumeBar.AllowMouseDownEffects = false;
+            this.soundVolumeBar.AllowMouseHoverEffects = false;
+            this.soundVolumeBar.AllowScrollingAnimations = true;
+            this.soundVolumeBar.AllowScrollKeysDetection = true;
+            this.soundVolumeBar.AllowScrollOptionsMenu = true;
+            this.soundVolumeBar.AllowShrinkingOnFocusLost = false;
+            this.soundVolumeBar.BackColor = System.Drawing.Color.Transparent;
+            this.soundVolumeBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("soundVolumeBar.BackgroundImage")));
+            this.soundVolumeBar.BindingContainer = null;
+            this.soundVolumeBar.BorderRadius = 2;
+            this.soundVolumeBar.BorderThickness = 1;
+            this.soundVolumeBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sideMenuAni.SetDecoration(this.soundVolumeBar, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.soundVolumeBar.DrawThickBorder = false;
+            this.soundVolumeBar.DurationBeforeShrink = 2000;
+            this.soundVolumeBar.ElapsedColor = System.Drawing.Color.DodgerBlue;
+            this.soundVolumeBar.LargeChange = 10;
+            this.soundVolumeBar.Location = new System.Drawing.Point(892, 41);
+            this.soundVolumeBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.soundVolumeBar.Maximum = 100;
+            this.soundVolumeBar.Minimum = 0;
+            this.soundVolumeBar.MinimumSize = new System.Drawing.Size(0, 31);
+            this.soundVolumeBar.MinimumThumbLength = 18;
+            this.soundVolumeBar.Name = "soundVolumeBar";
+            this.soundVolumeBar.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.soundVolumeBar.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.soundVolumeBar.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.soundVolumeBar.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.soundVolumeBar.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.soundVolumeBar.ShrinkSizeLimit = 3;
+            this.soundVolumeBar.Size = new System.Drawing.Size(124, 31);
+            this.soundVolumeBar.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.soundVolumeBar.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
+            this.soundVolumeBar.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
+            this.soundVolumeBar.SmallChange = 1;
+            this.soundVolumeBar.TabIndex = 14;
+            this.soundVolumeBar.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.soundVolumeBar.ThumbFillColor = System.Drawing.SystemColors.Control;
+            this.soundVolumeBar.ThumbLength = 18;
+            this.soundVolumeBar.ThumbMargin = 1;
+            this.soundVolumeBar.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
+            this.soundVolumeBar.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
+            this.soundVolumeBar.Value = 50;
+            this.soundVolumeBar.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.soundVolumeBar_ValueChanged);
+            this.soundVolumeBar.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.soundVolumeBar_Scroll);
+            // 
+            // musicProcessBar
+            // 
+            this.musicProcessBar.AllowCursorChanges = true;
+            this.musicProcessBar.AllowHomeEndKeysDetection = false;
+            this.musicProcessBar.AllowIncrementalClickMoves = true;
+            this.musicProcessBar.AllowMouseDownEffects = false;
+            this.musicProcessBar.AllowMouseHoverEffects = false;
+            this.musicProcessBar.AllowScrollingAnimations = true;
+            this.musicProcessBar.AllowScrollKeysDetection = true;
+            this.musicProcessBar.AllowScrollOptionsMenu = true;
+            this.musicProcessBar.AllowShrinkingOnFocusLost = false;
+            this.musicProcessBar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.musicProcessBar.BackColor = System.Drawing.Color.Transparent;
+            this.musicProcessBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("musicProcessBar.BackgroundImage")));
+            this.musicProcessBar.BindingContainer = null;
+            this.musicProcessBar.BorderRadius = 2;
+            this.musicProcessBar.BorderThickness = 1;
+            this.musicProcessBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sideMenuAni.SetDecoration(this.musicProcessBar, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.musicProcessBar.DrawThickBorder = false;
+            this.musicProcessBar.DurationBeforeShrink = 2000;
+            this.musicProcessBar.ElapsedColor = System.Drawing.Color.DodgerBlue;
+            this.musicProcessBar.LargeChange = 10;
+            this.musicProcessBar.Location = new System.Drawing.Point(380, 83);
+            this.musicProcessBar.Margin = new System.Windows.Forms.Padding(5);
+            this.musicProcessBar.Maximum = 1000;
+            this.musicProcessBar.Minimum = 0;
+            this.musicProcessBar.MinimumSize = new System.Drawing.Size(0, 31);
+            this.musicProcessBar.MinimumThumbLength = 18;
+            this.musicProcessBar.Name = "musicProcessBar";
+            this.musicProcessBar.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
+            this.musicProcessBar.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
+            this.musicProcessBar.OnDisable.ThumbColor = System.Drawing.Color.Silver;
+            this.musicProcessBar.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.musicProcessBar.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.musicProcessBar.ShrinkSizeLimit = 3;
+            this.musicProcessBar.Size = new System.Drawing.Size(374, 31);
+            this.musicProcessBar.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.musicProcessBar.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
+            this.musicProcessBar.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
+            this.musicProcessBar.SmallChange = 1;
+            this.musicProcessBar.TabIndex = 13;
+            this.musicProcessBar.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.musicProcessBar.ThumbFillColor = System.Drawing.SystemColors.Control;
+            this.musicProcessBar.ThumbLength = 18;
+            this.musicProcessBar.ThumbMargin = 1;
+            this.musicProcessBar.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
+            this.musicProcessBar.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
+            this.musicProcessBar.Value = 0;
+            this.musicProcessBar.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.musicProcessBar_ValueChanged);
+            this.musicProcessBar.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.musicProcessBar_Scroll);
+            this.musicProcessBar.Click += new System.EventHandler(this.musicProcessBar_Click);
+            this.musicProcessBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.musicProcessBar_MouseDown);
+            this.musicProcessBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.musicProcessBar_MouseMove);
+            this.musicProcessBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.musicProcessBar_MouseUp);
+            // 
             // songLength
             // 
             this.songLength.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -338,6 +591,29 @@
             this.songLength.Text = "00:00";
             this.songLength.Click += new System.EventHandler(this.songLength_Click);
             // 
+            // loopButton
+            // 
+            this.loopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.loopButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.loopButton.FlatAppearance.BorderSize = 0;
+            this.loopButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.loopButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.loopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loopButton.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.loopButton.ImageIndex = 0;
+            this.loopButton.ImageList = this.leapButtonList;
+            this.loopButton.Location = new System.Drawing.Point(661, 41);
+            this.loopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loopButton.Name = "loopButton";
+            this.loopButton.Size = new System.Drawing.Size(32, 27);
+            this.loopButton.TabIndex = 3;
+            this.loopButton.UseVisualStyleBackColor = true;
+            this.loopButton.Click += new System.EventHandler(this.loopButton_Click);
+            this.loopButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loopButton_MouseDown);
+            this.loopButton.MouseLeave += new System.EventHandler(this.loopButton_MouseLeave);
+            this.loopButton.MouseHover += new System.EventHandler(this.loopButton_MouseHover);
+            this.loopButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.loopButton_MouseUp);
+            // 
             // leapButtonList
             // 
             this.leapButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("leapButtonList.ImageStream")));
@@ -349,6 +625,29 @@
             this.leapButtonList.Images.SetKeyName(4, "icons8-repeat-30.png");
             this.leapButtonList.Images.SetKeyName(5, "icons8-repeat-one-30.png");
             // 
+            // nextButton
+            // 
+            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.nextButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.nextButton.FlatAppearance.BorderSize = 0;
+            this.nextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.nextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nextButton.ImageIndex = 0;
+            this.nextButton.ImageList = this.nextButtonList;
+            this.nextButton.Location = new System.Drawing.Point(614, 41);
+            this.nextButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(32, 27);
+            this.nextButton.TabIndex = 4;
+            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nextButton_MouseDown);
+            this.nextButton.MouseLeave += new System.EventHandler(this.nextButton_MouseLeave);
+            this.nextButton.MouseHover += new System.EventHandler(this.nextButton_MouseHover);
+            this.nextButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.nextButton_MouseUp);
+            // 
             // nextButtonList
             // 
             this.nextButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("nextButtonList.ImageStream")));
@@ -357,6 +656,29 @@
             this.nextButtonList.Images.SetKeyName(1, "icons8-end-30.png");
             this.nextButtonList.Images.SetKeyName(2, "icons8-end-30 (1).png");
             // 
+            // backButton
+            // 
+            this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.backButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.backButton.ImageIndex = 0;
+            this.backButton.ImageList = this.backButtonList;
+            this.backButton.Location = new System.Drawing.Point(507, 41);
+            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(32, 27);
+            this.backButton.TabIndex = 6;
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseDown);
+            this.backButton.MouseLeave += new System.EventHandler(this.backButton_MouseLeave);
+            this.backButton.MouseHover += new System.EventHandler(this.backButton_MouseHover);
+            this.backButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseUp);
+            // 
             // backButtonList
             // 
             this.backButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("backButtonList.ImageStream")));
@@ -364,6 +686,27 @@
             this.backButtonList.Images.SetKeyName(0, "icons8-skip-to-start-30.png");
             this.backButtonList.Images.SetKeyName(1, "icons8-skip-to-start-30.png");
             this.backButtonList.Images.SetKeyName(2, "icons8-skip-to-start-30 (1).png");
+            // 
+            // randomButton
+            // 
+            this.randomButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.randomButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.randomButton.FlatAppearance.BorderSize = 0;
+            this.randomButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.randomButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.randomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.randomButton.ImageIndex = 0;
+            this.randomButton.ImageList = this.shuffleButtonList;
+            this.randomButton.Location = new System.Drawing.Point(456, 41);
+            this.randomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.randomButton.Name = "randomButton";
+            this.randomButton.Size = new System.Drawing.Size(32, 27);
+            this.randomButton.TabIndex = 7;
+            this.randomButton.UseMnemonic = false;
+            this.randomButton.UseVisualStyleBackColor = true;
+            this.randomButton.Click += new System.EventHandler(this.randomButton_Click);
+            this.randomButton.MouseLeave += new System.EventHandler(this.randomButton_MouseLeave);
+            this.randomButton.MouseHover += new System.EventHandler(this.randomButton_MouseHover);
             // 
             // shuffleButtonList
             // 
@@ -388,6 +731,31 @@
             this.time.Text = "00:00";
             this.time.Click += new System.EventHandler(this.time_Click);
             // 
+            // soundButton
+            // 
+            this.soundButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.sideMenuAni.SetDecoration(this.soundButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.soundButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.soundButton.FlatAppearance.BorderSize = 0;
+            this.soundButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.soundButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.soundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.soundButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.soundButton.ImageIndex = 0;
+            this.soundButton.ImageList = this.soundButtonList;
+            this.soundButton.Location = new System.Drawing.Point(837, 40);
+            this.soundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.soundButton.Name = "soundButton";
+            this.soundButton.Size = new System.Drawing.Size(48, 34);
+            this.soundButton.TabIndex = 2;
+            this.soundButton.UseVisualStyleBackColor = true;
+            this.soundButton.Click += new System.EventHandler(this.soundButton_Click);
+            this.soundButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.soundButton_MouseDown);
+            this.soundButton.MouseLeave += new System.EventHandler(this.soundButton_MouseLeave);
+            this.soundButton.MouseHover += new System.EventHandler(this.soundButton_MouseHover);
+            this.soundButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.soundButton_MouseUp);
+            // 
             // soundButtonList
             // 
             this.soundButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("soundButtonList.ImageStream")));
@@ -398,6 +766,33 @@
             this.soundButtonList.Images.SetKeyName(3, "icons8-low-volume-30 (2).png");
             this.soundButtonList.Images.SetKeyName(4, "icons8-audio-30 (1).png");
             this.soundButtonList.Images.SetKeyName(5, "icons8-low-volume-30 (1).png");
+            // 
+            // muteButton
+            // 
+            this.muteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.sideMenuAni.SetDecoration(this.muteButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.muteButton.Enabled = false;
+            this.muteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.muteButton.FlatAppearance.BorderSize = 0;
+            this.muteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.muteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.muteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.muteButton.ImageIndex = 0;
+            this.muteButton.ImageList = this.muteButtonList;
+            this.muteButton.Location = new System.Drawing.Point(837, 39);
+            this.muteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.muteButton.Name = "muteButton";
+            this.muteButton.Size = new System.Drawing.Size(48, 34);
+            this.muteButton.TabIndex = 2;
+            this.muteButton.UseVisualStyleBackColor = true;
+            this.muteButton.Visible = false;
+            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
+            this.muteButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.muteButton_MouseDown);
+            this.muteButton.MouseLeave += new System.EventHandler(this.muteButton_MouseLeave);
+            this.muteButton.MouseHover += new System.EventHandler(this.muteButton_MouseHover);
+            this.muteButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.muteButton_MouseUp);
             // 
             // muteButtonList
             // 
@@ -410,6 +805,31 @@
             this.muteButtonList.Images.SetKeyName(4, "icons8-no-audio-30 (1).png");
             this.muteButtonList.Images.SetKeyName(5, "icons8-mute-30 (4).png");
             // 
+            // playButton
+            // 
+            this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.playButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.playButton.FlatAppearance.BorderSize = 0;
+            this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.playButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playButton.ForeColor = System.Drawing.Color.White;
+            this.playButton.ImageIndex = 0;
+            this.playButton.ImageList = this.playButtonList;
+            this.playButton.Location = new System.Drawing.Point(562, 41);
+            this.playButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.playButton.Name = "playButton";
+            this.playButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.playButton.Size = new System.Drawing.Size(32, 27);
+            this.playButton.TabIndex = 5;
+            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            this.playButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseDown);
+            this.playButton.MouseLeave += new System.EventHandler(this.playButton_MouseLeave);
+            this.playButton.MouseHover += new System.EventHandler(this.playButton_MouseHover);
+            this.playButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseUp);
+            // 
             // playButtonList
             // 
             this.playButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("playButtonList.ImageStream")));
@@ -417,6 +837,30 @@
             this.playButtonList.Images.SetKeyName(0, "icons8-play-30.png");
             this.playButtonList.Images.SetKeyName(1, "icons8-play-30 (1).png");
             this.playButtonList.Images.SetKeyName(2, "icons8-play-30.png");
+            // 
+            // stopButton
+            // 
+            this.stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.sideMenuAni.SetDecoration(this.stopButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.stopButton.FlatAppearance.BorderSize = 0;
+            this.stopButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.stopButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopButton.ForeColor = System.Drawing.Color.White;
+            this.stopButton.ImageIndex = 0;
+            this.stopButton.ImageList = this.stopButtonList;
+            this.stopButton.Location = new System.Drawing.Point(562, 43);
+            this.stopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.stopButton.Size = new System.Drawing.Size(32, 27);
+            this.stopButton.TabIndex = 5;
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            this.stopButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.stopButton_MouseDown);
+            this.stopButton.MouseLeave += new System.EventHandler(this.stopButton_MouseLeave);
+            this.stopButton.MouseHover += new System.EventHandler(this.stopButton_MouseHover);
+            this.stopButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.stopButton_MouseUp);
             // 
             // stopButtonList
             // 
@@ -463,22 +907,22 @@
             // 
             this.sideMenuAni.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
             this.sideMenuAni.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.sideMenuAni.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.sideMenuAni.DefaultAnimation = animation1;
             // 
             // titlePanel
             // 
@@ -496,149 +940,6 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1083, 102);
             this.titlePanel.TabIndex = 5;
-            // 
-            // backwardButtonList
-            // 
-            this.backwardButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("backwardButtonList.ImageStream")));
-            this.backwardButtonList.TransparentColor = System.Drawing.Color.Transparent;
-            this.backwardButtonList.Images.SetKeyName(0, "icons8-arrow-pointing-left-60 (2).png");
-            this.backwardButtonList.Images.SetKeyName(1, "icons8-arrow-pointing-left-60 (1).png");
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.sideMenuAni.SetDecoration(this.label1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(-4, 75);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
-            this.label1.TabIndex = 7;
-            // 
-            // mainMidPanel
-            // 
-            this.mainMidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.mainMidPanel.Controls.Add(this.mainPicturebox);
-            this.mainMidPanel.Controls.Add(this.openFolderButton);
-            this.sideMenuAni.SetDecoration(this.mainMidPanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.mainMidPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainMidPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainMidPanel.Location = new System.Drawing.Point(264, 102);
-            this.mainMidPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mainMidPanel.Name = "mainMidPanel";
-            this.mainMidPanel.Size = new System.Drawing.Size(1083, 461);
-            this.mainMidPanel.TabIndex = 6;
-            // 
-            // dragControl
-            // 
-            this.dragControl.Fixed = true;
-            this.dragControl.Horizontal = true;
-            this.dragControl.TargetControl = this.titlePanel;
-            this.dragControl.Vertical = true;
-            // 
-            // mainPicturebox
-            // 
-            this.mainPicturebox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sideMenuAni.SetDecoration(this.mainPicturebox, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.mainPicturebox.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
-            this.mainPicturebox.Location = new System.Drawing.Point(520, 189);
-            this.mainPicturebox.Margin = new System.Windows.Forms.Padding(4);
-            this.mainPicturebox.Name = "mainPicturebox";
-            this.mainPicturebox.Size = new System.Drawing.Size(116, 117);
-            this.mainPicturebox.TabIndex = 0;
-            this.mainPicturebox.TabStop = false;
-            this.mainPicturebox.Click += new System.EventHandler(this.mainPicturebox_Click);
-            // 
-            // openFolderButton
-            // 
-            this.openFolderButton.AllowAnimations = true;
-            this.openFolderButton.AllowMouseEffects = true;
-            this.openFolderButton.AllowToggling = false;
-            this.openFolderButton.AnimationSpeed = 200;
-            this.openFolderButton.AutoGenerateColors = false;
-            this.openFolderButton.AutoRoundBorders = false;
-            this.openFolderButton.AutoSizeLeftIcon = true;
-            this.openFolderButton.AutoSizeRightIcon = true;
-            this.openFolderButton.BackColor = System.Drawing.Color.Transparent;
-            this.openFolderButton.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.openFolderButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("openFolderButton.BackgroundImage")));
-            this.openFolderButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.openFolderButton.ButtonText = "";
-            this.openFolderButton.ButtonTextMarginLeft = 0;
-            this.openFolderButton.ColorContrastOnClick = 45;
-            this.openFolderButton.ColorContrastOnHover = 45;
-            this.openFolderButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.openFolderButton.CustomizableEdges = borderEdges4;
-            this.sideMenuAni.SetDecoration(this.openFolderButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.openFolderButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.openFolderButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.openFolderButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.openFolderButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.openFolderButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.openFolderButton.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openFolderButton.ForeColor = System.Drawing.Color.White;
-            this.openFolderButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.openFolderButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.openFolderButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.openFolderButton.IconMarginLeft = 11;
-            this.openFolderButton.IconPadding = 10;
-            this.openFolderButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.openFolderButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.openFolderButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.openFolderButton.IconSize = 25;
-            this.openFolderButton.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.openFolderButton.IdleBorderRadius = 1;
-            this.openFolderButton.IdleBorderThickness = 1;
-            this.openFolderButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.openFolderButton.IdleIconLeftImage = null;
-            this.openFolderButton.IdleIconRightImage = null;
-            this.openFolderButton.IndicateFocus = false;
-            this.openFolderButton.Location = new System.Drawing.Point(913, 26);
-            this.openFolderButton.Name = "openFolderButton";
-            this.openFolderButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.openFolderButton.OnDisabledState.BorderRadius = 1;
-            this.openFolderButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.openFolderButton.OnDisabledState.BorderThickness = 1;
-            this.openFolderButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.openFolderButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.openFolderButton.OnDisabledState.IconLeftImage = null;
-            this.openFolderButton.OnDisabledState.IconRightImage = null;
-            this.openFolderButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.openFolderButton.onHoverState.BorderRadius = 1;
-            this.openFolderButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.openFolderButton.onHoverState.BorderThickness = 1;
-            this.openFolderButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.openFolderButton.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.openFolderButton.onHoverState.IconLeftImage = null;
-            this.openFolderButton.onHoverState.IconRightImage = null;
-            this.openFolderButton.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.openFolderButton.OnIdleState.BorderRadius = 1;
-            this.openFolderButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.openFolderButton.OnIdleState.BorderThickness = 1;
-            this.openFolderButton.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.openFolderButton.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.openFolderButton.OnIdleState.IconLeftImage = null;
-            this.openFolderButton.OnIdleState.IconRightImage = null;
-            this.openFolderButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.openFolderButton.OnPressedState.BorderRadius = 1;
-            this.openFolderButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.openFolderButton.OnPressedState.BorderThickness = 1;
-            this.openFolderButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.openFolderButton.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.openFolderButton.OnPressedState.IconLeftImage = null;
-            this.openFolderButton.OnPressedState.IconRightImage = null;
-            this.openFolderButton.Size = new System.Drawing.Size(124, 39);
-            this.openFolderButton.TabIndex = 1;
-            this.openFolderButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.openFolderButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.openFolderButton.TextMarginLeft = 0;
-            this.openFolderButton.TextPadding = new System.Windows.Forms.Padding(0);
-            this.openFolderButton.UseDefaultRadiusAndThickness = true;
-            this.openFolderButton.Visible = false;
             // 
             // cancelButton
             // 
@@ -659,11 +960,11 @@
             this.cancelButton.ColorContrastOnClick = 45;
             this.cancelButton.ColorContrastOnHover = 45;
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.cancelButton.CustomizableEdges = borderEdges5;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.cancelButton.CustomizableEdges = borderEdges1;
             this.sideMenuAni.SetDecoration(this.cancelButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.cancelButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -752,11 +1053,11 @@
             this.saveButton.ColorContrastOnClick = 45;
             this.saveButton.ColorContrastOnHover = 45;
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.saveButton.CustomizableEdges = borderEdges6;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.saveButton.CustomizableEdges = borderEdges2;
             this.sideMenuAni.SetDecoration(this.saveButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.saveButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -847,6 +1148,24 @@
             this.backwardButton.MouseEnter += new System.EventHandler(this.backwardButton_MouseEnter);
             this.backwardButton.MouseLeave += new System.EventHandler(this.backwardButton_MouseLeave);
             // 
+            // backwardButtonList
+            // 
+            this.backwardButtonList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("backwardButtonList.ImageStream")));
+            this.backwardButtonList.TransparentColor = System.Drawing.Color.Transparent;
+            this.backwardButtonList.Images.SetKeyName(0, "icons8-arrow-pointing-left-60 (2).png");
+            this.backwardButtonList.Images.SetKeyName(1, "icons8-arrow-pointing-left-60 (1).png");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.sideMenuAni.SetDecoration(this.label1, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(-4, 75);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.TabIndex = 7;
+            // 
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -868,447 +1187,130 @@
             this.exitButton.MouseLeave += new System.EventHandler(this.exitButton_MouseLeave);
             this.exitButton.MouseHover += new System.EventHandler(this.exitButton_MouseHover);
             // 
-            // stopVideoButton
+            // mainMidPanel
             // 
-            this.stopVideoButton.BackColor = System.Drawing.Color.Silver;
-            this.sideMenuAni.SetDecoration(this.stopVideoButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.stopVideoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stopVideoButton.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.stopVideoButton.Location = new System.Drawing.Point(666, 40);
-            this.stopVideoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.stopVideoButton.Name = "stopVideoButton";
-            this.stopVideoButton.Size = new System.Drawing.Size(27, 27);
-            this.stopVideoButton.TabIndex = 15;
-            this.stopVideoButton.UseVisualStyleBackColor = false;
-            this.stopVideoButton.Click += new System.EventHandler(this.stopVideoButton_Click);
+            this.mainMidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.mainMidPanel.Controls.Add(this.mainPicturebox);
+            this.mainMidPanel.Controls.Add(this.openFolderButton);
+            this.sideMenuAni.SetDecoration(this.mainMidPanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.mainMidPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainMidPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMidPanel.Location = new System.Drawing.Point(264, 102);
+            this.mainMidPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mainMidPanel.Name = "mainMidPanel";
+            this.mainMidPanel.Size = new System.Drawing.Size(1083, 461);
+            this.mainMidPanel.TabIndex = 6;
             // 
-            // soundVolumeBar
+            // mainPicturebox
             // 
-            this.soundVolumeBar.AllowCursorChanges = true;
-            this.soundVolumeBar.AllowHomeEndKeysDetection = false;
-            this.soundVolumeBar.AllowIncrementalClickMoves = true;
-            this.soundVolumeBar.AllowMouseDownEffects = false;
-            this.soundVolumeBar.AllowMouseHoverEffects = false;
-            this.soundVolumeBar.AllowScrollingAnimations = true;
-            this.soundVolumeBar.AllowScrollKeysDetection = true;
-            this.soundVolumeBar.AllowScrollOptionsMenu = true;
-            this.soundVolumeBar.AllowShrinkingOnFocusLost = false;
-            this.soundVolumeBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("soundVolumeBar.BackgroundImage")));
-            this.soundVolumeBar.BindingContainer = null;
-            this.soundVolumeBar.BorderRadius = 2;
-            this.soundVolumeBar.BorderThickness = 1;
-            this.soundVolumeBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sideMenuAni.SetDecoration(this.soundVolumeBar, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.soundVolumeBar.DrawThickBorder = false;
-            this.soundVolumeBar.DurationBeforeShrink = 2000;
-            this.soundVolumeBar.ElapsedColor = System.Drawing.Color.DodgerBlue;
-            this.soundVolumeBar.LargeChange = 10;
-            this.soundVolumeBar.Location = new System.Drawing.Point(892, 41);
-            this.soundVolumeBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.soundVolumeBar.Maximum = 100;
-            this.soundVolumeBar.Minimum = 0;
-            this.soundVolumeBar.MinimumSize = new System.Drawing.Size(0, 31);
-            this.soundVolumeBar.MinimumThumbLength = 18;
-            this.soundVolumeBar.Name = "soundVolumeBar";
-            this.soundVolumeBar.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.soundVolumeBar.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
-            this.soundVolumeBar.OnDisable.ThumbColor = System.Drawing.Color.Silver;
-            this.soundVolumeBar.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.soundVolumeBar.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.soundVolumeBar.ShrinkSizeLimit = 3;
-            this.soundVolumeBar.Size = new System.Drawing.Size(124, 31);
-            this.soundVolumeBar.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.soundVolumeBar.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
-            this.soundVolumeBar.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
-            this.soundVolumeBar.SmallChange = 1;
-            this.soundVolumeBar.TabIndex = 14;
-            this.soundVolumeBar.ThumbColor = System.Drawing.Color.DodgerBlue;
-            this.soundVolumeBar.ThumbFillColor = System.Drawing.SystemColors.Control;
-            this.soundVolumeBar.ThumbLength = 18;
-            this.soundVolumeBar.ThumbMargin = 1;
-            this.soundVolumeBar.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
-            this.soundVolumeBar.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
-            this.soundVolumeBar.Value = 50;
-            this.soundVolumeBar.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.soundVolumeBar_ValueChanged);
-            this.soundVolumeBar.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.soundVolumeBar_Scroll);
+            this.mainPicturebox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sideMenuAni.SetDecoration(this.mainPicturebox, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.mainPicturebox.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
+            this.mainPicturebox.Location = new System.Drawing.Point(520, 189);
+            this.mainPicturebox.Margin = new System.Windows.Forms.Padding(4);
+            this.mainPicturebox.Name = "mainPicturebox";
+            this.mainPicturebox.Size = new System.Drawing.Size(116, 117);
+            this.mainPicturebox.TabIndex = 0;
+            this.mainPicturebox.TabStop = false;
+            this.mainPicturebox.Click += new System.EventHandler(this.mainPicturebox_Click);
             // 
-            // musicProcessBar
+            // openFolderButton
             // 
-            this.musicProcessBar.AllowCursorChanges = true;
-            this.musicProcessBar.AllowHomeEndKeysDetection = false;
-            this.musicProcessBar.AllowIncrementalClickMoves = true;
-            this.musicProcessBar.AllowMouseDownEffects = false;
-            this.musicProcessBar.AllowMouseHoverEffects = false;
-            this.musicProcessBar.AllowScrollingAnimations = true;
-            this.musicProcessBar.AllowScrollKeysDetection = true;
-            this.musicProcessBar.AllowScrollOptionsMenu = true;
-            this.musicProcessBar.AllowShrinkingOnFocusLost = false;
-            this.musicProcessBar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.musicProcessBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("musicProcessBar.BackgroundImage")));
-            this.musicProcessBar.BindingContainer = null;
-            this.musicProcessBar.BorderRadius = 2;
-            this.musicProcessBar.BorderThickness = 1;
-            this.musicProcessBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sideMenuAni.SetDecoration(this.musicProcessBar, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.musicProcessBar.DrawThickBorder = false;
-            this.musicProcessBar.DurationBeforeShrink = 2000;
-            this.musicProcessBar.ElapsedColor = System.Drawing.Color.DodgerBlue;
-            this.musicProcessBar.LargeChange = 10;
-            this.musicProcessBar.Location = new System.Drawing.Point(380, 83);
-            this.musicProcessBar.Margin = new System.Windows.Forms.Padding(5);
-            this.musicProcessBar.Maximum = 1000;
-            this.musicProcessBar.Minimum = 0;
-            this.musicProcessBar.MinimumSize = new System.Drawing.Size(0, 31);
-            this.musicProcessBar.MinimumThumbLength = 18;
-            this.musicProcessBar.Name = "musicProcessBar";
-            this.musicProcessBar.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.musicProcessBar.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
-            this.musicProcessBar.OnDisable.ThumbColor = System.Drawing.Color.Silver;
-            this.musicProcessBar.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.musicProcessBar.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.musicProcessBar.ShrinkSizeLimit = 3;
-            this.musicProcessBar.Size = new System.Drawing.Size(374, 31);
-            this.musicProcessBar.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.musicProcessBar.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
-            this.musicProcessBar.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
-            this.musicProcessBar.SmallChange = 1;
-            this.musicProcessBar.TabIndex = 13;
-            this.musicProcessBar.ThumbColor = System.Drawing.Color.DodgerBlue;
-            this.musicProcessBar.ThumbFillColor = System.Drawing.SystemColors.Control;
-            this.musicProcessBar.ThumbLength = 18;
-            this.musicProcessBar.ThumbMargin = 1;
-            this.musicProcessBar.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
-            this.musicProcessBar.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
-            this.musicProcessBar.Value = 0;
-            this.musicProcessBar.ValueChanged += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs>(this.musicProcessBar_ValueChanged);
-            this.musicProcessBar.Scroll += new System.EventHandler<Utilities.BunifuSlider.BunifuHScrollBar.ScrollEventArgs>(this.musicProcessBar_Scroll);
-            this.musicProcessBar.Click += new System.EventHandler(this.musicProcessBar_Click);
-            this.musicProcessBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.musicProcessBar_MouseDown);
-            this.musicProcessBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.musicProcessBar_MouseMove);
-            this.musicProcessBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.musicProcessBar_MouseUp);
+            this.openFolderButton.AllowAnimations = true;
+            this.openFolderButton.AllowMouseEffects = true;
+            this.openFolderButton.AllowToggling = false;
+            this.openFolderButton.AnimationSpeed = 200;
+            this.openFolderButton.AutoGenerateColors = false;
+            this.openFolderButton.AutoRoundBorders = false;
+            this.openFolderButton.AutoSizeLeftIcon = true;
+            this.openFolderButton.AutoSizeRightIcon = true;
+            this.openFolderButton.BackColor = System.Drawing.Color.Transparent;
+            this.openFolderButton.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.openFolderButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("openFolderButton.BackgroundImage")));
+            this.openFolderButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.openFolderButton.ButtonText = "";
+            this.openFolderButton.ButtonTextMarginLeft = 0;
+            this.openFolderButton.ColorContrastOnClick = 45;
+            this.openFolderButton.ColorContrastOnHover = 45;
+            this.openFolderButton.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.openFolderButton.CustomizableEdges = borderEdges3;
+            this.sideMenuAni.SetDecoration(this.openFolderButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.openFolderButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.openFolderButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.openFolderButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.openFolderButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.openFolderButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.openFolderButton.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openFolderButton.ForeColor = System.Drawing.Color.White;
+            this.openFolderButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openFolderButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.openFolderButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.openFolderButton.IconMarginLeft = 11;
+            this.openFolderButton.IconPadding = 10;
+            this.openFolderButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.openFolderButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.openFolderButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.openFolderButton.IconSize = 25;
+            this.openFolderButton.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.openFolderButton.IdleBorderRadius = 1;
+            this.openFolderButton.IdleBorderThickness = 1;
+            this.openFolderButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.openFolderButton.IdleIconLeftImage = null;
+            this.openFolderButton.IdleIconRightImage = null;
+            this.openFolderButton.IndicateFocus = false;
+            this.openFolderButton.Location = new System.Drawing.Point(913, 26);
+            this.openFolderButton.Name = "openFolderButton";
+            this.openFolderButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.openFolderButton.OnDisabledState.BorderRadius = 1;
+            this.openFolderButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.openFolderButton.OnDisabledState.BorderThickness = 1;
+            this.openFolderButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.openFolderButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.openFolderButton.OnDisabledState.IconLeftImage = null;
+            this.openFolderButton.OnDisabledState.IconRightImage = null;
+            this.openFolderButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.openFolderButton.onHoverState.BorderRadius = 1;
+            this.openFolderButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.openFolderButton.onHoverState.BorderThickness = 1;
+            this.openFolderButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.openFolderButton.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.openFolderButton.onHoverState.IconLeftImage = null;
+            this.openFolderButton.onHoverState.IconRightImage = null;
+            this.openFolderButton.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.openFolderButton.OnIdleState.BorderRadius = 1;
+            this.openFolderButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.openFolderButton.OnIdleState.BorderThickness = 1;
+            this.openFolderButton.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.openFolderButton.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.openFolderButton.OnIdleState.IconLeftImage = null;
+            this.openFolderButton.OnIdleState.IconRightImage = null;
+            this.openFolderButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.openFolderButton.OnPressedState.BorderRadius = 1;
+            this.openFolderButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.openFolderButton.OnPressedState.BorderThickness = 1;
+            this.openFolderButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.openFolderButton.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.openFolderButton.OnPressedState.IconLeftImage = null;
+            this.openFolderButton.OnPressedState.IconRightImage = null;
+            this.openFolderButton.Size = new System.Drawing.Size(124, 39);
+            this.openFolderButton.TabIndex = 1;
+            this.openFolderButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.openFolderButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.openFolderButton.TextMarginLeft = 0;
+            this.openFolderButton.TextPadding = new System.Windows.Forms.Padding(0);
+            this.openFolderButton.UseDefaultRadiusAndThickness = true;
+            this.openFolderButton.Visible = false;
             // 
-            // loopButton
+            // dragControl
             // 
-            this.loopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.loopButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.loopButton.FlatAppearance.BorderSize = 0;
-            this.loopButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.loopButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.loopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loopButton.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.loopButton.ImageIndex = 0;
-            this.loopButton.ImageList = this.leapButtonList;
-            this.loopButton.Location = new System.Drawing.Point(661, 41);
-            this.loopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.loopButton.Name = "loopButton";
-            this.loopButton.Size = new System.Drawing.Size(32, 27);
-            this.loopButton.TabIndex = 3;
-            this.loopButton.UseVisualStyleBackColor = true;
-            this.loopButton.Click += new System.EventHandler(this.loopButton_Click);
-            this.loopButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loopButton_MouseDown);
-            this.loopButton.MouseLeave += new System.EventHandler(this.loopButton_MouseLeave);
-            this.loopButton.MouseHover += new System.EventHandler(this.loopButton_MouseHover);
-            this.loopButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.loopButton_MouseUp);
-            // 
-            // nextButton
-            // 
-            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.nextButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.nextButton.FlatAppearance.BorderSize = 0;
-            this.nextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.nextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nextButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.nextButton.ImageIndex = 0;
-            this.nextButton.ImageList = this.nextButtonList;
-            this.nextButton.Location = new System.Drawing.Point(614, 41);
-            this.nextButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(32, 27);
-            this.nextButton.TabIndex = 4;
-            this.nextButton.UseVisualStyleBackColor = true;
-            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
-            this.nextButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nextButton_MouseDown);
-            this.nextButton.MouseLeave += new System.EventHandler(this.nextButton_MouseLeave);
-            this.nextButton.MouseHover += new System.EventHandler(this.nextButton_MouseHover);
-            this.nextButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.nextButton_MouseUp);
-            // 
-            // backButton
-            // 
-            this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.backButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.backButton.ImageIndex = 0;
-            this.backButton.ImageList = this.backButtonList;
-            this.backButton.Location = new System.Drawing.Point(507, 41);
-            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(32, 27);
-            this.backButton.TabIndex = 6;
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            this.backButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseDown);
-            this.backButton.MouseLeave += new System.EventHandler(this.backButton_MouseLeave);
-            this.backButton.MouseHover += new System.EventHandler(this.backButton_MouseHover);
-            this.backButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseUp);
-            // 
-            // randomButton
-            // 
-            this.randomButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.randomButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.randomButton.FlatAppearance.BorderSize = 0;
-            this.randomButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.randomButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.randomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.randomButton.ImageIndex = 0;
-            this.randomButton.ImageList = this.shuffleButtonList;
-            this.randomButton.Location = new System.Drawing.Point(456, 41);
-            this.randomButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.randomButton.Name = "randomButton";
-            this.randomButton.Size = new System.Drawing.Size(32, 27);
-            this.randomButton.TabIndex = 7;
-            this.randomButton.UseMnemonic = false;
-            this.randomButton.UseVisualStyleBackColor = true;
-            this.randomButton.Click += new System.EventHandler(this.randomButton_Click);
-            this.randomButton.MouseLeave += new System.EventHandler(this.randomButton_MouseLeave);
-            this.randomButton.MouseHover += new System.EventHandler(this.randomButton_MouseHover);
-            // 
-            // soundButton
-            // 
-            this.soundButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.sideMenuAni.SetDecoration(this.soundButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.soundButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.soundButton.FlatAppearance.BorderSize = 0;
-            this.soundButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.soundButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.soundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.soundButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.soundButton.ImageIndex = 0;
-            this.soundButton.ImageList = this.soundButtonList;
-            this.soundButton.Location = new System.Drawing.Point(837, 40);
-            this.soundButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.soundButton.Name = "soundButton";
-            this.soundButton.Size = new System.Drawing.Size(48, 34);
-            this.soundButton.TabIndex = 2;
-            this.soundButton.UseVisualStyleBackColor = true;
-            this.soundButton.Click += new System.EventHandler(this.soundButton_Click);
-            this.soundButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.soundButton_MouseDown);
-            this.soundButton.MouseLeave += new System.EventHandler(this.soundButton_MouseLeave);
-            this.soundButton.MouseHover += new System.EventHandler(this.soundButton_MouseHover);
-            this.soundButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.soundButton_MouseUp);
-            // 
-            // muteButton
-            // 
-            this.muteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.sideMenuAni.SetDecoration(this.muteButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.muteButton.Enabled = false;
-            this.muteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.muteButton.FlatAppearance.BorderSize = 0;
-            this.muteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.muteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.muteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.muteButton.ImageIndex = 0;
-            this.muteButton.ImageList = this.muteButtonList;
-            this.muteButton.Location = new System.Drawing.Point(837, 39);
-            this.muteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.muteButton.Name = "muteButton";
-            this.muteButton.Size = new System.Drawing.Size(48, 34);
-            this.muteButton.TabIndex = 2;
-            this.muteButton.UseVisualStyleBackColor = true;
-            this.muteButton.Visible = false;
-            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
-            this.muteButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.muteButton_MouseDown);
-            this.muteButton.MouseLeave += new System.EventHandler(this.muteButton_MouseLeave);
-            this.muteButton.MouseHover += new System.EventHandler(this.muteButton_MouseHover);
-            this.muteButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.muteButton_MouseUp);
-            // 
-            // playButton
-            // 
-            this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.playButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.playButton.FlatAppearance.BorderSize = 0;
-            this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.playButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playButton.ForeColor = System.Drawing.Color.White;
-            this.playButton.ImageIndex = 0;
-            this.playButton.ImageList = this.playButtonList;
-            this.playButton.Location = new System.Drawing.Point(562, 41);
-            this.playButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.playButton.Name = "playButton";
-            this.playButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.playButton.Size = new System.Drawing.Size(32, 27);
-            this.playButton.TabIndex = 5;
-            this.playButton.UseVisualStyleBackColor = true;
-            this.playButton.Click += new System.EventHandler(this.playButton_Click);
-            this.playButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseDown);
-            this.playButton.MouseLeave += new System.EventHandler(this.playButton_MouseLeave);
-            this.playButton.MouseHover += new System.EventHandler(this.playButton_MouseHover);
-            this.playButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseUp);
-            // 
-            // stopButton
-            // 
-            this.stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.sideMenuAni.SetDecoration(this.stopButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.stopButton.FlatAppearance.BorderSize = 0;
-            this.stopButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.stopButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stopButton.ForeColor = System.Drawing.Color.White;
-            this.stopButton.ImageIndex = 0;
-            this.stopButton.ImageList = this.stopButtonList;
-            this.stopButton.Location = new System.Drawing.Point(562, 43);
-            this.stopButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.stopButton.Size = new System.Drawing.Size(32, 27);
-            this.stopButton.TabIndex = 5;
-            this.stopButton.UseVisualStyleBackColor = true;
-            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-            this.stopButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.stopButton_MouseDown);
-            this.stopButton.MouseLeave += new System.EventHandler(this.stopButton_MouseLeave);
-            this.stopButton.MouseHover += new System.EventHandler(this.stopButton_MouseHover);
-            this.stopButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.stopButton_MouseUp);
-            // 
-            // sideMenuButton
-            // 
-            this.sideMenuAni.SetDecoration(this.sideMenuButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.sideMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuButton.FlatAppearance.BorderSize = 0;
-            this.sideMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.sideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sideMenuButton.ImageIndex = 0;
-            this.sideMenuButton.ImageList = this.menuButtonList;
-            this.sideMenuButton.Location = new System.Drawing.Point(3, 27);
-            this.sideMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sideMenuButton.Name = "sideMenuButton";
-            this.sideMenuButton.Size = new System.Drawing.Size(44, 46);
-            this.sideMenuButton.TabIndex = 3;
-            this.sideMenuButton.UseVisualStyleBackColor = true;
-            this.sideMenuButton.Click += new System.EventHandler(this.sideMenuButton_Click);
-            this.sideMenuButton.MouseLeave += new System.EventHandler(this.sideMenuButton_MouseLeave);
-            this.sideMenuButton.MouseHover += new System.EventHandler(this.sideMenuButton_MouseHover);
-            // 
-            // mediaButton
-            // 
-            this.sideMenuAni.SetDecoration(this.mediaButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.mediaButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mediaButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(39)))));
-            this.mediaButton.FlatAppearance.BorderSize = 0;
-            this.mediaButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(218)))), ((int)(((byte)(110)))));
-            this.mediaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mediaButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.mediaButton.Image = global::GUI.Properties.Resources.icons8_music_30;
-            this.mediaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mediaButton.Location = new System.Drawing.Point(3, 106);
-            this.mediaButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mediaButton.Name = "mediaButton";
-            this.mediaButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.mediaButton.Size = new System.Drawing.Size(251, 46);
-            this.mediaButton.TabIndex = 1;
-            this.mediaButton.Text = "Media";
-            this.mediaButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.mediaButton.UseVisualStyleBackColor = true;
-            this.mediaButton.Click += new System.EventHandler(this.mediaButton_Click);
-            this.mediaButton.MouseLeave += new System.EventHandler(this.mediaButton_MouseLeave);
-            this.mediaButton.MouseHover += new System.EventHandler(this.mediaButton_MouseHover);
-            // 
-            // playlistButton
-            // 
-            this.sideMenuAni.SetDecoration(this.playlistButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.playlistButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.playlistButton.FlatAppearance.BorderSize = 0;
-            this.playlistButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.playlistButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.playlistButton.Image = ((System.Drawing.Image)(resources.GetObject("playlistButton.Image")));
-            this.playlistButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.playlistButton.Location = new System.Drawing.Point(3, 255);
-            this.playlistButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.playlistButton.Name = "playlistButton";
-            this.playlistButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.playlistButton.Size = new System.Drawing.Size(251, 46);
-            this.playlistButton.TabIndex = 3;
-            this.playlistButton.Text = "Playlist Management";
-            this.playlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.playlistButton.UseVisualStyleBackColor = true;
-            this.playlistButton.Click += new System.EventHandler(this.playlistButton_Click);
-            this.playlistButton.MouseLeave += new System.EventHandler(this.playlistButton_MouseLeave);
-            this.playlistButton.MouseHover += new System.EventHandler(this.playlistButton_MouseHover);
-            // 
-            // pictureButton
-            // 
-            this.sideMenuAni.SetDecoration(this.pictureButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.pictureButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureButton.FlatAppearance.BorderSize = 0;
-            this.pictureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pictureButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pictureButton.Image = ((System.Drawing.Image)(resources.GetObject("pictureButton.Image")));
-            this.pictureButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pictureButton.Location = new System.Drawing.Point(3, 352);
-            this.pictureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureButton.Name = "pictureButton";
-            this.pictureButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.pictureButton.Size = new System.Drawing.Size(251, 46);
-            this.pictureButton.TabIndex = 5;
-            this.pictureButton.Text = "Picture";
-            this.pictureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.pictureButton.UseVisualStyleBackColor = true;
-            this.pictureButton.Click += new System.EventHandler(this.pictureButton_Click);
-            this.pictureButton.MouseLeave += new System.EventHandler(this.pictureButton_MouseLeave);
-            this.pictureButton.MouseHover += new System.EventHandler(this.pictureButton_MouseHover);
-            // 
-            // videoButton
-            // 
-            this.sideMenuAni.SetDecoration(this.videoButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.videoButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.videoButton.FlatAppearance.BorderSize = 0;
-            this.videoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.videoButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.videoButton.Image = ((System.Drawing.Image)(resources.GetObject("videoButton.Image")));
-            this.videoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.videoButton.Location = new System.Drawing.Point(3, 446);
-            this.videoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.videoButton.Name = "videoButton";
-            this.videoButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.videoButton.Size = new System.Drawing.Size(251, 46);
-            this.videoButton.TabIndex = 6;
-            this.videoButton.Text = "Video";
-            this.videoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.videoButton.UseVisualStyleBackColor = true;
-            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
-            this.videoButton.MouseLeave += new System.EventHandler(this.videoButton_MouseLeave);
-            this.videoButton.MouseHover += new System.EventHandler(this.videoButton_MouseHover);
-            // 
-            // helpButton
-            // 
-            this.sideMenuAni.SetDecoration(this.helpButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.helpButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.helpButton.FlatAppearance.BorderSize = 0;
-            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpButton.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.helpButton.Image = ((System.Drawing.Image)(resources.GetObject("helpButton.Image")));
-            this.helpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpButton.Location = new System.Drawing.Point(3, 584);
-            this.helpButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.helpButton.Size = new System.Drawing.Size(251, 46);
-            this.helpButton.TabIndex = 8;
-            this.helpButton.Text = "Help";
-            this.helpButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.helpButton.UseVisualStyleBackColor = true;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
-            this.helpButton.MouseLeave += new System.EventHandler(this.helpButton_MouseLeave);
-            this.helpButton.MouseHover += new System.EventHandler(this.helpButton_MouseHover);
+            this.dragControl.Fixed = true;
+            this.dragControl.Horizontal = true;
+            this.dragControl.TargetControl = this.titlePanel;
+            this.dragControl.Vertical = true;
             // 
             // MainForm
             // 

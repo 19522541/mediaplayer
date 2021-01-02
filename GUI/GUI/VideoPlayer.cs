@@ -571,6 +571,7 @@ namespace GUI
             this.volume = temp;
             muteButton.BringToFront();
             //setMuteButtonImg();
+            
         }
 
         private void muteButton_Click(object sender, EventArgs e)
