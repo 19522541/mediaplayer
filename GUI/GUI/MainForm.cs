@@ -58,6 +58,9 @@ namespace GUI
 
         public VideoPlayer _player;
 
+        // song duration
+        string songDuration = @"00:00";
+
         int music_progressbar_value = 0;
         int video_progressbar_value = 0;
         public MainForm()
@@ -360,11 +363,15 @@ namespace GUI
                     musicBarTimer.Start();
                     count.Start();
                     _music.start();
+                    this.songDuration = songLength.Text;
                     break;
 
                 case Choice.Videos:
 
                     videoPlayButton_Click(sender, e);
+                    //set maximum for progress bar
+
+                    
                     break;
             }
             
@@ -373,16 +380,17 @@ namespace GUI
 
         private void videoPlayButton_Click(object sender, EventArgs e)
         {
-            if (!this._player._mp.IsPlaying)
-            {
-                this._player._mp.Play();
-                this._player.videoTimer.Start();
-                this.musicBarTimer.Start();
-                stopButton.BringToFront();
-                stopButton.Enabled = true;
+            if(this._player!=null&&!this._player.IsDisposed)
+                if (!this._player._mp.IsPlaying)
+                {
+                    this._player._mp.Play();
+                    this._player.videoTimer.Start();
+                    this.musicBarTimer.Start();
+                    stopButton.BringToFront();
+                    stopButton.Enabled = true;
 
                 
-            }
+                }
         }
 
         private void playButton_MouseDown(object sender, MouseEventArgs e)
@@ -731,12 +739,26 @@ namespace GUI
         {
             this._playlistCheck = false;
             this.userChoice = Choice.Musics;
+            
+
+            //stop video
+            if (this._player!=null && !this._player.IsDisposed)
+            stopVideo(sender, e);
+
+            this.musicProcessBar.Value = this.music_progressbar_value;
 
             loopButton.Visible = true;
             stopVideoButton.Visible = false;
             loopButton.BringToFront();
 
-            this.musicProcessBar.Value = this.music_progressbar_value;
+            //time display
+            videoTime.Visible = false;
+            time.Visible = true;
+            time.BringToFront();
+            songLength.Text = this.songDuration;
+
+
+            
             this.setPlayedList(this._mediaForm._list, this._mediaForm._ablum, this._mediaForm._title, this._mediaForm._firstPerformer, this._mediaForm._length, this._mediaForm._songImg);
             this.setInfo(0, -1);
             if (this._mediaForm._nowPlayIndex != -1) this._mediaForm.restart(this._mediaForm._nowPlayIndex);
@@ -794,6 +816,12 @@ namespace GUI
         {
             this._playlistCheck = false;
 
+            // pause the music
+            musicBarTimer.Stop();
+            count.Stop();
+            this._music.pause();
+            playButton.BringToFront();
+            
             // assign current video timepoint to the progress bar value
             this.musicProcessBar.Value = this.video_progressbar_value;
 
@@ -809,6 +837,20 @@ namespace GUI
             stopVideoButton.Visible = true;
             stopVideoButton.BringToFront();
 
+            //time display
+            videoTime.Visible = true;
+            time.Visible = false;
+            videoTime.BringToFront();
+
+            //change progress bar size
+            this.musicProcessBar.Minimum = 0;
+            if(this._player!=null &&!this._player.IsDisposed)
+            this.musicProcessBar.Maximum = (int)this._player.duration.TotalSeconds;
+
+            //hide now playing
+            if(_nowPlayingForm!=null)
+                _nowPlayingForm.Hide();
+
             showSubMenu(videoSubMenu);
 
             openNewForm(this._videoForm, 4);
@@ -817,21 +859,51 @@ namespace GUI
                 this._player.BringToFront();
                 //display video duration
                 songLength.Text = this._player.duration.ToString(@"hh\:mm\:ss");
-            }    
+            }
+            else
+            {
+                songLength.Text = @"00:00";
+            }
         }
         //
         // music bar
         //
         private void musicProcessBar_Click(object sender, EventArgs e)
         {
-            int preVal = musicProcessBar.Value;
-            int totalVal = musicProcessBar.Maximum - musicProcessBar.Minimum;
-            int totalPix = musicProcessBar.Size.Width;
-            float temp = (float)this._mouseX * totalVal / (float)totalPix;
-            if (temp > preVal) temp-=2;
-            else if (temp < preVal) temp+=2;
-            musicProcessBar.Value = Convert.ToInt32(temp);
             
+            switch (this.userChoice)
+            {
+                case Choice.Musics:
+                    int preVal = musicProcessBar.Value;
+                    int totalVal = musicProcessBar.Maximum - musicProcessBar.Minimum;
+                    int totalPix = musicProcessBar.Size.Width;
+                    float temp = (float)this._mouseX * totalVal / (float)totalPix;
+                    if (temp > preVal) temp -= 2;
+                    else if (temp < preVal) temp += 2;
+                    musicProcessBar.Value = Convert.ToInt32(temp);
+                    break;
+                case Choice.Videos:
+                    //int preVal = videoProgressBar.Value;
+                    //int totalVal = videoProgressBar.Maximum - videoProgressBar.Minimum;
+                    int barWidth = musicProcessBar.Size.Width;
+                    float percentage = (float)this._mouseX / (float)barWidth;
+                    float boo = percentage * this.musicProcessBar.Maximum;
+                    //int offset = 0;
+                    //if (this.duration.TotalSeconds >= 30)
+                    //{
+                    //    offset = 10;
+                    //}
+                    //else if (this.duration.TotalSeconds < 30)
+                    //{
+                    //    offset = 0;
+                    //}
+                    //if (temp > preVal) temp -= offset;
+                    //else if (temp < preVal) temp += offset;
+                    musicProcessBar.Value = Convert.ToInt32(boo);
+                    this._player._mp.Position = (float)musicProcessBar.Value / (float)musicProcessBar.Maximum;
+                    musicProcessBar.Value = Convert.ToInt32(this._player._mp.Position * musicProcessBar.Maximum);
+                    break;
+            }
 
         }
         private void musicProcessBar_MouseDown(object sender, MouseEventArgs e)
@@ -870,30 +942,52 @@ namespace GUI
 
         private void musicProcessBar_ValueChanged(object sender, Utilities.BunifuSlider.BunifuHScrollBar.ValueChangedEventArgs e)
         {
-            
-            time.Text = getCurTime(musicProcessBar.Value);
-            if (musicProcessBar.Value == musicProcessBar.Maximum)
-            {
-                musicProcessBar.Enabled = false;
-                nextButton_Click(sender, e);
-            }
-            
-            if (musicProcessBar.Focused == false)
-            {
-                if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
-                {
-                    TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
-                    this._music.setCur(x);
 
-               }
-            }
-            this._check = musicProcessBar.Value;
             switch (this.userChoice)
             {
-                case Choice.Videos:
+                case Choice.Musics:
+                    
+                    time.Text = getCurTime(musicProcessBar.Value);
+                    if (musicProcessBar.Value == musicProcessBar.Maximum)
+                    {
+                        musicProcessBar.Enabled = false;
+                        nextButton_Click(sender, e);
+                    }
 
+                    if (musicProcessBar.Focused == false)
+                    {
+                        if (musicProcessBar.Value - this._check != 1 && musicProcessBar.Value != 0)
+                        {
+                            TimeSpan x = TimeSpan.FromSeconds(musicProcessBar.Value);
+                            this._music.setCur(x);
+
+                        }
+                    }
+                    if(this.musicBarTimer.Enabled)
+                    {
+                        this.music_progressbar_value = musicProcessBar.Value;
+                    }
+                    this._check = musicProcessBar.Value;
+                    
+                    break;
+
+                case Choice.Videos:
+                    
+                    videoTime.Text = getCurrentTime();
+                    if (musicProcessBar.Value == musicProcessBar.Maximum)
+                    {
+                        stopVideoButton_Click(sender, e);
+                    }
+                    timer
+                    this.video_progressbar_value = this.musicProcessBar.Value;
                     break;
             }
+        }
+
+        private string getCurrentTime()
+        {
+            TimeSpan current = TimeSpan.FromSeconds(this.musicProcessBar.Value);
+            return current.ToString(@"hh\:mm\:ss");
         }
 
         private void musicProcessBar_MouseMove(object sender, MouseEventArgs e)
@@ -1497,7 +1591,10 @@ namespace GUI
             // change play button to pause button and enable
             stopButton.BringToFront();
             stopButton.Enabled = true;
-            
+
+            //change progress bar size
+            this.musicProcessBar.Maximum = (int)this._player.duration.TotalSeconds;
+
             //change progress bar value to video timepoint
             this.musicProcessBar.Value = this.video_progressbar_value;
 
@@ -1622,6 +1719,11 @@ namespace GUI
                 var filename = @"file:///" + ofd.FileName;
                 var boo = this._player._mp.AddSlave(MediaSlaveType.Subtitle, filename, true);
             }
+        }
+
+        private void videoTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

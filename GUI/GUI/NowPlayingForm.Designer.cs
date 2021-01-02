@@ -95,6 +95,7 @@
             this.Controls.Add(this.nowPlayingPanel);
             this.Name = "NowPlayingForm";
             this.Text = "NowPlayingForm";
+            this.Load += new System.EventHandler(this.NowPlayingForm_Load);
             this.nowPlayingPanel.ResumeLayout(false);
             this.nowPlayingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songImg)).EndInit();

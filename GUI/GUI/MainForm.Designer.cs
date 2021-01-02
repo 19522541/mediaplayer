@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation5 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation2 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges13 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges14 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges15 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.sideMenuPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.iconPanel = new System.Windows.Forms.Panel();
             this.sideMenuButton = new System.Windows.Forms.Button();
@@ -90,6 +90,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.mainMidPanel = new System.Windows.Forms.Panel();
+            this.videoTime = new Bunifu.UI.WinForms.BunifuLabel();
             this.mainPicturebox = new System.Windows.Forms.PictureBox();
             this.openFolderButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.hamburgerMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -469,6 +470,7 @@
             this.mainBotPanel.Controls.Add(this.muteButton);
             this.mainBotPanel.Controls.Add(this.playButton);
             this.mainBotPanel.Controls.Add(this.stopButton);
+            this.mainBotPanel.Controls.Add(this.videoTime);
             this.sideMenuAni.SetDecoration(this.mainBotPanel, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.mainBotPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mainBotPanel.Location = new System.Drawing.Point(264, 563);
@@ -940,24 +942,24 @@
             // 
             // sideMenuAni
             // 
-            this.sideMenuAni.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
-            this.sideMenuAni.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 0F;
-            this.sideMenuAni.DefaultAnimation = animation5;
+            //this.sideMenuAni.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
+            //this.sideMenuAni.Cursor = null;
+            //animation2.AnimateOnlyDifferences = true;
+            //animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            //animation2.LeafCoeff = 0F;
+            //animation2.MaxTime = 1F;
+            //animation2.MinTime = 0F;
+            //animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            //animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            //animation2.MosaicSize = 0;
+            //animation2.Padding = new System.Windows.Forms.Padding(0);
+            //animation2.RotateCoeff = 0F;
+            //animation2.RotateLimit = 0F;
+            //animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            //animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            //animation2.TimeCoeff = 0F;
+            //animation2.TransparencyCoeff = 0F;
+            //this.sideMenuAni.DefaultAnimation = animation2;
             // 
             // titlePanel
             // 
@@ -995,11 +997,11 @@
             this.cancelButton.ColorContrastOnClick = 45;
             this.cancelButton.ColorContrastOnHover = 45;
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges13.BottomLeft = true;
-            borderEdges13.BottomRight = true;
-            borderEdges13.TopLeft = true;
-            borderEdges13.TopRight = true;
-            this.cancelButton.CustomizableEdges = borderEdges13;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.cancelButton.CustomizableEdges = borderEdges4;
             this.sideMenuAni.SetDecoration(this.cancelButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.cancelButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1088,11 +1090,11 @@
             this.saveButton.ColorContrastOnClick = 45;
             this.saveButton.ColorContrastOnHover = 45;
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges14.BottomLeft = true;
-            borderEdges14.BottomRight = true;
-            borderEdges14.TopLeft = true;
-            borderEdges14.TopRight = true;
-            this.saveButton.CustomizableEdges = borderEdges14;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.saveButton.CustomizableEdges = borderEdges5;
             this.sideMenuAni.SetDecoration(this.saveButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.saveButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1173,7 +1175,7 @@
             this.backwardButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.backwardButton.ImageIndex = 0;
             this.backwardButton.ImageList = this.backwardButtonList;
-            this.backwardButton.Location = new System.Drawing.Point(49, 36);
+            this.backwardButton.Location = new System.Drawing.Point(-83, 36);
             this.backwardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backwardButton.Name = "backwardButton";
             this.backwardButton.Size = new System.Drawing.Size(54, 27);
@@ -1212,7 +1214,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.ImageIndex = 0;
             this.exitButton.ImageList = this.exitButtonList;
-            this.exitButton.Location = new System.Drawing.Point(1032, 12);
+            this.exitButton.Location = new System.Drawing.Point(1031, 11);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(40, 34);
@@ -1236,12 +1238,30 @@
             this.mainMidPanel.Size = new System.Drawing.Size(1083, 461);
             this.mainMidPanel.TabIndex = 6;
             // 
+            // videoTime
+            // 
+            this.videoTime.AllowParentOverrides = false;
+            this.videoTime.AutoEllipsis = false;
+            this.videoTime.Cursor = System.Windows.Forms.Cursors.Default;
+            this.videoTime.CursorType = System.Windows.Forms.Cursors.Default;
+            this.sideMenuAni.SetDecoration(this.videoTime, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.videoTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.videoTime.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.videoTime.Location = new System.Drawing.Point(330, 87);
+            this.videoTime.Name = "videoTime";
+            this.videoTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.videoTime.Size = new System.Drawing.Size(35, 20);
+            this.videoTime.TabIndex = 2;
+            this.videoTime.Text = "00:00";
+            this.videoTime.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.videoTime.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // mainPicturebox
             // 
             this.mainPicturebox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sideMenuAni.SetDecoration(this.mainPicturebox, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.mainPicturebox.Image = global::GUI.Properties.Resources.icons8_musical_notes_96;
-            this.mainPicturebox.Location = new System.Drawing.Point(520, 189);
+            this.mainPicturebox.Location = new System.Drawing.Point(507, 153);
             this.mainPicturebox.Margin = new System.Windows.Forms.Padding(4);
             this.mainPicturebox.Name = "mainPicturebox";
             this.mainPicturebox.Size = new System.Drawing.Size(116, 117);
@@ -1268,11 +1288,11 @@
             this.openFolderButton.ColorContrastOnClick = 45;
             this.openFolderButton.ColorContrastOnHover = 45;
             this.openFolderButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges15.BottomLeft = true;
-            borderEdges15.BottomRight = true;
-            borderEdges15.TopLeft = true;
-            borderEdges15.TopRight = true;
-            this.openFolderButton.CustomizableEdges = borderEdges15;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.openFolderButton.CustomizableEdges = borderEdges6;
             this.sideMenuAni.SetDecoration(this.openFolderButton, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.openFolderButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.openFolderButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1353,7 +1373,7 @@
             this.scaleToolStripMenuItem,
             this.colorToolStripMenuItem});
             this.hamburgerMenuStrip.Name = "contextMenuStrip1";
-            this.hamburgerMenuStrip.Size = new System.Drawing.Size(211, 182);
+            this.hamburgerMenuStrip.Size = new System.Drawing.Size(211, 154);
             // 
             // speedToolStripMenuItem
             // 
@@ -1378,7 +1398,7 @@
             this.toolStripMenuItem9.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem9.Text = "0.25";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
@@ -1388,7 +1408,7 @@
             this.toolStripMenuItem8.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem8.Text = "0.5";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
@@ -1398,7 +1418,7 @@
             this.toolStripMenuItem10.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem10.Text = "0.75";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
@@ -1408,7 +1428,7 @@
             this.normalToolStripMenuItem1.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.normalToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.normalToolStripMenuItem1.Name = "normalToolStripMenuItem1";
-            this.normalToolStripMenuItem1.Size = new System.Drawing.Size(224, 30);
+            this.normalToolStripMenuItem1.Size = new System.Drawing.Size(165, 30);
             this.normalToolStripMenuItem1.Text = "Normal";
             this.normalToolStripMenuItem1.Click += new System.EventHandler(this.normalToolStripMenuItem1_Click);
             // 
@@ -1418,7 +1438,7 @@
             this.toolStripMenuItem11.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem11.Text = "1.25";
             // 
             // toolStripMenuItem12
@@ -1427,7 +1447,7 @@
             this.toolStripMenuItem12.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem12.Text = "1.5";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
@@ -1437,7 +1457,7 @@
             this.toolStripMenuItem13.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem13.Text = "1.75";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
@@ -1447,7 +1467,7 @@
             this.toolStripMenuItem14.Font = new System.Drawing.Font("Malgun Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(224, 30);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(165, 30);
             this.toolStripMenuItem14.Text = "2";
             this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
             // 
@@ -1619,6 +1639,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
+        private Bunifu.UI.WinForms.BunifuLabel videoTime;
     }
 }
 

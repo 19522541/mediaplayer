@@ -29,5 +29,10 @@ namespace GUI
         {
 
         }
+
+        private void NowPlayingForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
