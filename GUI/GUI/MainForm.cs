@@ -360,6 +360,8 @@ namespace GUI
                     musicProcessBar.Maximum = this._music.getTime();
                     _min = 0;
                     _sed = 0;
+
+                    musicBarTimer.Enabled = true;
                     musicBarTimer.Start();
                     count.Start();
                     _music.start();
@@ -368,6 +370,7 @@ namespace GUI
 
                 case Choice.Videos:
 
+                    musicBarTimer.Enabled = true;
                     videoPlayButton_Click(sender, e);
                     //set maximum for progress bar
 
@@ -978,7 +981,7 @@ namespace GUI
                     {
                         stopVideoButton_Click(sender, e);
                     }
-                    timer
+                    if(this.musicBarTimer.Enabled)
                     this.video_progressbar_value = this.musicProcessBar.Value;
                     break;
             }
@@ -1645,6 +1648,7 @@ namespace GUI
         {
             this._player._mp.Stop();
             musicBarTimer.Stop();
+            musicBarTimer.Enabled = false;
             this.musicProcessBar.Value = 0;
             playButton.BringToFront();
         }
