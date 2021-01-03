@@ -1672,41 +1672,49 @@ namespace GUI
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(0.25f);
+            musicBarTimer.Interval = 4000;
         }
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(0.5f);
+            musicBarTimer.Interval = 2000;
         }
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(0.75f);
+            musicBarTimer.Interval = 1750;
         }
 
         private void normalToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(1.0f);
+            musicBarTimer.Interval = 1000;
         }
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(1.25f);
+            musicBarTimer.Interval = 800;
         }
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(1.5f);
+            musicBarTimer.Interval = 667;
         }
 
         private void toolStripMenuItem13_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(1.75f);
+            musicBarTimer.Interval = 571;
         }
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
             this._player._mp.SetRate(2f);
+            musicBarTimer.Interval = 500;
         }
 
         private void normalToolStripMenuItem1_Click_1(object sender, EventArgs e)
